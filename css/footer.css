@@ -1,0 +1,60 @@
+.center-footer {
+    display: table;
+    width: 100%;
+    height: 100vh;
+}
+
+#social-test {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 30px;
+}
+
+#social-test .social {
+    padding-left: 0px;
+}
+
+#social-test li {
+    display: inline-block;
+}
+
+#social-test li a {
+    color: rgba(256, 256, 256, 0.6);
+    border-radius: 6px;
+    list-style-type: none;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    padding: 1%;
+    border: 1px solid rgba(256, 256, 256, 0.6);
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    transition: ease .3s;
+}
+
+#social-test li a:hover {
+    color: rgba(256, 256, 256, 1);
+    border: 1px solid rgba(256, 256, 256, 1);
+}
+
+
+.social:hover>li {
+    opacity: 0.5;
+}
+
+.social:hover>li:hover {
+    opacity: 1;
+}
+
+#footer-card {
+    height: auto;
+    background-color: black;
+}
+
+.social {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
