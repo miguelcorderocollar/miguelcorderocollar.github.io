@@ -39,7 +39,8 @@ body {
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    color: white
+    color: white;
+    text-align: center;
 }
 
 #sequence {
@@ -83,8 +84,7 @@ body {
 .education-item {
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+
 }
 
 .education-item img {

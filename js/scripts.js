@@ -17,6 +17,16 @@ $('.navTrigger').click(function () {
     $("#mainListDiv").toggleClass("show_list");
     $("#mainListDiv").fadeIn();
     $('.nav div.main_list ul li a').css("color", "#ababab");
+    $('.nav div.logo a').css("color", "#ababab");
+    if ($(document).scrollTop() < 50) {
+        $('.nav').removeClass('affix');
+        $('.nav div.logo a').css("color", "black");
+        $('.nav div.main_list ul li a').css("color", "#ababab");
+    } else {
+        $('.nav').addClass('affix');
+        $('.nav div.logo a').css("color", "#ababab");
+        $('.nav div.main_list ul li a').css("color", "#ababab");
+    }
 
 });
 
