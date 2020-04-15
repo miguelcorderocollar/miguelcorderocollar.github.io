@@ -16,6 +16,8 @@ $('.navTrigger').click(function () {
     console.log("Clicked menu");
     $("#mainListDiv").toggleClass("show_list");
     $("#mainListDiv").fadeIn();
+    $('.nav div.main_list ul li a').css("color", "#ababab");
+
 });
 
 textSequence(0);
