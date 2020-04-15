@@ -48,12 +48,11 @@
          </div>
          <div id="mainListDiv" class="main_list">
             <ul class="navlinks">
-               <li><a href="#about-card">About</a></li>
+               <li><a data-scroll href="#about-card">About</a></li>
                <li><a href="#education-card">Education</a></li>
-               <li><a href="#">Experience</a></li>
-               <li><a href="#">Skills</a></li>
-               <li><a href="#">Projects</a></li>
-               <li><a href="#">Interests</a></li>
+               <li><a href="#experience-card">Experience</a></li>
+               <li><a href="#skills-card">Skills</a></li>
+               <li><a href="#projects-card">Projects</a></li>
             </ul>
          </div>
          <span class="navTrigger">
@@ -65,24 +64,29 @@
    </nav>
    <!-- Home -->
    <section class="home">
+      <div class="bg-image"></div>
       <div id="center_home">
          <h1>Hi, this is Miguel, I am:</h1>
          <h2 id="sequence">Industrial Engineer</h2>
-         <button
-            class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
-            data-text="Let's go!">
-            <span>Get to know me</span>
-         </button>
+         <a href="#about-card">
+            <button
+               class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick"
+               data-text="Let's go!">
+               <span>Get to know me</span>
+            </button>
+
+         </a>
       </div>
 
    </section>
 
    <!-- About -->
    <div id="about-card" class="row">
-      <div class="col-md-6 col-sm-12 col-xs-12">
-         <img id="me-image" class="mx-auto rounded-circle" height="400px" width="400px" src="images/bg/me.jpg" alt="">
+      <div class="col-xl-2"></div>
+      <div class="col-xl-3 col-md-4 col-sm-12 col-xs-12">
+         <img id="me-image" class="mx-auto rounded-circle" height="250" width="250" src="images/bg/me.jpg" alt="">
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12 text-justify">
+      <div class="col-xl-5 col-md-8 col-sm-12 col-xs-12 text-justify">
          <div id="about-text">
             <h2>About Me</h2>
             <p>Just a Spanish guy interested in too many things, such as
@@ -90,15 +94,16 @@
                personal improvement, coding,
                economy,
                image and video editing, sociology, musical production, cooking and any topic related with science or
-               technology.
-
-               Bachelor’s in Industrial Engineering and currently student the International Master’s in Industrial
+               technology.</p>
+            <p> Bachelor’s in Industrial Engineering and currently student the International Master’s in Industrial
                Management, which is an international program in three different countries, which covers project
                management,
-               strategy, data analysis, operations management, logistics, entrepreneurship, business models, finances,
+               strategy, data analysis, operations management, logistics, entrepreneurship, business models,
+               finances,
                investment and soft skills.</p>
          </div>
       </div>
+      <div class="col-xl-2"></div>
    </div>
 
    <!-- Education -->
@@ -106,9 +111,31 @@
       <div class="col-md-2 "></div>
       <div class="education-item col-md-4 col-sm-12 col-xs-12 text-center">
          <h1>Degree in Industrial Engineering with Management</h1>
+         <img src="images\uni\upm.png" height="75" width="97.5">
          <h2>Polytechnic University of Madrid</h2>
+
       </div>
       <div class="education-item col-md-4 col-sm-12 col-xs-12 text-center">
+         <h1>International Master in Industrial Management (MSc)</h1>
+         <img src="images\uni\upm.png" height="75" width="97.5">
+         <img src="images\uni\HW-white.png" height="75" width="75">
+         <img src="images\uni\TUM.png" height="75" width="97.5">
+         <h2>Edinburgh Business School (Heriot-Watt University)</h2>
+         <h2>Polytechnic University of Madrid</h2>
+         <h2>Technical University Munich</h2>
+         <!-- Make desplegable? -->
+      </div>
+      <div class="col-md-2 "></div>
+   </div>
+
+   <!-- Experience -->
+   <div id="experience-card" class="row">
+      <div class="col-md-2 "></div>
+      <div class="experience-item col-md-4 col-sm-12 col-xs-12 text-center">
+         <h1>Degree in Industrial Engineering with Management</h1>
+         <h2>Polytechnic University of Madrid</h2>
+      </div>
+      <div class="experience-item col-md-4 col-sm-12 col-xs-12 text-center">
          <h1>International Master in Industrial Management (MSc)</h1>
          <h2>Edinburgh Business School (Heriot-Watt University)</h2>
          <h2>Polytechnic University of Madrid</h2>
@@ -117,10 +144,41 @@
       <div class="col-md-2 "></div>
    </div>
 
+   <!-- Skills -->
+   <div id="skills-card" class="row">
+      <div class="col-md-2 "></div>
+      <div class="skills-item col-md-4 col-sm-12 col-xs-12 text-center">
+         <h1>Degree in Industrial Engineering with Management</h1>
+         <h2>Polytechnic University of Madrid</h2>
+      </div>
+      <div class="skills-item col-md-4 col-sm-12 col-xs-12 text-center">
+         <h1>International Master in Industrial Management (MSc)</h1>
+         <h2>Edinburgh Business School (Heriot-Watt University)</h2>
+         <h2>Polytechnic University of Madrid</h2>
+         <h2>Technical University Munich</h2>
+      </div>
+      <div class="col-md-2 "></div>
+   </div>
 
+   <!-- Projects -->
+   <div id="projects-card" class="row">
+      <div class="col-md-2 "></div>
+      <div class="projects-item col-md-4 col-sm-12 col-xs-12 text-center">
+         <h1>Degree in Industrial Engineering with Management</h1>
+         <h2>Polytechnic University of Madrid</h2>
+      </div>
+      <div class="projects-item col-md-4 col-sm-12 col-xs-12 text-center">
+         <h1>International Master in Industrial Management (MSc)</h1>
+         <h2>Edinburgh Business School (Heriot-Watt University)</h2>
+         <h2>Polytechnic University of Madrid</h2>
+         <h2>Technical University Munich</h2>
+      </div>
+      <div class="col-md-2 "></div>
+   </div>
 
    <!-- Footer -->
    <div id="footer-card" class="center-footer">
+
       <div id="social-test">
          <ul class="social">
             <li><a href="https://www.linkedin.com/in/mcorderocollar/"><i class="fa fa-linkedin"
@@ -154,6 +212,7 @@
    </script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    <script src="https://kit.fontawesome.com/836d242a3b.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 
    <!-- Main Javascript File  -->
    <script type="text/javascript" src="js/scripts.js"></script>

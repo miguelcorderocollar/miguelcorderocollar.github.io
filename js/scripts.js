@@ -35,3 +35,8 @@ function textSequence(i) {
     }
 
 };
+
+
+var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 800
+});

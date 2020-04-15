@@ -19,7 +19,7 @@
 	padding: 1em 2em;
 	border: none;
 	background: none;
-	color: inherit;
+	color: #81bdff;
 	vertical-align: middle;
 	position: relative;
 	z-index: 1;
@@ -37,8 +37,8 @@
 
 /* Text color adjustments (we could stick to the "inherit" but that does not work well in Safari) */
 .bg-1 .button {
-	color: #37474f;
-	border-color: #37474f;
+	color: #81bdff;
+	border-color: #81bdff;
 }
 
 .bg-2 .button {
@@ -137,7 +137,7 @@
 }
 
 .button--winona.button--inverted {
-	color: #7986cb;
+	color: #81bdff;
 }
 
 .button--winona.button--inverted:after {
@@ -159,8 +159,8 @@
 }
 
 .button--winona.button--inverted:hover {
-	border-color: #21333C;
-	background-color: #21333C;
+	border-color: #81bdff;
+	background-color: #81bdff;
 }
 
 .button--winona:hover::after {
