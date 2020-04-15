@@ -1,9 +1,13 @@
 $(window).scroll(function () {
     if ($(document).scrollTop() > 50) {
         $('.nav').addClass('affix');
-        console.log("OK");
+        $('.nav div.logo a').css("color", "#ababab");
+        $('.nav div.main_list ul li a').css("color", "#ababab");
     } else {
         $('.nav').removeClass('affix');
+        $('.nav div.logo a').css("color", "black");
+        $('.nav div.main_list ul li a').css("color", "black");
+
     }
 });
 
@@ -14,16 +18,10 @@ $('.navTrigger').click(function () {
     $("#mainListDiv").fadeIn();
 });
 
-
-
-
 textSequence(0);
-
 
 function textSequence(i) {
     var example = ['Curious', 'Easy-going', 'Honest', 'Industrial Engineer'];
-
-
     if (example.length > i) {
         setTimeout(function () {
             document.getElementById("sequence").innerHTML = example[i];
@@ -33,9 +31,7 @@ function textSequence(i) {
     } else if (example.length == i) { // Loop
         textSequence(0);
     }
-
 };
-
 
 var scroll = new SmoothScroll('a[href*="#"]', {
     speed: 800
