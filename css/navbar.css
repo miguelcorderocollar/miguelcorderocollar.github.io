@@ -22,8 +22,11 @@
     font-size: 2.5rem;
 }
 
-.nav div.logo a:hover {
-    color: #314455;
+.nav div.logo:hover {
+
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .nav div.main_list {
@@ -54,8 +57,12 @@
     font-size: 2.4rem;
 }
 
-.nav div.main_list ul li a:hover {
-    color: yellow;
+.nav div.main_list ul li:hover {
+
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+
 }
 
 
