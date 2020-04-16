@@ -90,7 +90,14 @@ body {
 .education-item img {
     margin-top: 10px;
     margin-bottom: 10px;
+}
 
+.education-item:hover {
+    background-color: #252525;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    border-radius: 25px;
 }
 
 /* Experience card section */
@@ -102,10 +109,22 @@ body {
     font-size: large;
 }
 
+
+
 .experience-item {
     margin-top: 35px;
     margin-bottom: 50px;
 }
+
+.experience-item:hover {
+    background-color: #1b1b1b;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    border-radius: 25px;
+}
+
+
 
 .experience-item img {
     margin-bottom: 20px;
@@ -140,6 +159,20 @@ body {
 .projects-item {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.projects-item:hover {
+    background-color: #1b1b1b;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    border-radius: 25px;
+}
+
+.projects-item img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px 8px black inset;
 }
 
 .row {
