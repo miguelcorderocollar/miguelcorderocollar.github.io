@@ -61,7 +61,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 #about-text {
@@ -94,9 +94,9 @@ body {
 
 .education-item:hover {
     background-color: #252525;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
     border-radius: 25px;
 }
 
@@ -109,8 +109,6 @@ body {
     font-size: large;
 }
 
-
-
 .experience-item {
     margin-top: 35px;
     margin-bottom: 50px;
@@ -118,16 +116,16 @@ body {
 
 .experience-item:hover {
     background-color: #1b1b1b;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
     border-radius: 25px;
 }
 
-
-
 .experience-item img {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
 }
 
 
@@ -163,9 +161,9 @@ body {
 
 .projects-item:hover {
     background-color: #1b1b1b;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
     border-radius: 25px;
 }
 
