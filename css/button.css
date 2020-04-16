@@ -127,7 +127,7 @@
 	top: 0;
 	left: 0;
 	opacity: 0;
-	color: yellow;
+	color: #81bdff;
 	-webkit-transform: translate3d(0, 25%, 0);
 	transform: translate3d(0, 25%, 0);
 }
@@ -154,8 +154,11 @@
 }
 
 .button--winona:hover {
-	border-color: yellow;
+	border-color: #81bdff;
 	background-color: transparent;
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .button--winona.button--inverted:hover {
