@@ -77,7 +77,7 @@ function textSequence(i) {
 textSequence2(0);
 
 function textSequence2(i) {
-    var example2 = ['Soon.  ', 'Soon.. ', 'Soon...', 'Soon   '];
+    var example2 = ['Coming soon.  ', 'Coming soon.. ', 'Coming soon...', 'Coming soon   '];
     if (example2.length > i) {
         setTimeout(function () {
             document.getElementById("sequence2").innerHTML = example2[i];
