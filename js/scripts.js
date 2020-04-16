@@ -27,8 +27,15 @@ $('.navTrigger').click(function () {
         $('.nav div.logo a').css("color", "#ababab");
         $('.nav div.main_list ul li a').css("color", "#ababab");
     }
-
 });
+
+$('.navlinks').click(function () {
+    console.log("Clicked option");
+    $(".navTrigger").toggleClass('active');
+    $("#mainListDiv").toggleClass("show_list");
+    $("#mainListDiv").fadeIn();
+});
+
 
 textSequence(0);
 
