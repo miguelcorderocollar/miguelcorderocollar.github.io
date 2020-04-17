@@ -43,6 +43,7 @@ body {
     text-align: center;
 }
 
+
 #sequence {
     text-align: center !important;
 }
@@ -54,6 +55,7 @@ body {
     background-color: black;
     color: white;
     font-size: large;
+
 }
 
 #me-image {
@@ -66,7 +68,6 @@ body {
 
 #about-text {
     margin: 20px;
-
     width: 90%;
     text-align: justify;
     display: inline-block;
@@ -110,8 +111,13 @@ body {
 }
 
 .experience-item {
-    margin-top: 35px;
-    margin-bottom: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.exp-comp {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .experience-item:hover {
@@ -124,7 +130,7 @@ body {
 
 .experience-item img {
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
 
 }
 

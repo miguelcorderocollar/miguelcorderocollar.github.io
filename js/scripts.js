@@ -13,7 +13,6 @@ $(window).scroll(function () {
 
 $('.navTrigger').click(function () {
     $(this).toggleClass('active');
-    console.log("Clicked menu");
     $("#mainListDiv").toggleClass("show_list");
     $("#mainListDiv").fadeIn();
     $('.nav div.main_list ul li a').css("color", "#ababab");
@@ -30,7 +29,6 @@ $('.navTrigger').click(function () {
 });
 
 $('.navlinks').click(function () {
-    console.log("Clicked option");
     $(".navTrigger").toggleClass('active');
     $("#mainListDiv").toggleClass("show_list");
     $("#mainListDiv").fadeIn();
