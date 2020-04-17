@@ -90,5 +90,10 @@ function textSequence2(i) {
 };
 
 var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 800
+    speed: 800,
+    speedAsDuration: true,
+    easing: 'easeOutQuad',
+    updateURL: false,
+
+
 });
