@@ -2,7 +2,7 @@ Compress Images
 Expanding Information
 Skills
 Titles
-Home main text
+Home main text and button
 Properly size fonts
 Solve lighthouse issues
 Solve 404 200 errors and such
