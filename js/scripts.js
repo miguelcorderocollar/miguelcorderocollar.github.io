@@ -11,6 +11,12 @@ $(window).scroll(function () {
     }
 });
 
+$(window).on("load", function () {
+    $(".loader-wrapper").fadeOut("slow");
+});
+
+
+
 $('.navTrigger').click(function () {
     $(this).toggleClass('active');
     $("#mainListDiv").toggleClass("show_list");

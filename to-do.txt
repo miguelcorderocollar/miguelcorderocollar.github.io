@@ -1,4 +1,3 @@
-Compress Images
 Expanding Information
 Skills
 Titles
@@ -7,3 +6,5 @@ Properly size fonts
 Solve lighthouse issues
 Solve 404 200 errors and such
 Clear files
+Fix CV
+Edit main photo
