@@ -95,10 +95,13 @@ body {
 
 .education-item:hover {
     background-color: #252525;
+    border-radius: 15px;
+}
+
+.education-item img:hover {
     -webkit-transform: scale(1.02);
     -ms-transform: scale(1.02);
     transform: scale(1.02);
-    border-radius: 15px;
 }
 
 /* Experience card section */
@@ -122,9 +125,7 @@ body {
 
 .experience-item:hover {
     background-color: #1b1b1b;
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+
     border-radius: 15px;
 }
 
@@ -147,6 +148,131 @@ body {
 .skills-item {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.skill-category {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.skill-category:hover {
+
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.skill-category-circle {
+    text-align: center;
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.skill-category h3 {
+    margin: 5px 20px 5px 20px;
+    text-align: center;
+}
+
+.skill-details {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.p-skills {
+    margin: auto
+}
+
+.prog-item {
+    background-color: #1b1b1b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.t-skills {
+    margin: auto
+}
+
+.tool-item {
+    background-color: #1b1b1b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 0px;
+    border-radius: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.s-skills {
+    margin: auto
+}
+
+.ss-item {
+    background-color: #1b1b1b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ss-item h3 {
+    text-align: center;
+}
+
+.l-skills {
+    margin: auto
+}
+
+.lang-item h3 {
+    font-weight: bold;
+}
+
+.lang-item ul {
+    margin-top: 10px;
+}
+
+.lang-item {
+    background-color: #1b1b1b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.lang-item ul {
+    list-style-type: square;
+}
+
+.img-skill img {
+    display: block;
+    margin: auto;
+}
+
+#plus-icon {
+    color: white;
+    padding: 10px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 30px;
+    top: 10px;
 
 }
 
@@ -181,6 +307,12 @@ body {
 
 .projects-item h1 {
     margin-top: 20px;
+}
+
+.projects-item a {
+    color: inherit;
+    text-decoration: inherit;
+    ;
 }
 
 .row {

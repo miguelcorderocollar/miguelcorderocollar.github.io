@@ -1,3 +1,5 @@
+//NavBar
+
 $(window).scroll(function () {
     if ($(document).scrollTop() > 50) {
         $('.nav').addClass('affix');
@@ -10,12 +12,6 @@ $(window).scroll(function () {
 
     }
 });
-
-$(window).on("load", function () {
-    $(".loader-wrapper").fadeOut("slow");
-});
-
-
 
 $('.navTrigger').click(function () {
     $(this).toggleClass('active');
@@ -39,6 +35,9 @@ $('.navlinks').click(function () {
     $("#mainListDiv").toggleClass("show_list");
     $("#mainListDiv").fadeIn();
 });
+
+
+//Home Changing Text (I am)
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -77,22 +76,7 @@ function textSequence(i) {
 };
 
 
-
-textSequence2(0);
-
-function textSequence2(i) {
-    var example2 = ['Coming soon.  ', 'Coming soon.. ', 'Coming soon...', 'Coming soon   '];
-    if (example2.length > i) {
-        setTimeout(function () {
-            document.getElementById("sequence2").innerHTML = example2[i];
-            textSequence2(++i);
-        }, 500); // 1 second (in milliseconds)
-
-    } else if (example2.length == i) { // Loop
-        textSequence2(0);
-    }
-};
-
+//Smooth Scroll
 var scroll = new SmoothScroll('a[href*="#"]', {
     speed: 800,
     speedAsDuration: true,
@@ -100,4 +84,52 @@ var scroll = new SmoothScroll('a[href*="#"]', {
     updateURL: false,
 
 
+});
+
+
+//Loader
+$(window).on("load", function () {
+    $(".loader-wrapper").fadeOut("slow");
+});
+
+//Skill selector
+$('#sp').click(function () {
+    $(".l-skills").css("display", "none");
+    $(".s-skills").css("display", "none");
+    $(".t-skills").css("display", "none");
+    $(".p-skills").fadeIn(1000)
+});
+$('#sl').click(function () {
+    $(".p-skills").css("display", "none");
+    $(".s-skills").css("display", "none");
+    $(".t-skills").css("display", "none");
+    $(".l-skills").fadeIn(1000)
+});
+$('#ss').click(function () {
+    $(".l-skills").css("display", "none");
+    $(".p-skills").css("display", "none");
+    $(".t-skills").css("display", "none");
+    $(".s-skills").fadeIn(1000)
+});
+$('#st').click(function () {
+    $(".l-skills").css("display", "none");
+    $(".s-skills").css("display", "none");
+    $(".p-skills").css("display", "none");
+    $(".t-skills").fadeIn(1000)
+});
+
+
+//Add to languages
+$("#eng-item").hover(function () {
+    $("#eng-list").append('<li>CAE certified</li><li>Stays abroad since 8 years old (Ireland, UK and USA)</li>');
+}, function () {
+    $("#eng-list").empty();
+    $("#eng-list").append('<li>Level C2</li>');
+});
+
+$("#fra-item").hover(function () {
+    $("#fra-list").append('<li>Practiced for 5 years</li>');
+}, function () {
+    $("#fra-list").empty();
+    $("#fra-list").append(' <li>Level B2</li>');
 });
