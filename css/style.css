@@ -40,16 +40,25 @@ body {
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
     color: white;
-    text-align: center;
-    font-size: 2.8rem;
 }
 
+#center_home h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#home-h1 {
+    width: 100%;
+    display: inline-block;
+
+}
 
 #sequence {
     text-align: center !important;
     font-size: 4rem;
-    height: 50 !important;
-    width: 250 !important;
+
 }
 
 /* About card section */
@@ -399,7 +408,4 @@ body {
     border-right-style: hidden;
     border-left-style: hidden;
     border-top-style: hidden;
-
-
-
 }

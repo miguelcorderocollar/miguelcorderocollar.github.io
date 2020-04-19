@@ -62,7 +62,7 @@ function shuffle(array) {
 textSequence(0);
 
 function textSequence(i) {
-    var example = ['Curious', 'Honest', 'Industrial Engineer', 'Proactive', 'Data driven', 'Professional', 'Patient', 'Consistent', 'Reliable', 'Innovative', 'Resourceful', 'Commited', 'Respectful', 'Confident', 'Analytical', 'Observant', 'Passionate', 'Organised', 'Perceptive'];
+    var example = ['Curious', 'Honest', 'Engineer', 'Proactive', 'Data driven', 'Professional', 'Patient', 'Consistent', 'Reliable', 'Innovative', 'Resourceful', 'Commited', 'Respectful', 'Confident', 'Analytical', 'Observant', 'Passionate', 'Organised', 'Perceptive'];
     example = shuffle(example)
     if (example.length > i) {
         setTimeout(function () {
