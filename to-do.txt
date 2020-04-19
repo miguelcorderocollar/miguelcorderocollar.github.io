@@ -6,3 +6,4 @@ Clear files
 Fix CV
 Edit main photo
 Fix Scroll
+Smae height Boxes (edu and proj)
