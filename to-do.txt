@@ -8,3 +8,4 @@ Solve 404 200 errors and such
 Clear files
 Fix CV
 Edit main photo
+Make boxes like Skills

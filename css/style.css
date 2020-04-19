@@ -82,10 +82,26 @@ body {
     font-size: large;
 }
 
-.education-item {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.edu-all {
+    margin: auto;
+    padding-bottom: 20px;
+}
 
+.education-item {
+    margin-bottom: 20px;
+}
+
+.edu-inside {
+    background-color: #1b1b1b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .education-item img {
@@ -93,29 +109,27 @@ body {
     margin-bottom: 10px;
 }
 
-.education-item:hover {
-    background-color: #252525;
-    border-radius: 15px;
-}
 
-.education-item img:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+.education-item:hover {
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
 }
 
 /* Experience card section */
 
 #experience-card {
     height: auto;
-    background-color: black;
+    background-color: #1b1b1b;
     color: white;
     font-size: large;
 }
 
 .experience-item {
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    background-color: #292929;
+    border-radius: 15px;
 }
 
 .exp-comp {
@@ -124,9 +138,9 @@ body {
 }
 
 .experience-item:hover {
-    background-color: #1b1b1b;
-
-    border-radius: 15px;
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
 }
 
 .experience-item img {
@@ -196,6 +210,12 @@ body {
     margin-bottom: 10px;
 }
 
+.prog-item:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
 .t-skills {
     margin: auto
 }
@@ -212,6 +232,12 @@ body {
     margin-bottom: 10px;
 }
 
+.tool-item:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
 .s-skills {
     margin: auto
 }
@@ -220,12 +246,17 @@ body {
     background-color: #1b1b1b;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-right: 15px;
     border-radius: 10px;
     margin-left: 1px;
     margin-right: 1px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.ss-item:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .ss-item h3 {
@@ -256,6 +287,12 @@ body {
     margin-bottom: 10px;
 }
 
+.lang-item:hover {
+    -webkit-transform: scale(1.00);
+    -ms-transform: scale(1.00);
+    transform: scale(1.00);
+}
+
 .lang-item ul {
     list-style-type: square;
 }
@@ -281,22 +318,33 @@ body {
 
 #projects-card {
     height: auto;
-    background-color: black;
+    background-color: #1b1b1b;
     color: white;
     font-size: large;
 }
 
-.projects-item {
+.proj-all {
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.proj-inside {
+    background-color: #292929;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .projects-item:hover {
-    background-color: #1b1b1b;
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
-    border-radius: 15px;
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
 }
 
 .projects-item img {

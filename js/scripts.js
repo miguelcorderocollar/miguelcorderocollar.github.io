@@ -121,14 +121,14 @@ $('#st').click(function () {
 
 //Add to languages
 $("#eng-item").hover(function () {
-    $("#eng-list").append('<li>CAE certified</li><li>Stays abroad since 8 years old (Ireland, UK and USA)</li>');
+    $("#eng-list").append('<li>CAE certified</li><li>Stays abroad since 8 years old in Ireland, UK and USA</li>');
 }, function () {
     $("#eng-list").empty();
     $("#eng-list").append('<li>Level C2</li>');
 });
 
 $("#fra-item").hover(function () {
-    $("#fra-list").append('<li>Practiced for 5 years</li>');
+    $("#fra-list").append('<li>Practiced for over 6 years</li>');
 }, function () {
     $("#fra-list").empty();
     $("#fra-list").append(' <li>Level B2</li>');
