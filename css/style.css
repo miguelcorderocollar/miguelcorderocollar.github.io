@@ -48,6 +48,8 @@ body {
 #sequence {
     text-align: center !important;
     font-size: 4rem;
+    height: 50 !important;
+    width: 250 !important;
 }
 
 /* About card section */
