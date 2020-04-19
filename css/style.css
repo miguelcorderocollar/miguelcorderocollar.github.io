@@ -41,11 +41,13 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
+    font-size: 2.8rem;
 }
 
 
 #sequence {
     text-align: center !important;
+    font-size: 4rem;
 }
 
 /* About card section */
@@ -114,6 +116,7 @@ body {
     -webkit-transform: scale(1.01);
     -ms-transform: scale(1.01);
     transform: scale(1.01);
+    transition: all ease 500ms
 }
 
 /* Experience card section */
@@ -141,6 +144,7 @@ body {
     -webkit-transform: scale(1.01);
     -ms-transform: scale(1.01);
     transform: scale(1.01);
+    transition: all ease 500ms
 }
 
 .experience-item img {
@@ -175,6 +179,7 @@ body {
     -ms-transform: scale(1.05);
     transform: scale(1.05);
     cursor: pointer;
+    transition: all ease 300ms
 }
 
 .skill-category-circle {
@@ -214,6 +219,7 @@ body {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
+    transition: all ease 200ms
 }
 
 .t-skills {
@@ -236,6 +242,7 @@ body {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
+    transition: all ease 200ms
 }
 
 .s-skills {
@@ -257,6 +264,7 @@ body {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
+    transition: all ease 200ms
 }
 
 .ss-item h3 {
@@ -345,6 +353,7 @@ body {
     -webkit-transform: scale(1.01);
     -ms-transform: scale(1.01);
     transform: scale(1.01);
+    transition: all ease 500ms
 }
 
 .projects-item img {
@@ -363,6 +372,9 @@ body {
     ;
 }
 
+/* Misc section */
+
+
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -374,6 +386,18 @@ body {
 }
 
 .title-card h1 {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+
     font-size: 3.5rem;
     font-weight: 100;
+    border: 2px solid white;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-top-style: hidden;
+
+
+
 }

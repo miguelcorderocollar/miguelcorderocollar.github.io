@@ -1,11 +1,7 @@
 Expanding Information
-Skills
-Titles
-Home main text and button
 Properly size fonts
 Solve lighthouse issues
 Solve 404 200 errors and such
 Clear files
 Fix CV
 Edit main photo
-Make boxes like Skills
