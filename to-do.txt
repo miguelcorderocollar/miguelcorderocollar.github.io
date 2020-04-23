@@ -1,9 +1,16 @@
 Expanding Information
-Properly size fonts
+Properly sized fonts
 Solve lighthouse issues
 Solve 404 200 errors and such
 Clear files
 Fix CV
 Edit main photo
 Fix Scroll
-Smae height Boxes (edu and proj)
+Same height Boxes (edu and proj)
+
+From Javi:
+    Too many other skills
+    Feedback button clicked
+    Bold things in about me
+    Fix international in about me
+    Order education
