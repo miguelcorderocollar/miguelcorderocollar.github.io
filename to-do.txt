@@ -8,5 +8,5 @@ Edit main photo
 Fix Scroll
 Same height Boxes (edu and proj)
 Add GIT
-
+Center buttons skills
     
