@@ -8,6 +8,8 @@ body {
     font-family: "Quicksand", sans-serif;
     font-size: 62.5%;
     font-size: 10px;
+    overflow: overlay;
+
 }
 
 
@@ -183,7 +185,6 @@ body {
     margin-top: 20px;
 }
 
-.skill-category:hover {}
 
 .skill-category-circle {
     text-align: center;
