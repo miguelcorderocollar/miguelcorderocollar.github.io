@@ -183,14 +183,7 @@ body {
     margin-top: 20px;
 }
 
-.skill-category:hover {
-
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-    cursor: pointer;
-    transition: all ease 300ms
-}
+.skill-category:hover {}
 
 .skill-category-circle {
     text-align: center;
@@ -198,6 +191,15 @@ body {
     border: 2px solid white;
     border-radius: 20px;
 }
+
+.skill-category-circle:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: all ease 300ms
+}
+
 
 .skill-category h3 {
     margin: 5px 20px 5px 20px;

@@ -97,24 +97,40 @@ $('#sp').click(function () {
     $(".l-skills").css("display", "none");
     $(".s-skills").css("display", "none");
     $(".t-skills").css("display", "none");
+    $('#sp').css("background-color", "#464646");
+    $('#sl').css("background-color", "#2b2b2b");
+    $('#ss').css("background-color", "#2b2b2b");
+    $('#st').css("background-color", "#2b2b2b");
     $(".p-skills").fadeIn(1000)
 });
 $('#sl').click(function () {
     $(".p-skills").css("display", "none");
     $(".s-skills").css("display", "none");
     $(".t-skills").css("display", "none");
+    $('#sl').css("background-color", "#464646");
+    $('#ss').css("background-color", "#2b2b2b");
+    $('#st').css("background-color", "#2b2b2b");
+    $('#sp').css("background-color", "#2b2b2b");
     $(".l-skills").fadeIn(1000)
 });
 $('#ss').click(function () {
     $(".l-skills").css("display", "none");
     $(".p-skills").css("display", "none");
     $(".t-skills").css("display", "none");
+    $('#ss').css("background-color", "#464646");
+    $('#sl').css("background-color", "#2b2b2b");
+    $('#st').css("background-color", "#2b2b2b");
+    $('#sp').css("background-color", "#2b2b2b");
     $(".s-skills").fadeIn(1000)
 });
 $('#st').click(function () {
     $(".l-skills").css("display", "none");
     $(".s-skills").css("display", "none");
     $(".p-skills").css("display", "none");
+    $('#st').css("background-color", "#464646");
+    $('#sl').css("background-color", "#2b2b2b");
+    $('#ss').css("background-color", "#2b2b2b");
+    $('#sp').css("background-color", "#2b2b2b");
     $(".t-skills").fadeIn(1000)
 });
 

@@ -9,9 +9,4 @@ Fix Scroll
 Same height Boxes (edu and proj)
 Add GIT
 
-From Javi:
-    Too many other skills
-    Feedback button clicked
-    Bold things in about me
-    Fix international in about me
-    Order education
+    
