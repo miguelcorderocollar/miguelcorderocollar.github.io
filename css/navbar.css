@@ -79,8 +79,12 @@
         display: block;
     }
 
+    #theme {
+        display: none;
+    }
+
     .nav div.logo {
-        margin-left: 15px;
+        margin-left: 0px;
     }
 
     .nav div.main_list {
