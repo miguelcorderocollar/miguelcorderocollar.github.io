@@ -3,10 +3,11 @@ Properly sized fonts
 Solve lighthouse issues
 Solve 404 200 errors and such
 Clear files
-Fix CV
 Edit main photo
 Fix Scroll
 Same height Boxes (edu and proj)
 Add GIT
 Center buttons skills
-    
+Solve justification
+Solve bold transisiton
+Solve + icon english

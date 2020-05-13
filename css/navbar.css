@@ -125,11 +125,6 @@
 
 
 
-
-
-
-
-
 /* Animation */
 /* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
 
@@ -365,4 +360,8 @@
     .myP {
         padding: 2%;
     }
+}
+
+#theme:hover {
+    cursor: pointer;
 }

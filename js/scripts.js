@@ -86,10 +86,37 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 
 });
 
+let themestate;
 
 //Loader
 $(window).on("load", function () {
     $(".loader-wrapper").fadeOut("slow");
+    if (themestate == undefined) {
+        if (localStorage.getItem("themestate") == 'dark' || localStorage.getItem("themestate") == 'light') {
+            themestate = localStorage.getItem("themestate");
+            if (themestate == 'light') {
+                root.style.setProperty('--bgcolor1', '#f3f3f3');
+                root.style.setProperty('--bgcolor2', '#e4e4e4');
+                root.style.setProperty('--fontcolor', 'black');
+                root.style.setProperty('--btcolor', '#afafaf');
+                themeicon.classList.remove("fa-moon");
+                themeicon.classList.add("fa-sun");
+                document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-blue.png";
+            } else if (themestate == 'dark') {
+                root.style.setProperty('--bgcolor1', '#1b1b1b');
+                root.style.setProperty('--bgcolor2', '#2b2b2b');
+                root.style.setProperty('--fontcolor', 'white');
+                root.style.setProperty('--btcolor', '#464646');
+                document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-white-min.png";
+                themeicon.classList.remove("fa-sun");
+                themeicon.classList.add("fa-moon");
+            }
+        } else {
+            themestate = 'dark';
+            localStorage.setItem("themestate", 'dark');
+        }
+    }
+
 });
 
 //Skill selector
@@ -97,40 +124,40 @@ $('#sp').click(function () {
     $(".l-skills").css("display", "none");
     $(".s-skills").css("display", "none");
     $(".t-skills").css("display", "none");
-    $('#sp').css("background-color", "#464646");
-    $('#sl').css("background-color", "#2b2b2b");
-    $('#ss').css("background-color", "#2b2b2b");
-    $('#st').css("background-color", "#2b2b2b");
+    $('#sp').css("background-color", "var(--btcolor)");
+    $('#sl').css("background-color", "var(--bgcolor2)");
+    $('#ss').css("background-color", "var(--bgcolor2)");
+    $('#st').css("background-color", "var(--bgcolor2)");
     $(".p-skills").fadeIn(1000)
 });
 $('#sl').click(function () {
     $(".p-skills").css("display", "none");
     $(".s-skills").css("display", "none");
     $(".t-skills").css("display", "none");
-    $('#sl').css("background-color", "#464646");
-    $('#ss').css("background-color", "#2b2b2b");
-    $('#st').css("background-color", "#2b2b2b");
-    $('#sp').css("background-color", "#2b2b2b");
+    $('#sl').css("background-color", "var(--btcolor)");
+    $('#ss').css("background-color", " var(--bgcolor2)");
+    $('#st').css("background-color", " var(--bgcolor2)");
+    $('#sp').css("background-color", " var(--bgcolor2)");
     $(".l-skills").fadeIn(1000)
 });
 $('#ss').click(function () {
     $(".l-skills").css("display", "none");
     $(".p-skills").css("display", "none");
     $(".t-skills").css("display", "none");
-    $('#ss').css("background-color", "#464646");
-    $('#sl').css("background-color", "#2b2b2b");
-    $('#st').css("background-color", "#2b2b2b");
-    $('#sp').css("background-color", "#2b2b2b");
+    $('#ss').css("background-color", "var(--btcolor)");
+    $('#sl').css("background-color", " var(--bgcolor2)");
+    $('#st').css("background-color", " var(--bgcolor2)");
+    $('#sp').css("background-color", " var(--bgcolor2)");
     $(".s-skills").fadeIn(1000)
 });
 $('#st').click(function () {
     $(".l-skills").css("display", "none");
     $(".s-skills").css("display", "none");
     $(".p-skills").css("display", "none");
-    $('#st').css("background-color", "#464646");
-    $('#sl').css("background-color", "#2b2b2b");
-    $('#ss').css("background-color", "#2b2b2b");
-    $('#sp').css("background-color", "#2b2b2b");
+    $('#st').css("background-color", "var(--btcolor)");
+    $('#sl').css("background-color", "var(--bgcolor2)");
+    $('#ss').css("background-color", "var(--bgcolor2)");
+    $('#sp').css("background-color", "var(--bgcolor2)");
     $(".t-skills").fadeIn(1000)
 });
 
@@ -148,4 +175,34 @@ $("#fra-item").hover(function () {
 }, function () {
     $("#fra-list").empty();
     $("#fra-list").append(' <li>Level B2</li>');
+});
+
+
+//Theme
+let root = document.documentElement;
+var themeicon = document.getElementById("theme-icon");
+$("#theme").click(function () {
+
+    if (themestate == 'dark') {
+        root.style.setProperty('--bgcolor1', '#f3f3f3');
+        root.style.setProperty('--bgcolor2', '#e4e4e4');
+        root.style.setProperty('--fontcolor', 'black');
+        root.style.setProperty('--btcolor', '#afafaf');
+        themeicon.classList.remove("fa-moon");
+        themeicon.classList.add("fa-sun");
+        document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-blue.png";
+        themestate = 'light';
+        localStorage.setItem("themestate", 'light');
+
+    } else if (themestate == 'light') {
+        root.style.setProperty('--bgcolor1', '#1b1b1b');
+        root.style.setProperty('--bgcolor2', '#2b2b2b');
+        root.style.setProperty('--fontcolor', 'white');
+        root.style.setProperty('--btcolor', '#464646');
+        document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-white-min.png";
+        themeicon.classList.remove("fa-sun");
+        themeicon.classList.add("fa-moon");
+        themestate = 'dark';
+        localStorage.setItem("themestate", 'dark');
+    }
 });
