@@ -77,7 +77,7 @@ body {
     background-color: var(--bgcolor1);
     color: var(--fontcolor);
     font-size: large;
-
+    transition: all ease 100ms
 }
 
 #me-image {
@@ -102,6 +102,7 @@ body {
     background-color: var(--bgcolor2);
     color: var(--fontcolor);
     font-size: large;
+    transition: all ease 100ms
 }
 
 .edu-all {
@@ -148,6 +149,7 @@ body {
     background-color: var(--bgcolor1);
     color: var(--fontcolor);
     font-size: large;
+    transition: all ease 100ms
 }
 
 .experience-item {
@@ -184,6 +186,7 @@ body {
     background-color: var(--bgcolor2);
     color: var(--fontcolor);
     font-size: large;
+    transition: all ease 100ms
 }
 
 .skills-item {
@@ -357,6 +360,7 @@ body {
     background-color: var(--bgcolor1);
     color: var(--fontcolor);
     font-size: large;
+    transition: all ease 100ms
 }
 
 .proj-all {
