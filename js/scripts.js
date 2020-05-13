@@ -99,7 +99,7 @@ $(window).on("load", function () {
                 root.style.setProperty('--bgcolor2', '#e4e4e4');
                 root.style.setProperty('--fontcolor', 'black');
                 root.style.setProperty('--btcolor', '#afafaf');
-
+                document.getElementById("dn").checked = false;
                 document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-blue.png";
             } else if (themestate == 'dark') {
                 root.style.setProperty('--bgcolor1', '#1b1b1b');
@@ -107,11 +107,12 @@ $(window).on("load", function () {
                 root.style.setProperty('--fontcolor', 'white');
                 root.style.setProperty('--btcolor', '#464646');
                 document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-white-min.png";
-
+                document.getElementById("dn").checked = true;
             }
         } else {
             themestate = 'dark';
             localStorage.setItem("themestate", 'dark');
+            document.getElementById("dn").checked = true;
         }
     }
     $(".loader-wrapper").fadeOut("slow");
@@ -179,10 +180,7 @@ $("#fra-item").hover(function () {
 //Theme
 let root = document.documentElement;
 $("#theme").click(function () {
-    console.log('clicked boy');
     if (themestate == 'dark') {
-        console.log('in dark');
-
         root.style.setProperty('--bgcolor1', '#f3f3f3');
         root.style.setProperty('--bgcolor2', '#e4e4e4');
         root.style.setProperty('--fontcolor', 'black');
@@ -193,8 +191,6 @@ $("#theme").click(function () {
         localStorage.setItem("themestate", 'light');
 
     } else if (themestate == 'light') {
-        console.log('in light');
-
         root.style.setProperty('--bgcolor1', '#1b1b1b');
         root.style.setProperty('--bgcolor2', '#2b2b2b');
         root.style.setProperty('--fontcolor', 'white');
@@ -204,8 +200,4 @@ $("#theme").click(function () {
         themestate = 'dark';
         localStorage.setItem("themestate", 'dark');
     }
-});
-
-$("input[type='checkbox']").dblclick(function (event) {
-    event.preventDefault();
 });
