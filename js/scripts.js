@@ -90,7 +90,7 @@ let themestate;
 
 //Loader
 $(window).on("load", function () {
-    $(".loader-wrapper").fadeOut("slow");
+
     if (themestate == undefined) {
         if (localStorage.getItem("themestate") == 'dark' || localStorage.getItem("themestate") == 'light') {
             themestate = localStorage.getItem("themestate");
@@ -116,7 +116,7 @@ $(window).on("load", function () {
             localStorage.setItem("themestate", 'dark');
         }
     }
-
+    $(".loader-wrapper").fadeOut("slow");
 });
 
 //Skill selector
