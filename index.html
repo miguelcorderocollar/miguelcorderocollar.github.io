@@ -84,10 +84,27 @@
                <li><a href="#experience-card">Experience</a></li>
                <li><a href="#skills-card">Skills</a></li>
                <li><a href="#projects-card">Projects</a></li>
-               <li><a id="theme"><i id="theme-icon" class="far fa-moon"></i></a></li>
-
+               <li>
+                  <div class="toggleWrapper">
+                     <input type="checkbox" class="dn" id="dn" style="display: none;" />
+                     <label for="dn" class="toggle" id="theme">
+                        <span class="toggle__handler">
+                           <span class="crater crater--1"></span>
+                           <span class="crater crater--2"></span>
+                           <span class="crater crater--3"></span>
+                        </span>
+                        <span class="star star--1"></span>
+                        <span class="star star--2"></span>
+                        <span class="star star--3"></span>
+                        <span class="star star--4"></span>
+                        <span class="star star--5"></span>
+                        <span class="star star--6"></span>
+                     </label>
+                  </div>
+               </li>
             </ul>
          </div>
+
          <span class="navTrigger">
             <i></i>
             <i></i>
@@ -269,7 +286,7 @@
                </div>
                <div class="col-md-1"></div>
             </div>
-            <div class="row experience-item">
+            <div class="row experience-item" style="margin-bottom: 45px;">
                <div class="col-md-1"></div>
                <div class="col-md-2 exp-img">
                   <a href="http://burlingtonschool.co.uk/" target="_blank">

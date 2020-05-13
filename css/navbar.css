@@ -57,7 +57,7 @@
     font-size: 2.4rem;
 }
 
-.nav div.main_list ul li:hover {
+.nav div.main_list ul li a:hover {
 
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
