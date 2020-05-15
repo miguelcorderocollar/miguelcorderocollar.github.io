@@ -11,3 +11,4 @@ Center buttons skills
 Solve justification
 Solve bold transisiton
 Solve + icon english
+toggle for phone

@@ -95,10 +95,10 @@ $(window).on("load", function () {
         if (localStorage.getItem("themestate") == 'dark' || localStorage.getItem("themestate") == 'light') {
             themestate = localStorage.getItem("themestate");
             if (themestate == 'light') {
-                root.style.setProperty('--bgcolor1', '#f3f3f3');
-                root.style.setProperty('--bgcolor2', '#e4e4e4');
+                root.style.setProperty('--bgcolor1', '#e4e4e4');
+                root.style.setProperty('--bgcolor2', '#f3f3f3');
                 root.style.setProperty('--fontcolor', 'black');
-                root.style.setProperty('--btcolor', '#afafaf');
+                root.style.setProperty('--btcolor', '#d8d8d8');
                 document.getElementById("dn").checked = false;
                 document.hw.src = "https://miguelcorderocollar.github.io/images/uni/HW-blue.png";
             } else if (themestate == 'dark') {
