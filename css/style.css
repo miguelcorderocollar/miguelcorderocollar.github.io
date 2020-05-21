@@ -95,6 +95,11 @@ body {
     display: inline-block;
 }
 
+#about-text p{
+
+    hyphens: auto;
+}
+
 /* Education card section */
 
 #education-card {
