@@ -9,11 +9,12 @@
 	color: #81bdff;
 	margin-top: 25px;
 	border-radius: 50px;
-	position: absolute;
+	/* position: absolute;
 	margin-left: auto;
 	margin-right: auto;
 	left: 0;
-	right: 0;
+	right: 0; */
+	display: flex;
 }
 
 .btn-by-me:hover {
