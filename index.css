@@ -490,6 +490,14 @@ button a {
   text-decoration: none;
 }
 
+.list-header {
+  margin-bottom: 5px;
+}
+
+details li {
+  list-style-type: "-";
+}
+
 /* DEBUG UTILITIES */
 
 .debug .debug-grid {
