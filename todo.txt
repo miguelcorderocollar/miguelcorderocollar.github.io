@@ -1,3 +1,2 @@
-- Add years to work experiences
 - Add open on hover
 - Think of better UI

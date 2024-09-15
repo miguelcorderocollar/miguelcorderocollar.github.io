@@ -476,6 +476,20 @@ label input {
   --grid-cells: 9;
 }
 
+.title-container {
+  display: inline-flex;
+  width: calc(100% - 20px);
+}
+
+.title-container .date {
+  max-width: fit-content;
+  margin: 0px 10px;
+}
+
+button a {
+  text-decoration: none;
+}
+
 /* DEBUG UTILITIES */
 
 .debug .debug-grid {
