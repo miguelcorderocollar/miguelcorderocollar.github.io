@@ -535,9 +535,7 @@ button a {
   margin-bottom: 5px;
 }
 
-details li {
-  list-style-type: "-";
-}
+
 
 /* NAVIGATION ENHANCEMENTS */
 
@@ -672,11 +670,11 @@ summary:hover {
   background-color: var(--background-color-alt);
 }
 
-details ::marker {
+details > summary::marker {
   content: '▶ ';
 }
 
-details[open] ::marker {
+details[open] > summary::marker {
   content: "▼ ";
 }
 
