@@ -256,13 +256,43 @@ code {
   font-weight: var(--font-weight-medium);
 }
 
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2ch;
+  margin-top: var(--line-height);
+}
+
+.footer-info p {
+  margin: 0;
+}
+
+.last-updated {
+  color: var(--text-color-alt);
+  font-size: 12px;
+}
+
 .credits {
   color: var(--text-color-alt);
   font-size: 12px;
+  text-align: right;
 }
 .credits a {
   color: var(--text-color-alt);
   font-size: 12px;
+}
+
+@media screen and (max-width: 480px) {
+  .footer-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--line-height) / 2);
+  }
+  
+  .credits {
+    text-align: left;
+  }
 }
 
 figure {
