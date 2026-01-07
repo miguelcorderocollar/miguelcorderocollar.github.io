@@ -8,6 +8,7 @@
   --text-color-alt: #666;
   --background-color: #fff;
   --background-color-alt: #eee;
+  --accent-color: rgba(0, 0, 0, 0.5);
 
   --font-weight-normal: 500;
   --font-weight-medium: 600;
@@ -27,6 +28,7 @@
     --text-color-alt: #aaa;
     --background-color: #000;
     --background-color-alt: #111;
+    --accent-color: rgba(211, 211, 211, 0.5);
   }
 }
 
@@ -47,6 +49,13 @@ html {
   align-items: center;
   background: var(--background-color);
   color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -498,6 +507,193 @@ button a {
 
 details li {
   list-style-type: "-";
+}
+
+/* NAVIGATION ENHANCEMENTS */
+
+/* Reading Progress Bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent-color);
+  z-index: 1000;
+  transition: width 100ms ease-out;
+}
+
+/* Skip to Content Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  padding: calc(var(--line-height) / 2) 1ch;
+  border: var(--border-thickness) solid var(--text-color);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  z-index: 1001;
+  transition: top 200ms ease;
+}
+
+.skip-link:focus {
+  top: 1ch;
+}
+
+/* Sticky Table of Contents */
+#TOC {
+  transition: padding 200ms ease, box-shadow 200ms ease;
+}
+
+/* Desktop: TOC as left sidebar */
+@media screen and (min-width: 1400px) {
+  #TOC {
+    position: fixed;
+    left: calc((100vw - 80ch) / 2 - 28ch);
+    top: calc(var(--line-height) * 2);
+    width: 24ch;
+    background: var(--background-color);
+    overflow-y: auto;
+    max-height: calc(100vh - calc(var(--line-height) * 4));
+    padding: 0;
+    margin: 0;
+  }
+  
+  #TOC h2 {
+    font-size: 0.875rem;
+    margin-top: 0;
+  }
+  
+  #TOC ul {
+    font-size: 0.875rem;
+  }
+  
+  /* Hide the separator after TOC on desktop */
+  #TOC + hr {
+    display: none;
+  }
+}
+
+/* Tablet and Mobile: TOC stays in flow, no sticky */
+@media screen and (max-width: 1399px) {
+  #TOC {
+    position: relative;
+  }
+}
+
+/* Active TOC Link */
+#TOC a.active {
+  font-weight: var(--font-weight-bold);
+  background-color: var(--background-color-alt);
+  padding: 0 2px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2ch;
+  right: 2ch;
+  width: auto;
+  min-width: 3ch;
+  padding: calc(var(--line-height) / 2) 1ch;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms ease, transform 200ms ease, background 200ms ease;
+  z-index: 999;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 480px) {
+  .back-to-top {
+    bottom: 1ch;
+    right: 1ch;
+  }
+}
+
+/* VISUAL ENHANCEMENTS */
+
+/* Details/Summary Improvements */
+details {
+  transition: border-color 200ms ease;
+}
+
+details:hover {
+  border-color: var(--accent-color);
+}
+
+summary {
+  transition: background-color 200ms ease;
+  user-select: none;
+}
+
+summary:hover {
+  background-color: var(--background-color-alt);
+}
+
+details ::marker {
+  content: '▶ ';
+}
+
+details[open] ::marker {
+  content: "▼ ";
+}
+
+/* Keep list items inside details as dash */
+details li::marker {
+  content: '- ';
+}
+
+/* Enhanced Button Interactions */
+button {
+  transition: background-color 200ms ease, transform 100ms ease, box-shadow 200ms ease;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+button:focus-visible {
+  outline: calc(var(--border-thickness) * 1.5) solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Enhanced Link Focus */
+a:focus-visible {
+  outline: calc(var(--border-thickness) * 1.5) solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Subtle Fade In for Sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* DEBUG UTILITIES */
