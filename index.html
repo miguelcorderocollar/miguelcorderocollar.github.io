@@ -127,6 +127,12 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" aria-hidden="true"></div>
+    
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
     <table class="header">
       <tr>
         <td colspan="2" rowspan="2" class="width-auto">
@@ -153,7 +159,7 @@
       />
     </figure>
     <hr />
-    <nav id="TOC" role="doc-toc" style="flex-grow: 1">
+    <nav id="TOC" role="doc-toc">
       <h2 id="toc-title">Contents</h2>
       <ul class="incremental">
         <li><a href="#introduction" id="toc-introduction">Introduction</a></li>
@@ -169,6 +175,7 @@
       </ul>
     </nav>
     <hr />
+    <main id="main-content">
     <h2 id="introduction">Introduction</h2>
     <p>
       👋 Hey, I’m Miguel, an IT Project Manager at Red Bull with a focus on
@@ -767,6 +774,13 @@
         >The Monospace Web</a
       >
     </p>
+    </main>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+    
     <script src="index.js"></script>
   </body>
 </html>
