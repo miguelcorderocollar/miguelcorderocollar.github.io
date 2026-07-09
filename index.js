@@ -288,3 +288,71 @@ if (document.readyState === 'loading') {
 } else {
   initNavigationEnhancements();
 }
+
+function fallbackCopyText(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, text.length);
+
+  try {
+    return document.execCommand('copy');
+  } finally {
+    document.body.removeChild(textarea);
+  }
+}
+
+async function copyCurriculumMarkdown() {
+  const button = document.getElementById('copy-markdown-button');
+  const status = document.getElementById('copy-markdown-status');
+  if (!button || !status) return;
+
+  const source = button.dataset.markdownSource;
+  if (!source) {
+    status.textContent = 'Markdown source is not configured.';
+    return;
+  }
+
+  const originalLabel = button.textContent;
+  button.disabled = true;
+  button.textContent = 'Copying...';
+  status.textContent = '';
+
+  try {
+    const response = await fetch(source, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Failed to load markdown (${response.status})`);
+    }
+
+    const markdown = await response.text();
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(markdown);
+    } else if (!fallbackCopyText(markdown)) {
+      throw new Error('Clipboard access is not available.');
+    }
+
+    status.textContent = 'Markdown copied to clipboard.';
+  } catch (error) {
+    console.error(error);
+    status.textContent = 'Unable to copy markdown right now.';
+  } finally {
+    button.disabled = false;
+    button.textContent = originalLabel;
+  }
+}
+
+function initCurriculumActions() {
+  const button = document.getElementById('copy-markdown-button');
+  if (!button) return;
+  button.addEventListener('click', copyCurriculumMarkdown);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCurriculumActions);
+} else {
+  initCurriculumActions();
+}

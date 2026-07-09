@@ -21,3 +21,6 @@ When making changes to HTML, CSS, or JavaScript files in this project:
 
 This ensures that content changes can be immediately previewed without manual server setup.
 
+## Markdown Sync
+
+When making any content change to the page in `index.html`, also update `documents/Miguel-Cordero-CV.md` in the same change so the curriculum "Copy .md" button always copies the current page content.
