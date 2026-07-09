@@ -892,11 +892,15 @@
     </details>
     <hr />
     <h2 id="curriculum">Curriculum</h2>
-    <nav>
+    <nav class="curriculum-actions" aria-label="Curriculum actions">
+      <button type="button" id="copy-markdown-button" data-markdown-source="/documents/Miguel-Cordero-CV.md">
+        Copy .md
+      </button>
       <button>
         <a href="/documents/Miguel-Cordero-CV.pdf" target="_blank">Open CV</a>
       </button>
     </nav>
+    <p id="copy-markdown-status" class="copy-status" aria-live="polite"></p>
     <hr />
     <h2 id="contact">Contact</h2>
     <nav>

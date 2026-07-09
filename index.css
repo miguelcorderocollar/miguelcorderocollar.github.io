@@ -531,6 +531,17 @@ button a {
   text-decoration: none;
 }
 
+.curriculum-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+}
+
+.copy-status {
+  min-height: var(--line-height);
+  color: var(--text-color-alt);
+}
+
 .list-header {
   margin-bottom: 5px;
 }
