@@ -296,12 +296,37 @@
         </td>
       </tr>
     </table>
-    <figure>
-      <img
-        src="/images/bg/mountains-blur-8-min.jpg"
-        alt="Photo of Miguel Cordero Collar"
-        style="filter: grayscale(100%)"
-      />
+    <figure class="hero-figure">
+      <div
+        class="ascii-hero"
+        data-ascii-src="/images/bg/mountains-blur-8-min.jpg"
+        data-ascii-alt="Photo of Miguel Cordero Collar"
+        role="img"
+        aria-label="Photo of Miguel Cordero Collar rendered as interactive ASCII dots"
+      >
+        <img
+          class="ascii-hero__fallback"
+          src="/images/bg/mountains-blur-8-min.jpg"
+          alt=""
+          aria-hidden="true"
+          data-no-grid-padding="true"
+          style="filter: grayscale(100%)"
+        />
+        <pre class="ascii-hero__art" aria-hidden="true"></pre>
+        <canvas class="ascii-hero__sample" aria-hidden="true"></canvas>
+        <section class="ascii-hero__debug" aria-label="ASCII hero debug controls">
+          <div class="ascii-hero__debug-header">
+            <p class="ascii-hero__debug-title">ASCII Hero Debug</p>
+            <p class="ascii-hero__debug-hint">Press D to toggle</p>
+          </div>
+          <div class="ascii-hero__controls"></div>
+          <div class="ascii-hero__debug-actions">
+            <button class="ascii-hero__copy" type="button">Copy metrics</button>
+            <button class="ascii-hero__reset" type="button">Reset</button>
+          </div>
+          <pre class="ascii-hero__metrics" aria-live="polite"></pre>
+        </section>
+      </div>
     </figure>
     <hr />
     <nav id="TOC" role="doc-toc">
@@ -966,6 +991,7 @@
       ↑
     </button>
     
+    <script type="module" src="ascii-hero.mjs"></script>
     <script src="index.js"></script>
   </body>
 </html>
