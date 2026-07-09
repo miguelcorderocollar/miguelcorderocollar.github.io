@@ -301,6 +301,176 @@ figure {
   overflow-y: hidden;
 }
 
+figure.hero-figure {
+  margin-inline: 0;
+}
+
+.ascii-hero {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: var(--line-height) 1ch;
+  border: var(--border-thickness) solid var(--text-color);
+  background: var(--background-color);
+  overflow: hidden;
+}
+
+.ascii-hero.is-enhanced {
+  cursor: crosshair;
+}
+
+.ascii-hero__fallback {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.ascii-hero.is-enhanced .ascii-hero__fallback {
+  display: none;
+}
+
+.ascii-hero__art {
+  display: block;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text-color);
+  font-size: 0.55rem;
+  line-height: 0.52rem;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .ascii-hero__art {
+    font-size: 0.42rem;
+    line-height: 0.4rem;
+  }
+}
+
+.ascii-hero__sample,
+.ascii-hero__probe {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.ascii-hero__sample {
+  inset: 0 auto auto 0;
+}
+
+.ascii-hero__probe {
+  inset: 0 auto auto 0;
+  margin: 0;
+  white-space: pre;
+}
+
+.ascii-hero__debug {
+  position: absolute;
+  top: 1ch;
+  right: 1ch;
+  width: min(34ch, calc(100% - 2ch));
+  max-height: calc(100% - 2ch);
+  padding: calc(var(--line-height) * 0.75) 1ch;
+  border: var(--border-thickness) solid var(--text-color);
+  background: color-mix(in srgb, var(--background-color) 92%, transparent);
+  backdrop-filter: blur(8px);
+  overflow: auto;
+}
+
+.ascii-hero__debug[hidden] {
+  display: none;
+}
+
+.ascii-hero__debug-header,
+.ascii-hero__debug-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1ch;
+  margin: 0 0 var(--line-height);
+}
+
+.ascii-hero__debug-title,
+.ascii-hero__debug-hint,
+.ascii-hero__metrics {
+  margin: 0;
+}
+
+.ascii-hero__debug-title {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.ascii-hero__debug-hint {
+  color: var(--text-color-alt);
+}
+
+.ascii-hero__controls {
+  display: grid;
+  gap: calc(var(--line-height) * 0.5);
+  margin: 0 0 var(--line-height);
+}
+
+.ascii-hero__control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 1ch;
+  margin: 0;
+}
+
+.ascii-hero__control-name,
+.ascii-hero__control-value {
+  display: block;
+  margin: 0;
+}
+
+.ascii-hero__slider {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+}
+
+.ascii-hero__debug-actions button {
+  flex: 1 1 0;
+  margin: 0;
+}
+
+.ascii-hero__metrics {
+  overflow: auto;
+}
+
+@media (min-width: 1280px) {
+  .ascii-hero__debug {
+    position: fixed;
+    top: var(--line-height);
+    left: calc(50% + 43ch);
+    right: 1rem;
+    width: auto;
+    max-width: 32ch;
+    max-height: calc(100vh - (var(--line-height) * 2));
+    z-index: 10;
+  }
+}
+
+@media (max-width: 1279px) {
+  .ascii-hero__debug {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ascii-hero {
+    padding: calc(var(--line-height) * 0.75) 0.75ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascii-hero.is-enhanced {
+    cursor: default;
+  }
+}
+
 figcaption {
   display: block;
   font-style: italic;

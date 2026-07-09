@@ -46,7 +46,10 @@ function adjustMediaPadding() {
   }
 
   const medias = document.querySelectorAll("img, video");
-  for (media of medias) {
+  for (const media of medias) {
+    if (media.dataset.noGridPadding === "true") {
+      continue;
+    }
     switch (media.tagName) {
       case "IMG":
         if (media.complete) {
