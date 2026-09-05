@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A small image shader playground for Miguel Cordero Collar's website." />
+    <title>Image shader | Miguel Cordero Collar</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shader-page">
+      <nav class="shader-nav" aria-label="Page navigation">
+        <a href="../">← Miguel Cordero Collar</a>
+        <span>experiment / 01</span>
+      </nav>
+
+      <header class="shader-intro">
+        <p class="eyebrow">Image treatment experiment</p>
+        <h1>Image shader</h1>
+        <p class="shader-lede">
+          Tune the monochrome dot treatment used by the site header and future
+          influences collection.
+        </p>
+        <div class="shader-intro__actions">
+          <button type="button" id="explain-button">What is this?</button>
+          <a href="../docs/image-shader.md">Read the notes →</a>
+        </div>
+      </header>
+
+      <section class="shader-workbench" aria-label="Image shader workbench">
+        <aside class="shader-controls" aria-label="Shader controls">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Live controls</p>
+              <h2>Recipe</h2>
+            </div>
+            <button class="quiet-button" type="button" id="reset-button">Reset</button>
+          </div>
+
+          <div class="preset-row" aria-label="Presets">
+            <button type="button" data-preset="header">Header</button>
+            <button type="button" data-preset="newsprint">Newsprint</button>
+            <button type="button" data-preset="soft">Soft grain</button>
+            <button type="button" data-preset="coarse">Coarse</button>
+          </div>
+
+          <div class="control-list">
+            <label class="control" for="cell"><span>Grid size</span><output for="cell" data-output="cell"></output><input id="cell" name="cell" type="range" min="3" max="28" step="1" /></label>
+            <label class="control" for="minDot"><span>Light-area dot</span><output for="minDot" data-output="minDot"></output><input id="minDot" name="minDot" type="range" min="0" max="0.9" step="0.01" /></label>
+            <label class="control" for="maxDot"><span>Shadow dot</span><output for="maxDot" data-output="maxDot"></output><input id="maxDot" name="maxDot" type="range" min="0.4" max="1.45" step="0.01" /></label>
+            <label class="control" for="contrast"><span>Contrast</span><output for="contrast" data-output="contrast"></output><input id="contrast" name="contrast" type="range" min="0.4" max="2.8" step="0.05" /></label>
+            <label class="control" for="brightness"><span>Exposure</span><output for="brightness" data-output="brightness"></output><input id="brightness" name="brightness" type="range" min="-0.5" max="0.5" step="0.01" /></label>
+            <label class="control" for="gamma"><span>Gamma</span><output for="gamma" data-output="gamma"></output><input id="gamma" name="gamma" type="range" min="0.35" max="2.4" step="0.05" /></label>
+            <label class="control" for="levels"><span>Tone steps</span><output for="levels" data-output="levels"></output><input id="levels" name="levels" type="range" min="2" max="16" step="1" /></label>
+            <label class="control" for="roughness"><span>Dot roughness</span><output for="roughness" data-output="roughness"></output><input id="roughness" name="roughness" type="range" min="0" max="1" step="0.01" /></label>
+            <label class="control" for="grain"><span>Paper grain</span><output for="grain" data-output="grain"></output><input id="grain" name="grain" type="range" min="0" max="0.3" step="0.01" /></label>
+            <label class="control" for="softness"><span>Dot softness</span><output for="softness" data-output="softness"></output><input id="softness" name="softness" type="range" min="0.1" max="2.5" step="0.05" /></label>
+            <label class="control" for="angle"><span>Grid angle</span><output for="angle" data-output="angle"></output><input id="angle" name="angle" type="range" min="-45" max="45" step="1" /></label>
+            <label class="control" for="halftone"><span>Halftone mix</span><output for="halftone" data-output="halftone"></output><input id="halftone" name="halftone" type="range" min="0" max="1" step="0.01" /></label>
+          </div>
+
+          <div class="palette">
+            <label for="ink"><span>Ink</span><input id="ink" name="ink" type="color" /></label>
+            <label for="paper"><span>Paper</span><input id="paper" name="paper" type="color" /></label>
+            <label class="check" for="invert"><input id="invert" name="invert" type="checkbox" /><span>Invert tones</span></label>
+          </div>
+
+          <label class="upload" for="upload-image">
+            <span>Test another image</span>
+            <strong>Choose a local file</strong>
+            <input id="upload-image" type="file" accept="image/*" />
+          </label>
+
+          <div class="config-block">
+            <div class="config-heading"><span>Current configuration</span><span id="copy-status" role="status" aria-live="polite"></span></div>
+            <pre id="config-output"></pre>
+            <div class="config-actions"><button type="button" id="copy-settings">Copy settings</button><button type="button" id="copy-link">Copy link</button></div>
+          </div>
+        </aside>
+
+        <section class="shader-results" aria-label="Shader result">
+          <div class="section-heading results-heading">
+            <div><p class="eyebrow">Current style / header source</p><h2>Preview</h2></div>
+            <p id="renderer-status"><span class="status-dot" aria-hidden="true"></span> GPU shader</p>
+          </div>
+
+          <article class="shader-card" data-src="../images/bg/mountains.jpg">
+            <div class="media-stage">
+              <img alt="Mountain landscape source" />
+              <canvas aria-label="Halftone rendering of the mountain landscape"></canvas>
+              <span class="card-index">01</span>
+            </div>
+            <div class="card-meta">
+              <div><p class="eyebrow">Homepage header image</p><h3>Mountains</h3></div>
+              <div class="card-actions"><button type="button" data-action="source">View source</button><button type="button" data-action="copy">Copy image</button><button type="button" data-action="save">Download PNG</button><button type="button" data-action="save-webp">Download WebP</button></div>
+            </div>
+          </article>
+
+          <p class="shader-note">The canvas redraws as you tune the recipe. Upload a portrait, a product shot, or anything else you want to test. The settings panel always shows the exact values used for the current render.</p>
+        </section>
+      </section>
+    </main>
+
+    <template id="uploaded-card-template">
+      <article class="shader-card uploaded-card">
+        <div class="media-stage"><img alt="Uploaded source" /><canvas aria-label="Halftone rendering of the uploaded image"></canvas><span class="card-index">+</span></div>
+        <div class="card-meta"><div><p class="eyebrow">Local test image</p><h3>Upload</h3></div><div class="card-actions"><button type="button" data-action="source">View source</button><button type="button" data-action="copy">Copy image</button><button type="button" data-action="save">Download PNG</button><button type="button" data-action="save-webp">Download WebP</button><button type="button" data-action="remove">Remove</button></div></div>
+      </article>
+    </template>
+
+    <dialog id="shader-dialog" aria-labelledby="shader-dialog-title">
+      <div class="dialog-heading"><p class="eyebrow">A tiny technical note</p><button type="button" class="quiet-button" id="close-dialog">Close</button></div>
+      <h2 id="shader-dialog-title">What the shader is doing</h2>
+      <p>Each image is reduced to luminance, then sampled on a grid. Dark pixels become larger dots. Light pixels become smaller dots. A little deterministic noise nudges the dots and adds the imperfect texture.</p>
+      <p>The WebGL version runs this work in a fragment shader. Browsers without WebGL use the same recipe in a Canvas 2D fallback, so the experiment stays useful while we tune the visual language.</p>
+      <p class="dialog-formula"><code>image → luminance → tone steps → dot size → grain</code></p>
+    </dialog>
+
+    <script src="shader.js"></script>
+    <script src="page.js"></script>
+  </body>
+</html>
