@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A personal timeline of interests compared with Google Trends search interest."
+    />
+    <meta name="author" content="Miguel Cordero Collar" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="shortcut icon" href="../images/icons/favicon.ico" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="trends.css" />
+    <title>Personal trends | Miguel Cordero Collar</title>
+  </head>
+  <body class="trends-page">
+    <div class="reading-progress" aria-hidden="true"></div>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header class="trends-header">
+      <div class="header-kicker">
+        <a href="../">← Miguel Cordero Collar</a>
+        <span>RESEARCH NOTE / 01</span>
+      </div>
+      <table class="header">
+        <tr>
+          <td class="width-auto">
+            <h1>Personal trends</h1>
+            <p class="subtitle">Search interest, with a human timestamp</p>
+          </td>
+          <th>Scope</th>
+          <td class="width-min"><time datetime="2026-09-05">Sep 2026</time></td>
+        </tr>
+      </table>
+    </header>
+
+    <main id="main-content">
+      <section class="trend-intro" aria-labelledby="intro-heading">
+        <p class="eyebrow">THE QUESTION</p>
+        <h2 id="intro-heading">What did I care about before it became a signal?</h2>
+        <p class="intro-copy">
+          This is a small, opinionated index of interests. The black line is Google
+          Trends search interest. The orange marker is a personal date, where I have
+          one worth recording. Search interest is relative, so the useful thing here
+          is the shape of the line and the moment it starts moving.
+        </p>
+      </section>
+
+      <section class="summary-section" aria-labelledby="summary-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">AT A GLANCE</p>
+            <h2 id="summary-heading">The latest snapshot</h2>
+          </div>
+          <p class="section-note">Worldwide · Web Search · refreshed 05 Sep 2026</p>
+        </div>
+        <div id="summary-grid" class="summary-grid" aria-live="polite">
+          <p class="loading-state">Loading snapshot…</p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="signals-section" aria-labelledby="signals-heading">
+        <div class="section-heading section-heading--signals">
+          <div>
+            <p class="eyebrow">THE SIGNAL BOARD</p>
+            <h2 id="signals-heading">Personal interests / public search</h2>
+          </div>
+          <p id="filter-status" class="section-note" aria-live="polite">Loading signals…</p>
+        </div>
+
+        <div class="filter-bar" aria-label="Filter signals" role="toolbar">
+          <button type="button" class="filter-button is-active" data-filter="all">All signals</button>
+          <button type="button" class="filter-button" data-filter="technology">Technology</button>
+          <button type="button" class="filter-button" data-filter="work">Work</button>
+          <button type="button" class="filter-button" data-filter="culture">Culture</button>
+        </div>
+
+        <div id="trend-list" class="trend-list" aria-live="polite">
+          <p class="loading-state">Loading trend cards…</p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="method-section" aria-labelledby="method-heading">
+        <p class="eyebrow">METHOD / LIMITS</p>
+        <h2 id="method-heading">A snapshot, not a measuring instrument</h2>
+        <div class="method-grid">
+          <p>
+            Google Trends scales each request from 0 to 100 for its selected query,
+            location, property, and time range. A value of 100 means “the peak in
+            this request,” not 100 searches.
+          </p>
+          <p>
+            The page stores the exported values in JSON. To refresh it, open a card’s
+            source URL, use Google Trends’ chart download button, and run the parser
+            documented in <a href="../docs/google-trends-refresh.md">the refresh note</a>.
+          </p>
+        </div>
+        <p class="source-line">
+          Data source:
+          <a href="https://trends.google.com/" target="_blank" rel="noreferrer">Google Trends</a>.
+          The current official API is an alpha program with limited access.
+        </p>
+      </section>
+
+      <footer class="footer-info">
+        <p class="last-updated"><a href="../">← Back to the CV</a></p>
+        <p class="credits">Built from a static snapshot · <a href="../trends/trends-data.json">JSON</a></p>
+      </footer>
+    </main>
+
+    <script src="trends.js" defer></script>
+  </body>
+</html>
