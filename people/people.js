@@ -130,6 +130,15 @@ function setupPersonDialog(people) {
   closeDialogFromBackdrop(dialog);
 }
 
+function setupDisclaimerDialog() {
+  const button = document.getElementById("disclaimer-button");
+  const dialog = document.getElementById("disclaimer-dialog");
+  if (!button || !dialog) return;
+
+  button.addEventListener("click", () => openDialog(dialog));
+  closeDialogFromBackdrop(dialog);
+}
+
 function updateReadingProgress() {
   const progressBar = document.querySelector(".reading-progress");
   if (!progressBar) return;
@@ -147,6 +156,7 @@ async function loadPeople() {
     peopleList.replaceChildren(...cards);
     setupFilters(cards);
     setupPersonDialog(data.people);
+    setupDisclaimerDialog();
     updateReadingProgress();
   } catch (error) {
     console.error(error);

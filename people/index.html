@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="../images/icons/favicon.ico" />
     <link rel="stylesheet" href="../reset.css" />
     <link rel="stylesheet" href="../index.css" />
-    <link rel="stylesheet" href="people.css" />
+    <link rel="stylesheet" href="people.css?v=layout-popup" />
     <title>People | Miguel Cordero Collar</title>
   </head>
   <body class="people-page">
@@ -43,6 +43,15 @@
       <section class="people-section" aria-labelledby="people-heading">
         <div class="section-heading">
           <h2 id="people-heading">Public influences</h2>
+          <button
+            type="button"
+            class="disclaimer-button"
+            id="disclaimer-button"
+            aria-haspopup="dialog"
+            aria-controls="disclaimer-dialog"
+          >
+            About this list
+          </button>
         </div>
 
         <div class="filter-bar" aria-label="Filter people" role="toolbar">
@@ -79,6 +88,25 @@
       <div id="person-dialog-content" class="dialog-content"></div>
     </dialog>
 
-    <script src="people.js" defer></script>
+    <dialog id="disclaimer-dialog" aria-labelledby="disclaimer-dialog-heading">
+      <div class="dialog-heading-row">
+        <div>
+          <p class="eyebrow">How to read this list</p>
+          <h2 id="disclaimer-dialog-heading">Admiration is not agreement.</h2>
+        </div>
+        <form method="dialog" class="dialog-close-row">
+          <button type="submit" aria-label="Close note about this list">×</button>
+        </form>
+      </div>
+      <div class="dialog-content">
+        <p>
+          These are not endorsements of everything these people have said or done.
+          Each gave me an idea, a habit or an example that changed how I think. In
+          several cases, my admiration has survived even as my agreement has faded.
+        </p>
+      </div>
+    </dialog>
+
+    <script src="people.js?v=layout-popup" defer></script>
   </body>
 </html>

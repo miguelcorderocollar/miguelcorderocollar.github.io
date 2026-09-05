@@ -44,7 +44,6 @@
   grid-template-columns: minmax(16ch, 0.7fr) minmax(32ch, 1.3fr);
   gap: 0 4ch;
   margin-bottom: calc(var(--line-height) * 2);
-  padding: 0 2ch;
 }
 
 .dedication .eyebrow {
@@ -77,7 +76,9 @@
 }
 
 .section-heading {
-  align-items: end;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1ch 2ch;
   justify-content: space-between;
   margin-bottom: var(--line-height);
 }
@@ -114,6 +115,22 @@
   height: calc(var(--line-height) * 1.75);
   padding: calc(var(--line-height) / 2 - var(--border-thickness)) 1ch;
   font-size: 0.75rem;
+}
+
+.disclaimer-button {
+  width: auto;
+  min-width: 0;
+  height: calc(var(--line-height) * 1.75);
+  padding: calc(var(--line-height) / 2 - var(--border-thickness)) 1ch;
+  border-color: var(--text-color-alt);
+  color: var(--text-color-alt);
+  font-size: 0.7rem;
+}
+
+.disclaimer-button:hover,
+.disclaimer-button:focus-visible {
+  border-color: var(--people-accent);
+  color: var(--text-color);
 }
 
 .filter-button.is-active {
