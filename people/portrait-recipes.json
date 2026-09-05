@@ -45,6 +45,11 @@
       "id": "c-tangana",
       "source": "images/people/source/c-tangana-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.28, "areaPct": 0.70 }
+    },
+    {
+      "id": "brandon-sanderson",
+      "source": "images/people/source/brandon-sanderson-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.39, "areaPct": 0.72 }
     }
   ]
 }

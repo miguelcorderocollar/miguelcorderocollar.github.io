@@ -189,6 +189,27 @@
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goyas_2025_-_C_Tangana.jpg",
         "license": "CC BY-SA 4.0"
       }
+    },
+    {
+      "id": "brandon-sanderson",
+      "name": "Brandon Sanderson",
+      "category": "culture",
+      "categoryLabel": "Culture",
+      "role": "Fantasy author and writing teacher",
+      "portrait": "../images/people/processed/brandon-sanderson-halftone.webp",
+      "portraitAlt": "Brandon Sanderson at MCM Comic Con London in 2026",
+      "summary": "His stories reminded me of the beauty and depth of fantasy. Mistborn, Elantris and the wider worlds he creates feel alive because their magic follows real rules and structure, while the human stories remain at the center. I also admire his extraordinary work ethic: the consistency and quality with which he builds such a vast universe is inspiring.",
+      "bio": "Brandon Sanderson is an American fantasy and science-fiction author best known for the Cosmere novels, including Mistborn and The Stormlight Archive. He is also known for teaching creative writing and for a disciplined, prolific publishing practice.",
+      "links": [
+        { "label": "Official website", "url": "https://www.brandonsanderson.com/" },
+        { "label": "Books and art", "url": "https://www.brandonsanderson.com/pages/books-and-art" },
+        { "label": "Dragonsteel", "url": "https://www.dragonsteelbooks.com/" }
+      ],
+      "photo": {
+        "credit": "David Maynard / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brandon_Sanderson_at_MCM_Comic_Con_London_22_May_2026_02.jpg",
+        "license": "CC BY-SA 4.0"
+      }
     }
   ]
 }
