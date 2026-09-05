@@ -17,6 +17,7 @@ My work centers on AI, Agentic AI, internal tools, SaaS platforms, and proof-of-
 A few things I keep an eye on.
 
 - [Trends](../trends/): Ideas I'm following, and when I first noticed them.
+- [People](../people/): Public figures who have shaped how I think and work.
 
 ## Experience
 

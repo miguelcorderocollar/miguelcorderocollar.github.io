@@ -1,0 +1,20 @@
+{
+  "aspect": "1:1",
+  "people": [
+    {
+      "id": "miguel-anxo-bastos",
+      "source": "images/people/source/miguel-anxo-bastos-modern.jpg",
+      "crop": { "focusX": 0.51, "focusY": 0.37, "areaPct": 0.98 }
+    },
+    {
+      "id": "juan-ramon-rallo",
+      "source": "images/people/source/juan-ramon-rallo-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }
+    },
+    {
+      "id": "david-heinemeier-hansson",
+      "source": "images/people/source/david-heinemeier-hansson-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.48, "areaPct": 0.96 }
+    }
+  ]
+}

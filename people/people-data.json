@@ -1,0 +1,67 @@
+{
+  "updated": "2026-09-05",
+  "people": [
+    {
+      "id": "miguel-anxo-bastos",
+      "name": "Miguel Anxo Bastos",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Professor of political science and economist",
+      "portrait": "../images/people/processed/miguel-anxo-bastos-halftone.webp",
+      "portraitAlt": "Portrait of Miguel Anxo Bastos",
+      "summary": "His lectures opened the door to libertarianism and anarcho-capitalism for me. Just as important is how he argues, with humility, courtesy and a sincere effort to understand the person across from him. He made me more hopeful about human nature.",
+      "bio": "Miguel Anxo Bastos Boubeta is a Spanish economist and professor of political science at the University of Santiago de Compostela. His work covers Austrian economics, public policy and political philosophy.",
+      "links": [
+        { "label": "Personal website", "url": "https://miguelanxobastos.org/" },
+        { "label": "Articles at Mises Hispano", "url": "https://www.mises.org.es/authors/miguel-anxo-bastos/" }
+      ],
+      "photo": {
+        "credit": "El Español / Quincemil",
+        "sourceUrl": "https://www.elespanol.com/quincemil/vivir/gastrosantiago/20241003/onde-comer-santiago-compostela-segundo-profesor-universitario-miguel-anxo-bastos/887411321_0.html",
+        "license": "Original article"
+      }
+    },
+    {
+      "id": "juan-ramon-rallo",
+      "name": "Juan Ramón Rallo",
+      "category": "economics",
+      "categoryLabel": "Economics",
+      "role": "Economist, writer and teacher",
+      "portrait": "../images/people/processed/juan-ramon-rallo-halftone.webp",
+      "portraitAlt": "Portrait of Juan Ramón Rallo",
+      "summary": "His videos taught me economics with unusual clarity and gave me a framework for understanding freedom, institutions and the choices behind public policy. He has been one of my best teachers, even though I learned from him through a screen.",
+      "bio": "Juan Ramón Rallo is a Spanish economist, writer and professor. He teaches economics, writes about liberalism and explains current affairs through his blog, books and videos.",
+      "links": [
+        { "label": "Personal website", "url": "https://juanramonrallo.com/" },
+        { "label": "YouTube channel", "url": "https://www.youtube.com/c/juanrallo/" }
+      ],
+      "photo": {
+        "credit": "Juan Ramón Rallo / X",
+        "sourceUrl": "https://x.com/juanrallo",
+        "license": "Profile image"
+      }
+    },
+    {
+      "id": "david-heinemeier-hansson",
+      "name": "David Heinemeier Hansson",
+      "shortName": "DHH",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Programmer, entrepreneur and racing driver",
+      "portrait": "../images/people/processed/david-heinemeier-hansson-halftone.webp",
+      "portraitAlt": "David Heinemeier Hansson smiling in a close-up portrait",
+      "summary": "His example makes ambitious work feel possible. He created Ruby on Rails, helped build 37signals and later made Omarchy, while speaking plainly about his convictions. I admire that he can care deeply about code, racing, politics and a full life without pretending those interests have to compete.",
+      "bio": "David Heinemeier Hansson is a Danish programmer, author and co-owner of 37signals. He created Ruby on Rails, writes about software and public life, and races cars.",
+      "links": [
+        { "label": "Personal website", "url": "https://dhh.dk/" },
+        { "label": "37signals", "url": "https://37signals.com/" },
+        { "label": "Omarchy", "url": "https://omarchy.org/" }
+      ],
+      "photo": {
+        "credit": "David Heinemeier Hansson",
+        "sourceUrl": "https://dhh.dk/",
+        "license": "Personal website"
+      }
+    }
+  ]
+}
