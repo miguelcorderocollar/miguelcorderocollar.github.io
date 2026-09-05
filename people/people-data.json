@@ -64,6 +64,27 @@
       }
     },
     {
+      "id": "marcus-aurelius",
+      "name": "Marcus Aurelius",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Roman emperor and Stoic philosopher",
+      "portrait": "../images/people/processed/marcus-aurelius-halftone.webp",
+      "portraitAlt": "Marble portrait bust of Marcus Aurelius",
+      "summary": "Reading Meditations showed me how little human concerns change. Its concise reminders helped me see that, beneath technology and historical change, friendship, family, love and living well are still what matter most. The idea of reading one reflection a day feels as useful now as it would have been in Marcus Aurelius's time.",
+      "bio": "Marcus Aurelius was a Roman emperor and Stoic philosopher. Meditations, his private reflections on character, duty and resilience, remains one of the clearest surviving records of Stoic practice.",
+      "links": [
+        { "label": "Meditations at MIT Classics", "url": "http://classics.mit.edu/Antoninus/meditations.html" },
+        { "label": "Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/marcus-aurelius/" },
+        { "label": "Meditations at Project Gutenberg", "url": "https://www.gutenberg.org/ebooks/2680" }
+      ],
+      "photo": {
+        "credit": "PierreSelim / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marcus_Aurelius_-_MET_-_MR_561_-_L.2008.49.jpg",
+        "license": "CC0 1.0"
+      }
+    },
+    {
       "id": "juan-ramon-rallo",
       "name": "Juan Ramón Rallo",
       "category": "economics",

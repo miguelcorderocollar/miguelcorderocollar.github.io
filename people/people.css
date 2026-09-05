@@ -166,6 +166,10 @@
   animation-delay: 490ms;
 }
 
+.person-card:nth-child(9) {
+  animation-delay: 560ms;
+}
+
 .person-card.is-hidden {
   display: none;
 }
