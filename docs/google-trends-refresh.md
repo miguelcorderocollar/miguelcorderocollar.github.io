@@ -1,8 +1,12 @@
 # Refreshing the trends page
 
-The `/trends/` page is a static snapshot. Google Trends values are normalized search interest from 0 to 100, not search counts or stock prices. The JSON keeps the exact Explore URL beside every series so a future refresh can be checked against the same filters. Each signal should have a `personalInterestDate` and `personalInterestLabel`; optional `contextMarkdown` fields hold the personal story shown by a card’s Info button. A `displayUntil` field can intentionally shorten a card when the useful story ends before the source window; the card must say when that happens.
+The `/trends/` page is a static snapshot. Google Trends values are normalized search interest from 0 to 100, not search counts or stock prices. The JSON keeps the exact Explore URL beside every series so a future refresh can be checked against the same filters. Each signal should have a `personalInterestDate` and `personalInterestLabel`; optional `contextMarkdown` fields hold the personal story shown by a card’s Info button. A `displayUntil` field can intentionally shorten a chart when the useful story ends before the source window; the chart ends at that cutoff.
 
-Google’s supported workflow is browser-based:
+Google’s supported workflow is browser-based. A signal can also use an optional
+`personalInterestEndDate` and `endMarkerLabel` to show when an interest period ended;
+the chart renders the period before and after that window more softly.
+
+The snapshot workflow remains browser-based:
 
 1. Open the `sourceUrl` for a signal.
 2. Confirm the query type, geography, date range, category, and search property.

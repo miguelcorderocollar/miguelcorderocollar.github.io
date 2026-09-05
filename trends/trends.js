@@ -66,6 +66,82 @@ function yForValue(value) {
   return chartHeight - chartPadding.bottom - (value / 100) * plotHeight;
 }
 
+function markerDateFromValue(value) {
+  if (!value) return null;
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function firstIndexAtOrAfter(points, date) {
+  const index = points.findIndex((point) => point.date >= date);
+  return index < 0 ? points.length : index;
+}
+
+function lastIndexAtOrBefore(points, date) {
+  for (let index = points.length - 1; index >= 0; index -= 1) {
+    if (points[index].date <= date) return index;
+  }
+  return -1;
+}
+
+function visibleMarkerIndex(points, date) {
+  if (!date || !points.length || date < points[0].date || date > points[points.length - 1].date) {
+    return -1;
+  }
+  return firstIndexAtOrAfter(points, date);
+}
+
+function pathForPoints(points, startIndex, endIndex) {
+  return points.slice(startIndex, endIndex + 1).map((point, offset) => {
+    const index = startIndex + offset;
+    const command = offset === 0 ? "M" : "L";
+    return `${command} ${xForIndex(index, points.length)} ${yForValue(point.value)}`;
+  }).join(" ");
+}
+
+function appendChartMarker(svg, points, index, label, isEnd = false) {
+  if (index < 0) return;
+  const x = xForIndex(index, points.length);
+  const markerVariant = isEnd ? " chart-marker--end" : "";
+  const pointVariant = isEnd ? " chart-marker-point--end" : "";
+
+  if (!isEnd) {
+    svg.appendChild(makeSvgElement("rect", {
+      class: "chart-marker-band",
+      x: x - 7,
+      y: chartPadding.top - 8,
+      width: 14,
+      height: chartHeight - chartPadding.top - chartPadding.bottom + 8,
+      "aria-hidden": "true",
+    }));
+  }
+
+  svg.appendChild(makeSvgElement("line", {
+    class: `chart-marker${markerVariant}`,
+    x1: x,
+    x2: x,
+    y1: chartPadding.top - 8,
+    y2: chartHeight - chartPadding.bottom,
+    "aria-hidden": "true",
+  }));
+  svg.appendChild(makeSvgElement("circle", {
+    class: `chart-marker-point${pointVariant}`,
+    cx: x,
+    cy: yForValue(points[index].value),
+    r: 5,
+    "aria-hidden": "true",
+  }));
+  const markerLabel = makeSvgElement("text", {
+    class: "chart-marker-label",
+    x: x > chartWidth - 190 ? x - 10 : x + 10,
+    y: chartPadding.top - 13,
+    "text-anchor": x > chartWidth - 190 ? "end" : "start",
+    "aria-hidden": "true",
+  });
+  markerLabel.textContent = label || (isEnd ? "stopped" : "personal");
+  svg.appendChild(markerLabel);
+}
+
 function drawChart(signal, points, readout) {
   const svg = makeSvgElement("svg", {
     class: "trend-chart",
@@ -96,59 +172,44 @@ function drawChart(signal, points, readout) {
     svg.appendChild(label);
   });
 
-  const markerDate = signal.personalInterestDate
-    ? new Date(`${signal.personalInterestDate}T00:00:00Z`)
-    : null;
-  const markerIsVisible = markerDate && markerDate >= points[0].date && markerDate <= points[points.length - 1].date;
-  let markerIndex = -1;
+  const markerDate = markerDateFromValue(signal.personalInterestDate);
+  const endMarkerDate = markerDateFromValue(signal.personalInterestEndDate);
+  const markerIndex = visibleMarkerIndex(points, markerDate);
+  const endMarkerIndex = visibleMarkerIndex(points, endMarkerDate);
+  const interestStartIndex = markerDate
+    ? firstIndexAtOrAfter(points, markerDate)
+    : 0;
+  const interestEndIndex = endMarkerDate
+    ? lastIndexAtOrBefore(points, endMarkerDate)
+    : points.length - 1;
+  const hasInterestWindow = interestStartIndex >= 0
+    && interestStartIndex < points.length
+    && interestEndIndex >= interestStartIndex;
 
-  if (markerIsVisible) {
-    const markerPosition = points.findIndex((point) => point.date >= markerDate);
-    markerIndex = markerPosition < 0 ? points.length - 1 : markerPosition;
-    const x = xForIndex(markerIndex, points.length);
-    svg.appendChild(makeSvgElement("rect", {
-      class: "chart-marker-band",
-      x: x - 7,
-      y: chartPadding.top - 8,
-      width: 14,
-      height: chartHeight - chartPadding.top - chartPadding.bottom + 8,
+  if (hasInterestWindow) {
+    svg.appendChild(makeSvgElement("path", {
+      class: "chart-line chart-line--muted",
+      d: pathForPoints(points, 0, points.length - 1),
       "aria-hidden": "true",
     }));
-    svg.appendChild(makeSvgElement("line", {
-      class: "chart-marker",
-      x1: x,
-      x2: x,
-      y1: chartPadding.top - 8,
-      y2: chartHeight - chartPadding.bottom,
+    svg.appendChild(makeSvgElement("path", {
+      class: "chart-line",
+      d: pathForPoints(points, interestStartIndex, interestEndIndex),
       "aria-hidden": "true",
     }));
-    svg.appendChild(makeSvgElement("circle", {
-      class: "chart-marker-point",
-      cx: x,
-      cy: yForValue(points[markerIndex].value),
-      r: 5,
+  } else {
+    svg.appendChild(makeSvgElement("path", {
+      class: "chart-line",
+      d: pathForPoints(points, 0, points.length - 1),
       "aria-hidden": "true",
     }));
-    const markerLabel = makeSvgElement("text", {
-      class: "chart-marker-label",
-      x: x > chartWidth - 190 ? x - 10 : x + 10,
-      y: chartPadding.top - 13,
-      "text-anchor": x > chartWidth - 190 ? "end" : "start",
-      "aria-hidden": "true",
-    });
-    markerLabel.textContent = signal.markerLabel || "personal";
-    svg.appendChild(markerLabel);
   }
 
-  const path = points.map((point, index) => {
-    const command = index === 0 ? "M" : "L";
-    return `${command} ${xForIndex(index, points.length)} ${yForValue(point.value)}`;
-  }).join(" ");
-  svg.appendChild(makeSvgElement("path", { class: "chart-line", d: path }));
-
   points.forEach((point, index) => {
+    const isActivePoint = !hasInterestWindow
+      || (index >= interestStartIndex && index <= interestEndIndex);
     const circle = makeSvgElement("circle", {
-      class: "chart-point",
+      class: `chart-point${isActivePoint ? "" : " chart-point--muted"}`,
       cx: xForIndex(index, points.length),
       cy: yForValue(point.value),
       r: points.length > 100 ? 2.7 : 4,
@@ -161,6 +222,9 @@ function drawChart(signal, points, readout) {
     circle.addEventListener("focus", () => renderHover(index));
     svg.appendChild(circle);
   });
+
+  appendChartMarker(svg, points, markerIndex, signal.markerLabel);
+  appendChartMarker(svg, points, endMarkerIndex, signal.endMarkerLabel, true);
 
   [0, Math.floor((points.length - 1) / 2), points.length - 1]
     .filter((index, position, indexes) => indexes.indexOf(index) === position)
@@ -194,7 +258,7 @@ function drawChart(signal, points, readout) {
   });
   svg.append(crosshair, focusPoint);
 
-  let hoverIndex = markerIndex >= 0 ? markerIndex : 0;
+  let hoverIndex = markerIndex >= 0 ? markerIndex : Math.min(interestStartIndex, points.length - 1);
 
   function renderHover(index) {
     hoverIndex = Math.max(0, Math.min(points.length - 1, index));
@@ -271,13 +335,9 @@ function createTrendCard(signal) {
   top.className = "trend-card__top";
   const heading = document.createElement("h3");
   heading.textContent = signal.label;
-  const category = document.createElement("p");
-  category.className = "trend-card__category";
-  category.textContent = signal.categoryLabel;
 
   const actions = document.createElement("div");
   actions.className = "trend-card__actions";
-  actions.append(category);
   if (signal.contextMarkdown) {
     const infoButton = document.createElement("button");
     infoButton.type = "button";
@@ -324,17 +384,6 @@ function createTrendCard(signal) {
   actions.append(sourceLink);
   top.append(heading, actions);
 
-  const meta = document.createElement("div");
-  meta.className = "trend-card__meta";
-  const displayedRange = signal.displayUntilLabel
-    ? `shown through ${signal.displayUntilLabel}`
-    : signal.dateRange;
-  [signal.geo || "Worldwide", displayedRange, signal.granularity].forEach((text) => {
-    const item = document.createElement("span");
-    item.textContent = text;
-    meta.appendChild(item);
-  });
-
   const chartFrame = document.createElement("div");
   chartFrame.className = "chart-frame";
   const readout = document.createElement("p");
@@ -343,7 +392,7 @@ function createTrendCard(signal) {
   readout.textContent = "Hover the chart to inspect values.";
   chartFrame.append(drawChart(signal, points, readout), readout);
 
-  card.append(top, meta, chartFrame);
+  card.append(top, chartFrame);
   return card;
 }
 

@@ -79,6 +79,8 @@
       "sourceUrl": "https://trends.google.com/explore?q=Ethereum&date=2015-01-01%202026-09-05&geo=Worldwide",
       "personalInterestDate": "2017-01-01",
       "personalInterestLabel": "Early interest, Jan 2017",
+      "personalInterestEndDate": "2022-04-01",
+      "endMarkerLabel": "stopped caring about crypto",
       "markerLabel": "early interest",
       "contextMarkdown": null,
       "series": {
@@ -91,8 +93,8 @@
     {
       "id": "podcast",
       "label": "Podcast",
-      "category": "culture",
-      "categoryLabel": "Culture",
+      "category": "technology",
+      "categoryLabel": "Technology",
       "query": "podcast",
       "queryType": "term",
       "dateRange": "2011-01-01 2026-09-05",

@@ -51,7 +51,6 @@
 .section-heading,
 .filter-bar,
 .trend-card__top,
-.trend-card__meta,
 .dialog-close-row {
   display: flex;
   align-items: baseline;
@@ -150,17 +149,6 @@
   letter-spacing: -0.04em;
 }
 
-.trend-card__category {
-  flex: 0 0 auto;
-  margin: 0;
-  padding: 0.25ch 0.75ch;
-  border: 1px solid var(--series-color);
-  color: var(--series-color);
-  font-size: 0.65rem;
-  line-height: 1.5;
-  text-transform: uppercase;
-}
-
 .trend-card__info {
   display: grid;
   place-items: center;
@@ -187,26 +175,9 @@
   color: var(--trend-accent);
 }
 
-.trend-card__meta {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-top: calc(var(--line-height) / 2);
-  color: var(--text-color-alt);
-  font-size: 0.7rem;
-}
-
-.trend-card__meta span {
-  margin: 0;
-}
-
-.trend-card__meta span + span::before {
-  margin-right: 1ch;
-  content: "·";
-}
-
 .chart-frame {
   position: relative;
-  margin-top: calc(var(--line-height) * 1.25);
+  margin-top: var(--line-height);
   touch-action: pan-y;
 }
 
@@ -228,6 +199,11 @@
   stroke: var(--series-color);
   stroke-width: 3;
   vector-effect: non-scaling-stroke;
+}
+
+.trend-chart .chart-line--muted,
+.trend-chart .chart-point--muted {
+  opacity: 0.3;
 }
 
 .trend-chart .chart-point {
@@ -273,6 +249,10 @@
   stroke-dasharray: 4 4;
   stroke-width: 2;
   vector-effect: non-scaling-stroke;
+}
+
+.trend-chart .chart-marker--end {
+  stroke-dasharray: 2 3;
 }
 
 .trend-chart .chart-marker-point {
