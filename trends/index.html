@@ -45,7 +45,6 @@
         <div class="filter-bar" aria-label="Filter signals" role="toolbar">
           <button type="button" class="filter-button is-active" data-filter="all">All signals</button>
           <button type="button" class="filter-button" data-filter="technology">Technology</button>
-          <button type="button" class="filter-button" data-filter="work">Work</button>
           <button type="button" class="filter-button" data-filter="culture">Culture</button>
           <button type="button" class="filter-button filter-button--method" id="method-open">Method</button>
         </div>
@@ -64,11 +63,15 @@
     </main>
 
     <dialog id="method-dialog" aria-labelledby="method-heading">
-      <form method="dialog" class="dialog-close-row">
-        <button type="submit" aria-label="Close method dialog">Close</button>
-      </form>
-      <p class="eyebrow">METHOD</p>
-      <h2 id="method-heading">How to read this page</h2>
+      <div class="dialog-heading-row">
+        <div>
+          <p class="eyebrow">METHOD</p>
+          <h2 id="method-heading">How to read this page</h2>
+        </div>
+        <form method="dialog" class="dialog-close-row">
+          <button type="submit" aria-label="Close method dialog">×</button>
+        </form>
+      </div>
       <p>
         Google Trends shows relative search interest from 0 to 100. A value of 100 is
         the peak inside that card’s query, place, property, and time range. It is not
@@ -85,16 +88,24 @@
         full Trends window.
       </p>
       <p class="dialog-source">
-        <a href="https://trends.google.com/" target="_blank" rel="noreferrer">Google Trends ↗</a>
+        <a class="icon-link" href="https://trends.google.com/" target="_blank" rel="noreferrer" aria-label="Open Google Trends">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M14 4h6v6M20 4l-9 9M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+        </a>
       </p>
     </dialog>
 
     <dialog id="info-dialog" aria-labelledby="info-dialog-heading">
-      <form method="dialog" class="dialog-close-row">
-        <button type="submit" aria-label="Close context dialog">Close</button>
-      </form>
-      <p id="info-dialog-category" class="eyebrow">PERSONAL CONTEXT</p>
-      <h2 id="info-dialog-heading">Context</h2>
+      <div class="dialog-heading-row">
+        <div>
+          <p id="info-dialog-category" class="eyebrow">PERSONAL CONTEXT</p>
+          <h2 id="info-dialog-heading">Context</h2>
+        </div>
+        <form method="dialog" class="dialog-close-row">
+          <button type="submit" aria-label="Close context dialog">×</button>
+        </form>
+      </div>
       <div id="info-dialog-content" class="dialog-markdown"></div>
     </dialog>
 

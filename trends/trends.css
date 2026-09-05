@@ -52,7 +52,6 @@
 .filter-bar,
 .trend-card__top,
 .trend-card__meta,
-.trend-card__stats,
 .trend-card__footer,
 .dialog-close-row {
   display: flex;
@@ -166,25 +165,32 @@
 }
 
 .trend-card__info {
-  width: auto;
+  display: grid;
+  place-items: center;
+  width: 2.4ch;
   min-width: 0;
-  height: calc(var(--line-height) * 1.5);
+  height: 2.4ch;
   margin: 0;
-  padding: 0 0.75ch;
-  border-color: var(--text-color-alt);
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--text-color-alt);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   line-height: 1;
+}
+
+.trend-card__info svg {
+  display: block;
+  width: 1.25em;
+  height: 1.25em;
 }
 
 .trend-card__info:hover,
 .trend-card__info:focus-visible {
-  border-color: var(--trend-accent);
   color: var(--trend-accent);
 }
 
-.trend-card__meta,
-.trend-card__stats {
+.trend-card__meta {
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: calc(var(--line-height) / 2);
@@ -192,31 +198,18 @@
   font-size: 0.7rem;
 }
 
-.trend-card__meta span,
-.trend-card__stats span {
+.trend-card__meta span {
   margin: 0;
 }
 
-.trend-card__meta span + span::before,
-.trend-card__stats span + span::before {
+.trend-card__meta span + span::before {
   margin-right: 1ch;
   content: "·";
 }
 
-.trend-card__stats {
-  color: var(--text-color);
-}
-
-.trend-card__stats strong {
-  color: var(--series-color);
-  font-size: 1rem;
-}
-
 .chart-frame {
   position: relative;
-  margin-top: var(--line-height);
-  padding-top: 1ch;
-  border-top: 1px solid var(--trend-grid);
+  margin-top: calc(var(--line-height) * 1.25);
   touch-action: pan-y;
 }
 
@@ -311,12 +304,6 @@
   font-size: 0.7rem;
 }
 
-.trend-card__note {
-  margin: var(--line-height) 0 0;
-  color: var(--text-color-alt);
-  font-size: 0.8rem;
-}
-
 .trend-card__footer {
   align-items: end;
   justify-content: space-between;
@@ -340,19 +327,29 @@
   font-weight: var(--font-weight-bold);
 }
 
-.marker-missing {
-  color: var(--text-color-alt);
-}
-
 .trend-card__source {
   flex: 0 0 auto;
   text-align: right;
 }
 
 .trend-card__source a {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4ch;
+  height: 2.4ch;
   color: var(--text-color-alt);
-  font-size: 0.68rem;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
+}
+
+.trend-card__source svg {
+  display: block;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.trend-card__source a:hover,
+.trend-card__source a:focus-visible {
+  color: var(--trend-accent);
 }
 
 .loading-state,
@@ -383,16 +380,25 @@ dialog::backdrop {
   background: rgba(0, 0, 0, 0.58);
 }
 
+.dialog-heading-row {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 2ch;
+}
+
 .dialog-close-row {
-  justify-content: flex-end;
-  margin: 0 0 calc(var(--line-height) * 1.5);
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .dialog-close-row button {
   width: auto;
-  height: calc(var(--line-height) * 1.5);
-  padding: 0 1ch;
-  font-size: 0.7rem;
+  min-width: 0;
+  height: calc(var(--line-height) * 1.75);
+  padding: 0 0.75ch;
+  font-size: 1.25rem;
+  line-height: 1;
 }
 
 dialog h2 {
@@ -404,7 +410,7 @@ dialog p {
   margin-top: var(--line-height);
 }
 
-dialog .eyebrow {
+dialog p.eyebrow {
   margin-top: 0;
 }
 
@@ -437,6 +443,25 @@ dialog .eyebrow {
 
 .dialog-source {
   font-size: 0.75rem;
+}
+
+.icon-link {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4ch;
+  height: 2.4ch;
+  color: var(--text-color-alt);
+}
+
+.icon-link svg {
+  display: block;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.icon-link:hover,
+.icon-link:focus-visible {
+  color: var(--trend-accent);
 }
 
 @media screen and (max-width: 720px) {

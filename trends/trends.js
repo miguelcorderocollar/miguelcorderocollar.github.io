@@ -4,7 +4,7 @@ const SERIES_COLORS = {
   omarchy: "#e8512a",
   ai: "#2862aa",
   tesla: "#8a5a44",
-  marketing: "#68733b",
+  ethereum: "#68733b",
   podcast: "#7f4c79",
   "c-tangana": "#ad4b68",
 };
@@ -132,7 +132,7 @@ function drawChart(signal, points, readout) {
       "text-anchor": x > chartWidth - 190 ? "end" : "start",
       "aria-hidden": "true",
     });
-    markerLabel.textContent = "my start";
+    markerLabel.textContent = signal.markerLabel || "personal";
     svg.appendChild(markerLabel);
   }
 
@@ -202,7 +202,7 @@ function drawChart(signal, points, readout) {
     focusPoint.setAttribute("cy", yForValue(point.value));
     crosshair.setAttribute("visibility", "visible");
     focusPoint.setAttribute("visibility", "visible");
-    readout.textContent = `${point.label} · ${point.value}/100${point.partial ? " · partial latest value" : ""}`;
+    readout.textContent = `${point.label} · ${point.value}/100${point.partial ? " · partial" : ""}`;
     hitArea.setAttribute("aria-valuenow", point.value);
     hitArea.setAttribute("aria-valuetext", `${point.label}, ${point.value} out of 100`);
   }
@@ -256,29 +256,18 @@ function drawChart(signal, points, readout) {
   return svg;
 }
 
-function getStats(points) {
-  const latest = points[points.length - 1];
-  const peakValue = Math.max(...points.map((point) => point.value));
-  const peakIndex = points.findIndex((point) => point.value === peakValue);
-  return { latest, peakValue, peak: points[peakIndex] };
-}
-
 function createPersonalCopy(signal) {
   const paragraph = document.createElement("p");
   paragraph.className = "trend-card__personal";
-  const hasMarker = Boolean(signal.personalInterestDate);
   const label = document.createElement("span");
-  label.className = hasMarker ? "personal-marker" : "marker-missing";
-  label.textContent = hasMarker
-    ? `Personal marker · ${signal.personalInterestLabel}`
-    : "No personal marker";
+  label.className = "personal-marker";
+  label.textContent = `Personal marker · ${signal.personalInterestLabel}`;
   paragraph.appendChild(label);
   return paragraph;
 }
 
 function createTrendCard(signal) {
   const points = buildPoints(signal);
-  const { latest, peakValue, peak } = getStats(points);
   const card = document.createElement("article");
   card.className = "trend-card";
   card.dataset.category = signal.category;
@@ -294,13 +283,27 @@ function createTrendCard(signal) {
 
   const actions = document.createElement("div");
   actions.className = "trend-card__actions";
-  const infoButton = document.createElement("button");
-  infoButton.type = "button";
-  infoButton.className = "trend-card__info";
-  infoButton.dataset.info = signal.id;
-  infoButton.setAttribute("aria-label", `Open context for ${signal.label}`);
-  infoButton.textContent = "info";
-  actions.append(category, infoButton);
+  actions.append(category);
+  if (signal.contextMarkdown) {
+    const infoButton = document.createElement("button");
+    infoButton.type = "button";
+    infoButton.className = "trend-card__info";
+    infoButton.dataset.info = signal.id;
+    infoButton.setAttribute("aria-label", `Open context for ${signal.label}`);
+    infoButton.title = `More context about ${signal.label}`;
+    const infoIcon = makeSvgElement("svg", {
+      viewBox: "0 0 24 24",
+      "aria-hidden": "true",
+      focusable: "false",
+    });
+    infoIcon.append(
+      makeSvgElement("circle", { cx: 12, cy: 12, r: 9, fill: "none", stroke: "currentColor", "stroke-width": 2 }),
+      makeSvgElement("circle", { cx: 12, cy: 7.5, r: 1.1, fill: "currentColor" }),
+      makeSvgElement("line", { x1: 12, y1: 11, x2: 12, y2: 16.5, stroke: "currentColor", "stroke-width": 2 }),
+    );
+    infoButton.appendChild(infoIcon);
+    actions.append(infoButton);
+  }
   top.append(heading, actions);
 
   const meta = document.createElement("div");
@@ -314,14 +317,6 @@ function createTrendCard(signal) {
     meta.appendChild(item);
   });
 
-  const stats = document.createElement("div");
-  stats.className = "trend-card__stats";
-  const latestStat = document.createElement("span");
-  latestStat.innerHTML = `latest <strong>${latest.value}</strong>`;
-  const peakStat = document.createElement("span");
-  peakStat.textContent = `peak ${peakValue} · ${peak.label}`;
-  stats.append(latestStat, peakStat);
-
   const chartFrame = document.createElement("div");
   chartFrame.className = "chart-frame";
   const readout = document.createElement("p");
@@ -329,10 +324,6 @@ function createTrendCard(signal) {
   readout.setAttribute("aria-live", "polite");
   readout.textContent = "Hover the chart to inspect values.";
   chartFrame.append(drawChart(signal, points, readout), readout);
-
-  const note = document.createElement("p");
-  note.className = "trend-card__note";
-  note.textContent = signal.note;
 
   const footer = document.createElement("div");
   footer.className = "trend-card__footer";
@@ -343,11 +334,27 @@ function createTrendCard(signal) {
   sourceLink.href = signal.sourceUrl;
   sourceLink.target = "_blank";
   sourceLink.rel = "noreferrer";
-  sourceLink.textContent = "source ↗";
+  sourceLink.setAttribute("aria-label", `Open Google Trends source for ${signal.label}`);
+  const sourceIcon = makeSvgElement("svg", {
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+  });
+  sourceIcon.append(
+    makeSvgElement("path", {
+      d: "M14 4h6v6M20 4l-9 9M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "stroke-width": 2,
+    }),
+  );
+  sourceLink.appendChild(sourceIcon);
   source.appendChild(sourceLink);
   footer.append(personal, source);
 
-  card.append(top, meta, stats, chartFrame, note, footer);
+  card.append(top, meta, chartFrame, footer);
   return card;
 }
 
@@ -510,10 +517,16 @@ async function loadTrends() {
     const response = await fetch("trends-data.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Snapshot request failed with ${response.status}`);
     const data = await response.json();
-    trendList.replaceChildren(...data.signals.map(createTrendCard));
-    setupFilters(data.signals);
+    const signals = data.signals.filter(
+      (signal) => signal.personalInterestDate && signal.personalInterestLabel,
+    );
+    if (signals.length !== data.signals.length) {
+      console.warn("Some trend signals were hidden because they have no personal marker.");
+    }
+    trendList.replaceChildren(...signals.map(createTrendCard));
+    setupFilters(signals);
     setupMethodDialog();
-    setupInfoDialog(data.signals);
+    setupInfoDialog(signals);
     updateReadingProgress();
   } catch (error) {
     console.error(error);
