@@ -12,6 +12,11 @@
       "crop": { "focusX": 0.55, "focusY": 0.35, "areaPct": 0.79 }
     },
     {
+      "id": "george-orwell",
+      "source": "images/people/source/george-orwell-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.46, "areaPct": 0.90 }
+    },
+    {
       "id": "ernesto-castro",
       "source": "images/people/source/ernesto-castro-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.32, "areaPct": 0.72 }

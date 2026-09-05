@@ -43,6 +43,27 @@
       }
     },
     {
+      "id": "george-orwell",
+      "name": "George Orwell",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Novelist, essayist and political writer",
+      "portrait": "../images/people/processed/george-orwell-halftone.webp",
+      "portraitAlt": "George Orwell in a 1943 press portrait",
+      "summary": "1984 was one of the books that brought me back to reading in my twenties. With it, and with Animal Farm, Orwell gave me a clearer sense of the dangers of state power and communism. I admire how he turned ideas that can feel abstract into stories and images anyone can understand. His work reminded me that stories are often the strongest way to make an important truth felt.",
+      "bio": "George Orwell, the pen name of Eric Arthur Blair, was an English novelist, essayist and journalist. His political fiction, especially Nineteen Eighty-Four and Animal Farm, made authoritarianism, propaganda and the abuse of language vivid to generations of readers.",
+      "links": [
+        { "label": "The Orwell Foundation", "url": "https://www.orwellfoundation.com/" },
+        { "label": "Nineteen Eighty-Four", "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/nineteen-eighty-four/" },
+        { "label": "Animal Farm", "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/animal-farm/" }
+      ],
+      "photo": {
+        "credit": "Branch of the National Union of Journalists / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Orwell_press_photo.jpg",
+        "license": "Public domain"
+      }
+    },
+    {
       "id": "ernesto-castro",
       "name": "Ernesto Castro",
       "category": "philosophy",
