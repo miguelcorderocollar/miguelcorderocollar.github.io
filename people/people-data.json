@@ -64,6 +64,27 @@
       }
     },
     {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Entrepreneur, engineer and builder",
+      "portrait": "../images/people/processed/elon-musk-halftone.webp",
+      "portraitAlt": "Elon Musk in a black suit and tie at a 2025 event",
+      "summary": "He taught me to dream on a bigger scale, keep faith in humanity and think in decades rather than quarters. His first-principles approach is a reminder not to accept the world as fixed: ambitious problems can be reimagined, and then built.",
+      "bio": "Elon Musk is an entrepreneur and engineer whose companies work across spaceflight, electric vehicles, artificial intelligence and infrastructure. He is known for pairing long-horizon ambitions with an insistence on first-principles thinking.",
+      "links": [
+        { "label": "SpaceX", "url": "https://www.spacex.com/" },
+        { "label": "Tesla", "url": "https://www.tesla.com/" },
+        { "label": "xAI", "url": "https://x.ai/" }
+      ],
+      "photo": {
+        "credit": "Gage Skidmore / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elon_Musk_(54816836217)_(cropped).jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
       "id": "c-tangana",
       "name": "C. Tangana",
       "shortName": "C. Tangana",

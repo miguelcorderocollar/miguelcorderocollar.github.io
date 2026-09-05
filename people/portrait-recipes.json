@@ -17,6 +17,11 @@
       "crop": { "focusX": 0.5, "focusY": 0.48, "areaPct": 0.96 }
     },
     {
+      "id": "elon-musk",
+      "source": "images/people/source/elon-musk-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.90 }
+    },
+    {
       "id": "c-tangana",
       "source": "images/people/source/c-tangana-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.28, "areaPct": 0.70 }
