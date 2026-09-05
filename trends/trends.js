@@ -37,12 +37,15 @@ function formatPeriod(date, interval) {
 }
 
 function buildPoints(signal) {
-  return signal.series.values.map((value, index) => ({
-    date: dateFromSeries(signal, index),
-    label: formatPeriod(dateFromSeries(signal, index), signal.series.interval),
-    value,
-    partial: Boolean(signal.partialLast && index === signal.series.values.length - 1),
-  }));
+  return signal.series.values.map((value, index) => {
+    const date = dateFromSeries(signal, index);
+    return {
+      date,
+      label: formatPeriod(date, signal.series.interval),
+      value,
+      partial: Boolean(signal.partialLast && index === signal.series.values.length - 1),
+    };
+  });
 }
 
 function xForIndex(index, count) {
@@ -85,6 +88,50 @@ function drawChart(signal, points, readout) {
     svg.appendChild(label);
   });
 
+  const markerDate = signal.personalInterestDate
+    ? new Date(`${signal.personalInterestDate}T00:00:00Z`)
+    : null;
+  const markerIsVisible = markerDate && markerDate >= points[0].date && markerDate <= points[points.length - 1].date;
+  let markerIndex = -1;
+
+  if (markerIsVisible) {
+    const markerPosition = points.findIndex((point) => point.date >= markerDate);
+    markerIndex = markerPosition < 0 ? points.length - 1 : markerPosition;
+    const x = xForIndex(markerIndex, points.length);
+    svg.appendChild(makeSvgElement("rect", {
+      class: "chart-marker-band",
+      x: x - 7,
+      y: chartPadding.top - 8,
+      width: 14,
+      height: chartHeight - chartPadding.top - chartPadding.bottom + 8,
+      "aria-hidden": "true",
+    }));
+    svg.appendChild(makeSvgElement("line", {
+      class: "chart-marker",
+      x1: x,
+      x2: x,
+      y1: chartPadding.top - 8,
+      y2: chartHeight - chartPadding.bottom,
+      "aria-hidden": "true",
+    }));
+    svg.appendChild(makeSvgElement("circle", {
+      class: "chart-marker-point",
+      cx: x,
+      cy: yForValue(points[markerIndex].value),
+      r: 5,
+      "aria-hidden": "true",
+    }));
+    const markerLabel = makeSvgElement("text", {
+      class: "chart-marker-label",
+      x: x > chartWidth - 190 ? x - 10 : x + 10,
+      y: chartPadding.top - 13,
+      "text-anchor": x > chartWidth - 190 ? "end" : "start",
+      "aria-hidden": "true",
+    });
+    markerLabel.textContent = "my start";
+    svg.appendChild(markerLabel);
+  }
+
   const path = points.map((point, index) => {
     const command = index === 0 ? "M" : "L";
     return `${command} ${xForIndex(index, points.length)} ${yForValue(point.value)}`;
@@ -103,39 +150,9 @@ function drawChart(signal, points, readout) {
     const pointTitle = makeSvgElement("title");
     pointTitle.textContent = `${point.label}: ${point.value}${point.partial ? " (partial)" : ""}`;
     circle.appendChild(pointTitle);
-    const updateReadout = () => {
-      readout.textContent = `${point.label} · ${point.value}/100${point.partial ? " · partial latest value" : ""}`;
-    };
-    circle.addEventListener("mouseenter", updateReadout);
-    circle.addEventListener("focus", updateReadout);
+    circle.addEventListener("focus", () => renderHover(index));
     svg.appendChild(circle);
   });
-
-  if (signal.personalInterestDate) {
-    const markerDate = new Date(`${signal.personalInterestDate}T00:00:00Z`);
-    const firstDate = points[0].date;
-    const lastDate = points[points.length - 1].date;
-    if (markerDate >= firstDate && markerDate <= lastDate) {
-      const markerPosition = points.findIndex((point) => point.date >= markerDate);
-      const index = markerPosition < 0 ? points.length - 1 : markerPosition;
-      const x = xForIndex(index, points.length);
-      svg.appendChild(makeSvgElement("line", {
-        class: "chart-marker",
-        x1: x,
-        x2: x,
-        y1: chartPadding.top - 8,
-        y2: chartHeight - chartPadding.bottom,
-      }));
-      const markerLabel = makeSvgElement("text", {
-        class: "chart-marker-label",
-        x: x > chartWidth - 190 ? x - 8 : x + 8,
-        y: chartPadding.top - 13,
-        "text-anchor": x > chartWidth - 190 ? "end" : "start",
-      });
-      markerLabel.textContent = "personal marker";
-      svg.appendChild(markerLabel);
-    }
-  }
 
   [0, Math.floor((points.length - 1) / 2), points.length - 1]
     .filter((index, position, indexes) => indexes.indexOf(index) === position)
@@ -150,17 +167,88 @@ function drawChart(signal, points, readout) {
       svg.appendChild(label);
     });
 
-  return svg;
-}
+  const crosshair = makeSvgElement("line", {
+    class: "chart-crosshair",
+    x1: chartPadding.left,
+    x2: chartPadding.left,
+    y1: chartPadding.top - 8,
+    y2: chartHeight - chartPadding.bottom,
+    visibility: "hidden",
+    "aria-hidden": "true",
+  });
+  const focusPoint = makeSvgElement("circle", {
+    class: "chart-focus-point",
+    cx: chartPadding.left,
+    cy: yForValue(points[0].value),
+    r: 5,
+    visibility: "hidden",
+    "aria-hidden": "true",
+  });
+  svg.append(crosshair, focusPoint);
 
-function createSparkline(signal, points) {
-  const svg = makeSvgElement("svg", { viewBox: "0 0 100 24", "aria-hidden": "true" });
-  const path = points.map((point, index) => {
-    const x = points.length <= 1 ? 0 : (index / (points.length - 1)) * 100;
-    const y = 22 - (point.value / 100) * 20;
-    return `${index === 0 ? "M" : "L"} ${x} ${y}`;
-  }).join(" ");
-  svg.appendChild(makeSvgElement("polyline", { points: path.replace(/[ML]/g, "").trim() }));
+  let hoverIndex = markerIndex >= 0 ? markerIndex : 0;
+
+  function renderHover(index) {
+    hoverIndex = Math.max(0, Math.min(points.length - 1, index));
+    const point = points[hoverIndex];
+    const x = xForIndex(hoverIndex, points.length);
+    crosshair.setAttribute("x1", x);
+    crosshair.setAttribute("x2", x);
+    focusPoint.setAttribute("cx", x);
+    focusPoint.setAttribute("cy", yForValue(point.value));
+    crosshair.setAttribute("visibility", "visible");
+    focusPoint.setAttribute("visibility", "visible");
+    readout.textContent = `${point.label} · ${point.value}/100${point.partial ? " · partial latest value" : ""}`;
+    hitArea.setAttribute("aria-valuenow", point.value);
+    hitArea.setAttribute("aria-valuetext", `${point.label}, ${point.value} out of 100`);
+  }
+
+  function hideHover() {
+    if (document.activeElement !== hitArea) {
+      crosshair.setAttribute("visibility", "hidden");
+      focusPoint.setAttribute("visibility", "hidden");
+    }
+  }
+
+  const hitArea = makeSvgElement("rect", {
+    class: "chart-hit-area",
+    x: chartPadding.left,
+    y: chartPadding.top - 8,
+    width: chartWidth - chartPadding.left - chartPadding.right,
+    height: chartHeight - chartPadding.top - chartPadding.bottom + 8,
+    tabindex: 0,
+    role: "slider",
+    "aria-label": `Inspect ${signal.label} values over time`,
+    "aria-valuemin": 0,
+    "aria-valuemax": 100,
+    "aria-valuenow": points[hoverIndex].value,
+    "aria-valuetext": `${points[hoverIndex].label}, ${points[hoverIndex].value} out of 100`,
+  });
+
+  hitArea.addEventListener("pointermove", (event) => {
+    const bounds = svg.getBoundingClientRect();
+    const viewX = (event.clientX - bounds.left) * (chartWidth / bounds.width);
+    const plotWidth = chartWidth - chartPadding.left - chartPadding.right;
+    const ratio = Math.max(0, Math.min(1, (viewX - chartPadding.left) / plotWidth));
+    renderHover(Math.round(ratio * (points.length - 1)));
+  });
+  hitArea.addEventListener("pointerdown", () => renderHover(hoverIndex));
+  hitArea.addEventListener("pointerleave", hideHover);
+  hitArea.addEventListener("focus", () => renderHover(hoverIndex));
+  hitArea.addEventListener("keydown", (event) => {
+    let nextIndex = hoverIndex;
+    if (event.key === "ArrowLeft") nextIndex -= 1;
+    if (event.key === "ArrowRight") nextIndex += 1;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = points.length - 1;
+    if (nextIndex !== hoverIndex) {
+      event.preventDefault();
+      renderHover(nextIndex);
+    }
+  });
+  svg.appendChild(hitArea);
+
+  svg.addEventListener("mouseleave", hideHover);
   return svg;
 }
 
@@ -168,62 +256,27 @@ function getStats(points) {
   const latest = points[points.length - 1];
   const peakValue = Math.max(...points.map((point) => point.value));
   const peakIndex = points.findIndex((point) => point.value === peakValue);
-  const change = latest.value - points[0].value;
-  return { latest, peakValue, peak: points[peakIndex], change };
-}
-
-function createSummaryCard(signal, points) {
-  const { latest, peakValue, peak, change } = getStats(points);
-  const card = document.createElement("article");
-  card.className = "summary-card";
-  card.style.setProperty("--series-color", SERIES_COLORS[signal.id] || "var(--text-color)");
-
-  const top = document.createElement("div");
-  top.className = "summary-card__top";
-  const label = document.createElement("p");
-  label.className = "summary-card__label";
-  label.textContent = signal.label;
-  const category = document.createElement("span");
-  category.textContent = signal.categoryLabel;
-  top.append(label, category);
-
-  const valueLine = document.createElement("div");
-  valueLine.className = "summary-card__value-line";
-  const value = document.createElement("p");
-  value.className = "summary-card__value";
-  value.textContent = latest.value;
-  const context = document.createElement("p");
-  context.className = "summary-card__context";
-  context.textContent = `latest · peak ${peakValue}`;
-  valueLine.append(value, context);
-
-  const spark = createSparkline(signal, points);
-  spark.className.baseVal = "summary-card__spark";
-  const note = document.createElement("p");
-  note.className = "summary-card__context";
-  note.textContent = `${change >= 0 ? "+" : ""}${change} from first point · peak ${peak.label}`;
-
-  card.append(top, valueLine, spark, note);
-  return card;
+  return { latest, peakValue, peak: points[peakIndex] };
 }
 
 function createPersonalCopy(signal) {
   const paragraph = document.createElement("p");
   paragraph.className = "trend-card__personal";
+  const hasMarker = Boolean(signal.personalInterestDate);
   const label = document.createElement("span");
-  label.className = signal.personalInterestDate ? "personal-marker" : "marker-missing";
-  label.textContent = signal.personalInterestDate
+  label.className = hasMarker ? "personal-marker" : "marker-missing";
+  label.textContent = hasMarker
     ? `Personal marker · ${signal.personalInterestLabel}`
-    : `Personal marker · ${signal.personalInterestLabel}`;
+    : "No personal marker";
   paragraph.appendChild(label);
   return paragraph;
 }
 
-function createTrendCard(signal, index) {
+function createTrendCard(signal) {
   const points = buildPoints(signal);
-  const stats = getStats(points);
+  const { latest, peakValue, peak } = getStats(points);
   const card = document.createElement("article");
-  card.className = `trend-card${index === 0 ? " is-featured" : ""}`;
+  card.className = "trend-card";
   card.dataset.category = signal.category;
   card.style.setProperty("--series-color", SERIES_COLORS[signal.id] || "var(--text-color)");
 
@@ -238,21 +291,26 @@ function createTrendCard(signal, index) {
 
   const meta = document.createElement("div");
   meta.className = "trend-card__meta";
-  [
-    `Google Trends · ${signal.geo || "Worldwide"}`,
-    signal.dateRange,
-    signal.granularity,
-  ].forEach((text) => {
+  [signal.geo || "Worldwide", signal.dateRange, signal.granularity].forEach((text) => {
     const item = document.createElement("span");
     item.textContent = text;
     meta.appendChild(item);
   });
 
+  const stats = document.createElement("div");
+  stats.className = "trend-card__stats";
+  const latestStat = document.createElement("span");
+  latestStat.innerHTML = `latest <strong>${latest.value}</strong>`;
+  const peakStat = document.createElement("span");
+  peakStat.textContent = `peak ${peakValue} · ${peak.label}`;
+  stats.append(latestStat, peakStat);
+
   const chartFrame = document.createElement("div");
   chartFrame.className = "chart-frame";
   const readout = document.createElement("p");
   readout.className = "chart-readout";
-  readout.textContent = "Hover a point to read the value.";
+  readout.setAttribute("aria-live", "polite");
+  readout.textContent = "Hover the chart to inspect values.";
   chartFrame.append(drawChart(signal, points, readout), readout);
 
   const note = document.createElement("p");
@@ -268,18 +326,12 @@ function createTrendCard(signal, index) {
   sourceLink.href = signal.sourceUrl;
   sourceLink.target = "_blank";
   sourceLink.rel = "noreferrer";
-  sourceLink.textContent = "Open source ↗";
+  sourceLink.textContent = "source ↗";
   source.appendChild(sourceLink);
   footer.append(personal, source);
 
-  card.append(top, meta, chartFrame, note, footer);
-  card.dataset.latest = stats.latest.value;
+  card.append(top, meta, stats, chartFrame, note, footer);
   return card;
-}
-
-function renderSummary(signals) {
-  const summaryGrid = document.getElementById("summary-grid");
-  summaryGrid.replaceChildren(...signals.slice(0, 4).map((signal) => createSummaryCard(signal, buildPoints(signal))));
 }
 
 function setupFilters(signals) {
@@ -303,6 +355,24 @@ function setupFilters(signals) {
   status.textContent = `${signals.length} signals shown · all categories`;
 }
 
+function setupMethodDialog() {
+  const dialog = document.getElementById("method-dialog");
+  const openButton = document.getElementById("method-open");
+  if (!dialog || !openButton) return;
+
+  openButton.addEventListener("click", () => {
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+    } else {
+      dialog.setAttribute("open", "");
+    }
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+  });
+}
+
 function updateReadingProgress() {
   const progressBar = document.querySelector(".reading-progress");
   if (!progressBar) return;
@@ -316,9 +386,10 @@ async function loadTrends() {
     const response = await fetch("trends-data.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Snapshot request failed with ${response.status}`);
     const data = await response.json();
-    renderSummary(data.signals);
     trendList.replaceChildren(...data.signals.map(createTrendCard));
     setupFilters(data.signals);
+    setupMethodDialog();
+    updateReadingProgress();
   } catch (error) {
     console.error(error);
     trendList.replaceChildren();
