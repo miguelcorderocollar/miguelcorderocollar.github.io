@@ -7,6 +7,10 @@ const SERIES_COLORS = {
   ethereum: "#627eea",
   podcast: "#c2642f",
   "c-tangana": "#ad4b68",
+  youtube: "#e62117",
+  "league-of-legends": "#c89b3c",
+  rosalia: "#d65a9b",
+  "twenty-one-pilots": "#4c78b8",
 };
 
 const chartWidth = 1000;
@@ -420,25 +424,28 @@ function renderMarkdown(markdown) {
   return output.join("");
 }
 
-function setupFilters(signals) {
+function setupFilters() {
   const list = document.getElementById("trend-list");
   const cards = [...list.querySelectorAll(".trend-card")];
-  const status = document.getElementById("filter-status");
-  document.querySelectorAll("[data-filter]").forEach((button) => {
+  const filterButtons = [...document.querySelectorAll("[data-filter]")];
+
+  const applyFilter = (filter, selectedButton) => {
+    filterButtons.forEach((item) => {
+      item.classList.toggle("is-active", item === selectedButton);
+    });
+    cards.forEach((card) => {
+      card.classList.toggle("is-hidden", card.dataset.category !== filter);
+    });
+  };
+
+  filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-      document.querySelectorAll("[data-filter]").forEach((item) => {
-        item.classList.toggle("is-active", item === button);
-      });
-      const visibleCount = cards.filter((card) => {
-        const visible = filter === "all" || card.dataset.category === filter;
-        card.classList.toggle("is-hidden", !visible);
-        return visible;
-      }).length;
-      status.textContent = `${visibleCount} signal${visibleCount === 1 ? "" : "s"} shown · ${filter === "all" ? "all categories" : filter}`;
+      applyFilter(button.dataset.filter, button);
     });
   });
-  status.textContent = `${signals.length} signals shown · all categories`;
+
+  const defaultButton = filterButtons.find((button) => button.dataset.filter === "technology") || filterButtons[0];
+  if (defaultButton) applyFilter(defaultButton.dataset.filter, defaultButton);
 }
 
 function setupMethodDialog() {
@@ -509,7 +516,7 @@ async function loadTrends() {
       console.warn("Some trend signals were hidden because they have no personal marker.");
     }
     trendList.replaceChildren(...signals.map(createTrendCard));
-    setupFilters(signals);
+    setupFilters();
     setupMethodDialog();
     setupInfoDialog(signals);
     updateReadingProgress();
@@ -520,7 +527,6 @@ async function loadTrends() {
     message.className = "error-state";
     message.textContent = "The snapshot could not be loaded. Run this page through a local HTTP server, not file://.";
     trendList.appendChild(message);
-    document.getElementById("filter-status").textContent = "Snapshot unavailable";
   }
 }
 

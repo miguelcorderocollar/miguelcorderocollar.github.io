@@ -69,14 +69,6 @@
   font-size: 1rem;
 }
 
-.section-note {
-  max-width: 34ch;
-  margin: 0;
-  color: var(--text-color-alt);
-  font-size: 0.75rem;
-  text-align: right;
-}
-
 .eyebrow {
   margin: 0 0 calc(var(--line-height) / 2);
   color: var(--trend-accent);
@@ -449,17 +441,6 @@ dialog p.eyebrow {
 @media screen and (max-width: 720px) {
   .trend-list {
     grid-template-columns: 1fr;
-  }
-
-  .section-heading {
-    align-items: start;
-    flex-direction: column;
-    gap: 0.5ch;
-  }
-
-  .section-note {
-    max-width: none;
-    text-align: left;
   }
 
   .filter-button--method {
