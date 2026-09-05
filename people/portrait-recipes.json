@@ -12,6 +12,11 @@
       "crop": { "focusX": 0.55, "focusY": 0.35, "areaPct": 0.79 }
     },
     {
+      "id": "ernesto-castro",
+      "source": "images/people/source/ernesto-castro-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.32, "areaPct": 0.72 }
+    },
+    {
       "id": "juan-ramon-rallo",
       "source": "images/people/source/juan-ramon-rallo-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }

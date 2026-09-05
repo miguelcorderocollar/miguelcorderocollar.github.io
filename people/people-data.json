@@ -43,6 +43,27 @@
       }
     },
     {
+      "id": "ernesto-castro",
+      "name": "Ernesto Castro",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Philosopher, writer and professor of aesthetics",
+      "portrait": "../images/people/processed/ernesto-castro-halftone.webp",
+      "portraitAlt": "Ernesto Castro in a black-and-white portrait",
+      "summary": "He taught me not to be afraid of being myself, to stay passionate, and to keep learning and sharing what I think. I also admire the openness behind his recent conversion to Catholicism: even when I do not share the belief, changing your mind and opening yourself to new ideas takes real courage.",
+      "bio": "Ernesto Castro is a Spanish philosopher, writer and professor of aesthetics. Through books, lectures and a prolific YouTube channel, he makes philosophy feel public, personal and alive.",
+      "links": [
+        { "label": "Personal website", "url": "https://ernestocastro.com/en/" },
+        { "label": "YouTube channel", "url": "https://www.youtube.com/channel/UCd3FJ4k849ZtZXUL3MsXyOA" },
+        { "label": "Library", "url": "https://ernestocastro.com/en/biblioteca/" }
+      ],
+      "photo": {
+        "credit": "Javier Arias / Ernesto Castro",
+        "sourceUrl": "https://ernestocastro.com/en/",
+        "license": "Personal website"
+      }
+    },
+    {
       "id": "juan-ramon-rallo",
       "name": "Juan Ramón Rallo",
       "category": "economics",
