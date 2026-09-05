@@ -1,0 +1,85 @@
+{
+  "aspect": "1:1",
+  "people": [
+    {
+      "id": "miguel-anxo-bastos",
+      "source": "images/people/source/miguel-anxo-bastos-modern.jpg",
+      "crop": { "focusX": 0.51, "focusY": 0.37, "areaPct": 0.98 }
+    },
+    {
+      "id": "ayn-rand",
+      "source": "images/people/source/ayn-rand-modern.jpg",
+      "crop": { "focusX": 0.55, "focusY": 0.35, "areaPct": 0.79 }
+    },
+    {
+      "id": "george-orwell",
+      "source": "images/people/source/george-orwell-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.46, "areaPct": 0.90 }
+    },
+    {
+      "id": "ernesto-castro",
+      "source": "images/people/source/ernesto-castro-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.32, "areaPct": 0.72 }
+    },
+    {
+      "id": "marcus-aurelius",
+      "source": "images/people/source/marcus-aurelius-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.38, "areaPct": 0.72 }
+    },
+    {
+      "id": "sam-harris",
+      "source": "images/people/source/sam-harris-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.40, "areaPct": 0.95 }
+    },
+    {
+      "id": "richard-dawkins",
+      "source": "images/people/source/richard-dawkins-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.34, "areaPct": 0.78 }
+    },
+    {
+      "id": "christopher-hitchens",
+      "source": "images/people/source/christopher-hitchens-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.40, "areaPct": 0.88 }
+    },
+    {
+      "id": "jordan-b-peterson",
+      "source": "images/people/source/jordan-b-peterson-modern.jpg",
+      "crop": { "focusX": 0.52, "focusY": 0.40, "areaPct": 0.82 }
+    },
+    {
+      "id": "dave-lee",
+      "source": "images/people/source/dave-lee-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.43, "areaPct": 0.95 }
+    },
+    {
+      "id": "juan-ramon-rallo",
+      "source": "images/people/source/juan-ramon-rallo-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }
+    },
+    {
+      "id": "milton-friedman",
+      "source": "images/people/source/milton-friedman-modern.jpg",
+      "crop": { "focusX": 0.53, "focusY": 0.29, "areaPct": 0.72 }
+    },
+    {
+      "id": "david-heinemeier-hansson",
+      "source": "images/people/source/david-heinemeier-hansson-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.48, "areaPct": 0.96 }
+    },
+    {
+      "id": "elon-musk",
+      "source": "images/people/source/elon-musk-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.90 }
+    },
+    {
+      "id": "c-tangana",
+      "source": "images/people/source/c-tangana-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.28, "areaPct": 0.70 }
+    },
+    {
+      "id": "brandon-sanderson",
+      "source": "images/people/source/brandon-sanderson-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.39, "areaPct": 0.72 }
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "updated": "2026-09-05",
+  "people": [
+    {
+      "id": "miguel-anxo-bastos",
+      "name": "Miguel Anxo Bastos",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Professor of political science and economist",
+      "portrait": "../images/people/processed/miguel-anxo-bastos-halftone.webp",
+      "portraitAlt": "Portrait of Miguel Anxo Bastos",
+      "summary": "His lectures introduced me to libertarianism and anarcho-capitalism. I admire his manner as much as his ideas: he argues with humility, courtesy and a real effort to understand the person in front of him. Watching him disagree without hostility made me more hopeful about human nature.",
+      "bio": "Miguel Anxo Bastos Boubeta is a Spanish economist and professor of political science at the University of Santiago de Compostela. His work covers Austrian economics, public policy and political philosophy.",
+      "links": [
+        { "label": "Personal website", "url": "https://miguelanxobastos.org/" },
+        { "label": "Articles at Mises Hispano", "url": "https://www.mises.org.es/authors/miguel-anxo-bastos/" }
+      ],
+      "photo": {
+        "credit": "El Español / Quincemil",
+        "sourceUrl": "https://www.elespanol.com/quincemil/vivir/gastrosantiago/20241003/onde-comer-santiago-compostela-segundo-profesor-universitario-miguel-anxo-bastos/887411321_0.html",
+        "license": "Original article"
+      }
+    },
+    {
+      "id": "ayn-rand",
+      "name": "Ayn Rand",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Novelist and philosopher",
+      "portrait": "../images/people/processed/ayn-rand-halftone.webp",
+      "portraitAlt": "Ayn Rand in a 1943 portrait",
+      "summary": "She showed me that a novel can carry an entire philosophy. Atlas Shrugged had a lasting effect on me because it made Objectivism vivid and memorable, even where I later came to question parts of it. I still admire the scale and confidence of what she attempted.",
+      "bio": "Ayn Rand was a Russian-American novelist and philosopher, best known for Atlas Shrugged and The Fountainhead. She developed Objectivism, a philosophy centered on reason, individual rights and rational self-interest.",
+      "links": [
+        { "label": "Ayn Rand Institute", "url": "https://aynrand.org/" },
+        { "label": "Atlas Shrugged", "url": "https://aynrand.org/novels/atlas-shrugged/" },
+        { "label": "The Fountainhead", "url": "https://aynrand.org/novels/the-fountainhead/" }
+      ],
+      "photo": {
+        "credit": "Talbot / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayn_Rand_(1943_Talbot_portrait).jpg",
+        "license": "Public domain (US)"
+      }
+    },
+    {
+      "id": "george-orwell",
+      "name": "George Orwell",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Novelist, essayist and political writer",
+      "portrait": "../images/people/processed/george-orwell-halftone.webp",
+      "portraitAlt": "George Orwell in a 1943 press portrait",
+      "summary": "Nineteen Eighty-Four was one of the books that brought me back to reading in my twenties. Together with Animal Farm, it sharpened my awareness of authoritarianism, propaganda and concentrated power. Orwell showed me that a story can make a political danger felt more powerfully than an abstract argument can.",
+      "bio": "George Orwell, the pen name of Eric Arthur Blair, was an English novelist, essayist and journalist. His political fiction, especially Nineteen Eighty-Four and Animal Farm, made authoritarianism, propaganda and the abuse of language vivid to generations of readers.",
+      "links": [
+        { "label": "The Orwell Foundation", "url": "https://www.orwellfoundation.com/" },
+        { "label": "Nineteen Eighty-Four", "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/nineteen-eighty-four/" },
+        { "label": "Animal Farm", "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/books-by-orwell/animal-farm/" }
+      ],
+      "photo": {
+        "credit": "Branch of the National Union of Journalists / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Orwell_press_photo.jpg",
+        "license": "Public domain"
+      }
+    },
+    {
+      "id": "ernesto-castro",
+      "name": "Ernesto Castro",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Philosopher, writer and professor of aesthetics",
+      "portrait": "../images/people/processed/ernesto-castro-halftone.webp",
+      "portraitAlt": "Ernesto Castro in a black-and-white portrait",
+      "summary": "He encouraged me to be less afraid of being myself, to remain curious and to share what I think without hiding my enthusiasm. I also respect his willingness to undergo a profound change in belief. I do not share his Catholic faith, but I admire the seriousness with which he appears to have confronted it.",
+      "bio": "Ernesto Castro is a Spanish philosopher, writer and professor of aesthetics. Through books, lectures and a prolific YouTube channel, he makes philosophy feel public, personal and alive.",
+      "links": [
+        { "label": "Personal website", "url": "https://ernestocastro.com/en/" },
+        { "label": "YouTube channel", "url": "https://www.youtube.com/channel/UCd3FJ4k849ZtZXUL3MsXyOA" },
+        { "label": "Library", "url": "https://ernestocastro.com/en/biblioteca/" }
+      ],
+      "photo": {
+        "credit": "Javier Arias / Ernesto Castro",
+        "sourceUrl": "https://ernestocastro.com/en/",
+        "license": "Personal website"
+      }
+    },
+    {
+      "id": "marcus-aurelius",
+      "name": "Marcus Aurelius",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Roman emperor and Stoic philosopher",
+      "portrait": "../images/people/processed/marcus-aurelius-halftone.webp",
+      "portraitAlt": "Marble portrait bust of Marcus Aurelius",
+      "summary": "Reading Meditations showed me how little our basic concerns have changed. Friendship, family, love, duty and the question of how to live well survive every technological and historical transformation. His notes were written for himself, which may be why reading one at a time still feels so direct.",
+      "bio": "Marcus Aurelius was a Roman emperor and Stoic philosopher. Meditations, his private reflections on character, duty and resilience, remains one of the clearest surviving records of Stoic practice.",
+      "links": [
+        { "label": "Meditations at MIT Classics", "url": "http://classics.mit.edu/Antoninus/meditations.html" },
+        { "label": "Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/marcus-aurelius/" },
+        { "label": "Meditations at Project Gutenberg", "url": "https://www.gutenberg.org/ebooks/2680" }
+      ],
+      "photo": {
+        "credit": "PierreSelim / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marcus_Aurelius_-_MET_-_MR_561_-_L.2008.49.jpg",
+        "license": "CC0 1.0"
+      }
+    },
+    {
+      "id": "sam-harris",
+      "name": "Sam Harris",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Philosopher, neuroscientist and author",
+      "portrait": "../images/people/processed/sam-harris-halftone.webp",
+      "portraitAlt": "Sam Harris in a 2016 black-and-white portrait",
+      "summary": "Following Sam Harris during the New Atheism years pushed me to question claims more carefully and ask what evidence supports them. I admire the precision with which he speaks and his treatment of meditation as something that can be examined without abandoning a scientific outlook. Through his work, I found a practice that helps me observe my thoughts and regain perspective.",
+      "bio": "Sam Harris is an American philosopher, neuroscientist, author and host of the Making Sense podcast. His work spans rationality, ethics, consciousness, meditation and public debate, and he created the Waking Up meditation app.",
+      "links": [
+        { "label": "Official website", "url": "https://www.samharris.org/" },
+        { "label": "Waking Up", "url": "https://www.wakingup.com/" },
+        { "label": "Making Sense podcast", "url": "https://www.samharris.org/podcasts/making-sense-episodes" }
+      ],
+      "photo": {
+        "credit": "Christopher Michel / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sam_Harris_2016_(cropped).jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "richard-dawkins",
+      "name": "Richard Dawkins",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Evolutionary biologist and author",
+      "portrait": "../images/people/processed/richard-dawkins-halftone.webp",
+      "portraitAlt": "Richard Dawkins in a 2022 portrait",
+      "summary": "The Selfish Gene showed me that rigorous scientific ideas can also be clear and memorable. I admire Dawkins's contribution to the public understanding of evolution and the intellectual courage of his earlier writing on religion. I no longer agree with everything he says, but that does not erase what I learned from him.",
+      "bio": "Richard Dawkins is a British evolutionary biologist and author. The Selfish Gene and his wider popular-science writing helped bring gene-centred evolution and scientific reasoning to a broad audience.",
+      "links": [
+        { "label": "Richard Dawkins Foundation", "url": "https://richarddawkins.net/" },
+        { "label": "Biography and bibliography", "url": "https://richarddawkins.net/richarddawkins/" },
+        { "label": "The Selfish Gene at the Foundation", "url": "https://richarddawkins.net/2016/05/as-long-as-we-study-life-it-will-be-read-the-selfish-gene-turns-40/" }
+      ],
+      "photo": {
+        "credit": "Steve Jurvetson / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dinner_with_Richard_Dawkins_and_CFI..._like_a_candle_in_the_dark.jpg",
+        "license": "CC BY 2.0"
+      }
+    },
+    {
+      "id": "christopher-hitchens",
+      "name": "Christopher Hitchens",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Author, critic and debater",
+      "portrait": "../images/people/processed/christopher-hitchens-halftone.webp",
+      "portraitAlt": "Christopher Hitchens speaking in 2010",
+      "summary": "His debates showed me what a quick, well-read mind can do in public. He combined wit with an unusual ability to find the heart of an argument in the moment. I do not take rhetorical confidence as proof that someone is right, but Hitchens taught me how much clarity and courage matter when speaking publicly.",
+      "bio": "Christopher Hitchens was an English-American author, columnist and literary critic whose writing ranged from politics and culture to religion. He was celebrated for his erudition, polemical wit and formidable debating style.",
+      "links": [
+        { "label": "Hachette author page", "url": "https://www.hachettebookgroup.com/contributor/christopher-hitchens/" },
+        { "label": "Simon & Schuster author page", "url": "https://www.simonandschuster.com/authors/Christopher-Hitchens/246050464" }
+      ],
+      "photo": {
+        "credit": "Andrew Rusk / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hitchens_2010.jpg",
+        "license": "CC BY 2.0"
+      }
+    },
+    {
+      "id": "jordan-b-peterson",
+      "name": "Jordan B. Peterson",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Psychologist, author and lecturer",
+      "portrait": "../images/people/processed/jordan-b-peterson-halftone.webp",
+      "portraitAlt": "Jordan B. Peterson in a 2024 portrait",
+      "summary": "His lectures gave me a language for thinking about stories, archetypes, responsibility and human nature at a time when those questions mattered to me. Maps of Meaning was difficult but rewarding, while 12 Rules for Life translated many of its ideas into everyday conduct. I now find some of his claims unconvincing, but his earlier work still influenced how I think about responsibility and meaning.",
+      "bio": "Jordan B. Peterson is a Canadian psychologist, author and online educator. His work connects psychology, mythology, religion and personal responsibility, from the academic Maps of Meaning to the practical advice of 12 Rules for Life.",
+      "links": [
+        { "label": "Official website", "url": "https://www.jordanbpeterson.com/" },
+        { "label": "About Jordan Peterson", "url": "https://www.jordanbpeterson.com/about/" },
+        { "label": "Books", "url": "https://www.jordanbpeterson.com/books/" }
+      ],
+      "photo": {
+        "credit": "U.S. Senate / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jordan_Peterson_in_2024.jpg",
+        "license": "Public domain"
+      }
+    },
+    {
+      "id": "dave-lee",
+      "name": "Dave Lee",
+      "category": "investing",
+      "categoryLabel": "Investing",
+      "role": "Investor, YouTuber and educator",
+      "portrait": "../images/people/processed/dave-lee-halftone.webp",
+      "portraitAlt": "Dave Lee in a close-up profile portrait",
+      "summary": "Dave Lee taught me to look beyond conventional valuation and ask how technological change could reshape a business. His Tesla analyses helped me think about disruption, uncertainty and long-term investment. I also admire the priority he gives his family, especially during his wife's cancer treatment. His calm manner made his work unusually easy to learn from.",
+      "bio": "Dave Lee is an investor and YouTube creator known for Dave Lee on Investing. His channel explores Tesla, disruptive technology and long-term investment ideas through detailed, approachable videos.",
+      "links": [
+        { "label": "Dave Lee on Investing", "url": "https://www.davelee.tv/home" },
+        { "label": "YouTube channel", "url": "https://www.youtube.com/@Dave_Lee" },
+        { "label": "X / @heydave7", "url": "https://x.com/heydave7" }
+      ],
+      "photo": {
+        "credit": "Dave Lee / Dave Lee on Investing",
+        "sourceUrl": "https://www.davelee.tv/home",
+        "license": "Personal website"
+      }
+    },
+    {
+      "id": "juan-ramon-rallo",
+      "name": "Juan Ramón Rallo",
+      "category": "economics",
+      "categoryLabel": "Economics",
+      "role": "Economist, writer and teacher",
+      "portrait": "../images/people/processed/juan-ramon-rallo-halftone.webp",
+      "portraitAlt": "Portrait of Juan Ramón Rallo",
+      "summary": "His videos taught me economics with unusual clarity and gave me a framework for understanding freedom, institutions and the choices behind public policy. He has been one of my best teachers, even though I learned from him through a screen.",
+      "bio": "Juan Ramón Rallo is a Spanish economist, writer and professor. He teaches economics, writes about liberalism and explains current affairs through his blog, books and videos.",
+      "links": [
+        { "label": "Personal website", "url": "https://juanramonrallo.com/" },
+        { "label": "YouTube channel", "url": "https://www.youtube.com/c/juanrallo/" }
+      ],
+      "photo": {
+        "credit": "Juan Ramón Rallo / X",
+        "sourceUrl": "https://x.com/juanrallo",
+        "license": "Profile image"
+      }
+    },
+    {
+      "id": "milton-friedman",
+      "name": "Milton Friedman",
+      "category": "economics",
+      "categoryLabel": "Economics",
+      "role": "Economist, author and public intellectual",
+      "portrait": "../images/people/processed/milton-friedman-halftone.webp",
+      "portraitAlt": "Milton Friedman in a thoughtful portrait",
+      "summary": "Friedman changed how I think about incentives, monetary policy and the relationship between economic and individual freedom. I admire his ability to explain difficult ideas in plain language and defend them under pressure. I do not need to accept every conclusion he reached to recognize how deeply his work shaped my thinking.",
+      "bio": "Milton Friedman was an American economist, author and public intellectual who received the 1976 Nobel Prize in Economic Sciences. His research and broadcasting helped bring monetary economics and the case for economic freedom to a broad audience.",
+      "links": [
+        { "label": "Free to Choose Network", "url": "https://www.freetochoosenetwork.org/" },
+        { "label": "The Hoover Institution", "url": "https://www.hoover.org/profiles/milton-friedman" },
+        { "label": "Nobel Prize biography", "url": "https://www.nobelprize.org/prizes/economic-sciences/1976/friedman/biographical/" }
+      ],
+      "photo": {
+        "credit": "The Friedman Foundation for Educational Choice / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Milton_Friedman.jpg",
+        "license": "CC0 1.0"
+      }
+    },
+    {
+      "id": "david-heinemeier-hansson",
+      "name": "David Heinemeier Hansson",
+      "shortName": "DHH",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Programmer, entrepreneur and racing driver",
+      "portrait": "../images/people/processed/david-heinemeier-hansson-halftone.webp",
+      "portraitAlt": "David Heinemeier Hansson smiling in a close-up portrait",
+      "summary": "His example makes ambitious work feel possible. He created Ruby on Rails, helped build 37signals and later created Omarchy, all while speaking plainly about his convictions. I admire the range of his life: software, business, writing, racing, politics and family all seem to receive serious attention.",
+      "bio": "David Heinemeier Hansson is a Danish programmer, author and co-owner of 37signals. He created Ruby on Rails, writes about software and public life, and races cars.",
+      "links": [
+        { "label": "Personal website", "url": "https://dhh.dk/" },
+        { "label": "37signals", "url": "https://37signals.com/" },
+        { "label": "Omarchy", "url": "https://omarchy.org/" }
+      ],
+      "photo": {
+        "credit": "David Heinemeier Hansson",
+        "sourceUrl": "https://dhh.dk/",
+        "license": "Personal website"
+      }
+    },
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Entrepreneur, engineer and builder",
+      "portrait": "../images/people/processed/elon-musk-halftone.webp",
+      "portraitAlt": "Elon Musk in a black suit and tie at a 2025 event",
+      "summary": "His companies taught me to think on a larger timescale and to take seemingly unrealistic technical ambitions seriously. I admire the willingness to question inherited assumptions, reduce a problem to its physical and economic constraints and attempt a solution. That influence remains real even when I disagree with his conduct or conclusions.",
+      "bio": "Elon Musk is an entrepreneur and engineer whose companies work across spaceflight, electric vehicles, artificial intelligence and infrastructure. He is known for pairing long-horizon ambitions with an insistence on first-principles thinking.",
+      "links": [
+        { "label": "SpaceX", "url": "https://www.spacex.com/" },
+        { "label": "Tesla", "url": "https://www.tesla.com/" },
+        { "label": "xAI", "url": "https://x.ai/" }
+      ],
+      "photo": {
+        "credit": "Gage Skidmore / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elon_Musk_(54816836217)_(cropped).jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "c-tangana",
+      "name": "C. Tangana",
+      "shortName": "C. Tangana",
+      "category": "culture",
+      "categoryLabel": "Culture",
+      "role": "Artist, songwriter and filmmaker",
+      "portrait": "../images/people/processed/c-tangana-halftone.webp",
+      "portraitAlt": "C. Tangana at the 2025 Goya Awards",
+      "summary": "His career showed me how far ambition, reinvention and persistence can take someone. I admire the work itself, the intelligence with which he presents it and the audience he has built around it. He made me see artistic direction and communication as parts of the creative work.",
+      "bio": "C. Tangana is the stage name of Spanish artist Antón Álvarez. A rapper, songwriter, producer and filmmaker, he combines urban music with flamenco, Latin traditions and a carefully built visual world.",
+      "links": [
+        { "label": "Official website", "url": "https://ctangana.com/" },
+        { "label": "Spotify", "url": "https://open.spotify.com/artist/5TYxZTjIPqKM8K8NuP9woO" },
+        { "label": "Sony Music artist page", "url": "https://www.sonymusic.es/artista/c-tangana/" }
+      ],
+      "photo": {
+        "credit": "Pedro J. Pacheco / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goyas_2025_-_C_Tangana.jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "brandon-sanderson",
+      "name": "Brandon Sanderson",
+      "category": "culture",
+      "categoryLabel": "Culture",
+      "role": "Fantasy author and writing teacher",
+      "portrait": "../images/people/processed/brandon-sanderson-halftone.webp",
+      "portraitAlt": "Brandon Sanderson at MCM Comic Con London in 2026",
+      "summary": "His stories brought me back to the scale and imaginative freedom of fantasy. Mistborn, Elantris and the wider Cosmere feel coherent because their magic follows consistent rules without displacing the human stories. I also admire the discipline with which he writes, teaches and sustains such a large body of connected work.",
+      "bio": "Brandon Sanderson is an American fantasy and science-fiction author best known for the Cosmere novels, including Mistborn and The Stormlight Archive. He is also known for teaching creative writing and for a disciplined, prolific publishing practice.",
+      "links": [
+        { "label": "Official website", "url": "https://www.brandonsanderson.com/" },
+        { "label": "Books and art", "url": "https://www.brandonsanderson.com/pages/books-and-art" },
+        { "label": "Dragonsteel", "url": "https://www.dragonsteelbooks.com/" }
+      ],
+      "photo": {
+        "credit": "David Maynard / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brandon_Sanderson_at_MCM_Comic_Con_London_22_May_2026_02.jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    }
+  ]
+}
