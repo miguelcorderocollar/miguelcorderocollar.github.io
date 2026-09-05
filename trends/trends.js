@@ -1,11 +1,11 @@
 const SVG_NS = "http://www.w3.org/2000/svg";
 
 const SERIES_COLORS = {
-  omarchy: "#e8512a",
-  ai: "#2862aa",
-  tesla: "#8a5a44",
-  ethereum: "#68733b",
-  podcast: "#7f4c79",
+  omarchy: "#73a942",
+  ai: "#9b6cff",
+  tesla: "#e82127",
+  ethereum: "#627eea",
+  podcast: "#c2642f",
   "c-tangana": "#ad4b68",
 };
 
@@ -256,16 +256,6 @@ function drawChart(signal, points, readout) {
   return svg;
 }
 
-function createPersonalCopy(signal) {
-  const paragraph = document.createElement("p");
-  paragraph.className = "trend-card__personal";
-  const label = document.createElement("span");
-  label.className = "personal-marker";
-  label.textContent = `Personal marker · ${signal.personalInterestLabel}`;
-  paragraph.appendChild(label);
-  return paragraph;
-}
-
 function createTrendCard(signal) {
   const points = buildPoints(signal);
   const card = document.createElement("article");
@@ -304,6 +294,30 @@ function createTrendCard(signal) {
     infoButton.appendChild(infoIcon);
     actions.append(infoButton);
   }
+
+  const sourceLink = document.createElement("a");
+  sourceLink.className = "trend-card__source";
+  sourceLink.href = signal.sourceUrl;
+  sourceLink.target = "_blank";
+  sourceLink.rel = "noreferrer";
+  sourceLink.setAttribute("aria-label", `Open Google Trends source for ${signal.label}`);
+  const sourceIcon = makeSvgElement("svg", {
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+  });
+  sourceIcon.append(
+    makeSvgElement("path", {
+      d: "M14 4h6v6M20 4l-9 9M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "stroke-width": 2,
+    }),
+  );
+  sourceLink.appendChild(sourceIcon);
+  actions.append(sourceLink);
   top.append(heading, actions);
 
   const meta = document.createElement("div");
@@ -325,36 +339,7 @@ function createTrendCard(signal) {
   readout.textContent = "Hover the chart to inspect values.";
   chartFrame.append(drawChart(signal, points, readout), readout);
 
-  const footer = document.createElement("div");
-  footer.className = "trend-card__footer";
-  const personal = createPersonalCopy(signal);
-  const source = document.createElement("p");
-  source.className = "trend-card__source";
-  const sourceLink = document.createElement("a");
-  sourceLink.href = signal.sourceUrl;
-  sourceLink.target = "_blank";
-  sourceLink.rel = "noreferrer";
-  sourceLink.setAttribute("aria-label", `Open Google Trends source for ${signal.label}`);
-  const sourceIcon = makeSvgElement("svg", {
-    viewBox: "0 0 24 24",
-    "aria-hidden": "true",
-    focusable: "false",
-  });
-  sourceIcon.append(
-    makeSvgElement("path", {
-      d: "M14 4h6v6M20 4l-9 9M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5",
-      fill: "none",
-      stroke: "currentColor",
-      "stroke-linecap": "round",
-      "stroke-linejoin": "round",
-      "stroke-width": 2,
-    }),
-  );
-  sourceLink.appendChild(sourceIcon);
-  source.appendChild(sourceLink);
-  footer.append(personal, source);
-
-  card.append(top, meta, chartFrame, footer);
+  card.append(top, meta, chartFrame);
   return card;
 }
 

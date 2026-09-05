@@ -52,7 +52,6 @@
 .filter-bar,
 .trend-card__top,
 .trend-card__meta,
-.trend-card__footer,
 .dialog-close-row {
   display: flex;
   align-items: baseline;
@@ -117,6 +116,7 @@
 
 .trend-list {
   display: grid;
+  grid-auto-rows: 1fr;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: calc(var(--line-height) * 1.5) 1ch;
   margin-top: 0;
@@ -124,10 +124,14 @@
 
 .trend-card {
   --series-color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 0;
   min-width: 0;
   padding: 1.5ch;
   border: var(--border-thickness) solid var(--text-color);
-  box-shadow: 0.5ch 0.5ch 0 var(--trend-shadow);
+  box-shadow: none;
   background: var(--background-color);
 }
 
@@ -145,6 +149,7 @@
   flex: 0 0 auto;
   align-items: center;
   gap: 0.75ch;
+  margin-top: 0;
 }
 
 .trend-card h3 {
@@ -304,39 +309,13 @@
   font-size: 0.7rem;
 }
 
-.trend-card__footer {
-  align-items: end;
-  justify-content: space-between;
-  margin-top: var(--line-height);
-  padding-top: var(--line-height);
-  border-top: 1px dashed var(--trend-grid);
-}
-
-.trend-card__personal,
-.trend-card__source {
-  margin: 0;
-  font-size: 0.72rem;
-}
-
-.trend-card__personal {
-  max-width: 42ch;
-}
-
-.personal-marker {
-  color: var(--trend-accent);
-  font-weight: var(--font-weight-bold);
-}
-
 .trend-card__source {
   flex: 0 0 auto;
-  text-align: right;
-}
-
-.trend-card__source a {
   display: inline-grid;
   place-items: center;
   width: 2.4ch;
   height: 2.4ch;
+  margin-top: 0;
   color: var(--text-color-alt);
   text-decoration: none;
 }
@@ -347,8 +326,8 @@
   height: 1.1em;
 }
 
-.trend-card__source a:hover,
-.trend-card__source a:focus-visible {
+.trend-card__source:hover,
+.trend-card__source:focus-visible {
   color: var(--trend-accent);
 }
 
@@ -369,6 +348,9 @@
 
 dialog {
   width: min(62ch, calc(100% - 4ch));
+  max-height: calc(100vh - 4ch);
+  margin: auto;
+  overflow: auto;
   padding: 2ch;
   border: var(--border-thickness) solid var(--text-color);
   box-shadow: 0.75ch 0.75ch 0 var(--trend-shadow);
@@ -469,15 +451,13 @@ dialog p.eyebrow {
     grid-template-columns: 1fr;
   }
 
-  .section-heading,
-  .trend-card__footer {
+  .section-heading {
     align-items: start;
     flex-direction: column;
     gap: 0.5ch;
   }
 
-  .section-note,
-  .trend-card__source {
+  .section-note {
     max-width: none;
     text-align: left;
   }
