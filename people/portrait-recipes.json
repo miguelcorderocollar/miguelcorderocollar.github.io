@@ -42,6 +42,11 @@
       "crop": { "focusX": 0.50, "focusY": 0.40, "areaPct": 0.88 }
     },
     {
+      "id": "jordan-b-peterson",
+      "source": "images/people/source/jordan-b-peterson-modern.jpg",
+      "crop": { "focusX": 0.52, "focusY": 0.40, "areaPct": 0.82 }
+    },
+    {
       "id": "dave-lee",
       "source": "images/people/source/dave-lee-modern.jpg",
       "crop": { "focusX": 0.50, "focusY": 0.43, "areaPct": 0.95 }

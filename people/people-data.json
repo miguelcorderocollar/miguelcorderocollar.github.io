@@ -168,6 +168,27 @@
       }
     },
     {
+      "id": "jordan-b-peterson",
+      "name": "Jordan B. Peterson",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Psychologist, author and lecturer",
+      "portrait": "../images/people/processed/jordan-b-peterson-halftone.webp",
+      "portraitAlt": "Jordan B. Peterson in a 2024 portrait",
+      "summary": "His lectures gave me a language for thinking about human nature, stories, archetypes and responsibility at a time when I felt society had lost sight of important things. Maps of Meaning was difficult but rewarding; 12 Rules for Life brought those ideas down to everyday actions, from making the bed and telling the truth to taking care of yourself and the people around you. I do not agree with him as much as I once did, and some of his claims did not convince me, but the lessons that stayed with me and the intellectual influence remain significant.",
+      "bio": "Jordan B. Peterson is a Canadian psychologist, author and online educator. His work connects psychology, mythology, religion and personal responsibility, from the academic Maps of Meaning to the practical advice of 12 Rules for Life.",
+      "links": [
+        { "label": "Official website", "url": "https://www.jordanbpeterson.com/" },
+        { "label": "About Jordan Peterson", "url": "https://www.jordanbpeterson.com/about/" },
+        { "label": "Books", "url": "https://www.jordanbpeterson.com/books/" }
+      ],
+      "photo": {
+        "credit": "U.S. Senate / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jordan_Peterson_in_2024.jpg",
+        "license": "Public domain"
+      }
+    },
+    {
       "id": "dave-lee",
       "name": "Dave Lee",
       "category": "culture",
