@@ -53,6 +53,10 @@ def parse_hex(value: str) -> tuple[int, int, int]:
     return tuple(int(value[offset : offset + 2], 16) for offset in (0, 2, 4))
 
 
+def is_grayscale_color(color: tuple[int, int, int]) -> bool:
+    return color[0] == color[1] == color[2]
+
+
 def luminance(pixel: tuple[int, int, int], settings: dict[str, Any]) -> float:
     value = (pixel[0] * 0.2126 + pixel[1] * 0.7152 + pixel[2] * 0.0722) / 255
     value = max(0.0, min(1.0, (value - 0.5) * settings["contrast"] + 0.5 + settings["brightness"]))
@@ -62,7 +66,13 @@ def luminance(pixel: tuple[int, int, int], settings: dict[str, Any]) -> float:
     return 1.0 - value if settings["invert"] else value
 
 
-def render(input_path: Path, output_path: Path, settings: dict[str, Any], max_size: int) -> None:
+def render(
+    input_path: Path,
+    output_path: Path,
+    settings: dict[str, Any],
+    max_size: int,
+    webp_quality: int,
+) -> None:
     image = ImageOps.exif_transpose(Image.open(input_path)).convert("RGB")
     image.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
 
@@ -127,8 +137,14 @@ def render(input_path: Path, output_path: Path, settings: dict[str, Any], max_si
         grain_rgb = Image.merge("RGB", (grain, grain, grain))
         result = Image.blend(result, ImageChops.multiply(result, grain_rgb), min(1.0, settings["grain"]))
 
+    if is_grayscale_color(paper) and is_grayscale_color(ink):
+        result = ImageOps.grayscale(result)
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    result.save(output_path, "PNG", optimize=True)
+    if output_path.suffix.lower() == ".webp":
+        result.save(output_path, "WEBP", quality=webp_quality, method=6)
+    else:
+        result.save(output_path, "PNG", optimize=True, compress_level=9)
 
 
 def main() -> None:
@@ -137,6 +153,12 @@ def main() -> None:
     parser.add_argument("output", type=Path, help="Output PNG")
     parser.add_argument("--settings", type=Path, help="Optional JSON file with recipe values")
     parser.add_argument("--max-size", type=int, default=1800, help="Maximum output dimension (default: 1800)")
+    parser.add_argument(
+        "--webp-quality",
+        type=int,
+        default=90,
+        help="WebP quality when the output path ends in .webp (default: 90)",
+    )
     for key, default in DEFAULTS.items():
         argument = CLI_NAMES.get(key, key.replace("_", "-"))
         if isinstance(default, bool):
@@ -157,7 +179,7 @@ def main() -> None:
         if value is not None:
             settings[key] = value
 
-    render(args.input, args.output, settings, args.max_size)
+    render(args.input, args.output, settings, args.max_size, args.webp_quality)
     print(json.dumps({"input": str(args.input), "output": str(args.output), "settings": settings}, indent=2))
 
 

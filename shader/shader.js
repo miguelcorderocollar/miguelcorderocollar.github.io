@@ -541,10 +541,26 @@ class ShaderCard {
         event.target.textContent = showSource ? "View shader" : "View source";
       }
 
-      if (action === "save") {
+      if (action === "save" || action === "save-webp") {
         this.draw(readConfig());
         const link = document.createElement("a");
         const title = this.element.querySelector("h3").textContent.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const isWebp = action === "save-webp";
+
+        if (isWebp) {
+          const blob = await new Promise((resolve) => this.canvas.toBlob(resolve, "image/webp", 0.9));
+          if (!blob || blob.type !== "image/webp") {
+            setStatus("WebP download unavailable");
+            return;
+          }
+          link.download = `${title}-halftone.webp`;
+          link.href = URL.createObjectURL(blob);
+          link.click();
+          window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+          setStatus("WebP downloaded");
+          return;
+        }
+
         link.download = `${title}-halftone.png`;
         link.href = this.canvas.toDataURL("image/png");
         link.click();
