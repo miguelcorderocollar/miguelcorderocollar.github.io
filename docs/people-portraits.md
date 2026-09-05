@@ -4,18 +4,19 @@ Portraits on `/people/` are cropped to a square around a normalized focal point,
 then passed through the default shader recipe in [`image-shader.md`](image-shader.md).
 The crop settings live in [`people/portrait-recipes.json`](../people/portrait-recipes.json).
 
-To reproduce one of the current portraits:
+The published files use a standardized delivery format: 640×640px WebP,
+quality 75. Every crop is resized to the same square canvas before the shader
+runs, so the fixed shader cell produces the same dot size in every portrait.
+
+Build or rebuild the complete People collection with:
 
 ```bash
-python3 scripts/crop_focus.py \
-  images/people/source/miguel-anxo-bastos-modern.jpg \
-  images/people/cropped/miguel-anxo-bastos.jpg \
-  --focus-x 0.51 --focus-y 0.37 --area-pct 0.98 --aspect 1:1
-
-python3 scripts/preprocess_shader.py \
-  images/people/cropped/miguel-anxo-bastos.jpg \
-  images/people/processed/miguel-anxo-bastos-halftone.webp \
-  --webp-quality 90
+python3 scripts/build_people_portraits.py
 ```
 
-The current source links and credits are listed in `people/people-data.json`.
+The command reads local source images from `images/people/source/`, creates
+temporary square crops and normalized shader inputs, and writes only the final
+assets to `images/people/processed/`.
+The source and crop directories are ignored by Git and must not be added to the
+published repository. Keep the source links and credits in
+[`people/people-data.json`](../people/people-data.json).

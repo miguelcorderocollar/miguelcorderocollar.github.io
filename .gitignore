@@ -1,0 +1,4 @@
+# People portrait build inputs stay local and are never published.
+/images/people/source/
+/images/people/cropped/
+/scripts/__pycache__/
