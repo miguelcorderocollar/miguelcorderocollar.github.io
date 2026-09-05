@@ -128,6 +128,15 @@ def render(
         result = Image.blend(grayscale, result, settings["halftone"])
 
     result = result.resize((width, height), Image.Resampling.LANCZOS)
+
+    # The grid origin can leave a narrow paper-only strip on the top and left
+    # edges after downsampling. Crop that rasterization artifact and restore
+    # the requested dimensions without changing the image's visible framing.
+    edge_trim = min(max(1, math.ceil(float(settings["cell"]) / 2)), width - 1, height - 1)
+    result = result.crop((edge_trim, edge_trim, width, height)).resize(
+        (width, height), Image.Resampling.LANCZOS
+    )
+
     if settings["grain"] > 0:
         rng = random.Random(20260905)
         grain_size = (max(1, width // 4), max(1, height // 4))
