@@ -79,6 +79,16 @@
   text-align: right;
 }
 
+.eyebrow {
+  margin: 0 0 calc(var(--line-height) / 2);
+  color: var(--trend-accent);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  line-height: var(--line-height);
+  text-transform: uppercase;
+}
+
 .filter-bar {
   flex-wrap: wrap;
   margin-bottom: calc(var(--line-height) * 1.5);
@@ -131,6 +141,13 @@
   justify-content: space-between;
 }
 
+.trend-card__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.75ch;
+}
+
 .trend-card h3 {
   margin: 0;
   font-size: 1.25rem;
@@ -146,6 +163,24 @@
   font-size: 0.65rem;
   line-height: 1.5;
   text-transform: uppercase;
+}
+
+.trend-card__info {
+  width: auto;
+  min-width: 0;
+  height: calc(var(--line-height) * 1.5);
+  margin: 0;
+  padding: 0 0.75ch;
+  border-color: var(--text-color-alt);
+  color: var(--text-color-alt);
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.trend-card__info:hover,
+.trend-card__info:focus-visible {
+  border-color: var(--trend-accent);
+  color: var(--trend-accent);
 }
 
 .trend-card__meta,
@@ -371,6 +406,33 @@ dialog p {
 
 dialog .eyebrow {
   margin-top: 0;
+}
+
+.dialog-markdown {
+  max-width: 62ch;
+}
+
+.dialog-markdown h3 {
+  margin-top: calc(var(--line-height) * 1.5);
+  font-size: 1rem;
+}
+
+.dialog-markdown p {
+  margin-top: var(--line-height);
+}
+
+.dialog-markdown ul {
+  margin-top: var(--line-height);
+  padding-left: 2ch;
+}
+
+.dialog-markdown li + li {
+  margin-top: 0.5ch;
+}
+
+.dialog-markdown code {
+  padding: 0 0.25ch;
+  background: var(--background-color-alt);
 }
 
 .dialog-source {

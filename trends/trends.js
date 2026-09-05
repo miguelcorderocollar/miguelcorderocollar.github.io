@@ -6,7 +6,7 @@ const SERIES_COLORS = {
   tesla: "#8a5a44",
   marketing: "#68733b",
   podcast: "#7f4c79",
-  "spanish-trap": "#ad4b68",
+  "c-tangana": "#ad4b68",
 };
 
 const chartWidth = 1000;
@@ -37,7 +37,7 @@ function formatPeriod(date, interval) {
 }
 
 function buildPoints(signal) {
-  return signal.series.values.map((value, index) => {
+  const points = signal.series.values.map((value, index) => {
     const date = dateFromSeries(signal, index);
     return {
       date,
@@ -46,6 +46,10 @@ function buildPoints(signal) {
       partial: Boolean(signal.partialLast && index === signal.series.values.length - 1),
     };
   });
+
+  if (!signal.displayUntil) return points;
+  const cutoff = new Date(`${signal.displayUntil}T23:59:59Z`);
+  return points.filter((point) => point.date <= cutoff);
 }
 
 function xForIndex(index, count) {
@@ -287,11 +291,24 @@ function createTrendCard(signal) {
   const category = document.createElement("p");
   category.className = "trend-card__category";
   category.textContent = signal.categoryLabel;
-  top.append(heading, category);
+
+  const actions = document.createElement("div");
+  actions.className = "trend-card__actions";
+  const infoButton = document.createElement("button");
+  infoButton.type = "button";
+  infoButton.className = "trend-card__info";
+  infoButton.dataset.info = signal.id;
+  infoButton.setAttribute("aria-label", `Open context for ${signal.label}`);
+  infoButton.textContent = "info";
+  actions.append(category, infoButton);
+  top.append(heading, actions);
 
   const meta = document.createElement("div");
   meta.className = "trend-card__meta";
-  [signal.geo || "Worldwide", signal.dateRange, signal.granularity].forEach((text) => {
+  const displayedRange = signal.displayUntilLabel
+    ? `shown through ${signal.displayUntilLabel}`
+    : signal.dateRange;
+  [signal.geo || "Worldwide", displayedRange, signal.granularity].forEach((text) => {
     const item = document.createElement("span");
     item.textContent = text;
     meta.appendChild(item);
@@ -334,6 +351,83 @@ function createTrendCard(signal) {
   return card;
 }
 
+function escapeHtml(value) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function safeMarkdownUrl(url) {
+  return /^(https?:\/\/|\/)/i.test(url) ? url : null;
+}
+
+function renderMarkdown(markdown) {
+  const lines = markdown.trim().split(/\r?\n/);
+  const output = [];
+  let paragraph = [];
+  let inList = false;
+
+  const renderInline = (value) => {
+    let html = escapeHtml(value);
+    html = html.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, label, url) => {
+      const safeUrl = safeMarkdownUrl(url);
+      return safeUrl
+        ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noreferrer">${label}</a>`
+        : label;
+    });
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    return html;
+  };
+
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    output.push(`<p>${renderInline(paragraph.join(" "))}</p>`);
+    paragraph = [];
+  };
+
+  const closeList = () => {
+    if (!inList) return;
+    output.push("</ul>");
+    inList = false;
+  };
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      flushParagraph();
+      closeList();
+      return;
+    }
+    const heading = trimmed.match(/^###\s+(.+)$/);
+    if (heading) {
+      flushParagraph();
+      closeList();
+      output.push(`<h3>${renderInline(heading[1])}</h3>`);
+      return;
+    }
+    const listItem = trimmed.match(/^[-*]\s+(.+)$/);
+    if (listItem) {
+      flushParagraph();
+      if (!inList) {
+        output.push("<ul>");
+        inList = true;
+      }
+      output.push(`<li>${renderInline(listItem[1])}</li>`);
+      return;
+    }
+    closeList();
+    paragraph.push(trimmed);
+  });
+
+  flushParagraph();
+  closeList();
+  return output.join("");
+}
+
 function setupFilters(signals) {
   const list = document.getElementById("trend-list");
   const cards = [...list.querySelectorAll(".trend-card")];
@@ -373,6 +467,36 @@ function setupMethodDialog() {
   });
 }
 
+function setupInfoDialog(signals) {
+  const dialog = document.getElementById("info-dialog");
+  const heading = document.getElementById("info-dialog-heading");
+  const category = document.getElementById("info-dialog-category");
+  const content = document.getElementById("info-dialog-content");
+  if (!dialog || !heading || !category || !content) return;
+
+  const signalsById = new Map(signals.map((signal) => [signal.id, signal]));
+  document.querySelectorAll("[data-info]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const signal = signalsById.get(button.dataset.info);
+      if (!signal) return;
+      heading.textContent = signal.label;
+      category.textContent = `${signal.categoryLabel} · PERSONAL CONTEXT`;
+      content.innerHTML = renderMarkdown(
+        signal.contextMarkdown || "No personal context has been added for this topic yet.",
+      );
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+    });
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+  });
+}
+
 function updateReadingProgress() {
   const progressBar = document.querySelector(".reading-progress");
   if (!progressBar) return;
@@ -389,6 +513,7 @@ async function loadTrends() {
     trendList.replaceChildren(...data.signals.map(createTrendCard));
     setupFilters(data.signals);
     setupMethodDialog();
+    setupInfoDialog(data.signals);
     updateReadingProgress();
   } catch (error) {
     console.error(error);
