@@ -2,6 +2,49 @@
   "updated": "2026-09-05",
   "people": [
     {
+      "id": "david-heinemeier-hansson",
+      "name": "David Heinemeier Hansson",
+      "shortName": "DHH",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Programmer, entrepreneur and racing driver",
+      "portrait": "../images/people/processed/david-heinemeier-hansson-halftone.webp",
+      "portraitAlt": "David Heinemeier Hansson smiling in a close-up portrait",
+      "summary": "His example makes ambitious work feel possible. He created Ruby on Rails, helped build 37signals and later created Omarchy, all while speaking plainly about his convictions. I admire the range of his life: software, business, writing, racing, politics and family all seem to receive serious attention.",
+      "bio": "David Heinemeier Hansson is a Danish programmer, author and co-owner of 37signals. He created Ruby on Rails, writes about software and public life, and races cars.",
+      "links": [
+        { "label": "Personal website", "url": "https://dhh.dk/" },
+        { "label": "37signals", "url": "https://37signals.com/" },
+        { "label": "Omarchy", "url": "https://omarchy.org/" }
+      ],
+      "photo": {
+        "credit": "David Heinemeier Hansson",
+        "sourceUrl": "https://dhh.dk/",
+        "license": "Personal website"
+      }
+    },
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Entrepreneur, engineer and builder",
+      "portrait": "../images/people/processed/elon-musk-halftone.webp",
+      "portraitAlt": "Elon Musk in a black suit and tie at a 2025 event",
+      "summary": "His companies taught me to think on a larger timescale and to take seemingly unrealistic technical ambitions seriously. I admire the willingness to question inherited assumptions, reduce a problem to its physical and economic constraints and attempt a solution. That influence remains real even when I disagree with his conduct or conclusions.",
+      "bio": "Elon Musk is an entrepreneur and engineer whose companies work across spaceflight, electric vehicles, artificial intelligence and infrastructure. He is known for pairing long-horizon ambitions with an insistence on first-principles thinking.",
+      "links": [
+        { "label": "SpaceX", "url": "https://www.spacex.com/" },
+        { "label": "Tesla", "url": "https://www.tesla.com/" },
+        { "label": "xAI", "url": "https://x.ai/" }
+      ],
+      "photo": {
+        "credit": "Gage Skidmore / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elon_Musk_(54816836217)_(cropped).jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
       "id": "miguel-anxo-bastos",
       "name": "Miguel Anxo Bastos",
       "category": "philosophy",
@@ -248,49 +291,6 @@
         "credit": "The Friedman Foundation for Educational Choice / Wikimedia Commons",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Milton_Friedman.jpg",
         "license": "CC0 1.0"
-      }
-    },
-    {
-      "id": "david-heinemeier-hansson",
-      "name": "David Heinemeier Hansson",
-      "shortName": "DHH",
-      "category": "technology",
-      "categoryLabel": "Technology",
-      "role": "Programmer, entrepreneur and racing driver",
-      "portrait": "../images/people/processed/david-heinemeier-hansson-halftone.webp",
-      "portraitAlt": "David Heinemeier Hansson smiling in a close-up portrait",
-      "summary": "His example makes ambitious work feel possible. He created Ruby on Rails, helped build 37signals and later created Omarchy, all while speaking plainly about his convictions. I admire the range of his life: software, business, writing, racing, politics and family all seem to receive serious attention.",
-      "bio": "David Heinemeier Hansson is a Danish programmer, author and co-owner of 37signals. He created Ruby on Rails, writes about software and public life, and races cars.",
-      "links": [
-        { "label": "Personal website", "url": "https://dhh.dk/" },
-        { "label": "37signals", "url": "https://37signals.com/" },
-        { "label": "Omarchy", "url": "https://omarchy.org/" }
-      ],
-      "photo": {
-        "credit": "David Heinemeier Hansson",
-        "sourceUrl": "https://dhh.dk/",
-        "license": "Personal website"
-      }
-    },
-    {
-      "id": "elon-musk",
-      "name": "Elon Musk",
-      "category": "technology",
-      "categoryLabel": "Technology",
-      "role": "Entrepreneur, engineer and builder",
-      "portrait": "../images/people/processed/elon-musk-halftone.webp",
-      "portraitAlt": "Elon Musk in a black suit and tie at a 2025 event",
-      "summary": "His companies taught me to think on a larger timescale and to take seemingly unrealistic technical ambitions seriously. I admire the willingness to question inherited assumptions, reduce a problem to its physical and economic constraints and attempt a solution. That influence remains real even when I disagree with his conduct or conclusions.",
-      "bio": "Elon Musk is an entrepreneur and engineer whose companies work across spaceflight, electric vehicles, artificial intelligence and infrastructure. He is known for pairing long-horizon ambitions with an insistence on first-principles thinking.",
-      "links": [
-        { "label": "SpaceX", "url": "https://www.spacex.com/" },
-        { "label": "Tesla", "url": "https://www.tesla.com/" },
-        { "label": "xAI", "url": "https://x.ai/" }
-      ],
-      "photo": {
-        "credit": "Gage Skidmore / Wikimedia Commons",
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elon_Musk_(54816836217)_(cropped).jpg",
-        "license": "CC BY-SA 4.0"
       }
     },
     {
