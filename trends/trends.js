@@ -11,6 +11,8 @@ const SERIES_COLORS = {
   "league-of-legends": "#c89b3c",
   rosalia: "#d65a9b",
   "twenty-one-pilots": "#4c78b8",
+  "el-rubius": "#8c4fd1",
+  milei: "#4f9d9d",
 };
 
 const chartWidth = 1000;
