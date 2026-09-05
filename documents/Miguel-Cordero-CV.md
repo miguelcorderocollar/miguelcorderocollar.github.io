@@ -12,6 +12,12 @@ I'm an IT Innovation Project Manager at Red Bull, focused on turning emerging te
 
 My work centers on AI, Agentic AI, internal tools, SaaS platforms, and proof-of-concept development. I combine product management, business analysis, and hands-on software development to help teams explore, validate, and implement new technology.
 
+## Beyond work
+
+A few things I keep an eye on.
+
+- [Trends](../trends/): Ideas I'm following, and when I first noticed them.
+
 ## Experience
 
 ### IT Innovation Project Manager

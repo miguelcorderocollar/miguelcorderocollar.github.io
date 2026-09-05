@@ -301,6 +301,102 @@ figure {
   overflow-y: hidden;
 }
 
+/* Personal collections */
+.homepage-collections {
+  margin: calc(var(--line-height) * 1.5) 0;
+}
+
+.homepage-collections * {
+  margin-top: 0;
+}
+
+.homepage-collections-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2ch;
+  margin-bottom: var(--line-height);
+}
+
+.homepage-collections-heading h2 {
+  margin: 0;
+}
+
+.homepage-collections-heading p {
+  margin: 0;
+  color: var(--text-color-alt);
+  font-size: 0.75rem;
+}
+
+.homepage-collection-links {
+  display: flex;
+  border-top: 1px solid var(--text-color-alt);
+  border-bottom: 1px solid var(--text-color-alt);
+}
+
+.homepage-collection-link {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 1.5ch;
+  min-width: 0;
+  padding: calc(var(--line-height) * 0.75) 1.5ch;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.homepage-collection-link + .homepage-collection-link {
+  border-left: 1px solid var(--text-color-alt);
+}
+
+.homepage-collection-link:hover {
+  background: var(--background-color-alt);
+}
+
+.homepage-collection-index {
+  color: var(--text-color-alt);
+  font-size: 0.75rem;
+}
+
+.homepage-collection-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.homepage-collection-copy strong,
+.homepage-collection-copy > span {
+  display: block;
+}
+
+.homepage-collection-copy > span {
+  margin-top: 0.25rem;
+  color: var(--text-color-alt);
+  font-size: 0.75rem;
+}
+
+.homepage-collection-arrow {
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .homepage-collections-heading {
+    display: block;
+  }
+
+  .homepage-collections-heading p {
+    margin-top: 0.25rem;
+  }
+
+  .homepage-collection-links {
+    display: block;
+  }
+
+  .homepage-collection-link + .homepage-collection-link {
+    border-top: 1px solid var(--background-color-alt);
+    border-left: 0;
+  }
+}
+
 figcaption {
   display: block;
   font-style: italic;
