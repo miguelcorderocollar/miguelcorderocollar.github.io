@@ -42,6 +42,11 @@
       "crop": { "focusX": 0.50, "focusY": 0.40, "areaPct": 0.88 }
     },
     {
+      "id": "dave-lee",
+      "source": "images/people/source/dave-lee-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.43, "areaPct": 0.95 }
+    },
+    {
       "id": "juan-ramon-rallo",
       "source": "images/people/source/juan-ramon-rallo-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }

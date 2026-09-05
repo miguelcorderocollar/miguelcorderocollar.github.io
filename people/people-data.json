@@ -168,6 +168,27 @@
       }
     },
     {
+      "id": "dave-lee",
+      "name": "Dave Lee",
+      "category": "culture",
+      "categoryLabel": "Culture",
+      "role": "Investor, YouTuber and educator",
+      "portrait": "../images/people/processed/dave-lee-halftone.webp",
+      "portraitAlt": "Dave Lee in a close-up profile portrait",
+      "summary": "Dave Lee taught me to look beyond traditional value investing and ask how a company might change the world. His Tesla analyses helped me think about disruption, long-term bets and how to value businesses that are still building the future. I also admire the way he puts his family first, including stepping away from YouTube when his wife was dealing with cancer so he could care for her and teach his children. His calm, humble and knowledgeable way of communicating makes those lessons even more valuable.",
+      "bio": "Dave Lee is an investor and YouTube creator known for Dave Lee on Investing. His channel explores Tesla, disruptive technology and long-term investment ideas through detailed, approachable videos.",
+      "links": [
+        { "label": "Dave Lee on Investing", "url": "https://www.davelee.tv/home" },
+        { "label": "YouTube channel", "url": "https://www.youtube.com/@Dave_Lee" },
+        { "label": "X / @heydave7", "url": "https://x.com/heydave7" }
+      ],
+      "photo": {
+        "credit": "Dave Lee / Dave Lee on Investing",
+        "sourceUrl": "https://www.davelee.tv/home",
+        "license": "Personal website"
+      }
+    },
+    {
       "id": "juan-ramon-rallo",
       "name": "Juan Ramón Rallo",
       "category": "economics",
