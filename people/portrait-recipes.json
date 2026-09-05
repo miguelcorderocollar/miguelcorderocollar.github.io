@@ -22,6 +22,21 @@
       "crop": { "focusX": 0.5, "focusY": 0.38, "areaPct": 0.72 }
     },
     {
+      "id": "sam-harris",
+      "source": "images/people/source/sam-harris-modern.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.40, "areaPct": 0.95 }
+    },
+    {
+      "id": "richard-dawkins",
+      "source": "images/people/source/richard-dawkins-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.34, "areaPct": 0.78 }
+    },
+    {
+      "id": "christopher-hitchens",
+      "source": "images/people/source/christopher-hitchens-modern.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.40, "areaPct": 0.88 }
+    },
+    {
       "id": "juan-ramon-rallo",
       "source": "images/people/source/juan-ramon-rallo-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }

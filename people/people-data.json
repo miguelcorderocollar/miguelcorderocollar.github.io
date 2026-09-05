@@ -85,6 +85,68 @@
       }
     },
     {
+      "id": "sam-harris",
+      "name": "Sam Harris",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Philosopher, neuroscientist and author",
+      "portrait": "../images/people/processed/sam-harris-halftone.webp",
+      "portraitAlt": "Sam Harris in a 2016 black-and-white portrait",
+      "summary": "Following him during the New Atheism years taught me to think more critically and rationally. I have always admired the precision of how he expresses himself, and his way of treating meditation as a practice that can be explored without abandoning a scientific outlook. Because of him I discovered benefits I can return to whenever I need them.",
+      "bio": "Sam Harris is an American philosopher, neuroscientist, author and host of the Making Sense podcast. His work spans rationality, ethics, consciousness, meditation and public debate, and he created the Waking Up meditation app.",
+      "links": [
+        { "label": "Official website", "url": "https://www.samharris.org/" },
+        { "label": "Waking Up", "url": "https://www.wakingup.com/" },
+        { "label": "Making Sense podcast", "url": "https://www.samharris.org/podcasts/making-sense-episodes" }
+      ],
+      "photo": {
+        "credit": "Christopher Michel / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sam_Harris_2016_(cropped).jpg",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "richard-dawkins",
+      "name": "Richard Dawkins",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Evolutionary biologist and author",
+      "portrait": "../images/people/processed/richard-dawkins-halftone.webp",
+      "portraitAlt": "Richard Dawkins in a 2022 portrait",
+      "summary": "The Selfish Gene showed me the power of a great intellectual work: rigorous ideas can also be clear, memorable and culturally important. I admire the contribution he made to public understanding of evolution and the intellectual courage of his earlier atheist writing, even though I no longer agree with everything he says or how that role looks today.",
+      "bio": "Richard Dawkins is a British evolutionary biologist and author. The Selfish Gene and his wider popular-science writing helped bring gene-centred evolution and scientific reasoning to a broad audience.",
+      "links": [
+        { "label": "Richard Dawkins Foundation", "url": "https://richarddawkins.net/" },
+        { "label": "Biography and bibliography", "url": "https://richarddawkins.net/richarddawkins/" },
+        { "label": "The Selfish Gene at the Foundation", "url": "https://richarddawkins.net/2016/05/as-long-as-we-study-life-it-will-be-read-the-selfish-gene-turns-40/" }
+      ],
+      "photo": {
+        "credit": "Steve Jurvetson / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dinner_with_Richard_Dawkins_and_CFI..._like_a_candle_in_the_dark.jpg",
+        "license": "CC BY 2.0"
+      }
+    },
+    {
+      "id": "christopher-hitchens",
+      "name": "Christopher Hitchens",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Author, critic and debater",
+      "portrait": "../images/people/processed/christopher-hitchens-halftone.webp",
+      "portraitAlt": "Christopher Hitchens speaking in 2010",
+      "summary": "His debates taught me the force of a quick, well-read mind. I admired how he fought for his ideas with wit, intelligence and speed, and how he could make an argument feel alive in the moment. His example still reminds me that clarity and courage matter when you speak publicly.",
+      "bio": "Christopher Hitchens was an English-American author, columnist and literary critic whose writing ranged from politics and culture to religion. He was celebrated for his erudition, polemical wit and formidable debating style.",
+      "links": [
+        { "label": "Hachette author page", "url": "https://www.hachettebookgroup.com/contributor/christopher-hitchens/" },
+        { "label": "Simon & Schuster author page", "url": "https://www.simonandschuster.com/authors/Christopher-Hitchens/246050464" }
+      ],
+      "photo": {
+        "credit": "Andrew Rusk / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hitchens_2010.jpg",
+        "license": "CC BY 2.0"
+      }
+    },
+    {
       "id": "juan-ramon-rallo",
       "name": "Juan Ramón Rallo",
       "category": "economics",
