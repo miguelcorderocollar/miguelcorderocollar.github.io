@@ -42,6 +42,27 @@
       }
     },
     {
+      "id": "milton-friedman",
+      "name": "Milton Friedman",
+      "category": "economics",
+      "categoryLabel": "Economics",
+      "role": "Economist, author and public intellectual",
+      "portrait": "../images/people/processed/milton-friedman-halftone.webp",
+      "portraitAlt": "Milton Friedman in a thoughtful portrait",
+      "summary": "His contribution to economics and the case for individual freedom is impossible to overstate. The clarity of his ideas, the power of his communication and the body of work he left behind made the world better—and continue to shape how I think.",
+      "bio": "Milton Friedman was an American economist, author and public intellectual who received the 1976 Nobel Prize in Economic Sciences. His research and broadcasting helped bring monetary economics and the case for economic freedom to a broad audience.",
+      "links": [
+        { "label": "Free to Choose Network", "url": "https://www.freetochoosenetwork.org/" },
+        { "label": "The Hoover Institution", "url": "https://www.hoover.org/profiles/milton-friedman" },
+        { "label": "Nobel Prize biography", "url": "https://www.nobelprize.org/prizes/economic-sciences/1976/friedman/biographical/" }
+      ],
+      "photo": {
+        "credit": "The Friedman Foundation for Educational Choice / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Milton_Friedman.jpg",
+        "license": "CC0 1.0"
+      }
+    },
+    {
       "id": "david-heinemeier-hansson",
       "name": "David Heinemeier Hansson",
       "shortName": "DHH",

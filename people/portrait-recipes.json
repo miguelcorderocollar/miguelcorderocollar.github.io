@@ -12,6 +12,11 @@
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }
     },
     {
+      "id": "milton-friedman",
+      "source": "images/people/source/milton-friedman-modern.jpg",
+      "crop": { "focusX": 0.53, "focusY": 0.29, "areaPct": 0.72 }
+    },
+    {
       "id": "david-heinemeier-hansson",
       "source": "images/people/source/david-heinemeier-hansson-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.48, "areaPct": 0.96 }
