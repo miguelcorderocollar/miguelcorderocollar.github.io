@@ -24,3 +24,7 @@ This ensures that content changes can be immediately previewed without manual se
 ## Markdown Sync
 
 When making any content change to the page in `index.html`, also update `documents/Miguel-Cordero-CV.md` in the same change so the curriculum "Copy .md" button always copies the current page content.
+
+## Image processing
+
+Before adding an image to the public site, run it through `scripts/preprocess_shader.py` unless the image is intentionally excluded from the shader treatment. Keep the source image and the exact recipe documented when an override is needed. Use `/shader/` to tune a recipe before preprocessing the final PNG.
