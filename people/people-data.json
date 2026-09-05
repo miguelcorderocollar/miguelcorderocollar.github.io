@@ -22,6 +22,27 @@
       }
     },
     {
+      "id": "ayn-rand",
+      "name": "Ayn Rand",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Novelist and philosopher",
+      "portrait": "../images/people/processed/ayn-rand-halftone.webp",
+      "portraitAlt": "Ayn Rand in a 1943 portrait",
+      "summary": "She showed me how a philosophy can live inside a story. Atlas Shrugged was one of the most impactful books I have read: a compelling way to explore Objectivism, make ideas memorable and share them with the world. I am grateful for the clarity and ambition of what she created.",
+      "bio": "Ayn Rand was a Russian-American novelist and philosopher, best known for Atlas Shrugged and The Fountainhead. She developed Objectivism, a philosophy centered on reason, individual rights and rational self-interest.",
+      "links": [
+        { "label": "Ayn Rand Institute", "url": "https://aynrand.org/" },
+        { "label": "Atlas Shrugged", "url": "https://aynrand.org/novels/atlas-shrugged/" },
+        { "label": "The Fountainhead", "url": "https://aynrand.org/novels/the-fountainhead/" }
+      ],
+      "photo": {
+        "credit": "Talbot / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ayn_Rand_(1943_Talbot_portrait).jpg",
+        "license": "Public domain (US)"
+      }
+    },
+    {
       "id": "juan-ramon-rallo",
       "name": "Juan Ramón Rallo",
       "category": "economics",

@@ -7,6 +7,11 @@
       "crop": { "focusX": 0.51, "focusY": 0.37, "areaPct": 0.98 }
     },
     {
+      "id": "ayn-rand",
+      "source": "images/people/source/ayn-rand-modern.jpg",
+      "crop": { "focusX": 0.55, "focusY": 0.35, "areaPct": 0.79 }
+    },
+    {
       "id": "juan-ramon-rallo",
       "source": "images/people/source/juan-ramon-rallo-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }
