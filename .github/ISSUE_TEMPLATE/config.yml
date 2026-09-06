@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the issue template guide
+    url: https://github.com/miguelcorderocollar/miguelcorderocollar.github.io/blob/master/docs/issue-templates.md
+    about: Choose a template, prepare sources and credits, or decide when a regular issue fits.

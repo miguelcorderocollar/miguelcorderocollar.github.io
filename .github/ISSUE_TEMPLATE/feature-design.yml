@@ -1,0 +1,69 @@
+name: Refine a feature or design
+description: Improve an existing page, interaction, layout, accessibility detail, or visual treatment.
+title: "[Refinement] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for implementation work on an existing page or feature. For copy or data changes, choose a content template instead.
+
+  - type: input
+    id: target
+    attributes:
+      label: Target page or feature
+      description: Name the page, component, interaction, or asset that should change.
+      placeholder: "People page search and category filters"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Current problem
+      description: Describe what is difficult, broken, unclear, or missing today. Include steps to reproduce if relevant.
+      placeholder: On a narrow screen, the filter controls wrap into a layout that is hard to scan.
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: State how the experience should behave after the change and how you will know it works.
+      placeholder: The filters remain readable on narrow screens and keyboard users can reach every option.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed direction
+      description: Share a sketch, example, reference, or implementation idea. Keep the desired outcome above separate from the proposed solution.
+      placeholder: "Reference or proposed approach:"
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources, assets, and credits
+      description: Link design references or list any new images, fonts, icons, or other assets with their source and license.
+      placeholder: "Reference links and asset credits:"
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and acceptance checks
+      description: List browser, accessibility, performance, compatibility, or content constraints that should guide implementation.
+      placeholder: |
+        - Keep the page static.
+        - Preserve the existing halftone image treatment.
+        - Verify keyboard navigation.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have described the problem and desired outcome separately from the proposed solution.
+          required: true
+        - label: I have included source or license details for any referenced or new asset.
+          required: true

@@ -1,0 +1,57 @@
+name: Update curriculum or profile content
+description: Revise the homepage, curriculum, experience, education, skills, projects, or contact copy.
+title: "[Profile] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for copy or data changes to the main profile and curriculum. If the change edits page content in `index.html`, the matching `documents/Miguel-Cordero-CV.md` copy must stay in sync.
+
+  - type: input
+    id: target
+    attributes:
+      label: Target page or section
+      description: Name the page and section that should change.
+      placeholder: "Homepage, Experience section"
+    validations:
+      required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: Proposed content
+      description: Include the exact new copy or a clear description of the data change. Mention anything that should be removed.
+      placeholder: |
+        ### Add role
+        - Employer:
+        - Title:
+        - Dates:
+        - Description:
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources and credits
+      description: Add links that support the dates, claims, project details, or assets in the update.
+      placeholder: "Source or reference links:"
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: State what the published profile or curriculum should say after the update.
+      placeholder: The experience entry appears on the homepage and in the copied Markdown CV with matching wording.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have included dates and source links where they are relevant.
+          required: true
+        - label: I understand that this is a content request, not a request for a new layout or interaction.
+          required: true

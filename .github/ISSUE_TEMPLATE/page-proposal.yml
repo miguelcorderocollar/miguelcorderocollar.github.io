@@ -1,0 +1,62 @@
+name: Propose a new page or section
+description: Suggest a new page or a substantial section for the site.
+title: "[Page] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when the site needs a new destination or a substantial new section. Use the feature or design template for a refinement to an existing experience.
+
+  - type: input
+    id: target
+    attributes:
+      label: Proposed page or section
+      description: Give the page a working name and, if known, its URL or parent page.
+      placeholder: "Writing page at /writing/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Explain why this should exist and what a visitor should be able to find or do there.
+      placeholder: Visitors can browse Miguel's essays by topic and open each essay from a stable URL.
+    validations:
+      required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: Content and structure
+      description: List the proposed content, sections, examples, or batch items. Include a rough information hierarchy if it helps.
+      placeholder: |
+        - Introductory copy
+        - Filter or category list
+        - One card per essay
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Sources, assets, and credits
+      description: Link references, inspiration, source material, images, fonts, or other assets. Include licensing and credit information where needed.
+      placeholder: "Reference links and asset credits:"
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation notes
+      description: Add technical constraints, dependencies, accessibility needs, or open decisions. This is optional so the request can focus on the outcome.
+      placeholder: "Keep the page static and usable without a build step."
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have described the visitor outcome, not only the visual idea.
+          required: true
+        - label: I have included source or credit information for material that is not original.
+          required: true

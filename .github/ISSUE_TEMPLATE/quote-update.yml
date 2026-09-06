@@ -1,0 +1,59 @@
+name: Add or update quotes
+description: Add a quote, revise an existing quote, or propose a batch for the site.
+title: "[Quotes] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for quote content. One issue can cover several quotes when they belong to the same update.
+
+  - type: input
+    id: target
+    attributes:
+      label: Target page or section
+      description: Name the page, section, or existing quote that should change.
+      placeholder: "Homepage quotes section"
+    validations:
+      required: true
+
+  - type: textarea
+    id: quotes
+    attributes:
+      label: Quote content
+      description: Include the exact wording, attribution, and any context or formatting notes. Use headings for a batch.
+      placeholder: |
+        ### Quote 1
+        > Exact quote text.
+
+        - Attributed to:
+        - Context or note:
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources and credits
+      description: Link the source that verifies the wording and attribution. Add image, artwork, or license credits if the quote needs an asset.
+      placeholder: |
+        - Source: https://example.com
+        - Asset or credit:
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe what should be visible or changed when this issue is complete.
+      placeholder: The quote appears in the homepage quotes section with the correct attribution.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have checked the wording and attribution against the source.
+          required: true
+        - label: I have included credit or license details for any asset used with the quote.
+          required: true

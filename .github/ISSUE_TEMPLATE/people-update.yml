@@ -1,0 +1,63 @@
+name: Add or update People entries
+description: Add one person, revise an entry, or propose a batch for the People page.
+title: "[People] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for content changes to `/people/`. A single issue can cover a batch of people when the entries belong to the same update.
+
+        For summaries, follow [Writing People descriptions](https://github.com/miguelcorderocollar/miguelcorderocollar.github.io/blob/master/docs/people-descriptions.md).
+
+  - type: input
+    id: target
+    attributes:
+      label: Target page or entries
+      description: Name the page and list the existing entry IDs, if this is an update.
+      placeholder: "People page; add Ada Lovelace and update george-orwell"
+    validations:
+      required: true
+
+  - type: textarea
+    id: entries
+    attributes:
+      label: People and requested content
+      description: For each person, include the name and the proposed category, role, summary, bio, links, or other changes. Use headings for a batch.
+      placeholder: |
+        ### Ada Lovelace
+        - Category:
+        - Role:
+        - Summary:
+        - Bio:
+        - Links:
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources and image credits
+      description: Link the sources for biographical claims. For a portrait, include the source URL, credit, license, and any crop notes.
+      placeholder: |
+        - Biography source: https://example.com
+        - Portrait source: https://example.com/image
+        - Credit and license:
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Say what should be true when this issue is complete. Keep content requests separate from optional implementation ideas.
+      placeholder: The People page shows these entries with the supplied copy and links.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have included the source and credit information available to me.
+          required: true
+        - label: I understand that this issue requests a site update; implementation details can be decided during the work.
+          required: true
