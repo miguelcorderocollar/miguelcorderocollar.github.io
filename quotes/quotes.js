@@ -19,6 +19,7 @@ const CHECK_ICON = `
 `;
 
 const TRANSLATION_ICON = `<span class="quote-translation-glyph" aria-hidden="true">A文</span>`;
+const LONG_QUOTE_LENGTH = 140;
 
 function quoteAsMarkdown(quote, text = quote.text) {
   const lines = text.split(/\r?\n/).map((line) => `> ${line}`).join("\n");
@@ -197,9 +198,10 @@ function setupModes() {
       nextIndex = 0;
     }
     currentIndex = nextIndex;
-    randomQuote.classList.remove("is-changing");
-    void randomQuote.offsetWidth;
     const quote = quotes[currentIndex];
+    randomQuote.classList.remove("is-changing");
+    randomQuote.classList.toggle("is-long", quote.text.length >= LONG_QUOTE_LENGTH);
+    void randomQuote.offsetWidth;
     let showingOriginal = false;
     const translationControl = createTranslationControl(quote, (showOriginal) => {
       showingOriginal = showOriginal;

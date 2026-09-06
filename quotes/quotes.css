@@ -350,10 +350,14 @@
 
 .random-quote blockquote p {
   margin: 0;
-  font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+  font-size: clamp(1.5rem, 3.5vw, 3.25rem);
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.065em;
   line-height: 1.08;
+}
+
+.random-quote.is-long blockquote p {
+  font-size: clamp(1.35rem, 2.8vw, 2.65rem);
 }
 
 .random-quote footer {
