@@ -19,7 +19,7 @@ const CHECK_ICON = `
 `;
 
 const TRANSLATION_ICON = `<span class="quote-translation-glyph" aria-hidden="true">A文</span>`;
-const LONG_QUOTE_LENGTH = 140;
+const LONG_QUOTE_LENGTH = 100;
 
 function quoteAsMarkdown(quote, text = quote.text) {
   const lines = text.split(/\r?\n/).map((line) => `> ${line}`).join("\n");
