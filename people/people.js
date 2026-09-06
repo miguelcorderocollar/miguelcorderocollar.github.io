@@ -6,10 +6,30 @@ const INFO_ICON = `
   </svg>
 `;
 
+function normalizeSearchValue(value) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase();
+}
+
 function createPersonCard(person, index) {
   const card = document.createElement("article");
   card.className = "person-card";
   card.dataset.category = person.category;
+  card.dataset.search = normalizeSearchValue(
+    [
+      person.name,
+      person.shortName,
+      person.category,
+      person.categoryLabel,
+      person.role,
+      person.summary,
+      person.bio,
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
 
   const portraitFrame = document.createElement("div");
   portraitFrame.className = "person-card__portrait";
@@ -79,20 +99,47 @@ function closeDialogFromBackdrop(dialog) {
   });
 }
 
-function setupFilters(cards) {
+function setupFilters(cards, emptyState) {
   const buttons = [...document.querySelectorAll("[data-filter]")];
+  const searchInput = document.getElementById("people-search");
+  let activeFilter = "all";
+  let searchTerm = "";
+
+  function updateResults() {
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
+      const matchesSearch = !searchTerm || card.dataset.search.includes(searchTerm);
+      const shouldShow = matchesFilter && matchesSearch;
+      card.classList.toggle("is-hidden", !shouldShow);
+      card.hidden = !shouldShow;
+      if (shouldShow) visibleCount += 1;
+    });
+
+    emptyState.hidden = visibleCount > 0;
+    if (visibleCount === 0) {
+      emptyState.textContent = searchTerm
+        ? `No people match "${searchInput.value}".`
+        : "No people in this category yet.";
+    }
+  }
 
   function applyFilter(filter, activeButton) {
+    activeFilter = filter;
     buttons.forEach((button) => button.classList.toggle("is-active", button === activeButton));
-    cards.forEach((card) => {
-      const shouldShow = filter === "all" || card.dataset.category === filter;
-      card.classList.toggle("is-hidden", !shouldShow);
-    });
+    updateResults();
   }
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => applyFilter(button.dataset.filter, button));
   });
+
+  searchInput?.addEventListener("input", () => {
+    searchTerm = normalizeSearchValue(searchInput.value.trim());
+    updateResults();
+  });
+
   applyFilter("all", buttons[0]);
 }
 
@@ -153,8 +200,13 @@ async function loadPeople() {
     if (!response.ok) throw new Error(`Collection request failed with ${response.status}`);
     const data = await response.json();
     const cards = data.people.map(createPersonCard);
+    const emptyState = document.createElement("p");
+    emptyState.className = "empty-state";
+    emptyState.setAttribute("role", "status");
+    emptyState.hidden = true;
     peopleList.replaceChildren(...cards);
-    setupFilters(cards);
+    peopleList.append(emptyState);
+    setupFilters(cards, emptyState);
     setupPersonDialog(data.people);
     setupDisclaimerDialog();
     updateReadingProgress();

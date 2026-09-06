@@ -54,16 +54,30 @@
           </button>
         </div>
 
-        <div class="filter-bar" aria-label="Filter people" role="toolbar">
-          <button type="button" class="filter-button is-active" data-filter="all">All</button>
-          <button type="button" class="filter-button" data-filter="technology">Technology</button>
-          <button type="button" class="filter-button" data-filter="philosophy">Philosophy</button>
-          <button type="button" class="filter-button" data-filter="economics">Economics</button>
-          <button type="button" class="filter-button" data-filter="culture">Culture</button>
-          <button type="button" class="filter-button" data-filter="investing">Investing</button>
+        <div class="people-controls">
+          <div class="filter-bar" aria-label="Filter people" role="toolbar">
+            <button type="button" class="filter-button is-active" data-filter="all">All</button>
+            <button type="button" class="filter-button" data-filter="technology">Technology</button>
+            <button type="button" class="filter-button" data-filter="philosophy">Philosophy</button>
+            <button type="button" class="filter-button" data-filter="economics">Economics</button>
+            <button type="button" class="filter-button" data-filter="culture">Culture</button>
+            <button type="button" class="filter-button" data-filter="investing">Investing</button>
+          </div>
+
+          <label class="people-search" for="people-search">
+            <span>Find a person</span>
+            <input
+              id="people-search"
+              type="search"
+              placeholder="Name, role or idea"
+              autocomplete="off"
+              spellcheck="false"
+              aria-controls="people-list"
+            />
+          </label>
         </div>
 
-        <div id="people-list" class="people-list" aria-live="polite">
+        <div id="people-list" class="people-list">
           <p class="loading-state">Loading the collection...</p>
         </div>
       </section>
