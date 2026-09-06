@@ -6,6 +6,11 @@ Google’s supported workflow is browser-based. A signal can also use an optiona
 `personalInterestEndDate` and `endMarkerLabel` to show when an interest period ended;
 the chart renders the period before and after that window more softly.
 
+Optional `aboutMarkdown` fields can hold a short plain-language explanation and a
+small bullet list of links for the question-mark button on each card. The
+`contextMarkdown` field is reserved for the personal story shown by the Info
+button.
+
 The snapshot workflow remains browser-based:
 
 1. Open the `sourceUrl` for a signal.

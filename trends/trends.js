@@ -345,6 +345,8 @@ function createTrendCard(signal) {
     infoButton.type = "button";
     infoButton.className = "trend-card__info";
     infoButton.dataset.info = signal.id;
+    infoButton.setAttribute("aria-haspopup", "dialog");
+    infoButton.setAttribute("aria-controls", "info-dialog");
     infoButton.setAttribute("aria-label", `Open context for ${signal.label}`);
     infoButton.title = `More context about ${signal.label}`;
     const infoIcon = makeSvgElement("svg", {
@@ -359,6 +361,35 @@ function createTrendCard(signal) {
     );
     infoButton.appendChild(infoIcon);
     actions.append(infoButton);
+  }
+
+  if (signal.aboutMarkdown) {
+    const aboutButton = document.createElement("button");
+    aboutButton.type = "button";
+    aboutButton.className = "trend-card__about";
+    aboutButton.dataset.about = signal.id;
+    aboutButton.setAttribute("aria-haspopup", "dialog");
+    aboutButton.setAttribute("aria-controls", "about-dialog");
+    aboutButton.setAttribute("aria-label", `Explain what ${signal.label} is`);
+    aboutButton.title = `What is ${signal.label}?`;
+    const aboutIcon = makeSvgElement("svg", {
+      viewBox: "0 0 24 24",
+      "aria-hidden": "true",
+      focusable: "false",
+    });
+    aboutIcon.append(
+      makeSvgElement("circle", { cx: 12, cy: 12, r: 9, fill: "none", stroke: "currentColor", "stroke-width": 2 }),
+      makeSvgElement("path", {
+        d: "M9.4 9.2a2.65 2.65 0 1 1 4.46 1.92c-.88.77-1.86 1.24-1.86 2.55",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-linecap": "round",
+        "stroke-width": 2,
+      }),
+      makeSvgElement("circle", { cx: 12, cy: 17.1, r: 1, fill: "currentColor" }),
+    );
+    aboutButton.appendChild(aboutIcon);
+    actions.append(aboutButton);
   }
 
   const sourceLink = document.createElement("a");
@@ -505,11 +536,39 @@ function setupMethodDialog() {
   if (!dialog || !openButton) return;
 
   openButton.addEventListener("click", () => {
-    if (typeof dialog.showModal === "function") {
-      dialog.showModal();
-    } else {
-      dialog.setAttribute("open", "");
-    }
+    openDialog(dialog);
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+  });
+}
+
+function openDialog(dialog) {
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute("open", "");
+  }
+}
+
+function setupAboutDialog(signals) {
+  const dialog = document.getElementById("about-dialog");
+  const heading = document.getElementById("about-dialog-heading");
+  const category = document.getElementById("about-dialog-category");
+  const content = document.getElementById("about-dialog-content");
+  if (!dialog || !heading || !category || !content) return;
+
+  const signalsById = new Map(signals.map((signal) => [signal.id, signal]));
+  document.querySelectorAll("[data-about]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const signal = signalsById.get(button.dataset.about);
+      if (!signal) return;
+      heading.textContent = signal.label;
+      category.textContent = `${signal.categoryLabel} · ABOUT THIS TOPIC`;
+      content.innerHTML = renderMarkdown(signal.aboutMarkdown);
+      openDialog(dialog);
+    });
   });
 
   dialog.addEventListener("click", (event) => {
@@ -534,11 +593,7 @@ function setupInfoDialog(signals) {
       content.innerHTML = renderMarkdown(
         signal.contextMarkdown || "No personal context has been added for this topic yet.",
       );
-      if (typeof dialog.showModal === "function") {
-        dialog.showModal();
-      } else {
-        dialog.setAttribute("open", "");
-      }
+      openDialog(dialog);
     });
   });
 
@@ -569,6 +624,7 @@ async function loadTrends() {
     trendList.replaceChildren(...signals.map(createTrendCard));
     setupFilters();
     setupMethodDialog();
+    setupAboutDialog(signals);
     setupInfoDialog(signals);
     updateReadingProgress();
   } catch (error) {

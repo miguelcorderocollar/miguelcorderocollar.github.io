@@ -19,17 +19,6 @@
   padding-top: calc(var(--line-height) * 1.5);
 }
 
-.trends-page::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  opacity: 0.24;
-  background-image: linear-gradient(to right, var(--trend-grid) 1px, transparent 1px);
-  background-size: 1ch 100%;
-}
-
 .trends-header {
   margin-bottom: calc(var(--line-height) * 2);
 }
@@ -141,6 +130,15 @@
   align-items: center;
   gap: 0.75ch;
   margin-top: 0;
+  opacity: 0;
+  transform: translateY(-0.2ch);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.trend-card:hover .trend-card__actions,
+.trend-card:focus-within .trend-card__actions {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .trend-card h3 {
@@ -149,7 +147,8 @@
   letter-spacing: -0.04em;
 }
 
-.trend-card__info {
+.trend-card__info,
+.trend-card__about {
   display: grid;
   place-items: center;
   width: 2.4ch;
@@ -164,14 +163,17 @@
   line-height: 1;
 }
 
-.trend-card__info svg {
+.trend-card__info svg,
+.trend-card__about svg {
   display: block;
   width: 1.25em;
   height: 1.25em;
 }
 
 .trend-card__info:hover,
-.trend-card__info:focus-visible {
+.trend-card__info:focus-visible,
+.trend-card__about:hover,
+.trend-card__about:focus-visible {
   color: var(--trend-accent);
 }
 
@@ -425,5 +427,18 @@ dialog p.eyebrow {
 
   .filter-button--method {
     margin-left: 0;
+  }
+}
+
+@media (hover: none) {
+  .trend-card__actions {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trend-card__actions {
+    transition: none;
   }
 }
