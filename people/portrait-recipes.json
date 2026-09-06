@@ -80,6 +80,11 @@
       "id": "brandon-sanderson",
       "source": "images/people/source/brandon-sanderson-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.39, "areaPct": 0.72 }
+    },
+    {
+      "id": "antonio-escohotado",
+      "source": "images/people/source/antonio-escohotado-ibiza.jpg",
+      "crop": { "focusX": 0.50, "focusY": 0.43, "areaPct": 0.82 }
     }
   ]
 }

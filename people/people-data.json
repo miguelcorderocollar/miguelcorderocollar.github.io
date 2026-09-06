@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "people": [
     {
       "id": "david-heinemeier-hansson",
@@ -334,6 +334,27 @@
         "credit": "David Maynard / Wikimedia Commons",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brandon_Sanderson_at_MCM_Comic_Con_London_22_May_2026_02.jpg",
         "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "antonio-escohotado",
+      "name": "Antonio Escohotado",
+      "category": "philosophy",
+      "categoryLabel": "Philosophy",
+      "role": "Philosopher, jurist and essayist",
+      "portrait": "../images/people/processed/antonio-escohotado-halftone.webp",
+      "portraitAlt": "Antonio Escohotado in Ibiza in 1976",
+      "summary": "Antonio Escohotado taught me that independent thinking means being willing to change your mind. His books Historia general de las drogas and Los enemigos del comercio made me question inherited ideas about prohibition, property and freedom. I admire how he treated thinking, sharing and family as parts of the same full life.",
+      "bio": "Antonio Escohotado was a Spanish philosopher, jurist, sociologist and essayist. He taught Philosophy of Law and Sociology at the UNED and wrote on drugs, freedom, property and political ideas.",
+      "links": [
+        { "label": "Publisher biography", "url": "https://www.planetadelibros.com/autor/antonio-escohotado/000000343" },
+        { "label": "Historia general de las drogas", "url": "https://www.planetadelibros.com/libro-historia-general-de-las-drogas/2584" },
+        { "label": "Los enemigos del comercio trilogy", "url": "https://www.planetadelibros.com/libro-trilogia-los-enemigos-del-comercio/302399" }
+      ],
+      "photo": {
+        "credit": "Antonio Escohotado / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Escohotado_Ibiza.jpg",
+        "license": "CC BY-SA 3.0"
       }
     }
   ]
