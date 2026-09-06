@@ -18,6 +18,7 @@ A few things I keep an eye on.
 
 - [Trends](../trends/): Ideas I'm following, and when I first noticed them.
 - [People](../people/): Public figures who have shaped how I think and work.
+- [Quotes](../quotes/): Lines I return to, browsed or left to chance.
 
 ## Experience
 

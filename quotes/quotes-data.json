@@ -1,0 +1,249 @@
+{
+  "updated": "2026-09-06",
+  "quotes": [
+    {
+      "id": "dhh-believe-it-will-work",
+      "text": "To be a successful founder, you have to believe that what you're working on is going to work — despite knowing it probably won't!",
+      "author": "David Heinemeier Hansson",
+      "source": "Believe it's going to work even though it probably won't",
+      "sourceUrl": "https://world.hey.com/dhh/believe-it-s-going-to-work-even-though-it-probably-won-t-58fd9dc5",
+      "personId": "david-heinemeier-hansson",
+      "category": "work",
+      "categoryLabel": "Work"
+    },
+    {
+      "id": "dhh-creative-work",
+      "text": "The best thing about work is getting the opportunity to exercise your human capacity for creativity, ingenuity, progress.",
+      "author": "David Heinemeier Hansson",
+      "source": "How it started / how it's going",
+      "sourceUrl": "https://world.hey.com/dhh/how-it-started-how-it-s-going-baefaf09",
+      "personId": "david-heinemeier-hansson",
+      "category": "building",
+      "categoryLabel": "Building"
+    },
+    {
+      "id": "musk-first-principles",
+      "text": "You have to build up the reasoning from the ground up from first principles as in the phrase that's used in physics.",
+      "author": "Elon Musk",
+      "source": "The Henry Ford interview",
+      "sourceUrl": "https://www.thehenryford.org/docs/thehenryfordlibraries/innovator-transcripts/transcript_musk_full-length5a30f6547bde445e8119d53fb454b300.pdf?sfvrsn=f4eeb20a_1",
+      "personId": "elon-musk",
+      "category": "reason",
+      "categoryLabel": "Reason"
+    },
+    {
+      "id": "musk-show-up",
+      "text": "Just showing up is half the battle. You gotta try hard to do it, and don't be afraid of failure.",
+      "author": "Elon Musk",
+      "source": "The Henry Ford interview",
+      "sourceUrl": "https://www.thehenryford.org/docs/thehenryfordlibraries/innovator-transcripts/transcript_musk_full-length5a30f6547bde445e8119d53fb454b300.pdf?sfvrsn=f4eeb20a_1",
+      "personId": "elon-musk",
+      "category": "work",
+      "categoryLabel": "Work"
+    },
+    {
+      "id": "bastos-capitalism-work",
+      "text": "Capitalism is a way of thinking, a mindset that invites you to save and work.",
+      "originalText": "El capitalismo es una forma de pensar, una forma mental que te invita a ahorrar y trabajar.",
+      "author": "Miguel Anxo Bastos",
+      "source": "Discurso en el Instituto Juan de Mariana",
+      "sourceUrl": "https://www.libertaddigital.com/libremercado/2023-06-04/miguel-anxo-bastos-si-tuviera-poder-solo-pondria-una-ley-respetar-la-propiedad-privada-7022041/",
+      "personId": "miguel-anxo-bastos",
+      "category": "economics",
+      "categoryLabel": "Economics"
+    },
+    {
+      "id": "rand-i-am",
+      "text": "I am. I think. I will.",
+      "author": "Ayn Rand",
+      "source": "Anthem",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Ayn_Rand#Anthem_(1937)",
+      "personId": "ayn-rand",
+      "category": "individualism",
+      "categoryLabel": "Individualism"
+    },
+    {
+      "id": "rand-future",
+      "text": "Anyone who fights for the future, lives in it today.",
+      "author": "Ayn Rand",
+      "source": "The Romantic Manifesto",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Ayn_Rand#The_Romantic_Manifesto_(1969)",
+      "personId": "ayn-rand",
+      "category": "ambition",
+      "categoryLabel": "Ambition"
+    },
+    {
+      "id": "orwell-liberty",
+      "text": "If liberty means anything at all, it means the right to tell people what they do not want to hear.",
+      "author": "George Orwell",
+      "source": "Original preface to Animal Farm",
+      "sourceUrl": "https://en.wikiquote.org/wiki/George_Orwell#Animal_Farm_(1945)",
+      "personId": "george-orwell",
+      "category": "freedom",
+      "categoryLabel": "Freedom"
+    },
+    {
+      "id": "escohotado-skin-jurisdiction",
+      "text": "From the skin inward begins my exclusive jurisdiction. I choose what may or may not cross that border. I am a sovereign state, and the boundaries of my skin are far more sacred to me than the political borders of any country.",
+      "originalText": "De la piel para dentro empieza mi exclusiva jurisdicción. Elijo yo aquello que puede o no cruzar esa frontera. Soy un Estado soberano, y las lindes de mi piel me resultan mucho más sagradas que los confines políticos de cualquier país",
+      "author": "Antonio Escohotado",
+      "source": "User-submitted",
+      "sourceUrl": "",
+      "personId": "antonio-escohotado",
+      "category": "freedom",
+      "categoryLabel": "Freedom"
+    },
+    {
+      "id": "aurelius-broaden-mind",
+      "text": "Nothing has such power to broaden the mind as the ability to investigate systematically and truly all that comes under thy observation in life.",
+      "author": "Marcus Aurelius",
+      "source": "Meditations, III.11",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Marcus_Aurelius#Book_III",
+      "personId": "marcus-aurelius",
+      "category": "reason",
+      "categoryLabel": "Reason"
+    },
+    {
+      "id": "aurelius-injustice",
+      "text": "Often injustice lies in what you aren't doing, not only in what you are doing.",
+      "author": "Marcus Aurelius",
+      "source": "Meditations, IX.5",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Marcus_Aurelius#Book_IX",
+      "personId": "marcus-aurelius",
+      "category": "responsibility",
+      "categoryLabel": "Responsibility"
+    },
+    {
+      "id": "harris-mind-life",
+      "text": "Our minds largely determine the quality of our lives.",
+      "author": "Sam Harris",
+      "source": "The Minimalists interview",
+      "sourceUrl": "https://www.theminimalists.com/sam/",
+      "personId": "sam-harris",
+      "category": "mind",
+      "categoryLabel": "Mind"
+    },
+    {
+      "id": "harris-train-mind",
+      "text": "Your mind is all you truly have. So it makes sense to train it.",
+      "author": "Sam Harris",
+      "source": "The Minimalists interview",
+      "sourceUrl": "https://www.theminimalists.com/sam/",
+      "personId": "sam-harris",
+      "category": "attention",
+      "categoryLabel": "Attention"
+    },
+    {
+      "id": "dawkins-science-poetry",
+      "text": "There's real poetry in the real world. Science is the poetry of reality.",
+      "author": "Richard Dawkins",
+      "source": "Unweaving the Rainbow",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Richard_Dawkins#Unweaving_the_Rainbow_(1998)",
+      "personId": "richard-dawkins",
+      "category": "science",
+      "categoryLabel": "Science"
+    },
+    {
+      "id": "dawkins-awed-wonder",
+      "text": "The feeling of awed wonder that science can give us is one of the highest experiences of which the human psyche is capable.",
+      "author": "Richard Dawkins",
+      "source": "Unweaving the Rainbow",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Richard_Dawkins#Unweaving_the_Rainbow_(1998)",
+      "personId": "richard-dawkins",
+      "category": "wonder",
+      "categoryLabel": "Wonder"
+    },
+    {
+      "id": "hitchens-independent-mind",
+      "text": "The essence of the independent mind lies not in what it thinks, but in how it thinks.",
+      "author": "Christopher Hitchens",
+      "source": "Letters to a Young Contrarian",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Christopher_Hitchens#Letters_to_a_Young_Contrarian_(2001)",
+      "personId": "christopher-hitchens",
+      "category": "independence",
+      "categoryLabel": "Independence"
+    },
+    {
+      "id": "hitchens-arguing-faithful",
+      "text": "Time spent arguing with the faithful is, oddly enough, almost never wasted.",
+      "author": "Christopher Hitchens",
+      "source": "Letters to a Young Contrarian",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Christopher_Hitchens#Letters_to_a_Young_Contrarian_(2001)",
+      "personId": "christopher-hitchens",
+      "category": "reason",
+      "categoryLabel": "Reason"
+    },
+    {
+      "id": "peterson-stop-lying",
+      "text": "First stop lying, then start speaking the truth.",
+      "author": "Jordan B. Peterson",
+      "source": "Interview: Free Speech & Social Justice",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Jordan_Peterson#Interviews",
+      "personId": "jordan-b-peterson",
+      "category": "truth",
+      "categoryLabel": "Truth"
+    },
+    {
+      "id": "peterson-responsibility-meaning",
+      "text": "Responsibility, man: that's where the meaning in life is.",
+      "author": "Jordan B. Peterson",
+      "source": "Maps of Meaning 11: The Flood and the Tower",
+      "sourceUrl": "https://en.wikiquote.org/wiki/Jordan_Peterson#2017_Maps_of_Meaning_11:_The_Flood_and_the_Tower",
+      "personId": "jordan-b-peterson",
+      "category": "responsibility",
+      "categoryLabel": "Responsibility"
+    },
+    {
+      "id": "peterson-community-across-time",
+      "text": "You're a community across time.",
+      "author": "Jordan B. Peterson",
+      "source": "User-submitted",
+      "sourceUrl": "",
+      "personId": "jordan-b-peterson",
+      "category": "identity",
+      "categoryLabel": "Identity"
+    },
+    {
+      "id": "rallo-freedom-threats",
+      "text": "Freedom is always under threat, so we must keep renewing the reasons for defending it.",
+      "originalText": "La libertad siempre está bajo amenazas y, por tanto, siempre hay que renovar las razones para defenderla.",
+      "author": "Juan Ramón Rallo",
+      "source": "Entrevista en Diario de Sevilla",
+      "sourceUrl": "https://www.diariodesevilla.es/entrevistas/juan-ramon-rallo-libertad-siempre-amenazas_0_1388261680.html",
+      "personId": "juan-ramon-rallo",
+      "category": "freedom",
+      "categoryLabel": "Freedom"
+    },
+    {
+      "id": "friedman-economic-freedom",
+      "text": "Economic freedom is an end in itself to a believer in a free society. It is also an indispensable means toward the achievement of political freedom.",
+      "author": "Milton Friedman",
+      "source": "Capitalism and Freedom",
+      "sourceUrl": "https://files.libertyfund.org/files/2492/Friedman_CapitalismFreedom1961.pdf",
+      "personId": "milton-friedman",
+      "category": "freedom",
+      "categoryLabel": "Freedom"
+    },
+    {
+      "id": "friedman-equality-freedom",
+      "text": "A society that puts equality — in the sense of equality of outcome — ahead of freedom will end up with neither.",
+      "author": "Milton Friedman",
+      "source": "Capitalism and Freedom",
+      "sourceUrl": "https://files.libertyfund.org/files/2492/Friedman_CapitalismFreedom1961.pdf",
+      "personId": "milton-friedman",
+      "category": "economics",
+      "categoryLabel": "Economics"
+    },
+    {
+      "id": "tangana-own-way",
+      "text": "The more I do whatever the hell I want, the better life goes for me.",
+      "originalText": "Cuanto más hago lo que me sale de los huevos, mejor me va en la vida.",
+      "author": "C. Tangana",
+      "source": "Entrevista en El País",
+      "sourceUrl": "https://elpais.com/cultura/2023-07-08/c-tangana-cuanto-mas-hago-lo-que-me-sale-de-los-huevos-mejor-me-va-en-la-vida.html",
+      "personId": "c-tangana",
+      "category": "creativity",
+      "categoryLabel": "Creativity"
+    }
+  ]
+}

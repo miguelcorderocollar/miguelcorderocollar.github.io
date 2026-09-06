@@ -188,7 +188,7 @@ th {
 .header h1 {
   margin: 0;
 }
-.header tr td:last-child {
+.header tr td:last-child:not(:only-child) {
   text-align: right;
 }
 

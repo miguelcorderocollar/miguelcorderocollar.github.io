@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A personal collection of lines Miguel Cordero Collar returns to. Browse by idea or leave the choice to chance."
+    />
+    <meta name="author" content="Miguel Cordero Collar" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="shortcut icon" href="../images/icons/favicon.ico" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../index.css?v=single-cell-header" />
+    <link rel="stylesheet" href="quotes.css?v=translations" />
+    <title>Quotes | Miguel Cordero Collar</title>
+  </head>
+  <body class="quotes-page">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <table class="header quotes-header">
+      <tr>
+        <td><h1>Quotes</h1></td>
+      </tr>
+    </table>
+
+    <main id="main-content">
+      <section class="quotes-intro" aria-labelledby="quotes-intro-heading">
+        <p class="quotes-eyebrow">Lines worth keeping</p>
+        <h2 id="quotes-intro-heading">A notebook for other people's words.</h2>
+        <p>
+          Some ideas survive because of how they were phrased. Browse the notebook,
+          or let chance choose what to read next.
+        </p>
+      </section>
+
+      <nav class="mode-switcher" aria-label="Quote view">
+        <button type="button" class="mode-button is-active" data-mode="browse" aria-pressed="true">
+          <span aria-hidden="true">01</span> Browse
+        </button>
+        <button type="button" class="mode-button" data-mode="random" aria-pressed="false">
+          <span aria-hidden="true">02</span> Random
+        </button>
+      </nav>
+
+      <section class="quote-mode" id="browse-mode" aria-labelledby="browse-heading">
+        <div class="browse-heading-row">
+          <div>
+            <p class="quotes-eyebrow">Explore the collection</p>
+            <h2 id="browse-heading">Browse</h2>
+          </div>
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="quote-controls">
+          <label class="quote-search" for="quote-search">
+            <span>Search</span>
+            <input
+              id="quote-search"
+              type="search"
+              placeholder="Words, authors or sources"
+              autocomplete="off"
+              spellcheck="false"
+              aria-controls="quote-list"
+            />
+          </label>
+        </div>
+
+        <div class="quote-list" id="quote-list">
+          <p class="loading-state">Opening the notebook...</p>
+        </div>
+      </section>
+
+      <section class="quote-mode random-mode" id="random-mode" aria-labelledby="random-heading" hidden>
+        <div class="random-topline">
+          <p class="quotes-eyebrow">One at a time</p>
+          <p class="random-position" id="random-position"></p>
+        </div>
+        <h2 class="visually-hidden" id="random-heading">Random quote</h2>
+        <article class="random-quote" id="random-quote" aria-live="polite"></article>
+        <div class="random-actions">
+          <button type="button" class="another-button" id="another-quote">Another quote <span aria-hidden="true">→</span></button>
+          <p class="keyboard-hint">Press space for another</p>
+        </div>
+      </section>
+
+      <hr />
+      <footer class="footer-info">
+        <p class="last-updated"><a href="../">← Back to the CV</a></p>
+        <p class="credits">A growing, personal collection</p>
+      </footer>
+    </main>
+
+    <script src="quotes.js" defer></script>
+  </body>
+</html>

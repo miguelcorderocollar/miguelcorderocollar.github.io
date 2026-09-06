@@ -1,7 +1,6 @@
 :root {
   --people-accent: #e8512a;
   --people-accent-soft: rgba(232, 81, 42, 0.12);
-  --people-grid: rgba(0, 0, 0, 0.14);
   --people-shadow: rgba(0, 0, 0, 0.18);
 }
 
@@ -9,7 +8,6 @@
   :root {
     --people-accent: #ff8561;
     --people-accent-soft: rgba(255, 133, 97, 0.16);
-    --people-grid: rgba(211, 211, 211, 0.18);
     --people-shadow: rgba(211, 211, 211, 0.26);
   }
 }
@@ -19,19 +17,12 @@
   padding-top: calc(var(--line-height) * 1.5);
 }
 
-.people-page::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  opacity: 0.24;
-  background-image: linear-gradient(to right, var(--people-grid) 1px, transparent 1px);
-  background-size: 1ch 100%;
-}
-
 .people-header {
   margin-bottom: calc(var(--line-height) * 2);
+}
+
+.people-page .people-header td {
+  text-align: left;
 }
 
 .people-header h1 {
