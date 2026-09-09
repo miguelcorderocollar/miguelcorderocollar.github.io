@@ -140,7 +140,7 @@
     },
     {
       "id": "acquired",
-      "label": "Acquired",
+      "label": "Acquired Podcast",
       "category": "content",
       "categoryLabel": "Content",
       "query": "Acquired",
@@ -162,7 +162,7 @@
     },
     {
       "id": "all-in",
-      "label": "All-In",
+      "label": "All-In Podcast",
       "category": "content",
       "categoryLabel": "Content",
       "query": "All-In with Chamath, Jason, Sacks & Friedberg",
