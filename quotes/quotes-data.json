@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-09",
   "quotes": [
     {
       "id": "dhh-believe-it-will-work",
@@ -255,6 +255,24 @@
       "personId": "c-tangana",
       "category": "creativity",
       "categoryLabel": "Creativity"
+    },
+    {
+      "id": "emerson-foolish-consistency",
+      "text": "A foolish consistency is the hobgoblin of little minds, adored by little statesmen and philosophers and divines.",
+      "author": "Ralph Waldo Emerson",
+      "source": "Self-Reliance",
+      "sourceUrl": "https://www.gutenberg.org/files/2944/2944-h/2944-h.htm",
+      "category": "individualism",
+      "categoryLabel": "Individualism"
+    },
+    {
+      "id": "smith-mercy-guilty",
+      "text": "mercy to the guilty is cruelty to the innocent",
+      "author": "Adam Smith",
+      "source": "The Theory of Moral Sentiments",
+      "sourceUrl": "https://knarf.english.upenn.edu/Smith/tms223.html",
+      "category": "responsibility",
+      "categoryLabel": "Responsibility"
     }
   ]
 }
