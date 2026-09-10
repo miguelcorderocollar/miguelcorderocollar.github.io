@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "quotes": [
     {
       "id": "dhh-believe-it-will-work",
@@ -273,6 +273,15 @@
       "sourceUrl": "https://knarf.english.upenn.edu/Smith/tms223.html",
       "category": "responsibility",
       "categoryLabel": "Responsibility"
+    },
+    {
+      "id": "hashimoto-pursuit-excellence",
+      "text": "The pursuit of excellence does not need justification.",
+      "author": "Mitchell Hashimoto",
+      "source": "Post on X, July 6, 2026",
+      "sourceUrl": "https://x.com/mitchellh/status/2074225453217505494",
+      "category": "work",
+      "categoryLabel": "Work"
     }
   ]
 }
