@@ -20,6 +20,44 @@ const CHECK_ICON = `
 
 const TRANSLATION_ICON = `<span class="quote-translation-glyph" aria-hidden="true">A文</span>`;
 const LONG_QUOTE_LENGTH = 100;
+const RECENCY_BIAS_POWER = 1.35;
+
+function getLocalDateKey(date = new Date()) {
+  return [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+    .map((part) => String(part).padStart(2, "0"))
+    .join("-");
+}
+
+function createSeededRandom(seedText) {
+  let seed = 2166136261;
+  for (const character of seedText) {
+    seed = Math.imul(seed ^ character.charCodeAt(0), 16777619);
+  }
+
+  return () => {
+    let value = (seed += 0x6d2b79f5);
+    value = Math.imul(value ^ (value >>> 15), value | 1);
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function orderQuotesForDay(quotes, date = new Date()) {
+  const random = createSeededRandom(`quotes:${getLocalDateKey(date)}`);
+
+  // Newer entries are appended to the data file, so later positions receive more weight.
+  return quotes
+    .map((quote, index) => {
+      const recencyWeight = Math.pow(index + 1, RECENCY_BIAS_POWER);
+      return {
+        quote,
+        index,
+        sortKey: Math.pow(random(), 1 / recencyWeight),
+      };
+    })
+    .sort((left, right) => right.sortKey - left.sortKey || right.index - left.index)
+    .map(({ quote }) => quote);
+}
 
 function quoteAsMarkdown(quote, text = quote.text) {
   const lines = text.split(/\r?\n/).map((line) => `> ${line}`).join("\n");
@@ -254,7 +292,7 @@ async function loadQuotes() {
     const response = await fetch("quotes-data.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`Collection request failed with ${response.status}`);
     const data = await response.json();
-    const cards = data.quotes.map(createQuoteCard);
+    const cards = orderQuotesForDay(data.quotes).map(createQuoteCard);
     quoteList.replaceChildren(...cards);
     setupBrowseMode(cards);
     modeController.setQuotes(data.quotes);
