@@ -282,6 +282,24 @@
       "sourceUrl": "https://x.com/mitchellh/status/2074225453217505494",
       "category": "work",
       "categoryLabel": "Work"
+    },
+    {
+      "id": "unknown-you-can-just-do-things",
+      "text": "YOU CAN JUST DO THINGS",
+      "author": "Unknown author",
+      "source": "User-submitted",
+      "sourceUrl": "",
+      "category": "work",
+      "categoryLabel": "Work"
+    },
+    {
+      "id": "unknown-we-can-fix-everything",
+      "text": "We can fix everything",
+      "author": "Unknown author",
+      "source": "User-submitted",
+      "sourceUrl": "",
+      "category": "building",
+      "categoryLabel": "Building"
     }
   ]
 }
