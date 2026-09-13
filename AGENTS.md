@@ -12,6 +12,13 @@
 - Once an issue's requested work is complete and verified, close the corresponding GitHub issue with state reason `completed`. Leave ambiguous, incomplete, or skipped issues open.
 - UI, layout, styling, interaction, or shader changes still require the appropriate focused verification.
 
+## Recommendations backlog
+
+- When the user asks to add something to "the recommendation issue" or the Recommendations list, append it to [Issue #34, Recommendations backlog](https://github.com/miguelcorderocollar/miguelcorderocollar.github.io/issues/34).
+- Treat Issue #34 as the single running backlog. Keep it open and do not create a separate issue for each recommendation unless the user asks.
+- Add each item under its category with a name, source link, topic tags, and a short personal note when available. One item may have multiple topic tags, and preserve source or credit details.
+- Do not build or edit the Recommendations page from a new entry alone. Keep collecting entries in Issue #34 until the user asks for implementation or the backlog is clearly large enough to plan it.
+
 ## UI changes
 
 When changing HTML, CSS, or JavaScript:
