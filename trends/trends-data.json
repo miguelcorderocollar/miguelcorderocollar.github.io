@@ -1406,11 +1406,11 @@
     "dateRange": "2021-11-01 2026-09-13",
     "granularity": "month",
     "sourceUrl": "https://trends.google.com/explore?q=%2Fg%2F11jt43qyyv&date=2021-11-01%202026-09-13&geo=Worldwide",
-    "aboutMarkdown": null,
+    "aboutMarkdown": "### What it is\n\nTheo Browne is a software developer and technology creator associated with the T3 Stack, create-t3-app, T3 Chat, and Ping. His work and videos cover JavaScript, web development, software tools, and AI-assisted coding.\n\n### Links\n\n- [Theo Browne](https://t3.gg/)\n- [T3 Stack and create-t3-app](https://create.t3.gg/)\n- [Theo Browne on YouTube](https://www.youtube.com/@t3dotgg)",
     "personalInterestDate": "2022-02-01",
     "personalInterestLabel": "Started watching, Feb 2022",
     "markerLabel": "started watching",
-    "contextMarkdown": "### Finding Theo Browne\n\nI started watching Theo Browne's videos and became interested in his content in February 2022.",
+    "contextMarkdown": "### Why I follow him\n\nI started watching Theo Browne in February 2022. His videos helped me understand how modern JavaScript tools and frameworks fit together, and how to use them in practical projects instead of treating them as isolated tutorials.\n\nI kept following him as his work moved further into AI-assisted coding and product building. I learned a lot from the way he connects the high-level idea to the implementation details and the work of shipping something real.",
     "series": {
       "start": "2021-11",
       "interval": "month",
