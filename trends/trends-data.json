@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "retrievedAt": "2026-09-09",
+  "retrievedAt": "2026-09-13",
   "defaultGeo": "Worldwide",
   "defaultProperty": "Web Search",
   "signals": [
@@ -1392,6 +1392,35 @@
         18,
         13,
         20
+      ]
+    },
+    "partialLast": true
+  },
+  {
+    "id": "theo-browne",
+    "label": "Theo Browne",
+    "category": "content",
+    "categoryLabel": "Content",
+    "query": "Theo Browne",
+    "queryType": "topic",
+    "dateRange": "2021-11-01 2026-09-13",
+    "granularity": "month",
+    "sourceUrl": "https://trends.google.com/explore?q=%2Fg%2F11jt43qyyv&date=2021-11-01%202026-09-13&geo=Worldwide",
+    "aboutMarkdown": null,
+    "personalInterestDate": "2022-02-01",
+    "personalInterestLabel": "Started watching, Feb 2022",
+    "markerLabel": "started watching",
+    "contextMarkdown": "### Finding Theo Browne\n\nI started watching Theo Browne's videos and became interested in his content in February 2022.",
+    "series": {
+      "start": "2021-11",
+      "interval": "month",
+      "values": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 3, 3, 5, 3, 6, 5, 5, 3,
+        6, 8, 6, 3, 6, 6, 0, 5, 6, 5,
+        10, 6, 10, 15, 13, 34, 21, 19, 15, 10,
+        19, 15, 26, 85, 29, 58, 100, 77, 82
       ]
     },
     "partialLast": true

@@ -7,6 +7,8 @@
 - Quote entries use English in `text`; when the original wording is not English, preserve it in `originalText` so the existing translation control can expose it.
 - If a quote's attribution is missing or unverified, use `Unknown author` rather than guessing or retaining an unverified attribution. Preserve the submitted wording, set `source` to `User-submitted`, and leave `sourceUrl` empty unless a reliable source is provided.
 - For these small updates, validate the changed JSON, run `git diff --check`, and inspect the diff for correctness. Keep the existing UI untouched.
+- After a straightforward, fully specified content-only addition such as a trend, quote, or person is validated, commit the task's related changes. Keep unrelated user changes out of the commit, and do not commit ambiguous or incomplete work.
+- Once an issue's requested work is complete and verified, close the corresponding GitHub issue with state reason `completed`. Leave ambiguous, incomplete, or skipped issues open.
 - UI, layout, styling, interaction, or shader changes still require the appropriate focused verification.
 
 ## UI changes
