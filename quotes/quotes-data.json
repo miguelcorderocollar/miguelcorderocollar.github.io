@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-10",
+  "updated": "2026-09-20",
   "quotes": [
     {
       "id": "dhh-believe-it-will-work",
@@ -300,6 +300,15 @@
       "sourceUrl": "",
       "category": "building",
       "categoryLabel": "Building"
+    },
+    {
+      "id": "roosevelt-man-in-the-arena",
+      "text": "The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood, who knows the great enthusiasms, the great devotions, and spends himself in a worthy cause; who at best, if he wins, knows the thrills of high achievement, and, if he fails, at least fails daring greatly, so that his place shall never be with those cold and timid souls who know neither victory or defeat.",
+      "author": "Theodore Roosevelt",
+      "source": "Citizenship in a Republic",
+      "sourceUrl": "https://www.theodorerooseveltcenter.org/encyclopedia/culture-and-society/man-in-the-arena/",
+      "category": "ambition",
+      "categoryLabel": "Ambition"
     }
   ]
 }
