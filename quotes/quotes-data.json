@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-20",
+  "updated": "2026-10-11",
   "quotes": [
     {
       "id": "dhh-believe-it-will-work",
@@ -199,7 +199,7 @@
       "text": "Responsibility, man: that's where the meaning in life is.",
       "author": "Jordan B. Peterson",
       "source": "Maps of Meaning 11: The Flood and the Tower",
-      "sourceUrl": "https://en.wikiquote.org/wiki/Jordan_Peterson#2017_Maps_of_Meaning_11:_The_Flood_and_the_Tower",
+      "sourceUrl": "https://podcasts.apple.com/us/podcast/139-maps-of-meaning-11-the-flood-and-the-tower/id1184022695?i=1000493535355",
       "personId": "jordan-b-peterson",
       "category": "responsibility",
       "categoryLabel": "Responsibility"
@@ -207,10 +207,9 @@
     {
       "id": "peterson-community-across-time",
       "text": "You're a community across time.",
-      "author": "Jordan B. Peterson",
+      "author": "Unknown author",
       "source": "User-submitted",
       "sourceUrl": "",
-      "personId": "jordan-b-peterson",
       "category": "identity",
       "categoryLabel": "Identity"
     },
@@ -282,6 +281,15 @@
       "sourceUrl": "https://x.com/mitchellh/status/2074225453217505494",
       "category": "work",
       "categoryLabel": "Work"
+    },
+    {
+      "id": "unknown-show-me-the-incentive",
+      "text": "Show me the incentive and I'll show you the outcome",
+      "author": "Unknown author",
+      "source": "User-submitted",
+      "sourceUrl": "",
+      "category": "economics",
+      "categoryLabel": "Economics"
     },
     {
       "id": "unknown-you-can-just-do-things",
