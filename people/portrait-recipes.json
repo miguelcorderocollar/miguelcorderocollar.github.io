@@ -67,6 +67,11 @@
       "crop": { "focusX": 0.5, "focusY": 0.48, "areaPct": 0.96 }
     },
     {
+      "id": "george-hotz",
+      "source": "images/people/source/george-hotz-techcrunch-2016.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.39, "areaPct": 0.72 }
+    },
+    {
       "id": "elon-musk",
       "source": "images/people/source/elon-musk-modern.jpg",
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.90 }

@@ -24,6 +24,28 @@
       }
     },
     {
+      "id": "george-hotz",
+      "name": "George Hotz",
+      "shortName": "geohot",
+      "category": "technology",
+      "categoryLabel": "Technology",
+      "role": "Hacker, programmer and entrepreneur",
+      "portrait": "../images/people/processed/george-hotz-halftone.webp",
+      "portraitAlt": "George Hotz speaking at TechCrunch Disrupt in 2016",
+      "summary": "George Hotz makes me want to act on ambitious ideas. He says what he thinks and is willing to challenge established companies. He builds in public, shares his reasoning and brings a playful energy to hard problems. His example encourages me to start before I have every answer and to show the work as it develops.",
+      "bio": "George Hotz, known as geohot, is an American hacker, programmer and entrepreneur. He became known for unlocking the original iPhone and hacking the PlayStation 3, and later founded comma.ai, the company behind the open-source driver-assistance software openpilot.",
+      "links": [
+        { "label": "Personal website", "url": "https://geohot.github.io/" },
+        { "label": "openpilot", "url": "https://github.com/commaai/openpilot" },
+        { "label": "tinygrad", "url": "https://github.com/tinygrad/tinygrad" }
+      ],
+      "photo": {
+        "credit": "Steve Jennings / TechCrunch / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Hotz_at_TechCrunch_Disrupt.jpg",
+        "license": "CC BY 2.0; cropped and halftone processed"
+      }
+    },
+    {
       "id": "elon-musk",
       "name": "Elon Musk",
       "category": "technology",

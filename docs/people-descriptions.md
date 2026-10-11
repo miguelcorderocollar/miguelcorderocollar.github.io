@@ -12,6 +12,10 @@ Prefer first-person statements. They make the scope of a claim clear and keep th
 
 Separate the person from the quality being admired. A useful description identifies a particular achievement, manner of thinking or way of acting. It does not imply approval of everything the person has said or done.
 
+Keep background facts in the short bio. In the summary, describe the traits Miguel values and how they affect his own thinking or work. Mention an example when it clarifies the influence, but do not retell a career or echo Miguel's notes event by event.
+
+Read nearby entries before drafting. Vary openings and sentence patterns so the summaries sound like Miguel's distinct observations, not repetitions of the same praise.
+
 When admiration has changed over time, say so plainly. Disagreement can make a description more credible when it reveals what still matters and what no longer convinces.
 
 ## Be accurate and fair
@@ -28,13 +32,9 @@ Use concrete verbs and nouns. Replace claims such as "made the world better" or 
 
 Avoid promotional language, clichés and praise that could describe anyone. Phrases such as "visionary leader," "extraordinary journey," "reached the top" and "built the future" hide the interesting part of the story.
 
-Keep each sentence focused. A summary usually needs only three moves:
+Keep each sentence focused. Name the quality Miguel values and what it changes in him. An encounter, work or decision can make that connection clearer, but the summary does not need a list of biographical examples. Vary the rhythm and structure so the collection sounds like one person thinking, not a set of templates.
 
-1. What introduced the person or work.
-2. What Miguel learned or adopted.
-3. Why that influence still matters, including any honest qualification.
-
-This is a guide, not a required formula. Vary the rhythm and structure so the collection sounds like one person thinking, not a set of templates.
+Keep the `summary` at or below 399 characters, including spaces and punctuation. This is the length of the longest summary in the collection before the George Hotz entry. Run `python3 scripts/validate_people.py` to check the limit across all People entries.
 
 ## Review questions
 
@@ -48,4 +48,4 @@ Before publishing, ask:
 - Would a thoughtful critic understand why this person belongs here?
 - Does the description still sound like Miguel?
 
-Validate `people/people-data.json`, run `git diff --check` and inspect the final diff. Content-only edits do not require browser verification.
+Run `python3 scripts/validate_people.py`, `git diff --check` and inspect the final diff. Content-only edits do not require browser verification unless the user asks for it.
