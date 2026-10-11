@@ -22,6 +22,8 @@ When admiration has changed over time, say so plainly. Disagreement can make a d
 
 Check political, historical and biographical claims against reliable sources. Use the narrowest accurate term. For example, describe Orwell's warning about Stalinism or authoritarianism rather than treating his work as a rejection of every form of socialism.
 
+Treat Miguel's notes as a starting point to check. Compare factual claims and descriptions of the person's approach with their own work and reliable accounts. Flag mistakes, overstatements or impressions that lack support before turning them into polished copy. Explain the correction plainly. Keep personal admiration in the first person, so it does not become a claim that the person is always honest, right or representative of a consensus.
+
 Do not turn a private event into a neat lesson unless the person has publicly described it that way. Sensitive details should be relevant, documented and phrased with restraint.
 
 Avoid relative terms such as "recent" and "today" when the date matters. They become stale. Name the event without the time marker or give the year.

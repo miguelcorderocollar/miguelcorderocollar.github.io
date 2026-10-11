@@ -57,6 +57,16 @@
       "crop": { "focusX": 0.5, "focusY": 0.44, "areaPct": 0.94 }
     },
     {
+      "id": "thomas-sowell",
+      "source": "images/people/source/thomas-sowell-1964.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.40, "areaPct": 0.95 }
+    },
+    {
+      "id": "lee-kuan-yew",
+      "source": "images/people/source/lee-kuan-yew-2000.jpg",
+      "crop": { "focusX": 0.5, "focusY": 0.40, "areaPct": 0.98 }
+    },
+    {
       "id": "milton-friedman",
       "source": "images/people/source/milton-friedman-modern.jpg",
       "crop": { "focusX": 0.53, "focusY": 0.29, "areaPct": 0.72 }

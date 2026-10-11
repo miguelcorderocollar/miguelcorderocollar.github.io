@@ -225,6 +225,26 @@
       "categoryLabel": "Freedom"
     },
     {
+      "id": "sowell-policies-carried-too-far",
+      "text": "Some bad policies are just good policies that have been carried too far.",
+      "author": "Thomas Sowell",
+      "source": "Ever Wonder Why? and Other Controversial Essays, p. 456",
+      "sourceUrl": "https://www.hoover.org/sites/default/files/uploads/documents/9780817947521_441.pdf#page=16",
+      "personId": "thomas-sowell",
+      "category": "economics",
+      "categoryLabel": "Economics"
+    },
+    {
+      "id": "lee-kuan-yew-persistence",
+      "text": "I set out to do something, I keep on chasing it until it succeeds. That's all.",
+      "author": "Lee Kuan Yew",
+      "source": "Quoted in Lee Hsien Loong's eulogy, 29 March 2015",
+      "sourceUrl": "https://www.pmo.gov.sg/newsroom/transcript-eulogy-prime-minister-lee-hsien-loong-funeral-late-mr-lee-kuan-yew-29-march/",
+      "personId": "lee-kuan-yew",
+      "category": "work",
+      "categoryLabel": "Work"
+    },
+    {
       "id": "friedman-economic-freedom",
       "text": "Economic freedom is an end in itself to a believer in a free society. It is also an indispensable means toward the achievement of political freedom.",
       "author": "Milton Friedman",
@@ -283,11 +303,11 @@
       "categoryLabel": "Work"
     },
     {
-      "id": "unknown-show-me-the-incentive",
-      "text": "Show me the incentive and I'll show you the outcome",
-      "author": "Unknown author",
-      "source": "User-submitted",
-      "sourceUrl": "",
+      "id": "munger-dumb-incentive-system",
+      "text": "If you have a dumb incentive system, you get dumb outcomes.",
+      "author": "Charlie Munger",
+      "source": "2016 Berkshire Hathaway Annual Meeting",
+      "sourceUrl": "https://buffett.cnbc.com/video/2016/04/30/munger-if-you-have-a-dumb-incentive-system-you-get-dumb-outcomes.html",
       "category": "economics",
       "categoryLabel": "Economics"
     },

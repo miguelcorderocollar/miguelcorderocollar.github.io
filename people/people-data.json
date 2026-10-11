@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-10-11",
   "people": [
     {
       "id": "david-heinemeier-hansson",
@@ -292,6 +292,48 @@
         "credit": "Juan Ramón Rallo / X",
         "sourceUrl": "https://x.com/juanrallo",
         "license": "Profile image"
+      }
+    },
+    {
+      "id": "thomas-sowell",
+      "name": "Thomas Sowell",
+      "category": "economics",
+      "categoryLabel": "Economics",
+      "role": "Economist, author and social theorist",
+      "portrait": "../images/people/processed/thomas-sowell-halftone.webp",
+      "portraitAlt": "Thomas Sowell wearing glasses in a 1964 portrait",
+      "summary": "Thomas Sowell sharpened my respect for intellectual honesty. I value his clarity about economics and human behaviour, and his willingness to challenge popular ideas with evidence. His work encourages me to examine incentives and consequences, test my own assumptions and take an uncomfortable conclusion seriously.",
+      "bio": "Thomas Sowell is an American economist, author and social theorist whose work covers economics, history, culture and public policy. His books include Basic Economics, Knowledge and Decisions and A Conflict of Visions. He is a senior fellow emeritus at the Hoover Institution.",
+      "links": [
+        { "label": "Hoover Institution profile", "url": "https://www.hoover.org/profiles/thomas-sowell" },
+        { "label": "Life and intellectual development", "url": "https://www.hoover.org/news/fellow-profile-thomas-sowell" },
+        { "label": "Collected work", "url": "https://www.hoover.org/thomas-sowell-legacy" }
+      ],
+      "photo": {
+        "credit": "Bell Telephone Magazine / Internet Archive Book Images / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Sowell_Portrait_(3x4_cropped).jpg",
+        "license": "Public domain (US); cropped and halftone processed"
+      }
+    },
+    {
+      "id": "lee-kuan-yew",
+      "name": "Lee Kuan Yew",
+      "category": "economics",
+      "categoryLabel": "Economics",
+      "role": "Singapore's founding prime minister",
+      "portrait": "../images/people/processed/lee-kuan-yew-halftone.webp",
+      "portraitAlt": "Lee Kuan Yew in a suit during a 2000 meeting at the Pentagon",
+      "summary": "Lee Kuan Yew made me expect more from public leadership. I admire his sense of duty, his determination to unite a diverse society and his willingness to make difficult decisions for its future prosperity. He reminds me that caring about people requires competence, persistence and the courage to act when the necessary choice is unpopular.",
+      "bio": "Lee Kuan Yew was Singapore's first prime minister, serving from 1959 to 1990. With his cabinet, he helped shape the country's economic development and a shared national identity across ethnic and religious communities. His legacy also includes restrictions on political opposition and expression.",
+      "links": [
+        { "label": "Official eulogy and biography", "url": "https://www.pmo.gov.sg/newsroom/transcript-eulogy-prime-minister-lee-hsien-loong-funeral-late-mr-lee-kuan-yew-29-march/" },
+        { "label": "Singapore's economic development", "url": "https://www.worldbank.org/ext/en/country/singapore" },
+        { "label": "Political freedoms and restrictions", "url": "https://www.hrw.org/report/2017/12/13/kill-chicken-scare-monkeys/suppression-free-expression-and-assembly-singapore" }
+      ],
+      "photo": {
+        "credit": "Robert D. Ward / U.S. Department of Defense / Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lee_Kuan_Yew_cropped.jpg",
+        "license": "Public domain (US); cropped and halftone processed"
       }
     },
     {
