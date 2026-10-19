@@ -1,3 +1,5 @@
+import { openCollectionDialog, closeCollectionDialog } from "../collections.js?v=collection-polish";
+
 const INFO_ICON = `
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
@@ -86,16 +88,12 @@ function createPersonCard(person, index) {
 }
 
 function openDialog(dialog) {
-  if (typeof dialog.showModal === "function") {
-    dialog.showModal();
-  } else {
-    dialog.setAttribute("open", "");
-  }
+  openCollectionDialog(dialog);
 }
 
 function closeDialogFromBackdrop(dialog) {
   dialog.addEventListener("click", (event) => {
-    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+    if (event.target === dialog && typeof dialog.close === "function") closeCollectionDialog(dialog);
   });
 }
 

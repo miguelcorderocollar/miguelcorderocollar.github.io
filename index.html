@@ -267,46 +267,43 @@
       name="msapplication-TileImage"
       content="images/icons/ms-icon-144x144.png"
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#000000" />
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="index.css?v=collections-strip" />
+    <link rel="stylesheet" href="assets/personal-style/personal-style.css" />
+    <link rel="stylesheet" href="assets/personal-style/motion.css" />
+    <link rel="stylesheet" href="homepage.css?v=collection-polish" />
+    <link rel="icon" type="image/svg+xml" href="assets/personal-style/mark.svg" />
   </head>
-  <body>
+  <body class="mcc-style mcc-dark">
     <!-- Reading Progress Bar -->
     <div class="reading-progress" aria-hidden="true"></div>
     
     <!-- Skip to Content Link -->
     <a href="#main-content" class="skip-link">Skip to content</a>
     
-    <table class="header">
-      <tr>
-        <td colspan="2" rowspan="2" class="width-auto">
-          <h1 class="title">Miguel Cordero Collar</h1>
-          <span class="subtitle"
-            >IT Innovation Project Manager @ Red Bull | Techno-Optimist</span
-          >
-        </td>
-        <th>From</th>
-        <td class="white-space: pre">Asturias, ES</td>
-      </tr>
-      <tr>
-        <th>Location</th>
-        <td class="width-min">
-          <time style="white-space: pre">Salzburg, AT</time>
-        </td>
-      </tr>
-    </table>
-    <figure>
-      <img
-        src="/images/bg/mountains-halftone.png"
-        alt="Photo of Miguel Cordero Collar"
-        style="filter: grayscale(100%)"
-      />
+    <header class="site-header" id="top">
+      <a class="wordmark" href="#top" aria-label="Miguel Cordero Collar, back to top"><img class="brand-mark" src="assets/personal-style/mark.svg" width="24" height="24" alt="" /></a>
+      <nav aria-label="Primary navigation">
+        <a href="#experience">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <section class="intro-hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title" class="mcc-title">Miguel<br>Cordero Collar<span class="title-period">.</span></h1>
+      </div>
+      <div class="hero-aside">
+        <p class="hero-role">IT Innovation<br>Project Manager<br><span class="muted">@ Red Bull</span></p>
+        <dl class="location"><div><dt>From</dt><dd>Asturias, ES</dd></div><div><dt>Based in</dt><dd>Salzburg, AT</dd></div></dl>
+      </div>
+    </section>
+    <figure class="hero-image">
+      <img src="/images/bg/mountains-halftone.png" alt="Halftone mountain landscape" width="1800" height="515" fetchpriority="high" />
     </figure>
     <section class="homepage-collections" aria-labelledby="homepage-collections-title">
       <div class="homepage-collections-heading">
         <h2 id="homepage-collections-title">Beyond work</h2>
-        <p>A few things I keep an eye on.</p>
       </div>
       <nav class="homepage-collection-links" aria-label="Personal collections">
         <a class="homepage-collection-link" href="trends/">
@@ -335,9 +332,8 @@
         </a>
       </nav>
     </section>
-    <hr />
-    <nav id="TOC" role="doc-toc">
-      <h2 id="toc-title">Contents</h2>
+    <div class="profile-layout">
+    <nav id="TOC" role="doc-toc" aria-label="Sections">
       <ul class="incremental">
         <li><a href="#introduction" id="toc-introduction">Introduction</a></li>
         <li><a href="#education" id="toc-education">Education</a></li>
@@ -351,17 +347,15 @@
         </li>
       </ul>
     </nav>
-    <hr />
     <main id="main-content">
     <h2 id="introduction">Introduction</h2>
     <p>
-      👋 Hey, I’m Miguel, an IT Innovation Project Manager at Red Bull focused
+      Hey, I’m Miguel, an IT Innovation Project Manager at Red Bull focused
       on turning emerging technology into practical business value. I lead and
       support proof of concepts and pilots across the company, with most of my
       work centered on AI and Agentic AI for both coding and business use
       cases.
     </p>
-    <hr />
     <h2 id="education">Education</h2>
     <details>
       <summary>MSc in Management - Technical University Munich</summary>
@@ -389,7 +383,6 @@
         Thesis: "Development of Angular App for San Carlos Clinical Hospital."
       </p>
     </details>
-    <hr />
     <h2 id="experience">Experience</h2>
     <details>
       <summary>
@@ -540,7 +533,6 @@
         </li>
       </ul>
     </details>
-    <hr />
     <h2 id="projects">Projects</h2>
     <details>
       <summary>
@@ -791,7 +783,6 @@
         >
       </p>
     </details>
-    <hr />
     <h2 id="skills">Skills</h2>
     <details>
       <summary>Product Management</summary>
@@ -890,7 +881,6 @@
       </ul>
     </details>
 
-    <hr />
     <h2 id="interests">Interests</h2>
     <details>
       <summary>Technology</summary>
@@ -922,51 +912,31 @@
         <li>🕸️ In the past: tennis, basketball</li>
       </ul>
     </details>
-    <hr />
     <h2 id="curriculum">Curriculum</h2>
     <nav class="curriculum-actions" aria-label="Curriculum actions">
       <button type="button" id="copy-markdown-button" data-markdown-source="/documents/Miguel-Cordero-CV.md">
         Copy .md
       </button>
-      <button>
-        <a href="/documents/Miguel-Cordero-CV.pdf" target="_blank">Open CV</a>
-      </button>
+      <a class="action-link" href="/documents/Miguel-Cordero-CV.pdf" target="_blank" rel="noopener">Open CV <span aria-hidden="true">↗</span></a>
     </nav>
     <p id="copy-markdown-status" class="copy-status" aria-live="polite"></p>
-    <hr />
     <h2 id="contact">Contact</h2>
     <nav>
-      <button>
-        <a href="mailto:miguelcorderocollar@gmail.com">Email</a>
-      </button>
-      <button>
-        <a href="https://www.linkedin.com/in/mcorderocollar/" target="_blank"
-          >LinkedIn</a
-        >
-      </button>
-      <button>
-        <a href="https://github.com/miguelcorderocollar" target="_blank"
-          >GitHub</a
-        >
-      </button>
+      <a class="action-link" href="mailto:miguelcorderocollar@gmail.com">Email ↗</a>
+      <a class="action-link" href="https://www.linkedin.com/in/mcorderocollar/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="action-link" href="https://github.com/miguelcorderocollar" target="_blank" rel="noopener">GitHub ↗</a>
     </nav>
-    <hr />
     <div class="footer-info">
-      <p class="last-updated">Last updated: January 2026</p>
-      <p class="credits">
-        Design inspired by:
-        <a href="https://github.com/owickstrom/the-monospace-web" target="_blank"
-          >The Monospace Web</a
-        >
-      </p>
+      <p class="last-updated">Last updated: October 2026</p>
     </div>
     </main>
+    </div>
     
     <!-- Back to Top Button -->
     <button class="back-to-top" aria-label="Back to top">
       ↑
     </button>
     
-    <script src="index.js"></script>
+    <script type="module" src="homepage.js"></script>
   </body>
 </html>

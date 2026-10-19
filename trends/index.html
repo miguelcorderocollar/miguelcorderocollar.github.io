@@ -8,26 +8,30 @@
       content="Personal interests compared with Google Trends search interest."
     />
     <meta name="author" content="Miguel Cordero Collar" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="../images/icons/favicon.ico" />
     <link rel="stylesheet" href="../reset.css" />
-    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../assets/personal-style/personal-style.css" />
+    <link rel="stylesheet" href="../assets/personal-style/motion.css" />
+    <link rel="stylesheet" href="../homepage.css?v=collection-polish" />
     <link rel="stylesheet" href="trends.css?v=topic-actions" />
+    <link rel="stylesheet" href="../collections.css?v=collection-controls" />
+    <link rel="icon" type="image/svg+xml" href="../assets/personal-style/mark.svg" />
     <title>Trends | Miguel Cordero Collar</title>
   </head>
-  <body class="trends-page">
+  <body class="mcc-style mcc-dark collection-page trends-page">
     <div class="reading-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <table class="header trends-header">
-      <tr>
-        <td colspan="2" class="width-auto">
-          <h1>Trends</h1>
-        </td>
-        <th>Source</th>
-        <td class="width-min">Google Trends</td>
-      </tr>
-    </table>
+    <header class="site-header" id="top">
+      <a class="wordmark" href="../" aria-label="Miguel Cordero Collar, home"><img class="brand-mark" src="../assets/personal-style/mark.svg" width="24" height="24" alt="" /><span>Miguel Cordero Collar</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="../trends/" aria-current="page">Trends</a>
+        <a href="../people/">People</a>
+        <a href="../quotes/">Quotes</a>
+      </nav>
+    </header>
+    <header class="collection-heading"><h1 class="mcc-title">Trends</h1><p class="collection-source">Source: Google Trends</p></header>
 
     <main id="main-content">
       <p class="page-intro">Search interest over time, with a few dates that matter to me.</p>
@@ -51,7 +55,6 @@
         </div>
       </section>
 
-      <hr />
 
       <footer class="footer-info">
         <p class="last-updated"><a href="../">← Back to the CV</a></p>
@@ -118,6 +121,8 @@
       <div id="info-dialog-content" class="dialog-markdown"></div>
     </dialog>
 
-    <script src="trends.js?v=topic-actions" defer></script>
+    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script type="module" src="trends.js?v=collection-polish"></script>
   </body>
 </html>

@@ -1,0 +1,26 @@
+/* Opt in through createMotion() from motion.js. Load after component styles. */
+.mcc-motion{--mcc-ease-out:cubic-bezier(.23,1,.32,1);--mcc-duration-enter:180ms;--mcc-duration-exit:120ms;--mcc-duration-reduced:80ms}
+.mcc-motion [data-mcc-press]{transition:transform 100ms var(--mcc-ease-out);touch-action:manipulation}
+.mcc-motion[data-mcc-input="pointer"] [data-mcc-press]:active:not(:disabled){transform:scale(.98);transition-duration:120ms}
+.mcc-motion[data-mcc-input="keyboard"] [data-mcc-press]{transition:none}
+.mcc-motion .mcc-toast{opacity:0;transform:translateY(100%);transition-property:opacity,transform;transition-duration:200ms;transition-timing-function:var(--mcc-ease-out);overflow-wrap:anywhere;bottom:max(25px,env(safe-area-inset-bottom));right:max(25px,env(safe-area-inset-right))}
+.mcc-motion .mcc-toast[data-mcc-visible="true"]{opacity:1;transform:translateY(0)}
+.mcc-motion .mcc-dialog::backdrop{opacity:0;transition:opacity 240ms var(--mcc-ease-out)}
+.mcc-motion .mcc-dialog[data-mcc-visible="true"]::backdrop{opacity:1}
+.mcc-motion .mcc-dialog[data-mcc-closing]::backdrop{transition-duration:180ms}
+.mcc-motion .mcc-slot{min-height:var(--mcc-slot-height,0px)}
+.mcc-motion .mcc-toast[data-mcc-instant],.mcc-motion[data-mcc-input="keyboard"] .mcc-dialog::backdrop{transition:none!important}
+@media(prefers-reduced-motion:reduce){
+ .mcc-motion [data-mcc-press]{transform:none!important;transition:none!important}
+ .mcc-motion .mcc-toast{transform:none;transition-property:opacity;transition-duration:80ms}
+ .mcc-motion .mcc-dialog::backdrop{transition-duration:80ms}
+}
+.mcc-motion[data-mcc-input="keyboard"] .mcc-dialog::backdrop{transition:none!important}
+@media(hover:none),(pointer:coarse){.mcc-motion input,.mcc-motion select,.mcc-motion textarea{font-size:max(16px,1em)}}
+.mcc-motion .mcc-progress-shell{display:block;position:relative;height:10px;width:100%}
+.mcc-motion .mcc-progress-native{opacity:0}
+.mcc-motion .mcc-progress-track{position:absolute;inset:0;background:var(--mcc-surface);overflow:hidden;pointer-events:none}
+.mcc-motion .mcc-progress-track[hidden]{display:none}
+.mcc-motion .mcc-progress-fill{display:block;width:100%;height:100%;background:var(--mcc-accent);transform:scaleX(0);transform-origin:left center;transition:transform 200ms linear}
+.mcc-motion [data-mcc-feedback-label]{display:inline-block;min-width:0}
+@media(prefers-reduced-motion:reduce){.mcc-motion .mcc-progress-fill{transition:none!important}}

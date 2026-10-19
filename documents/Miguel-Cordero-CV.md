@@ -1,20 +1,14 @@
 # Miguel Cordero Collar
 
 **IT Innovation Project Manager @ Red Bull**  
-AI · Product Management · SaaS Platforms · Internal Tools · Automation
-
 Asturias, Spain · Based in Salzburg, Austria  
 [LinkedIn](https://www.linkedin.com/in/mcorderocollar/) · [GitHub](https://github.com/miguelcorderocollar) · [Email](mailto:miguelcorderocollar@gmail.com)
 
-## About
+## Introduction
 
-I'm an IT Innovation Project Manager at Red Bull, focused on turning emerging technologies into practical business value.
-
-My work centers on AI, Agentic AI, internal tools, SaaS platforms, and proof-of-concept development. I combine product management, business analysis, and hands-on software development to help teams explore, validate, and implement new technology.
+Hey, I'm Miguel, an IT Innovation Project Manager at Red Bull focused on turning emerging technology into practical business value. I lead and support proof of concepts and pilots across the company, with most of my work centered on AI and Agentic AI for both coding and business use cases.
 
 ## Beyond work
-
-A few things I keep an eye on.
 
 - [Trends](../trends/): Ideas I'm following, and when I first noticed them.
 - [People](../people/): Public figures who have shaped how I think and work.
