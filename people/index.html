@@ -8,26 +8,33 @@
       content="A personal collection of public figures who have shaped how Miguel Cordero Collar thinks and works."
     />
     <meta name="author" content="Miguel Cordero Collar" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="../images/icons/favicon.ico" />
     <link rel="stylesheet" href="../reset.css" />
-    <link rel="stylesheet" href="../index.css?v=single-cell-header" />
+    <link rel="stylesheet" href="../assets/personal-style/personal-style.css" />
+    <link rel="stylesheet" href="../assets/personal-style/motion.css" />
+    <link rel="stylesheet" href="../homepage.css?v=collection-polish" />
     <link rel="stylesheet" href="people.css?v=single-cell-header" />
+    <link rel="stylesheet" href="../collections.css?v=collection-controls" />
+    <link rel="icon" type="image/svg+xml" href="../assets/personal-style/mark.svg" />
     <title>People | Miguel Cordero Collar</title>
   </head>
-  <body class="people-page">
+  <body class="mcc-style mcc-dark collection-page people-page">
     <div class="reading-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <table class="header people-header">
-      <tr>
-        <td><h1>People</h1></td>
-      </tr>
-    </table>
+    <header class="site-header" id="top">
+      <a class="wordmark" href="../" aria-label="Miguel Cordero Collar, home"><img class="brand-mark" src="../assets/personal-style/mark.svg" width="24" height="24" alt="" /><span>Miguel Cordero Collar</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="../trends/">Trends</a>
+        <a href="../people/" aria-current="page">People</a>
+        <a href="../quotes/">Quotes</a>
+      </nav>
+    </header>
+    <header class="collection-heading"><h1 class="mcc-title">People</h1></header>
 
     <main id="main-content">
       <section class="dedication" aria-labelledby="dedication-heading">
-        <p class="eyebrow">A note before the list</p>
         <h2 id="dedication-heading">The people closest to me come first.</h2>
         <p>
           My parents, grandparents, family and friends shaped how I think, work and
@@ -78,11 +85,9 @@
         </div>
       </section>
 
-      <hr />
 
       <footer class="footer-info">
         <p class="last-updated"><a href="../">← Back to the CV</a></p>
-        <p class="credits">A growing, personal list</p>
       </footer>
     </main>
 
@@ -118,6 +123,8 @@
       </div>
     </dialog>
 
-    <script src="people.js?v=layout-popup" defer></script>
+    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script type="module" src="people.js?v=collection-polish"></script>
   </body>
 </html>

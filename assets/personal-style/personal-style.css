@@ -1,0 +1,6 @@
+@font-face{font-family:"JetBrains Mono";src:url("fonts/JetBrainsMono-Medium.ttf") format("truetype");font-weight:500;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/JetBrainsMono-SemiBold.ttf") format("truetype");font-weight:600;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/JetBrainsMono-ExtraBold.ttf") format("truetype");font-weight:800;font-display:block}
+.mcc-style{--mcc-paper:#fff;--mcc-ink:#000;--mcc-muted:#666;--mcc-surface:#eee;--mcc-accent:#e8512a;--mcc-rule:#d1d1d1;background:var(--mcc-paper);color:var(--mcc-ink);font-family:"JetBrains Mono",monospace;font-weight:500;font-variant-numeric:tabular-nums lining-nums}
+.mcc-style.mcc-dark{--mcc-paper:#000;--mcc-ink:#d3d3d3;--mcc-muted:#aaa;--mcc-surface:#111;--mcc-accent:#ff8561;--mcc-rule:#2e2e2e}
+.mcc-title{font-weight:800;letter-spacing:-.035em;line-height:1.08}.mcc-label{font-weight:600;letter-spacing:.025em}.mcc-rule{border:0;border-top:2px solid var(--mcc-rule)}.mcc-accent{color:var(--mcc-accent)}

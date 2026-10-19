@@ -1,3 +1,5 @@
+import { openCollectionDialog, closeCollectionDialog } from "../collections.js?v=collection-polish";
+
 const SVG_NS = "http://www.w3.org/2000/svg";
 
 const SERIES_COLORS = {
@@ -540,16 +542,12 @@ function setupMethodDialog() {
   });
 
   dialog.addEventListener("click", (event) => {
-    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+    if (event.target === dialog && typeof dialog.close === "function") closeCollectionDialog(dialog);
   });
 }
 
 function openDialog(dialog) {
-  if (typeof dialog.showModal === "function") {
-    dialog.showModal();
-  } else {
-    dialog.setAttribute("open", "");
-  }
+  openCollectionDialog(dialog);
 }
 
 function setupAboutDialog(signals) {
@@ -572,7 +570,7 @@ function setupAboutDialog(signals) {
   });
 
   dialog.addEventListener("click", (event) => {
-    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+    if (event.target === dialog && typeof dialog.close === "function") closeCollectionDialog(dialog);
   });
 }
 
@@ -598,7 +596,7 @@ function setupInfoDialog(signals) {
   });
 
   dialog.addEventListener("click", (event) => {
-    if (event.target === dialog && typeof dialog.close === "function") dialog.close();
+    if (event.target === dialog && typeof dialog.close === "function") closeCollectionDialog(dialog);
   });
 }
 

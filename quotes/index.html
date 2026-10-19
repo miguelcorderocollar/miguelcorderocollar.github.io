@@ -8,25 +8,32 @@
       content="A personal collection of lines Miguel Cordero Collar returns to. Browse by idea or leave the choice to chance."
     />
     <meta name="author" content="Miguel Cordero Collar" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="../images/icons/favicon.ico" />
     <link rel="stylesheet" href="../reset.css" />
-    <link rel="stylesheet" href="../index.css?v=single-cell-header" />
+    <link rel="stylesheet" href="../assets/personal-style/personal-style.css" />
+    <link rel="stylesheet" href="../assets/personal-style/motion.css" />
+    <link rel="stylesheet" href="../homepage.css?v=collection-polish" />
     <link rel="stylesheet" href="quotes.css?v=translations" />
+    <link rel="stylesheet" href="../collections.css?v=collection-controls" />
+    <link rel="icon" type="image/svg+xml" href="../assets/personal-style/mark.svg" />
     <title>Quotes | Miguel Cordero Collar</title>
   </head>
-  <body class="quotes-page">
+  <body class="mcc-style mcc-dark collection-page quotes-page">
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <table class="header quotes-header">
-      <tr>
-        <td><h1>Quotes</h1></td>
-      </tr>
-    </table>
+    <header class="site-header" id="top">
+      <a class="wordmark" href="../" aria-label="Miguel Cordero Collar, home"><img class="brand-mark" src="../assets/personal-style/mark.svg" width="24" height="24" alt="" /><span>Miguel Cordero Collar</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="../trends/">Trends</a>
+        <a href="../people/">People</a>
+        <a href="../quotes/" aria-current="page">Quotes</a>
+      </nav>
+    </header>
+    <header class="collection-heading"><h1 class="mcc-title">Quotes</h1></header>
 
     <main id="main-content">
       <section class="quotes-intro" aria-labelledby="quotes-intro-heading">
-        <p class="quotes-eyebrow">Lines worth keeping</p>
         <h2 id="quotes-intro-heading">A notebook for other people's words.</h2>
         <p>
           Some ideas survive because of how they were phrased. Browse the notebook,
@@ -46,8 +53,7 @@
       <section class="quote-mode" id="browse-mode" aria-labelledby="browse-heading">
         <div class="browse-heading-row">
           <div>
-            <p class="quotes-eyebrow">Explore the collection</p>
-            <h2 id="browse-heading">Browse</h2>
+                <h2 id="browse-heading">Browse</h2>
           </div>
           <p class="result-count" id="result-count" aria-live="polite"></p>
         </div>
@@ -84,13 +90,14 @@
         </div>
       </section>
 
-      <hr />
       <footer class="footer-info">
         <p class="last-updated"><a href="../">← Back to the CV</a></p>
-        <p class="credits">A growing, personal collection</p>
       </footer>
     </main>
 
+    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+
     <script src="quotes.js" defer></script>
+    <script type="module" src="../collections.js?v=collection-polish"></script>
   </body>
 </html>
