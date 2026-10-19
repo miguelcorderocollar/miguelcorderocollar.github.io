@@ -94,7 +94,27 @@ Responsibilities:
 - 2014 · Waiter in London
 - 2013 · Administrative Assistant and Activities Organiser in London
 
+## Education
+
+### MSc in Management
+
+**Technical University Munich**\
+Heriot-Watt University (Edinburgh) · Polytechnic University of Madrid · Technical University Munich
+
+- Specialization: Entrepreneurship & Technology Management
+- Thesis: "Tesla's Robotaxi network: A quantitative analysis of adoption, economic impact, and implications."
+- Grade: 97/100 - Top 1%
+
+### BSc in Industrial Engineering
+
+**Polytechnic University of Madrid**
+
+- Specialization: Management
+- Thesis: "Development of Angular App for San Carlos Clinical Hospital."
+
 ## Selected Projects
+
+Update pending. Selected earlier work; recent projects will be added soon.
 
 ### Image Ratio Tool
 
@@ -185,48 +205,48 @@ Highlights:
 - Built around the idea that small solutions can address big problems
 - Revived in 2025 and rebuilt in a morning using Cursor AI IDE
 
-## Education
-
-### MSc in Management
-
-**Technical University Munich**  
-Heriot-Watt University (Edinburgh) · Polytechnic University of Madrid · Technical University Munich
-
-- Specialization: Entrepreneurship & Technology Management
-- Thesis: "Tesla's Robotaxi network: A quantitative analysis of adoption, economic impact, and implications."
-- Grade: 97/100 - Top 1%
-
-### BSc in Industrial Engineering
-
-**Polytechnic University of Madrid**
-
-- Specialization: Management
-- Thesis: "Development of Angular App for San Carlos Clinical Hospital."
-
 ## Skills
 
-**Product & Innovation**  
-Roadmap planning, prioritization, feature definition, backlog management, user story development, product launch, adoption strategy, stakeholder alignment, product lifecycle management, experimentation, and proof-of-concept work
+### AI agents & applications
 
-**AI & Automation**  
-Agentic AI, prompt engineering, model performance optimization, embeddings, retrieval-augmented generation, AI assistants, chatbots, workflow automation, AI research tooling, and AI feature integration in business applications
+- Custom agents, skills & plugins
+- MCP development & tool integration
+- AI features embedded in applications
+- Enterprise agents in the Microsoft ecosystem
+- Agent testing & output validation
 
-**Technical**  
-React, Angular, Node.js, Python, APIs, Git, GitHub, CI/CD familiarity, software development lifecycle understanding, and technical troubleshooting
+### AI adoption, research & enablement
 
-**SaaS & Platforms**  
-Zendesk, Bynder, CRM and marketing automation tools, platform configuration, customization, domain and email management, Workfront, Jira, and Confluence
+- AI market trends & technology research
+- Use case assessment & prototyping
+- AI adoption consulting & workflow automation
+- Internal training & knowledge sharing
 
-**Business & Process**  
-Requirements gathering, documentation, business process mapping, reengineering, stakeholder needs assessment, business case development, data analysis, SQL, dashboards, and reporting
+### Software engineering, cloud & integrations
 
-**UX & Communication**  
-User experience design principles, wireframing, prototyping, interface development, user research, technical training, stakeholder engagement, presentations, coaching, mentorship, and cross-functional collaboration
+- Full-stack applications & internal tools
+- API integration & custom development
+- Cloud & serverless deployment, including Azure
+- Enterprise SaaS configuration & integration
+
+### Product thinking & experience design
+
+- Business & user requirements
+- Feature definition, prioritization & scope
+- Interface design, workflows & usability
+- Prototyping, user feedback & adoption
+
+### Project delivery & collaboration
+
+- Project ownership, planning & risk management
+- Production application & service delivery
+- Cross-functional collaboration & stakeholder alignment
+- Technical communication & documentation
 
 ## Interests
 
 **Technology**  
-Techno-optimism, Artificial Intelligence, Software Development, Electric Vehicles, UI/UX Design, startups, and the broader tech industry
+Techno-optimism, Artificial Intelligence, Software Development, open source & building in public, Electric Vehicles, UI/UX Design, startups, and the broader tech industry
 
 **Knowledge**  
 Investing, Economics, Gardening, Cooking and Food Science, and Philosophy

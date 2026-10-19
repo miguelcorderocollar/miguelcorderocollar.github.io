@@ -1,5 +1,12 @@
 # Repository guidance
 
+## Personal design system
+
+- Use [Miguel Personal Style](https://github.com/miguelcorderocollar/miguel-personal-style) for this site's visual identity, components, and interaction patterns.
+- Find the maintained local checkout first, currently `/home/mikelon797/dev/skills/miguel-personal-style`, and read `skills/miguel-personal-style/SKILL.md` and its relevant references before UI work. Locate the checkout again if that path moves.
+- Prefer that maintained source over a potentially stale installed copy. If no local checkout is available, consult the source repository or install its skill using the README instructions. Do not install another copy just for this site when the maintained checkout is available.
+- Reuse its tokens, typography, collection controls, and motion guidance. Keep any copied site assets in sync deliberately; reading updated guidance does not update vendored assets automatically.
+
 ## Content-only updates
 
 - People entries and other small copy changes are data-driven. When adding a person or editing text in JSON/content files, do not run browser or visual UI verification unless the user asks for it or the implementation itself changes.
