@@ -114,96 +114,51 @@ Heriot-Watt University (Edinburgh) · Polytechnic University of Madrid · Techni
 
 ## Selected Projects
 
-Update pending. Selected earlier work; recent projects will be added soon.
-
-### Image Ratio Tool
-
-**Web App** · Jan 2026 · [Live App](https://image-ratio-tool.vercel.app/) · [GitHub](https://github.com/miguelcorderocollar/image-ratio-tool)
-
-Browser-based image utility for analyzing aspect ratios and exporting polished image variants for different formats and use cases.
-
-Highlights:
-- Detects exact ratios from uploaded, pasted, or dropped images and suggests standard aspect ratios
-- Supports crop previews with move and resize controls before export
-- Expands images to target ratios with solid fills, sampled colors, blur, or gradients
-- Creates decorative share-ready padding layouts and diagonal transparent cutouts
+At work, I build AI prototypes and demos, agents, API integrations and internal tools. [More about my work](#experience)
 
 ### ExtractMD
 
-**Chrome Extension** · Dec 2025 · [Website](https://extractmd.miguelcorderocollar.com/) · [GitHub](https://github.com/miguelcorderocollar/ExtractMD) · [Chrome Web Store](https://chromewebstore.google.com/detail/extractmd/dbopkomdhgkkicbndimnooalbfcbhodp)
+**Chrome extension**
 
-Chrome extension for extracting Markdown from YouTube videos, Hacker News, articles, and general webpages.
+Turn webpages, YouTube transcripts and Hacker News threads into Markdown you can keep and reuse.
 
-Highlights:
-- Supports YouTube transcripts, Hacker News threads, articles, and general webpage extraction
-- Converts HTML into Markdown through a universal extraction layer
-- Includes a floating button, keyboard shortcut, auto-download, usage tracking, ignore rules, and settings import/export
-- Supports custom selectors, navigation stripping, and code block preservation
+I use it every day to save useful content as Markdown.
 
-### App Bundle Icon Generator
+[Chrome Web Store](https://chromewebstore.google.com/detail/extractmd/dbopkomdhgkkicbndimnooalbfcbhodp) · [Source](https://github.com/miguelcorderocollar/ExtractMD)
 
-**Web App** · Nov 2025 · [Live App](https://bundle-icon-generator.vercel.app/) · [GitHub](https://github.com/miguelcorderocollar/bundle-icon-generator)
+### Endless AI Quiz
 
-Local-first web tool for creating app icon bundles with correct naming, sizes, and export formats for bundle-based platforms.
+**Web app · PWA** · In development
 
-Highlights:
-- Searches icons from vetted packs
-- Supports color and size customization
-- Exports compliant assets such as `logo.png`, `logo-small.png`, and location-specific SVGs
-- Works for Zendesk and other bundle-based systems
+An endless stream of AI questions, with source-backed explanations and difficulty that adapts as you learn.
 
-### Zendesk Admin
+Curated questions across 14 categories, with a weekly challenge and a related mobile app.
 
-**Raycast Extension** · August 2025 · [Raycast Store](https://www.raycast.com/miguelcorderocollar/zendesk-admin) · [GitHub](https://github.com/miguelcorderocollar/ray.ext.zdk-admin)
+[Try the current build](https://endless-ai-quiz.vercel.app/) · [Source](https://github.com/miguelcorderocollar/endless-ai-quiz)
 
-Comprehensive Raycast extension for Zendesk administration that streamlines workspace management and quick access to Zendesk entities.
+### Linux & open source
 
-Highlights:
-- Searches across 14 entity types including tickets, users, organizations, groups, views, brands, triggers, and automations
-- Supports multiple Zendesk instances with color coding
-- Provides real-time search and filtering
-- Includes quick access to Support, Guide, Admin, Explore, Sell, Chat, and Talk
-- Supports user, ticket, and configuration management workflows
+**Omarchy · Plugins & contributions**
 
-### Zendesk Apps
+Learning Linux by building for the desktop I use, creating Omarchy plugins and contributing improvements upstream.
 
-**Multiple Apps** · 2022 - 2025
+Omatinta generates theme-matched wallpapers. I’m also developing theme-aware mpv controls for Omarchy, with the upstream pull request open for review. There is more desktop tooling in progress.
 
-As a Zendesk Admin, I developed multiple applications in my free time to enhance functionality and streamline workflows.
+[Omatinta](https://github.com/miguelcorderocollar/omatinta) · [mpv contribution](https://github.com/omacom/omarchy/pull/15467)
 
-Highlights:
-- File previewer for images, OCR, PDFs, documents, spreadsheets, code files, and more
-- PDF Generator for customized ticket-based documents
-- AI Playground for Zendesk AI use cases
-- Reply Counter for agent efficiency tracking
-- Task Manager for complex ticket workflows
-- Zendesk and SAP ERP integration through a data validator app
-- Call Center Monitor for real-time operational visibility
-- Related Tickets app for faster issue resolution
-- 10+ additional smaller apps
+### Bundle Icon Generator
 
-### Tesla Robotaxi Analysis
+**Web app**
 
-**Thesis** · 2021 · [Read Thesis](https://miguelcorderocollar.github.io/documents/Tesla%20Robotaxi%20-%20Master%20Thesis.pdf)
+Find an icon, adjust its colours and export an app icon bundle with the right sizes and filenames.
 
-Analysis of the potential implications of Tesla's robotaxi network on transportation, cities, and the economy.
+A local-first utility that searches vetted icon packs and exports assets for Zendesk and other bundle-based platforms. Includes colour and size customisation.
 
-Highlights:
-- Examined the impact of self-driving technology on transportation and future car ownership
-- Explored implications for city design, accident reduction, productivity, and pollution
-- Developed a Monte Carlo simulation model in Python to assess adoption and economic impact
-- Grade: 10/10
+[Open app](https://bundle-icon-generator.vercel.app/) · [Source](https://github.com/miguelcorderocollar/bundle-icon-generator)
 
-### Sustainable Knowledge
+[All projects](https://miguelcorderocollar.github.io/projects/)
 
-**Blog** · 2019 - 2020 · [Website](https://sustainable-knowledge.vercel.app/) · [Book](https://www.amazon.com/dp/B08M2KBLNH)
-
-Platform dedicated to exploring, learning, and sharing knowledge about sustainability and personal growth.
-
-Highlights:
-- Founded, developed, and wrote the platform
-- Built around the idea that small solutions can address big problems
-- Revived in 2025 and rebuilt in a morning using Cursor AI IDE
+Review status checked 2026-10-19.
 
 ## Skills
 

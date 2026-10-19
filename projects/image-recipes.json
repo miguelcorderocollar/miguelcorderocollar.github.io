@@ -1,0 +1,106 @@
+{
+  "size": 320,
+  "quality": 75,
+  "sourceBackground": "#111111",
+  "shader": {
+    "ink": "#d3d3d3",
+    "paper": "#111111",
+    "invert": true,
+    "minDot": 0,
+    "contrast": 1.1,
+    "brightness": 0,
+    "gamma": 1,
+    "cell": 7
+  },
+  "normalization": "Contain, centred square canvas; inset in pixels. No cropping. Reverse-print adaptation of the existing halftone recipe with a coarser 7px dot grid for small dark thumbnails. Tuned in /shader/ with the ExtractMD logo. The coarser grid keeps individual dots visible at the 112px desktop and 64px mobile display sizes. Zero minimum dots keep dark backgrounds clear; contrast 1.1 preserves separation between a coloured logo background and its white symbol.",
+  "images": [
+    {
+      "id": "extractmd",
+      "source": "images/projects/source/extractmd.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/ExtractMD/4f5163e3a89f0b93277f304a248ae933e49c782e/extension/images/logo.svg",
+      "credit": "Miguel Cordero Collar, ExtractMD project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/ExtractMD/blob/4f5163e3a89f0b93277f304a248ae933e49c782e/extension/images/logo.svg",
+      "inset": 36
+    },
+    {
+      "id": "endless-ai-quiz",
+      "source": "images/projects/source/endless-ai-quiz.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/endless-ai-quiz/19b24039a5be3c436e0b6396405804856cf3c688/public/icons/app-icon.svg",
+      "credit": "Miguel Cordero Collar, endless-ai-quiz project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/endless-ai-quiz/blob/19b24039a5be3c436e0b6396405804856cf3c688/public/icons/app-icon.svg",
+      "inset": 36
+    },
+    {
+      "id": "omatinta",
+      "source": "images/projects/source/omatinta.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/omatinta/7ad7d877715cceb5e3c1a490d088618a2b8a7263/assets/omatinta.svg",
+      "credit": "Miguel Cordero Collar, omatinta project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/omatinta/blob/7ad7d877715cceb5e3c1a490d088618a2b8a7263/assets/omatinta.svg",
+      "inset": 36
+    },
+    {
+      "id": "image-ratio-tool",
+      "source": "images/projects/source/image-ratio-tool.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/image-ratio-tool/f8d215fa4339e9c9af2f5e75e397b3cbd42ca264/public/icon.svg",
+      "credit": "Miguel Cordero Collar, image-ratio-tool project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/image-ratio-tool/blob/f8d215fa4339e9c9af2f5e75e397b3cbd42ca264/public/icon.svg",
+      "inset": 36
+    },
+    {
+      "id": "bundle-icon-generator",
+      "source": "images/projects/source/bundle-icon-generator.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/bundle-icon-generator/3703e03401e6d14d0169a899a8c129a820af5223/public/favicon.svg",
+      "credit": "Miguel Cordero Collar, bundle-icon-generator project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/bundle-icon-generator/blob/3703e03401e6d14d0169a899a8c129a820af5223/public/favicon.svg",
+      "inset": 36
+    },
+    {
+      "id": "zendesk-admin",
+      "source": "images/projects/source/zendesk-admin.png",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/ray.ext.zdk-admin/f9b4a3ca935b6e9f6760504277cdf7ca8e90ba21/assets/icon.png",
+      "credit": "Miguel Cordero Collar, ray.ext.zdk-admin project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/ray.ext.zdk-admin/blob/f9b4a3ca935b6e9f6760504277cdf7ca8e90ba21/assets/icon.png",
+      "inset": 36
+    },
+    {
+      "id": "gh-auth-switcher",
+      "source": "images/projects/source/gh-auth-switcher.png",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/gh-auth-switcher/df294f12474fef8795da2c1aa889791026e18cce/gh-auth-switcher/Assets.xcassets/AppIcon.appiconset/icon_512x512.png",
+      "credit": "Miguel Cordero Collar, gh-auth-switcher project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/gh-auth-switcher/blob/df294f12474fef8795da2c1aa889791026e18cce/gh-auth-switcher/Assets.xcassets/AppIcon.appiconset/icon_512x512.png",
+      "inset": 36
+    },
+    {
+      "id": "simplest-calendar",
+      "source": "images/projects/source/simplest-calendar.png",
+      "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/simplest-calendar-macOS/7329eca12f17e9ec4fc5c182d4203fb27d543d70/Simplest%20Calendar%20App/Assets.xcassets/AppIcon.appiconset/icon_512x512.png",
+      "credit": "Miguel Cordero Collar, simplest-calendar-macOS project icon",
+      "sourcePage": "https://github.com/miguelcorderocollar/simplest-calendar-macOS/blob/7329eca12f17e9ec4fc5c182d4203fb27d543d70/Simplest%20Calendar%20App/Assets.xcassets/AppIcon.appiconset/icon_512x512.png",
+      "inset": 36
+    },
+    {
+      "id": "mpv-theming",
+      "source": "projects/symbols/mpv-theming.svg",
+      "credit": "Original portfolio symbol by Miguel Cordero Collar; represents the project subject and is not an official product logo.",
+      "inset": 24
+    },
+    {
+      "id": "zendesk-apps",
+      "source": "projects/symbols/zendesk-apps.svg",
+      "credit": "Original portfolio symbol by Miguel Cordero Collar; represents the project subject and is not an official product logo.",
+      "inset": 24
+    },
+    {
+      "id": "robotaxi-analysis",
+      "source": "projects/symbols/robotaxi-analysis.svg",
+      "credit": "Original portfolio symbol by Miguel Cordero Collar; represents the project subject and is not an official product logo.",
+      "inset": 24
+    },
+    {
+      "id": "sustainable-knowledge",
+      "source": "projects/symbols/sustainable-knowledge.svg",
+      "credit": "Original portfolio symbol by Miguel Cordero Collar; represents the project subject and is not an official product logo.",
+      "inset": 24
+    }
+  ]
+}

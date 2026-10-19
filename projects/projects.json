@@ -1,0 +1,332 @@
+{
+  "reviewedOn": "2026-10-19",
+  "groups": {
+    "apps": "Apps",
+    "tools": "Tools",
+    "linux": "Linux & open source",
+    "earlier": "Earlier work"
+  },
+  "projects": [
+    {
+      "id": "extractmd",
+      "name": "ExtractMD",
+      "group": "apps",
+      "type": "Chrome extension",
+      "summary": "Turn webpages, YouTube transcripts and Hacker News threads into Markdown you can keep and reuse.",
+      "tags": [
+        "Markdown",
+        "Browser tools"
+      ],
+      "details": [
+        "A floating button and keyboard shortcut give quick access to extraction. Supports articles, YouTube transcripts, Hacker News comments and general HTML-to-Markdown conversion.",
+        "Includes domain ignore rules, custom selectors, settings import and export, and preservation of code blocks.",
+        "I use it every day to save useful content as Markdown."
+      ],
+      "links": [
+        {
+          "label": "Chrome Web Store",
+          "url": "https://chromewebstore.google.com/detail/extractmd/dbopkomdhgkkicbndimnooalbfcbhodp"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/ExtractMD"
+        }
+      ],
+      "image": "images/projects/processed/extractmd.webp"
+    },
+    {
+      "id": "endless-ai-quiz",
+      "name": "Endless AI Quiz",
+      "group": "apps",
+      "type": "Web app · PWA",
+      "status": "In development",
+      "summary": "An endless stream of AI questions, with source-backed explanations and difficulty that adapts as you learn.",
+      "tags": [
+        "AI",
+        "Learning"
+      ],
+      "details": [
+        "Curated multiple-choice questions across 14 categories, an Elo-based difficulty model and a weekly challenge. Built with Next.js and Convex, with a related Expo mobile app.",
+        "The web app and related mobile app are still in development."
+      ],
+      "links": [
+        {
+          "label": "Try the current build",
+          "url": "https://endless-ai-quiz.vercel.app/"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/endless-ai-quiz"
+        }
+      ],
+      "image": "images/projects/processed/endless-ai-quiz.webp",
+      "homepageNote": "Curated questions across 14 categories, with a weekly challenge and a related mobile app."
+    },
+    {
+      "id": "omatinta",
+      "name": "Omatinta",
+      "group": "linux",
+      "type": "Omarchy plugin",
+      "summary": "Generate and upscale wallpapers that match your Omarchy themes, using your own images and references.",
+      "status": "Marketplace review pending",
+      "tags": [
+        "Linux",
+        "Image generation"
+      ],
+      "details": [
+        "A community plugin with batch generation across themes, image editing through fal.ai or OpenRouter, and upscaling through fal.ai. Uses your own provider keys.",
+        "The plugin is available from its repository. Its submission to the Omarchy plugin marketplace is still open as of 19 October 2026."
+      ],
+      "links": [
+        {
+          "label": "Source & install",
+          "url": "https://github.com/miguelcorderocollar/omatinta"
+        },
+        {
+          "label": "Marketplace submission",
+          "url": "https://github.com/omacom/omarchy-plugin-marketplace/issues/12252"
+        }
+      ],
+      "image": "images/projects/processed/omatinta.webp"
+    },
+    {
+      "id": "mpv-theming",
+      "name": "Theme-aware mpv controls",
+      "group": "linux",
+      "type": "Omarchy contribution",
+      "summary": "Playback controls and native menus that follow the active Omarchy theme, including while a video is playing.",
+      "status": "PR open",
+      "tags": [
+        "Linux",
+        "Upstream contribution"
+      ],
+      "details": [
+        "Adds playback controls, theme-aware native menus, OSD messages and configurable statistics colours. An open player updates its appearance without restarting playback.",
+        "Submitted upstream to Omarchy. The pull request is open and unmerged as of 19 October 2026; it is not part of an accepted upstream release."
+      ],
+      "links": [
+        {
+          "label": "View pull request",
+          "url": "https://github.com/omacom/omarchy/pull/15467"
+        }
+      ],
+      "image": "images/projects/processed/mpv-theming.webp"
+    },
+    {
+      "id": "bundle-icon-generator",
+      "name": "Bundle Icon Generator",
+      "group": "tools",
+      "type": "Web app",
+      "summary": "Find an icon, adjust its colours and export an app icon bundle with the right sizes and filenames.",
+      "tags": [
+        "Icons",
+        "Developer tools"
+      ],
+      "details": [
+        "A local-first utility that searches vetted icon packs and exports assets for Zendesk and other bundle-based platforms. Includes colour and size customisation."
+      ],
+      "links": [
+        {
+          "label": "Open app",
+          "url": "https://bundle-icon-generator.vercel.app/"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/bundle-icon-generator"
+        }
+      ],
+      "image": "images/projects/processed/bundle-icon-generator.webp"
+    },
+    {
+      "id": "image-ratio-tool",
+      "name": "Image Ratio Tool",
+      "group": "tools",
+      "type": "Web app",
+      "summary": "Check image ratios, preview crops and export images with borders, padding or diagonal cuts.",
+      "tags": [
+        "Images",
+        "File utilities"
+      ],
+      "details": [
+        "Accepts uploaded, pasted or dropped images. Supports moveable crop previews and expansion to target ratios using solid fills, sampled colours, blur or gradients.",
+        "A utility I use regularly when preparing images."
+      ],
+      "links": [
+        {
+          "label": "Open app",
+          "url": "https://image-ratio-tool.vercel.app/"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/image-ratio-tool"
+        }
+      ],
+      "image": "images/projects/processed/image-ratio-tool.webp"
+    },
+    {
+      "id": "zendesk-admin",
+      "name": "Zendesk Admin",
+      "group": "tools",
+      "type": "Raycast extension",
+      "summary": "Search and manage Zendesk tickets, users and workspace settings directly from Raycast.",
+      "tags": [
+        "Productivity",
+        "Integrations"
+      ],
+      "details": [
+        "Search across 14 entity types, including tickets, users, organisations, groups, views and automations. Supports multiple Zendesk instances and direct access to its products.",
+        "Includes user, ticket and configuration management workflows."
+      ],
+      "links": [
+        {
+          "label": "Raycast Store",
+          "url": "https://www.raycast.com/miguelcorderocollar/zendesk-admin"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/ray.ext.zdk-admin"
+        }
+      ],
+      "image": "images/projects/processed/zendesk-admin.webp"
+    },
+    {
+      "id": "gh-auth-switcher",
+      "name": "GitHub Auth Switcher",
+      "group": "apps",
+      "type": "macOS menu bar app",
+      "summary": "Switch GitHub CLI accounts from the menu bar, with a colour badge for the active account.",
+      "tags": [
+        "macOS",
+        "Developer tools"
+      ],
+      "details": [
+        "Imports authenticated accounts from the GitHub CLI and switches between them with one click. Each account can have its own colour badge.",
+        "Optional Git profile sync updates the configured username and email when switching accounts. Built as a native macOS app."
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/gh-auth-switcher"
+        }
+      ],
+      "image": "images/projects/processed/gh-auth-switcher.webp"
+    },
+    {
+      "id": "simplest-calendar",
+      "name": "Simplest Calendar",
+      "group": "apps",
+      "type": "macOS menu bar app",
+      "summary": "A minimal calendar in the macOS menu bar, built with SwiftUI.",
+      "tags": [
+        "macOS",
+        "Productivity"
+      ],
+      "details": [
+        "A small native calendar app built with SwiftUI for macOS 14.5 and later."
+      ],
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/simplest-calendar-macOS"
+        }
+      ],
+      "image": "images/projects/processed/simplest-calendar.webp"
+    },
+    {
+      "id": "zendesk-apps",
+      "name": "Zendesk applications",
+      "group": "earlier",
+      "type": "Internal tools · 2022–2025",
+      "summary": "A collection of applications built around the daily work of administering a Zendesk workspace.",
+      "tags": [
+        "Integrations",
+        "Workflow automation"
+      ],
+      "details": [
+        "Includes a file previewer with OCR, a ticket-based PDF generator, an AI playground, a reply counter and a task manager.",
+        "Other work includes a Zendesk–SAP data validator, call centre monitoring, related-ticket tools and smaller workflow applications. Public source code is not linked for these internal tools."
+      ],
+      "links": [],
+      "image": "images/projects/processed/zendesk-apps.webp"
+    },
+    {
+      "id": "robotaxi-analysis",
+      "name": "Tesla Robotaxi Analysis",
+      "group": "earlier",
+      "type": "Master's thesis · 2021",
+      "summary": "A Python simulation exploring robotaxi adoption and its possible economic and transport effects.",
+      "tags": [
+        "Research",
+        "Simulation"
+      ],
+      "details": [
+        "Developed a Monte Carlo simulation to assess adoption and economic impact. The thesis considers car ownership, city design, accidents, productivity and pollution."
+      ],
+      "links": [
+        {
+          "label": "Read thesis",
+          "url": "https://miguelcorderocollar.github.io/documents/Tesla%20Robotaxi%20-%20Master%20Thesis.pdf"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/thesis-robotaxi_simulation"
+        }
+      ],
+      "image": "images/projects/processed/robotaxi-analysis.webp"
+    },
+    {
+      "id": "sustainable-knowledge",
+      "name": "Sustainable Knowledge",
+      "group": "earlier",
+      "type": "Writing · 2019–2020, revisited 2025",
+      "summary": "A platform I founded, developed and wrote about sustainability and personal growth.",
+      "tags": [
+        "Writing",
+        "Sustainability"
+      ],
+      "details": [
+        "Originally created in 2019–2020 and revived in 2025 with a website rebuilt using Cursor. The associated book remains available separately."
+      ],
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://sustainable-knowledge.vercel.app/"
+        },
+        {
+          "label": "Book",
+          "url": "https://www.amazon.com/dp/B08M2KBLNH"
+        }
+      ],
+      "image": "images/projects/processed/sustainable-knowledge.webp"
+    }
+  ],
+  "homepage": [
+    "extractmd",
+    "endless-ai-quiz",
+    "linux-open-source",
+    "bundle-icon-generator"
+  ],
+  "homepageHighlights": [
+    {
+      "id": "linux-open-source",
+      "name": "Linux & open source",
+      "type": "Omarchy · Plugins & contributions",
+      "summary": "Learning Linux by building for the desktop I use, creating Omarchy plugins and contributing improvements upstream.",
+      "details": [
+        "Omatinta generates theme-matched wallpapers. I’m also developing theme-aware mpv controls for Omarchy, with the upstream pull request open for review. There is more desktop tooling in progress."
+      ],
+      "links": [
+        {
+          "label": "Omatinta",
+          "url": "https://github.com/miguelcorderocollar/omatinta"
+        },
+        {
+          "label": "mpv contribution",
+          "url": "https://github.com/omacom/omarchy/pull/15467"
+        }
+      ],
+      "collectionUrl": "projects/?group=linux"
+    }
+  ],
+  "workNote": "At work, I build AI prototypes and demos, agents, API integrations and internal tools."
+}

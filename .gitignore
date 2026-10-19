@@ -2,3 +2,7 @@
 /images/people/source/
 /images/people/cropped/
 /scripts/__pycache__/
+
+# Downloaded project icons and normalized shader inputs stay local.
+/images/projects/source/
+/images/projects/normalized/
