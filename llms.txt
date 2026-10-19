@@ -1,0 +1,24 @@
+# Miguel Cordero Collar
+
+> Personal website and CV of Miguel Cordero Collar, IT Innovation Project Manager at Red Bull.
+
+This site publishes professional profile information and personal collections. Follow the linked source material for attribution and context. Collection Markdown files include complete snapshots; JSON files are the underlying structured data.
+
+## Profile
+
+- [Homepage profile](https://miguelcorderocollar.com/index.md): Full Markdown CV followed by links to machine-readable collections.
+- [Complete CV](https://miguelcorderocollar.com/documents/Miguel-Cordero-CV.md): Experience, education, projects, skills and contact information.
+- [Homepage](https://miguelcorderocollar.com/): Canonical HTML profile.
+
+## Collections
+
+- [People](https://miguelcorderocollar.com/people/index.md): Personal reflections on public figures; includes biography and source links. [JSON data](https://miguelcorderocollar.com/people/people-data.json).
+- [Quotes](https://miguelcorderocollar.com/quotes/index.md): Collected wording with author, source attribution and original wording when available. [JSON data](https://miguelcorderocollar.com/quotes/quotes-data.json).
+- [Trends](https://miguelcorderocollar.com/trends/index.md): Personal interest context and Google Trends snapshots, with query links and data. [JSON data](https://miguelcorderocollar.com/trends/trends-data.json).
+
+## Discovery
+
+- [XML sitemap](https://miguelcorderocollar.com/sitemap.xml)
+- [Robots policy](https://miguelcorderocollar.com/robots.txt)
+
+Content is published for public access and discovery. This file does not grant a license or express a preference about AI model training. No Content-Signal is currently published; see [AI usage policy](https://miguelcorderocollar.com/docs/agent-readiness.md) for the rationale.
