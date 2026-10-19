@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-19",
   "quotes": [
     {
       "id": "dhh-believe-it-will-work",
@@ -337,6 +337,15 @@
       "sourceUrl": "https://www.theodorerooseveltcenter.org/encyclopedia/culture-and-society/man-in-the-arena/",
       "category": "ambition",
       "categoryLabel": "Ambition"
+    },
+    {
+      "id": "davinci-punish-evil",
+      "text": "Not to punish evil is equivalent to authorizing it.",
+      "author": "Leonardo da Vinci",
+      "source": "Thoughts on Art and Life, \"Proverbs\" (§111), translated by Maurice Baring",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/29904/pg29904-images.html",
+      "category": "responsibility",
+      "categoryLabel": "Responsibility"
     }
   ]
 }
