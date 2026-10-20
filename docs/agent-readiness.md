@@ -18,4 +18,4 @@ The site currently uses GitHub Pages. It serves explicit `.md` representations b
 
 ## Maintaining representations
 
-Run `python3 scripts/build_agent_content.py` after changing People, Quotes, or Trends JSON data, then review the generated Markdown. The homepage Markdown is a compact index; the detailed CV remains at `documents/Miguel-Cordero-CV.md`.
+Run `python3 scripts/build_agent_content.py` after changing People, Quotes, or Trends JSON data, then review the generated Markdown. The homepage Markdown comes from `documents/Miguel-Cordero-Profile.md`, the full profile mirror. The curated, AI-focused CV remains at `documents/Miguel-Cordero-CV.md`; its PDF build is documented in [CV workflow](cv.md).

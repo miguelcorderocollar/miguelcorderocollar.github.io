@@ -67,11 +67,11 @@ def main():
     write("people/index.md", people_markdown())
     write("quotes/index.md", quotes_markdown())
     write("trends/index.md", trends_markdown())
-    cv = (ROOT / "documents/Miguel-Cordero-CV.md").read_text(encoding="utf-8")
-    cv = re.sub(r"\]\(\.\./([^)]*)\)", rf"]({BASE}/\1)", cv)
-    cv = cv.replace("https://miguelcorderocollar.github.io/", f"{BASE}/")
-    cv = re.sub(r"[ \t]{2,}$", "<br>", cv, flags=re.MULTILINE)
-    cv += """
+    profile = (ROOT / "documents/Miguel-Cordero-Profile.md").read_text(encoding="utf-8")
+    profile = re.sub(r"\]\(\.\./([^)]*)\)", rf"]({BASE}/\1)", profile)
+    profile = profile.replace("https://miguelcorderocollar.github.io/", f"{BASE}/")
+    profile = re.sub(r"[ \t]{2,}$", "<br>", profile, flags=re.MULTILINE)
+    profile += """
 
 ## Machine-readable collections
 
@@ -81,7 +81,7 @@ def main():
 
 Updated: 2026-10-19
 """
-    write("index.md", cv)
+    write("index.md", profile)
 
 
 if __name__ == "__main__":
