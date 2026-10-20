@@ -87,7 +87,8 @@
           "url": "https://github.com/omacom/omarchy-plugin-marketplace/issues/12252"
         }
       ],
-      "image": "images/projects/processed/omatinta.webp"
+      "image": "images/projects/processed/omatinta.webp",
+      "homepageNote": "Batch generation across themes, image editing and upscaling, using your own provider keys."
     },
     {
       "id": "mpv-theming",
@@ -247,7 +248,8 @@
         "Other work includes a Zendesk–SAP data validator, call centre monitoring, related-ticket tools and smaller workflow applications. Public source code is not linked for these internal tools."
       ],
       "links": [],
-      "image": "images/projects/processed/zendesk-apps.webp"
+      "image": "images/projects/processed/zendesk-apps.webp",
+      "homepageNote": "Includes an AI playground, an OCR file previewer and a Zendesk-SAP data validator."
     },
     {
       "id": "robotaxi-analysis",
@@ -301,10 +303,10 @@
     }
   ],
   "homepage": [
+    "omatinta",
+    "zendesk-apps",
     "extractmd",
-    "endless-ai-quiz",
-    "linux-open-source",
-    "bundle-icon-generator"
+    "endless-ai-quiz"
   ],
   "homepageHighlights": [
     {

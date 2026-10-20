@@ -79,7 +79,7 @@ def main():
 - [Quotes](/quotes/index.md): Sourced quotations with attribution and original wording where available. [JSON data](/quotes/quotes-data.json).
 - [Trends](/trends/index.md): Personal interest markers with Google Trends context and source links. [JSON data](/trends/trends-data.json).
 
-Updated: 2026-10-19
+Updated: 2026-10-20
 """
     write("index.md", profile)
 
