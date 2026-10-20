@@ -2,7 +2,7 @@
 
 **IT Innovation Project Manager @ Red Bull**
 
-AI innovation · Agentic AI · Product delivery
+AI agents & applications · Product development · Enterprise adoption
 
 Based in Salzburg, Austria
 
@@ -10,7 +10,7 @@ Based in Salzburg, Austria
 
 ## Profile
 
-IT Innovation Project Manager focused on **AI and agentic AI**, combining **hands-on development** with product and delivery experience. At Red Bull, I develop and lead AI pilots, advise teams on emerging technology, and build agents and tools for coding and business workflows.
+IT Innovation Project Manager at Red Bull, **building AI prototypes, agents and internal tools** and leading pilots for coding and business workflows. I combine **hands-on development** with product management, enterprise SaaS implementation and user adoption experience.
 
 ## AI expertise
 
@@ -24,19 +24,19 @@ IT Innovation Project Manager focused on **AI and agentic AI**, combining **hand
 
 **Red Bull** · Jan 2026 - Present · Salzburg, Austria
 
-- **Develop and lead innovation proofs of concept and pilots** across the company, with a focus on AI and agentic AI.
-- **Build AI prototypes and demos**, agents, API integrations and internal tools.
+- **Develop and lead AI proofs of concept and pilots** across Red Bull, combining hands-on prototyping with project coordination.
+- **Build agents, API integrations and internal tools** for software development and business workflows.
 - **Advise internal teams** on emerging technology opportunities and their use in business workflows.
-- **Research and shape innovation topics**, including AI for coding and business workflows.
+- **Research emerging technologies** and assess potential business use cases.
 
 ### IT Project/Product Manager
 
 **Red Bull** · 2021 - Dec 2025 · Salzburg, Austria
 
-- Led **product development for internal tools**, covering roadmap planning, feature definition, market and user research, product lifecycle and adoption.
-- Managed a **custom development solution** for Marketing, Operations and Legal.
+- Led **development of internal products**, covering user research, roadmap planning, feature definition and adoption.
+- Managed a **custom software solution** for Marketing, Operations and Legal.
 - Implemented and administered **Zendesk and Bynder** across multiple use cases, with a focus on workflows and business process optimisation.
-- Coordinated **cross-functional teams and project activities** through delivery, alongside quality assurance, technical support and software development.
+- Coordinated **cross-functional teams** through development, quality assurance and delivery.
 - Acted as the **department's AI expert** alongside product and SaaS responsibilities.
 
 <!-- pagebreak -->
@@ -51,10 +51,10 @@ IT Innovation Project Manager focused on **AI and agentic AI**, combining **hand
 
 [All projects](https://miguelcorderocollar.com/projects/)
 
-- [**Endless AI Quiz**](https://miguelcorderocollar.com/projects/#endless-ai-quiz). AI learning app with adaptive questions and source-backed explanations. In development.
+- [**Omatinta**](https://miguelcorderocollar.com/projects/#omatinta). Omarchy plugin for AI wallpaper generation, image editing and upscaling, with fal.ai and OpenRouter integrations.
+- [**Zendesk applications**](https://miguelcorderocollar.com/projects/#zendesk-apps). Internal tools including an AI playground, an OCR file previewer and a Zendesk-SAP data validator.
 - [**ExtractMD**](https://miguelcorderocollar.com/projects/#extractmd). Chrome extension that turns webpages, YouTube transcripts and Hacker News threads into Markdown.
-- [**Linux & open source**](https://miguelcorderocollar.com/projects/?group=linux). Omarchy plugins and contributions, including AI wallpaper generation and mpv controls.
-- [**Bundle Icon Generator**](https://miguelcorderocollar.com/projects/#bundle-icon-generator). Utility to find, customise and export app icon bundles for different platforms.
+- [**Endless AI Quiz**](https://miguelcorderocollar.com/projects/#endless-ai-quiz). Learning app about AI, with curated questions, adaptive difficulty and source-backed explanations. In development.
 
 ## Education
 
@@ -62,8 +62,9 @@ IT Innovation Project Manager focused on **AI and agentic AI**, combining **hand
 
 **Technical University Munich**
 
+- **Overall master's grade: 97/100, top 1%.**
 - Specialisation in **Entrepreneurship & Technology Management**. Studies at Heriot-Watt University, Polytechnic University of Madrid and Technical University Munich.
-- **Thesis:** Tesla's Robotaxi network, adoption and economic impact. **Grade: 97/100, top 1%.**
+- **Thesis:** Tesla's Robotaxi network, adoption and economic impact.
 
 ### BSc in Industrial Engineering
 

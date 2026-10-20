@@ -2,6 +2,12 @@
 
 The CV is a two-page A4 document aimed at AI roles. Page one leads with AI expertise and both Red Bull roles. Page two starts with earlier experience, followed by brief project bullets, education, and contextual engineering and delivery skills. Each project name links to its website entry. All projects is a compact link aligned to the right of the section heading, with an orange arrow. It includes email, website, social links and current location, with no phone number or place of origin.
 
+## Positioning
+
+The CV targets applied AI work across agents, applications, product development and AI adoption in business processes. It should make sense to both startups and larger enterprises, particularly technology companies, without narrowing the candidate to one job title. Lead with hands-on AI work, then show how the product and enterprise delivery background supports it.
+
+Prefer concrete examples such as Omatinta's AI integrations and the internal Zendesk applications. Describe Endless AI Quiz as a learning app about AI; its subject does not establish that AI generates the content. Keep measured outcomes, production AI deployment, model training and enterprise-wide strategy ownership out unless Miguel confirms them.
+
 ## Content and sources
 
 - Edit `documents/Miguel-Cordero-CV.md`. It is the source for the PDF and the homepage's curriculum `Copy .md` action.
