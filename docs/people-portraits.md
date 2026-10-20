@@ -7,6 +7,12 @@ The crop settings live in [`people/portrait-recipes.json`](../people/portrait-re
 The published files use a standardized delivery format: 640×640px WebP,
 quality 75. Every crop is resized to the same square canvas before the shader
 runs, so the fixed shader cell produces the same dot size in every portrait.
+On `/people/`, a small client-side display pass applies a Gaussian low-pass
+before area resizing to the portrait card's actual device-pixel dimensions. This
+reduces moiré when the fixed dots are shown smaller than the 640px master while
+leaving the published portraits unchanged. The original `<img>` remains in the
+document with its alt text and acts as the rendering fallback. Add
+`?portraitFilter=off` to the People URL to compare the unfiltered masters.
 
 Build or rebuild the complete People collection with:
 

@@ -1,4 +1,5 @@
 import { openCollectionDialog, closeCollectionDialog } from "../collections.js?v=collection-polish";
+import { setupPortraitFiltering } from "./portrait-filter.js?v=moire-filter";
 
 const INFO_ICON = `
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -204,6 +205,7 @@ async function loadPeople() {
     emptyState.hidden = true;
     peopleList.replaceChildren(...cards);
     peopleList.append(emptyState);
+    setupPortraitFiltering(cards.map((card) => card.querySelector(".person-card__portrait")));
     setupFilters(cards, emptyState);
     setupPersonDialog(data.people);
     setupDisclaimerDialog();
