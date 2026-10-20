@@ -1,6 +1,6 @@
 # CV workflow
 
-The CV is a two-page A4 document aimed at AI roles. Page one leads with AI expertise and both Red Bull roles. Page two starts with earlier experience, followed by brief project bullets, education, and contextual engineering and delivery skills. An All projects link leads to the website. It includes email, website, social links and current location, with no phone number or place of origin.
+The CV is a two-page A4 document aimed at AI roles. Page one leads with AI expertise and both Red Bull roles. Page two starts with earlier experience, followed by brief project bullets, education, and contextual engineering and delivery skills. Each project name links to its website entry. All projects is a compact link aligned to the right of the section heading, with an orange arrow. It includes email, website, social links and current location, with no phone number or place of origin.
 
 ## Content and sources
 
@@ -26,7 +26,7 @@ The generator uses ReportLab and the repository's local JetBrains Mono and Sourc
 
 ## Markdown supported by the generator
 
-Use one `#` name heading followed by four paragraphs: role, focus, location, and contact links. The remaining document supports `##` section headings, `###` entry headings, paragraphs, single-line `-` bullets, `**bold**`, and `[label](https://example.com)` or `mailto:` links. Inline formatting is intentionally flat; do not nest bold and links. A bold paragraph directly after an entry heading is its metadata row.
+Use one `#` name heading followed by four paragraphs: role, focus, location, and contact links. The remaining document supports `##` section headings, `###` entry headings, paragraphs, single-line `-` bullets, `**bold**`, and `[label](https://example.com)` or `mailto:` links. Link labels can contain bold text, for example `[**Project name**](https://example.com)`. A bold paragraph directly after an entry heading is its metadata row. A standalone HTTPS link paragraph immediately after a `##` heading renders as a right-aligned action on the same heading row in the PDF; it stays directly below the heading in Markdown.
 
 One `<!-- pagebreak -->` separates the two pages and remains invisible in rendered Markdown. The generator fails if the content flows onto more than two pages, preserving the previous PDF. Edit the copy or layout deliberately rather than silently shrinking the text to fit. Unsupported block constructs produce an error.
 

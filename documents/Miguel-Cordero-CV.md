@@ -49,12 +49,12 @@ IT Innovation Project Manager focused on **AI and agentic AI**, combining **hand
 
 ## Selected projects
 
-- **Endless AI Quiz.** AI learning app with adaptive questions and source-backed explanations. In development.
-- **ExtractMD.** Chrome extension that turns webpages, YouTube transcripts and Hacker News threads into Markdown.
-- **Linux & open source.** Omarchy plugins and contributions, including AI wallpaper generation and mpv controls.
-- **Bundle Icon Generator.** Utility to find, customise and export app icon bundles for different platforms.
-
 [All projects](https://miguelcorderocollar.com/projects/)
+
+- [**Endless AI Quiz**](https://miguelcorderocollar.com/projects/#endless-ai-quiz). AI learning app with adaptive questions and source-backed explanations. In development.
+- [**ExtractMD**](https://miguelcorderocollar.com/projects/#extractmd). Chrome extension that turns webpages, YouTube transcripts and Hacker News threads into Markdown.
+- [**Linux & open source**](https://miguelcorderocollar.com/projects/?group=linux). Omarchy plugins and contributions, including AI wallpaper generation and mpv controls.
+- [**Bundle Icon Generator**](https://miguelcorderocollar.com/projects/#bundle-icon-generator). Utility to find, customise and export app icon bundles for different platforms.
 
 ## Education
 

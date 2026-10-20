@@ -44,7 +44,7 @@ def inline(text):
         else:
             if not url.startswith(("https://", "mailto:")):
                 raise ValueError(f"CV links must use https:// or mailto: {url}")
-            parts.append(f'<link href="{escape(url, quote=True)}"><u>{escape(label)}</u></link>')
+            parts.append(f'<link href="{escape(url, quote=True)}"><u>{inline(label)}</u></link>')
         start = match.end()
     parts.append(escape(text[start:]))
     return "".join(parts)
@@ -134,9 +134,10 @@ def styles(palette):
 class SectionHeading(Flowable):
     keepWithNext = True
 
-    def __init__(self, title, palette):
+    def __init__(self, title, palette, action=None):
         super().__init__()
         self.title, self.palette = title.upper(), palette
+        self.action = action
         self.height = 28
 
     def wrap(self, avail_width, avail_height):
@@ -153,7 +154,25 @@ class SectionHeading(Flowable):
         line_start = 25 + pdfmetrics.stringWidth(self.title, "MonoSemi", 9.8)
         canvas.setStrokeColor(self.palette["rule"])
         canvas.setLineWidth(0.5)
-        canvas.line(line_start, 12, self.width, 12)
+        line_end = self.width
+        if self.action:
+            label, url = self.action
+            label_width = pdfmetrics.stringWidth(label, "BodySansSemi", 10.5)
+            action_start = self.width - label_width - 15
+            line_end = action_start - 14
+            canvas.setFont("BodySansSemi", 10.5)
+            canvas.drawString(action_start, 9, label)
+            # An orange external-link arrow aligned with the label's baseline.
+            canvas.setStrokeColor(self.palette["accent"])
+            canvas.setLineWidth(0.9)
+            x, y = self.width - 6, 10
+            canvas.line(x, y, x + 6, y + 6)
+            canvas.line(x + 1, y + 6, x + 6, y + 6)
+            canvas.line(x + 6, y + 1, x + 6, y + 6)
+            canvas.linkURL(url, (action_start, 5, self.width, 23), relative=1)
+            canvas.setStrokeColor(self.palette["rule"])
+            canvas.setLineWidth(0.5)
+        canvas.line(line_start, 12, line_end, 12)
 
 
 def draw_corner_study(canvas, palette):
@@ -190,7 +209,10 @@ def build_pdf(markdown):
     header_styles = ["role", "focus", "location", "contacts"]
     after_subheading = False
     section, role_count = "", 0
-    for kind, text in parsed:
+    heading_action_index = None
+    for index, (kind, text) in enumerate(parsed):
+        if index == heading_action_index:
+            continue
         if kind == "h1":
             story.append(Paragraph(inline(text), text_styles["name"]))
         elif kind == "h2":
@@ -198,7 +220,13 @@ def build_pdf(markdown):
                 raise ValueError("The name must be followed by role, focus, location and contact paragraphs")
             in_header = False
             section = text
-            story.append(SectionHeading(text, palette))
+            action = None
+            if index + 1 < len(parsed) and parsed[index + 1][0] == "paragraph":
+                link = INLINE.fullmatch(parsed[index + 1][1])
+                if link and link[1] and link[2].startswith("https://"):
+                    action = (link[1], link[2])
+                    heading_action_index = index + 1
+            story.append(SectionHeading(text, palette, action))
             after_subheading = False
         elif kind == "h3":
             style = "h3"
