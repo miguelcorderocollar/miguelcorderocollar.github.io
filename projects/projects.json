@@ -68,23 +68,22 @@
       "group": "linux",
       "type": "Omarchy plugin",
       "summary": "Generate and upscale wallpapers that match your Omarchy themes, using your own images and references.",
-      "status": "Marketplace review pending",
       "tags": [
         "Linux",
         "Image generation"
       ],
       "details": [
         "A community plugin with batch generation across themes, image editing through fal.ai or OpenRouter, and upscaling through fal.ai. Uses your own provider keys.",
-        "The plugin is available from its repository. Its submission to the Omarchy plugin marketplace is still open as of 19 October 2026."
+        "Available in the Omarchy plugin store, with source and install instructions in the repository."
       ],
       "links": [
         {
-          "label": "Source & install",
-          "url": "https://github.com/miguelcorderocollar/omatinta"
+          "label": "Omarchy plugin store",
+          "url": "https://plugins.omarchy.org/plugin.html?id=mikelon797.omatinta"
         },
         {
-          "label": "Marketplace submission",
-          "url": "https://github.com/omacom/omarchy-plugin-marketplace/issues/12252"
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/omatinta"
         }
       ],
       "image": "images/projects/processed/omatinta.webp",
@@ -346,7 +345,7 @@
       "links": [
         {
           "label": "Omatinta",
-          "url": "https://github.com/miguelcorderocollar/omatinta"
+          "url": "https://plugins.omarchy.org/plugin.html?id=mikelon797.omatinta"
         },
         {
           "label": "mpv contribution",

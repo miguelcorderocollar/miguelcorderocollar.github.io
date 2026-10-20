@@ -101,13 +101,13 @@ At work, I build AI prototypes and demos, agents, API integrations and internal 
 
 ### Omatinta
 
-**Omarchy plugin** · Marketplace review pending
+**Omarchy plugin**
 
 Generate and upscale wallpapers that match your Omarchy themes, using your own images and references.
 
 Batch generation across themes, image editing and upscaling, using your own provider keys.
 
-[Source & install](https://github.com/miguelcorderocollar/omatinta) · [Marketplace submission](https://github.com/omacom/omarchy-plugin-marketplace/issues/12252)
+[Omarchy plugin store](https://plugins.omarchy.org/plugin.html?id=mikelon797.omatinta) · [Source](https://github.com/miguelcorderocollar/omatinta)
 
 ### Zendesk applications
 
