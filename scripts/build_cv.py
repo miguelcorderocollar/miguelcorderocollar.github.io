@@ -9,7 +9,6 @@ import argparse
 from html import escape
 from io import BytesIO
 import json
-import math
 from pathlib import Path
 import re
 
@@ -27,9 +26,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "documents/Miguel-Cordero-CV.md"
 OUTPUT = ROOT / "documents/Miguel-Cordero-CV.pdf"
 ASSETS = ROOT / "assets/personal-style"
+BODY_FONTS = ROOT / "assets/cv/fonts"
 WIDTH, HEIGHT = A4
 MARGIN = 44
-BOTTOM = 50
+BOTTOM = 44
 INLINE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*")
 
 
@@ -89,41 +89,45 @@ def register_fonts():
     pdfmetrics.registerFontFamily("Mono", normal="Mono", bold="MonoDisplay")
     pdfmetrics.registerFontFamily("MonoSemi", normal="MonoSemi", bold="MonoSemi")
     pdfmetrics.registerFontFamily("MonoDisplay", normal="MonoDisplay", bold="MonoDisplay")
+    pdfmetrics.registerFont(TTFont("BodySans", str(BODY_FONTS / "SourceSans3-Regular.ttf")))
+    pdfmetrics.registerFont(TTFont("BodySansSemi", str(BODY_FONTS / "SourceSans3-Semibold.ttf")))
+    pdfmetrics.registerFontFamily("BodySans", normal="BodySans", bold="BodySansSemi")
+    pdfmetrics.registerFontFamily("BodySansSemi", normal="BodySansSemi", bold="BodySansSemi")
 
 
 def styles(palette):
     body = ParagraphStyle(
-        "body", fontName="Mono", fontSize=9.8, leading=14.5,
-        textColor=palette["ink"], spaceAfter=4, allowWidows=0, allowOrphans=0,
+        "body", fontName="BodySans", fontSize=11.4, leading=15.8,
+        textColor=palette["ink"], spaceAfter=5, allowWidows=0, allowOrphans=0,
     )
     return {
         "body": body,
         "name": ParagraphStyle("name", parent=body, fontName="MonoDisplay", fontSize=27,
                                leading=32, spaceAfter=8, keepWithNext=True),
         "role": ParagraphStyle("role", parent=body, fontName="MonoSemi", fontSize=11.1,
-                               leading=15, spaceAfter=3, keepWithNext=True),
-        "focus": ParagraphStyle("focus", parent=body, fontSize=9.4,
-                                leading=14, spaceAfter=5, keepWithNext=True),
-        "location": ParagraphStyle("location", parent=body, fontSize=8.1,
-                                   leading=12, textColor=palette["muted"], spaceAfter=2,
+                               leading=16, spaceAfter=3, keepWithNext=True),
+        "focus": ParagraphStyle("focus", parent=body, fontName="BodySansSemi", fontSize=11.4,
+                                leading=15.8, spaceAfter=5, keepWithNext=True),
+        "location": ParagraphStyle("location", parent=body, fontSize=10.5,
+                                   leading=14, textColor=palette["muted"], spaceAfter=2,
                                    keepWithNext=True),
-        "contacts": ParagraphStyle("contacts", parent=body, fontSize=8.1, leading=12,
+        "contacts": ParagraphStyle("contacts", parent=body, fontSize=10.5, leading=14,
                                    spaceAfter=6, keepWithNext=True),
-        "h3": ParagraphStyle("h3", parent=body, fontName="MonoSemi", fontSize=10.3,
-                             leading=14.2, spaceBefore=4, spaceAfter=2, keepWithNext=True),
+        "h3": ParagraphStyle("h3", parent=body, fontName="MonoSemi", fontSize=11.2,
+                             leading=16, spaceBefore=8, spaceAfter=3, keepWithNext=True),
         "current_role": ParagraphStyle("current_role", parent=body, fontName="MonoDisplay",
-                                       fontSize=11.3, leading=15.7, spaceBefore=4,
+                                       fontSize=12, leading=17, spaceBefore=4,
                                        spaceAfter=3, keepWithNext=True),
         "past_role": ParagraphStyle("past_role", parent=body, fontName="MonoSemi",
-                                    fontSize=10.3, leading=14.2, spaceBefore=11,
+                                    fontSize=11.2, leading=16, spaceBefore=12,
                                     spaceAfter=2, keepWithNext=True),
-        "metadata": ParagraphStyle("metadata", parent=body, fontSize=8.1, leading=11.5,
-                                   textColor=palette["muted"], spaceAfter=4, keepWithNext=True),
-        "links": ParagraphStyle("links", parent=body, fontSize=8.1, leading=11.2,
-                                spaceAfter=5),
+        "metadata": ParagraphStyle("metadata", parent=body, fontSize=10.5, leading=14.5,
+                                   textColor=palette["muted"], spaceAfter=5, keepWithNext=True),
+        "links": ParagraphStyle("links", parent=body, fontName="BodySansSemi",
+                                fontSize=11.4, leading=15.8, spaceAfter=5),
         "bullet": ParagraphStyle("bullet", parent=body, leftIndent=12, firstLineIndent=0,
-                                 bulletIndent=0, bulletFontName="Mono", bulletFontSize=9.4,
-                                 spaceAfter=4),
+                                 bulletIndent=0, bulletFontName="BodySans", bulletFontSize=11.4,
+                                 spaceAfter=5),
     }
 
 
@@ -144,33 +148,35 @@ class SectionHeading(Flowable):
         canvas.setFillColor(self.palette["accent"])
         canvas.rect(0, 8, 4, 9, fill=1, stroke=0)
         canvas.setFillColor(self.palette["ink"])
-        canvas.setFont("MonoSemi", 9.2)
+        canvas.setFont("MonoSemi", 9.8)
         canvas.drawString(13, 9, self.title)
-        line_start = 25 + pdfmetrics.stringWidth(self.title, "MonoSemi", 9.2)
+        line_start = 25 + pdfmetrics.stringWidth(self.title, "MonoSemi", 9.8)
         canvas.setStrokeColor(self.palette["rule"])
         canvas.setLineWidth(0.5)
         canvas.line(line_start, 12, self.width, 12)
 
 
 def draw_corner_study(canvas, palette):
-    """A still of the kit's procedural dot-sphere language, drawn as vectors."""
-    size, cell, radius = 64, 3.2, 27
+    """Fixed-grid halftone and pixel scatter fading away from the top-right edge."""
+    cell, columns, rows = 4.5, 33, 32
     canvas.saveState()
-    canvas.translate(WIDTH - MARGIN - size, HEIGHT - 40 - size)
-    canvas.setFillColor(palette["ink"])
-    for row in range(20):
-        for column in range(20):
-            x, y = (column + 0.5) * cell, (row + 0.5) * cell
-            nx, ny = (x - size / 2) / radius, (y - size / 2) / radius
-            distance = nx * nx + ny * ny
-            if distance >= 1:
+    for row in range(rows):
+        for column in range(columns):
+            x, y = WIDTH - (column + 0.5) * cell, HEIGHT - (row + 0.5) * cell
+            density = (1 - column / columns) ** 1.35 * (1 - row / rows) ** 1.65
+            # Stable grid hashes keep the sparse pixels reproducible.
+            seed = (column * 73856093 ^ row * 19349663 ^ 83492791) & 0xFFFF
+            scatter = seed / 65535
+            size = round(density * 10) / 10
+            if size == 0 and scatter > density:
                 continue
-            nz = math.sqrt(1 - distance)
-            light = max(0, -0.45 * nx + 0.55 * ny + 0.70 * nz)
-            darkness = round((1 - 0.88 * light) * 8) / 8
-            canvas.circle(x, y, cell * 0.43 * math.sqrt(darkness), fill=1, stroke=0)
-    canvas.setFillColor(palette["accent"])
-    canvas.rect(size - 8, size - 8, 6, 6, fill=1, stroke=0)
+            orange = seed % 19 < 3
+            canvas.setFillColor(palette["accent"] if orange else palette["ink"])
+            if orange or seed % 13 == 0:
+                side = cell * max(0.16, size * 0.79)
+                canvas.rect(x - side / 2, y - side / 2, side, side, fill=1, stroke=0)
+            else:
+                canvas.circle(x, y, cell * 0.46 * size, fill=1, stroke=0)
     canvas.restoreState()
 
 
@@ -225,14 +231,6 @@ def build_pdf(markdown):
         canvas.saveState()
         canvas.setFillColor(palette["paper"])
         canvas.rect(0, 0, WIDTH, HEIGHT, fill=1, stroke=0)
-        canvas.setStrokeColor(palette["rule"])
-        canvas.setLineWidth(0.5)
-        canvas.line(MARGIN, 36, WIDTH - MARGIN, 36)
-        canvas.setFillColor(palette["muted"])
-        canvas.setFont("Mono", 7.5)
-        canvas.drawString(MARGIN, 22, "miguelcorderocollar.com")
-        canvas.linkURL("https://miguelcorderocollar.com", (MARGIN, 20, MARGIN + 100, 31), relative=0)
-        canvas.drawRightString(WIDTH - MARGIN, 22, f"{doc.page:02d} / 02")
         if doc.page == 1:
             canvas.setFillColor(palette["accent"])
             canvas.rect(MARGIN, HEIGHT - 27, 26, 3, fill=1, stroke=0)
@@ -257,7 +255,8 @@ def build_pdf(markdown):
     ])
 
     def canvas_factory(*args, **kwargs):
-        return Canvas(*args, **{**kwargs, "invariant": 1, "pageCompression": 1})
+        return Canvas(*args, **{**kwargs, "invariant": 1, "pageCompression": 1,
+                               "initialFontName": "BodySans", "initialFontSize": 11.4})
 
     doc.build(story, canvasmaker=canvas_factory)
     if doc.page != 2:

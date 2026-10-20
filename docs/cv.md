@@ -1,6 +1,6 @@
 # CV workflow
 
-The CV is a two-page A4 document aimed at AI roles. Page one leads with AI expertise and both Red Bull roles. Page two starts with earlier experience, followed by short project summaries, education, and supporting engineering and delivery skills. Project titles link to the website for details. It includes email, website and social links, with no phone number.
+The CV is a two-page A4 document aimed at AI roles. Page one leads with AI expertise and both Red Bull roles. Page two starts with earlier experience, followed by brief project bullets, education, and contextual engineering and delivery skills. An All projects link leads to the website. It includes email, website, social links and current location, with no phone number or place of origin.
 
 ## Content and sources
 
@@ -22,7 +22,7 @@ python3 -m venv .venv-cv
 
 The script resolves source files and assets relative to its own location, so it also works from another directory. `--source PATH` and `--output PATH` allow temporary proposals without replacing the published files. The default output is `documents/Miguel-Cordero-CV.pdf`.
 
-The generator uses ReportLab and the repository's local JetBrains Mono fonts. It does not need a browser, network access, LaTeX, or a system font installation. Fixed PDF metadata makes repeated builds reproducible in the same Python/ReportLab runtime; `--check` compares a fresh build with the saved PDF byte for byte. Different Python or zlib versions may require rebuilding and reviewing the PDF. Commit the Markdown and rebuilt PDF together.
+The generator uses ReportLab and the repository's local JetBrains Mono and Source Sans 3 fonts. It does not need a browser, network access, LaTeX, or a system font installation. Fixed PDF metadata makes repeated builds reproducible in the same Python/ReportLab runtime; `--check` compares a fresh build with the saved PDF byte for byte. Different Python or zlib versions may require rebuilding and reviewing the PDF. Commit the Markdown and rebuilt PDF together.
 
 ## Markdown supported by the generator
 
@@ -32,15 +32,19 @@ One `<!-- pagebreak -->` separates the two pages and remains invisible in render
 
 ## Design
 
-The white edition uses [Miguel Personal Style](https://github.com/miguelcorderocollar/miguel-personal-style), as requested for the CV: white paper, black ink, secondary grey, restrained orange markers, aligned rows and thin rules. It reads the `light` palette from `assets/personal-style/tokens.json` and embeds the supplied Medium 500, SemiBold 600 and ExtraBold 800 fonts. ExtraBold highlights key phrases and the current role; SemiBold distinguishes entry titles. Their licence remains in `assets/personal-style/fonts/OFL.txt`.
+The white edition uses [Miguel Personal Style](https://github.com/miguelcorderocollar/miguel-personal-style), as requested for the CV: white paper, black ink, secondary grey, restrained orange markers, aligned rows and thin rules. It reads the `light` palette from `assets/personal-style/tokens.json`. JetBrains Mono SemiBold 600 and ExtraBold 800 distinguish headings, entry titles and the current role. Its licence remains in `assets/personal-style/fonts/OFL.txt`.
 
-A small vector dot-sphere in the first page's upper-right corner adapts the kit's procedural graphic studies. Its fixed grid, nine dot sizes and orange pixel are decorative, not a data graphic or a photograph. It requires no image asset or extra dependency. The second page has no running header; both pages retain a quiet website footer and page numbers.
+For this CV, Miguel requested a body font chosen for readability. Source Sans 3 Regular and Semibold provide proportional body text and inline emphasis at 11.4pt with 15.8pt leading. Contact and metadata text use 10.5pt; section headings use 9.8pt Mono, entry titles 11.2 to 12pt, and the name 27pt. Text is left aligned. Education separates degree titles, institutions and short bullets instead of combining them into long headings and paragraphs. Keep these sizes explicit; do not automatically shrink text on overflow.
+
+The Adobe fonts, SIL Open Font License and pinned source revision are bundled under `assets/cv/`. This is a document-specific typography adaptation; it does not change the website or shared design system.
+
+A vector halftone corner in the first page's upper right combines black dots with sparse orange and black pixels on a fixed grid. Density fades left and down from the page edge, away from text. It adapts the kit's Halftone corner, Halftone edge and Pixel scatter studies using procedural geometry. It is decorative and requires no image asset or extra dependency. The second page has no running header. Both pages have no footer or page numbers.
 
 The maintained design source is currently `/home/mikelon797/dev/skills/miguel-personal-style/skills/miguel-personal-style/`. The CV uses the existing vendored light tokens and fonts, which match that source. It does not change the website's theme. No new photographs or shader assets are needed.
 
 ## Review before committing
 
-Run `--check`, extract the PDF text, and compare it with the Markdown. Confirm that both roles, AI skills and project summaries are present, links remain clickable, and the phone number is absent. Render both pages and inspect them at the final A4 size for clipping, spacing, reading order and page breaks. For example, with Poppler installed:
+Run `--check`, extract the PDF text, and compare it with the Markdown. Confirm that both roles, AI skills and project summaries are present, links remain clickable, and the phone number and place of origin are absent. Render both pages and inspect them at the final A4 size for clipping, spacing, reading order, corner-art clearance and page breaks. Confirm that both font families are embedded. For example, with Poppler installed:
 
 ```bash
 pdftoppm -scale-to 1400 -png documents/Miguel-Cordero-CV.pdf /tmp/miguel-cv

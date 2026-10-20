@@ -4,13 +4,13 @@
 
 AI innovation · Agentic AI · Product delivery
 
-Based in Salzburg, Austria · Originally from Asturias, Spain
+Based in Salzburg, Austria
 
 [miguelcorderocollar@gmail.com](mailto:miguelcorderocollar@gmail.com) · [LinkedIn](https://www.linkedin.com/in/mcorderocollar/) · [GitHub](https://github.com/miguelcorderocollar) · [miguelcorderocollar.com](https://miguelcorderocollar.com)
 
 ## Profile
 
-IT Innovation Project Manager focused on **AI and agentic AI**, combining **hands-on development** with product management and enterprise delivery. I develop and lead proofs of concept and pilots at Red Bull, advise teams on emerging technology, and build agents, prototypes and internal tools for software development and business workflows.
+IT Innovation Project Manager focused on **AI and agentic AI**, combining **hands-on development** with product and delivery experience. At Red Bull, I develop and lead AI pilots, advise teams on emerging technology, and build agents and tools for coding and business workflows.
 
 ## AI expertise
 
@@ -26,8 +26,8 @@ IT Innovation Project Manager focused on **AI and agentic AI**, combining **hand
 
 - **Develop and lead innovation proofs of concept and pilots** across the company, with a focus on AI and agentic AI.
 - **Build AI prototypes and demos**, agents, API integrations and internal tools.
-- **Advise internal teams** on emerging technology opportunities and how they apply to business workflows.
-- **Research and shape innovation topics**, including AI use cases for software development and business teams.
+- **Advise internal teams** on emerging technology opportunities and their use in business workflows.
+- **Research and shape innovation topics**, including AI for coding and business workflows.
 
 ### IT Project/Product Manager
 
@@ -49,34 +49,31 @@ IT Innovation Project Manager focused on **AI and agentic AI**, combining **hand
 
 ## Selected projects
 
-### [Endless AI Quiz](https://miguelcorderocollar.com/projects/#endless-ai-quiz)
+- **Endless AI Quiz.** AI learning app with adaptive questions and source-backed explanations. In development.
+- **ExtractMD.** Chrome extension that turns webpages, YouTube transcripts and Hacker News threads into Markdown.
+- **Linux & open source.** Omarchy plugins and contributions, including AI wallpaper generation and mpv controls.
+- **Bundle Icon Generator.** Utility to find, customise and export app icon bundles for different platforms.
 
-AI learning app with adaptive questions and source-backed explanations. In development.
-
-### [ExtractMD](https://miguelcorderocollar.com/projects/#extractmd)
-
-Chrome extension that turns webpages, YouTube transcripts and Hacker News threads into Markdown.
-
-### [Linux & open source](https://miguelcorderocollar.com/projects/?group=linux)
-
-Omarchy plugins and upstream contributions, including AI wallpaper generation and mpv controls.
-
-### [Bundle Icon Generator](https://miguelcorderocollar.com/projects/#bundle-icon-generator)
-
-Icon utility for searching, customising and exporting app icon bundles for different platforms.
+[All projects](https://miguelcorderocollar.com/projects/)
 
 ## Education
 
-### MSc in Management · Technical University Munich
+### MSc in Management
 
-Entrepreneurship & Technology Management. Studies at Heriot-Watt University, Polytechnic University of Madrid and Technical University Munich. Thesis on Tesla's Robotaxi network, adoption and economic impact. **Thesis grade: 97/100, top 1%.**
+**Technical University Munich**
 
-### BSc in Industrial Engineering · Polytechnic University of Madrid
+- Specialisation in **Entrepreneurship & Technology Management**. Studies at Heriot-Watt University, Polytechnic University of Madrid and Technical University Munich.
+- **Thesis:** Tesla's Robotaxi network, adoption and economic impact. **Grade: 97/100, top 1%.**
 
-Management specialisation. Thesis on developing an Angular application for San Carlos Clinical Hospital.
+### BSc in Industrial Engineering
+
+**Polytechnic University of Madrid**
+
+- Specialisation in Management.
+- **Thesis:** Development of an Angular application for San Carlos Clinical Hospital.
 
 ## Engineering & delivery
 
-**Engineering.** Full-stack applications and internal tools; API integration; cloud and serverless deployment, including Azure; enterprise SaaS configuration.
-
-**Product & delivery.** Requirements, prioritisation, prototyping and user feedback. Project planning, risk management, stakeholder collaboration, technical communication and documentation.
+- **Software & integrations.** Build full-stack applications and internal tools, connect services through APIs, and configure enterprise SaaS. Work with cloud and serverless deployment, including Azure.
+- **Product & user experience.** Turn business and user requirements into prioritised features, prototypes and usable workflows. Incorporate feedback and support product adoption.
+- **Delivery & collaboration.** Plan projects, manage risks and coordinate cross-functional teams and stakeholders through delivery. Support the work with technical communication, documentation and knowledge sharing.
