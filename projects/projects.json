@@ -138,6 +138,32 @@
       "image": "images/projects/processed/bundle-icon-generator.webp"
     },
     {
+      "id": "miguel-personal-style",
+      "name": "Miguel personal style",
+      "group": "tools",
+      "type": "Interactive design system",
+      "summary": "An interactive field guide to the mikelon visual identity, with typography, colour, components, backgrounds and motion.",
+      "tags": [
+        "Design systems",
+        "UI components"
+      ],
+      "details": [
+        "Browse working examples of the type system, colour palette, reusable interface components, procedural backgrounds and motion studies.",
+        "The page includes controls for theme variants, background exports, component states and motion settings."
+      ],
+      "links": [
+        {
+          "label": "Open design system",
+          "url": "https://miguel-personal-style.vercel.app/"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/miguelcorderocollar/miguel-personal-style"
+        }
+      ],
+      "image": "images/projects/processed/miguel-personal-style.webp"
+    },
+    {
       "id": "image-ratio-tool",
       "name": "Image Ratio Tool",
       "group": "tools",

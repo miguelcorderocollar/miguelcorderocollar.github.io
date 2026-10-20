@@ -55,6 +55,14 @@
       "inset": 36
     },
     {
+      "id": "miguel-personal-style",
+      "source": "projects/symbols/miguel-personal-style.svg",
+      "credit": "Original portfolio symbol by Miguel Cordero Collar, inspired by the project's halftone sphere and orange pixels; not an official product logo.",
+      "sourcePage": "https://miguel-personal-style.vercel.app/",
+      "crop": "None. Contain on the shared dark square canvas, with a 16px inset.",
+      "inset": 16
+    },
+    {
       "id": "zendesk-admin",
       "source": "images/projects/source/zendesk-admin.png",
       "sourceUrl": "https://raw.githubusercontent.com/miguelcorderocollar/ray.ext.zdk-admin/f9b4a3ca935b6e9f6760504277cdf7ca8e90ba21/assets/icon.png",
