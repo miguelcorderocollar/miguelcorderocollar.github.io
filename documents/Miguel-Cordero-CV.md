@@ -1,18 +1,22 @@
 # Miguel Cordero Collar
 
-**IT Innovation Project Manager @ Red Bull**  
-Asturias, Spain · Based in Salzburg, Austria  
-[LinkedIn](https://www.linkedin.com/in/mcorderocollar/) · [GitHub](https://github.com/miguelcorderocollar) · [Email](mailto:miguelcorderocollar@gmail.com)
+**IT Innovation Project Manager @ Red Bull**
 
-## Introduction
+AI agents & applications · Product development · Enterprise adoption
 
-Hey, I'm Miguel, an IT Innovation Project Manager at Red Bull focused on turning emerging technology into practical business value. I lead and support proof of concepts and pilots across the company, with most of my work centered on AI and Agentic AI for both coding and business use cases.
+Based in Salzburg, Austria
 
-## Beyond work
+[miguelcorderocollar@gmail.com](mailto:miguelcorderocollar@gmail.com) · [LinkedIn](https://www.linkedin.com/in/mcorderocollar/) · [GitHub](https://github.com/miguelcorderocollar) · [miguelcorderocollar.com](https://miguelcorderocollar.com)
 
-- [Trends](../trends/): Ideas I'm following, and when I first noticed them.
-- [People](../people/): Public figures who have shaped how I think and work.
-- [Quotes](../quotes/): Lines I return to, browsed or left to chance.
+## Profile
+
+IT Innovation Project Manager at Red Bull, **building AI prototypes, agents and internal tools** and leading pilots for coding and business workflows. I combine **hands-on development** with product management, enterprise SaaS implementation and user adoption experience.
+
+## AI expertise
+
+- **Agents & applications.** Custom agents, skills and plugins; MCP development and tool integration; AI features in applications; enterprise agents in the Microsoft ecosystem; agent testing and output validation.
+- **Adoption & enablement.** Use case assessment, prototyping, AI adoption consulting, workflow automation, internal training and knowledge sharing.
+- **Research & experimentation.** AI market trends and technology research; innovation topics and practical experiments for coding and business use cases.
 
 ## Experience
 
@@ -20,198 +24,57 @@ Hey, I'm Miguel, an IT Innovation Project Manager at Red Bull focused on turning
 
 **Red Bull** · Jan 2026 - Present · Salzburg, Austria
 
-Focus: AI innovation, proof of concepts, internal consulting, and emerging technology research.
-
-Key work:
-- Lead and coordinate innovation proof of concepts and pilots
-- Advise internal teams on emerging technology opportunities
-- Research and shape innovation topics across the business
-- Drive AI initiatives with a focus on Agentic AI
-- Explore AI use cases for software development and business workflows
+- **Develop and lead AI proofs of concept and pilots** across Red Bull, combining hands-on prototyping with project coordination.
+- **Build agents, API integrations and internal tools** for software development and business workflows.
+- **Advise internal teams** on emerging technology opportunities and their use in business workflows.
+- **Research emerging technologies** and assess potential business use cases.
 
 ### IT Project/Product Manager
 
 **Red Bull** · 2021 - Dec 2025 · Salzburg, Austria
 
-As an IT Project Manager at Red Bull, I predominantly focused on Product Management, overseeing the development and implementation of internal tools and solutions.
+- Led **development of internal products**, covering user research, roadmap planning, feature definition and adoption.
+- Managed a **custom software solution** for Marketing, Operations and Legal.
+- Implemented and administered **Zendesk and Bynder** across multiple use cases, with a focus on workflows and business process optimisation.
+- Coordinated **cross-functional teams** through development, quality assurance and delivery.
+- Acted as the **department's AI expert** alongside product and SaaS responsibilities.
 
-Key work:
-- Led product development, roadmap planning, and feature definition
-- Collaborated with cross-functional teams
-- Managed product lifecycle and drove user adoption
-- Implemented SaaS solutions and optimized business processes
-- Conducted market and user research to inform product decisions
-- Coordinated project activities and ensured timely delivery
+<!-- pagebreak -->
 
-Primary focus areas:
-- Product Management
-- SaaS Specialist work
-- Project Management
-- Business Process Optimization
-- Quality Assurance
-- Technical Support
-- Software Development
+## Earlier experience
 
-Projects:
-- Marketing / Operations / Legal custom development solution
-- Zendesk Admin across multiple use cases
-- Bynder Admin across multiple use cases
-- AI expert for the department
+- **Enmacc · Web Developer Intern · 2020 - 2021 · Munich.** Website development, UX/UI and promotional design, and marketing automation.
+- **Orbem · Business Analyst Intern · 2020 · Munich.** Internationalisation strategy, financial modelling and customer acquisition during a four-month university project.
+- **Avanade · Software Developer Intern · 2019 · Madrid.** Front-end and back-end fintech development in Agile teams, using .NET C#, JavaScript, SQL and Angular.
 
-### Web Developer Intern
+## Selected projects
 
-**Enmacc** · 2020 - 2021 · Munich, Germany
+[All projects](https://miguelcorderocollar.com/projects/)
 
-Role:
-- 60% Web Development
-- 20% UX/UI Design
-- 20% Marketing Automation
-
-Responsibilities:
-- Website development
-- Website and promotional material design
-- Marketing automation setup
-
-### Business Analyst Intern
-
-**Orbem** · 2020 · Munich, Germany
-
-- 4-month project developed in the context of the Project Studies course
-- Worked on internationalisation strategy, financial modelling, and customer acquisition
-
-### Software Developer Intern
-
-**Avanade** · 2019 · Madrid, Spain
-
-- Worked on fintech projects, both back-end and front-end, under Agile methodology
-- Contributed to project organisation and documentation
-- Worked with .NET C#, HTML, JS, CSS, SQL, jQuery, Angular, Bootstrap, and related tools
-
-### Earlier Experience
-
-- 2018 · Coding & Graphic Design Teacher
-- 2017 · Digital Marketing Intern at Alqua Digital
-- 2014 · Waiter in London
-- 2013 · Administrative Assistant and Activities Organiser in London
+- [**Omatinta**](https://miguelcorderocollar.com/projects/#omatinta). Omarchy plugin for AI wallpaper generation, image editing and upscaling, with fal.ai and OpenRouter integrations.
+- [**Zendesk applications**](https://miguelcorderocollar.com/projects/#zendesk-apps). Internal tools including an AI playground, an OCR file previewer and a Zendesk-SAP data validator.
+- [**ExtractMD**](https://miguelcorderocollar.com/projects/#extractmd). Chrome extension that turns webpages, YouTube transcripts and Hacker News threads into Markdown.
+- [**Endless AI Quiz**](https://miguelcorderocollar.com/projects/#endless-ai-quiz). Learning app about AI, with curated questions, adaptive difficulty and source-backed explanations. In development.
 
 ## Education
 
 ### MSc in Management
 
-**Technical University Munich**\
-Heriot-Watt University (Edinburgh) · Polytechnic University of Madrid · Technical University Munich
+**Technical University Munich**
 
-- Specialization: Entrepreneurship & Technology Management
-- Thesis: "Tesla's Robotaxi network: A quantitative analysis of adoption, economic impact, and implications."
-- Grade: 97/100 - Top 1%
+- **Overall master's grade: 97/100, top 1%.**
+- Specialisation in **Entrepreneurship & Technology Management**. Studies at Heriot-Watt University, Polytechnic University of Madrid and Technical University Munich.
+- **Thesis:** Tesla's Robotaxi network, adoption and economic impact.
 
 ### BSc in Industrial Engineering
 
 **Polytechnic University of Madrid**
 
-- Specialization: Management
-- Thesis: "Development of Angular App for San Carlos Clinical Hospital."
+- Specialisation in Management.
+- **Thesis:** Development of an Angular application for San Carlos Clinical Hospital.
 
-## Selected Projects
+## Engineering & delivery
 
-At work, I build AI prototypes and demos, agents, API integrations and internal tools. [More about my work](#experience)
-
-### ExtractMD
-
-**Chrome extension**
-
-Turn webpages, YouTube transcripts and Hacker News threads into Markdown you can keep and reuse.
-
-I use it every day to save useful content as Markdown.
-
-[Chrome Web Store](https://chromewebstore.google.com/detail/extractmd/dbopkomdhgkkicbndimnooalbfcbhodp) · [Source](https://github.com/miguelcorderocollar/ExtractMD)
-
-### Endless AI Quiz
-
-**Web app · PWA** · In development
-
-An endless stream of AI questions, with source-backed explanations and difficulty that adapts as you learn.
-
-Curated questions across 14 categories, with a weekly challenge and a related mobile app.
-
-[Try the current build](https://endless-ai-quiz.vercel.app/) · [Source](https://github.com/miguelcorderocollar/endless-ai-quiz)
-
-### Linux & open source
-
-**Omarchy · Plugins & contributions**
-
-Learning Linux by building for the desktop I use, creating Omarchy plugins and contributing improvements upstream.
-
-Omatinta generates theme-matched wallpapers. I’m also developing theme-aware mpv controls for Omarchy, with the upstream pull request open for review. There is more desktop tooling in progress.
-
-[Omatinta](https://github.com/miguelcorderocollar/omatinta) · [mpv contribution](https://github.com/omacom/omarchy/pull/15467)
-
-### Bundle Icon Generator
-
-**Web app**
-
-Find an icon, adjust its colours and export an app icon bundle with the right sizes and filenames.
-
-A local-first utility that searches vetted icon packs and exports assets for Zendesk and other bundle-based platforms. Includes colour and size customisation.
-
-[Open app](https://bundle-icon-generator.vercel.app/) · [Source](https://github.com/miguelcorderocollar/bundle-icon-generator)
-
-[All projects](https://miguelcorderocollar.github.io/projects/)
-
-Review status checked 2026-10-19.
-
-## Skills
-
-### AI agents & applications
-
-- Custom agents, skills & plugins
-- MCP development & tool integration
-- AI features embedded in applications
-- Enterprise agents in the Microsoft ecosystem
-- Agent testing & output validation
-
-### AI adoption, research & enablement
-
-- AI market trends & technology research
-- Use case assessment & prototyping
-- AI adoption consulting & workflow automation
-- Internal training & knowledge sharing
-
-### Software engineering, cloud & integrations
-
-- Full-stack applications & internal tools
-- API integration & custom development
-- Cloud & serverless deployment, including Azure
-- Enterprise SaaS configuration & integration
-
-### Product thinking & experience design
-
-- Business & user requirements
-- Feature definition, prioritization & scope
-- Interface design, workflows & usability
-- Prototyping, user feedback & adoption
-
-### Project delivery & collaboration
-
-- Project ownership, planning & risk management
-- Production application & service delivery
-- Cross-functional collaboration & stakeholder alignment
-- Technical communication & documentation
-
-## Interests
-
-**Technology**  
-Techno-optimism, Artificial Intelligence, Software Development, open source & building in public, Electric Vehicles, UI/UX Design, startups, and the broader tech industry
-
-**Knowledge**  
-Investing, Economics, Gardening, Cooking and Food Science, and Philosophy
-
-**Sports**  
-Snowboarding, Hiking, Gym, and in the past tennis and basketball
-
-## Contact
-
-- Email: [miguelcorderocollar@gmail.com](mailto:miguelcorderocollar@gmail.com)
-- LinkedIn: [mcorderocollar](https://www.linkedin.com/in/mcorderocollar/)
-- GitHub: [miguelcorderocollar](https://github.com/miguelcorderocollar)
-- Download CV: [Miguel-Cordero-CV.pdf](https://miguelcorderocollar.github.io/documents/Miguel-Cordero-CV.pdf)
+- **Software & integrations.** Build full-stack applications and internal tools, connect services through APIs, and configure enterprise SaaS. Work with cloud and serverless deployment, including Azure.
+- **Product & user experience.** Turn business and user requirements into prioritised features, prototypes and usable workflows. Incorporate feedback and support product adoption.
+- **Delivery & collaboration.** Plan projects, manage risks and coordinate cross-functional teams and stakeholders through delivery. Support the work with technical communication, documentation and knowledge sharing.

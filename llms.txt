@@ -6,8 +6,8 @@ This site publishes professional profile information and personal collections. F
 
 ## Profile
 
-- [Homepage profile](https://miguelcorderocollar.com/index.md): Full Markdown CV followed by links to machine-readable collections.
-- [Complete CV](https://miguelcorderocollar.com/documents/Miguel-Cordero-CV.md): Experience, education, projects, skills and contact information.
+- [Homepage profile](https://miguelcorderocollar.com/index.md): Full professional profile followed by links to machine-readable collections.
+- [CV](https://miguelcorderocollar.com/documents/Miguel-Cordero-CV.md): Curated AI-focused CV with experience, projects, skills, education and contact information. Matches the two-page PDF.
 - [Homepage](https://miguelcorderocollar.com/): Canonical HTML profile.
 
 ## Collections

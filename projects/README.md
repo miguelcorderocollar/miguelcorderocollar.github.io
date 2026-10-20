@@ -1,6 +1,6 @@
 # Projects collection
 
-Edit `projects.json`, then run `python3 scripts/build_projects.py` from the repository root. The script updates the homepage selection, the static Projects page, and the CV Markdown from the same content. Use `python3 scripts/build_projects.py --check` to check that they agree.
+Edit `projects.json`, then run `python3 scripts/build_projects.py` from the repository root. The script updates the homepage selection, the static Projects page, and the full profile Markdown in `documents/Miguel-Cordero-Profile.md` from the same content. Use `python3 scripts/build_projects.py --check` to check that they agree. The curated CV project summaries are edited separately; see [CV workflow](../docs/cv.md).
 
 The `homepage` array controls the short selection and its order. It can refer to full collection entries or `homepageHighlights`, which combine related work such as the Linux projects. Keep private work described only at the level Miguel has approved. Each collection project has a browsing group and may have several topic tags. Use `status` for specific lifecycle or review information; do not infer readiness from repository activity.
 

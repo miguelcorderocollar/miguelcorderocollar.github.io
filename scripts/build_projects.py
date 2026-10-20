@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render shared project data into the static homepage, collection and CV.
+"""Render shared project data into the static homepage, collection and profile.
 
 Run after editing projects/projects.json. --check verifies generated content.
 """
@@ -109,13 +109,13 @@ def render():
 
     home = ROOT / 'index.html'
     page = ROOT / 'projects/index.html'
-    cv = ROOT / 'documents/Miguel-Cordero-CV.md'
-    cv_before, cv_rest = cv.read_text().split('## Selected Projects', 1)
-    _, cv_after = cv_rest.split('## Skills', 1)
+    profile = ROOT / 'documents/Miguel-Cordero-Profile.md'
+    profile_before, profile_rest = profile.read_text().split('## Selected Projects', 1)
+    _, profile_after = profile_rest.split('## Skills', 1)
     outputs = {
         home: replace_block(home.read_text(), home_body),
         page: replace_block(page.read_text(), collection),
-        cv: cv_before + markdown + '## Skills' + cv_after,
+        profile: profile_before + markdown + '## Skills' + profile_after,
     }
     stale = []
     for path, content in outputs.items():

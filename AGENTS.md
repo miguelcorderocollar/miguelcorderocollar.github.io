@@ -42,7 +42,9 @@ When changing HTML, CSS, or JavaScript:
 
 ## Markdown sync
 
-When changing page content in `index.html`, also update `documents/Miguel-Cordero-CV.md` in the same change so the curriculum's "Copy .md" button stays current.
+When changing page content in `index.html`, also update the full profile mirror in `documents/Miguel-Cordero-Profile.md` and run `python3 scripts/build_agent_content.py` so `index.md` stays current.
+
+`documents/Miguel-Cordero-CV.md` is a curated, AI-focused CV, served by the curriculum's "Copy .md" button. Keep relevant role, skill and project facts consistent with the homepage, without copying the full page into the CV. Run `python3 scripts/build_cv.py` after editing the CV and review both PDF pages. See `docs/cv.md` for dependencies and the build workflow. The project and agent-content builders must not overwrite the curated CV.
 
 ## Image processing
 

@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this form for copy or data changes to the main profile and curriculum. If the change edits page content in `index.html`, the matching `documents/Miguel-Cordero-CV.md` copy must stay in sync.
+        Use this form for copy or data changes to the main profile and curriculum. Keep the homepage mirror in `documents/Miguel-Cordero-Profile.md` and generated `index.md` in sync with `index.html`. Update relevant facts in the curated `documents/Miguel-Cordero-CV.md` and rebuild its PDF when they change.
 
   - type: input
     id: target
@@ -42,7 +42,7 @@ body:
     attributes:
       label: Desired outcome
       description: State what the published profile or curriculum should say after the update.
-      placeholder: The experience entry appears on the homepage and in the copied Markdown CV with matching wording.
+      placeholder: The experience entry appears on the homepage and the relevant facts match the curated Markdown and PDF CV.
     validations:
       required: true
 
