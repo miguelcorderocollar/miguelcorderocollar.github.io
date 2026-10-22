@@ -1,0 +1,56 @@
+.brand-page { padding-bottom: 48px; }
+.skip-link { position: absolute; left: 16px; top: -100px; padding: 10px 14px; background: var(--mcc-ink); color: var(--mcc-paper); z-index: 2; }
+.skip-link:focus { top: 12px; }
+.brand-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 36px 0 32px; border-bottom: 1px solid var(--mcc-rule); }
+.brand-heading h1 { font-size: 38px; }
+.download-all { display: inline-flex; align-items: center; gap: 28px; padding: 12px 16px; background: var(--mcc-accent); color: #000; font-size: 12px; font-weight: 600; text-decoration: none; }
+.download-all:hover { background: #ffa88e; }
+.download-all span { font-size: 10px; }
+.brand-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px; }
+.asset-preview { display: grid; place-items: center; height: 300px; background: var(--mcc-surface); border: 1px solid var(--mcc-rule); }
+.logo-preview img { width: 160px; height: 160px; }
+.portrait-preview img { width: 232px; height: 232px; }
+.asset-heading { display: flex; align-items: center; gap: 18px; padding: 16px 0; }
+.asset-heading h2, .banner-section h2 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
+.asset-heading h2 { margin-right: auto; }
+.asset-heading a, .banner-downloads a { font-size: 11px; white-space: nowrap; }
+.asset-links { display: flex; gap: 22px; }
+.dimensions { color: var(--mcc-muted); font-size: 10px; white-space: nowrap; }
+.banner-section { margin-top: 28px; }
+.banner-section > h2 { margin-bottom: 16px; }
+.banner-versions, .youtube-views { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.banner-versions[hidden], .youtube-views[hidden], .youtube-note[hidden] { display: none; }
+.banner-versions button, .youtube-views button { padding: 8px 14px; border: 1px solid var(--mcc-rule); border-radius: 0; background: var(--mcc-paper); font-size: 11px; }
+.banner-versions button:hover, .youtube-views button:hover { border-color: var(--mcc-accent); }
+.banner-versions button[aria-pressed="true"] { border-color: var(--mcc-accent); color: var(--mcc-accent); }
+.youtube-views button[aria-pressed="true"] { background: var(--mcc-ink); color: var(--mcc-paper); }
+.youtube-views button { padding: 6px 11px; font-size: 10px; }
+.youtube-note { color: var(--mcc-muted); font-size: 10px; margin: 12px 0 0; }
+.brand-banner-preview { position: relative; border: 1px solid var(--mcc-rule); overflow: hidden; }
+.brand-banner-preview img { display: block; width: 100%; height: auto; }
+.filtered-banner { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.filtered-banner[hidden] { display: none; }
+.banner-downloads { list-style: none; padding: 0; margin: 0; }
+.banner-downloads li { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 32px; padding: 15px 0; margin: 0; border-bottom: 1px solid var(--mcc-rule); font-size: 12px; }
+@media (max-width: 640px) {
+  .brand-page { padding-inline: 20px; }
+  .brand-page .site-header { gap: 16px; font-size: 10px; }
+  .brand-page .wordmark { gap: 8px; }
+  .brand-heading { padding: 24px 0; gap: 16px; }
+  .brand-heading h1 { font-size: 30px; }
+  .download-all { gap: 16px; padding: 11px 12px; font-size: 11px; }
+  .brand-pair { grid-template-columns: 1fr; gap: 18px; margin-top: 24px; }
+  .asset-preview { height: 272px; }
+  .banner-section { margin-top: 20px; }
+  .banner-downloads li { gap: 20px; }
+}
+.brand-banner-preview[style] { height: auto; }
+.brand-banner-preview.is-cropped img { height: 100%; width: 100%; position: absolute; inset: 0; object-fit: cover; }
+.brand-banner-preview { box-sizing: content-box; }
+.brand-banner-preview.is-cropped img { object-fit: fill; }
+
+.banner-styles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.banner-styles button { padding: 8px 14px; border: 1px solid var(--mcc-rule); border-radius: 0; background: var(--mcc-paper); font-size: 11px; }
+.banner-styles button:hover { border-color: var(--mcc-accent); }
+.banner-styles button[aria-pressed="true"] { border-color: var(--mcc-accent); color: var(--mcc-accent); }
+.banner-styles[hidden], .banner-downloads[hidden] { display: none; }

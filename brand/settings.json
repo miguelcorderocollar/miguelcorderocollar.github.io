@@ -1,0 +1,232 @@
+{
+  "schema": "miguel-personal-brand-selection",
+  "schemaVersion": 1,
+  "rendererVersion": 12,
+  "selectedProfile": {
+    "id": "fine-squares",
+    "name": "Fine squares",
+    "settings": {
+      "orange": true,
+      "contrast": 90,
+      "framing": 111,
+      "raise": 44,
+      "orangeBrightness": 55,
+      "tone": "original"
+    },
+    "background": {
+      "id": "fine-squares",
+      "name": "Fine squares",
+      "paper": 18,
+      "pitch": 20,
+      "start": 0,
+      "power": 1.45,
+      "density": 0.92,
+      "size": 5,
+      "range": 3,
+      "shade": 42,
+      "orangeRate": 0.06,
+      "description": "A finer grid of small squares. Grey and orange keep exactly the same pixel size and spacing.",
+      "noise": {
+        "algorithm": "sin-hash-127.1-311.7-43758.5453",
+        "pixelSeed": 4,
+        "orangeSeed": 29
+      },
+      "orange": {
+        "baseColor": "#ff8561",
+        "brightnessPercent": 55,
+        "color": "#8c4935",
+        "opacity": 0.82,
+        "circularSafeRadius": 470
+      }
+    }
+  },
+  "portrait": {
+    "source": {
+      "sha256": "ca6ccc73ee82f15487af1bb1142d708ce8b772e661ba691dd75aded5b20db4f1",
+      "filename": "headshot.png"
+    },
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "sourceCrop": {
+      "x": 460,
+      "y": 65,
+      "width": 640,
+      "height": 959
+    },
+    "placement": {
+      "x": -56.32000000000005,
+      "y": 57.375999999999934,
+      "width": 1136.64,
+      "height": 1703.184
+    },
+    "tone": "original",
+    "fill": "original image pixels only"
+  },
+  "output": {
+    "width": 1024,
+    "height": 1024,
+    "format": "png",
+    "circularPreview": true
+  },
+  "selectedBanner": {
+    "source": {
+      "sha256": "8ac526657fded0d6a7ed593a54aad20c4e0c31d53c949d3df28e92fff24b39a4",
+      "filename": "website-banner.png"
+    },
+    "adaptationSource": {
+      "sha256": "086cd65ae5ca971c9b0096cfa904969faec7674a8fddab2e798a550c2c35dbb5",
+      "filename": "mountains.jpg"
+    },
+    "reference": {
+      "referenceWidth": 1500,
+      "referenceHeight": 500,
+      "arm": 39,
+      "stroke": 8,
+      "inset": 48,
+      "color": "#ff8561"
+    },
+    "formats": [
+      {
+        "id": "linkedin",
+        "name": "LinkedIn",
+        "width": 1584,
+        "height": 396,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 1584,
+          "height": 396
+        },
+        "inset": 51,
+        "arm": 41,
+        "stroke": 8,
+        "topLeft": {
+          "x": 51,
+          "y": 51
+        },
+        "bottomRight": {
+          "x": 1533,
+          "y": 345
+        }
+      },
+      {
+        "id": "x",
+        "name": "X",
+        "width": 1500,
+        "height": 500,
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "width": 1500,
+          "height": 500
+        },
+        "inset": 48,
+        "arm": 39,
+        "stroke": 8,
+        "topLeft": {
+          "x": 48,
+          "y": 48
+        },
+        "bottomRight": {
+          "x": 1452,
+          "y": 452
+        }
+      },
+      {
+        "id": "youtube",
+        "name": "YouTube",
+        "width": 2560,
+        "height": 1440,
+        "frame": {
+          "x": 508,
+          "y": 509,
+          "width": 1544,
+          "height": 422
+        },
+        "inset": 49,
+        "arm": 40,
+        "stroke": 8,
+        "topLeft": {
+          "x": 557,
+          "y": 558
+        },
+        "bottomRight": {
+          "x": 2003,
+          "y": 882
+        }
+      }
+    ],
+    "variants": [
+      {
+        "id": "current",
+        "name": "Black & white",
+        "filePattern": "assets/banner-{platform}.png"
+      },
+      {
+        "id": "colour-fade",
+        "name": "Colour to black & white",
+        "filePattern": "assets/banner-{platform}-colour-fade.png",
+        "colourEnd": 0.5,
+        "monochromeStart": 0.9,
+        "transition": "linear desaturation in sRGB across both photograph and halftone",
+        "coordinates": "relative to the platform frame, including the YouTube mobile-safe frame",
+        "accents": "unchanged",
+        "halftoneColour": "Canvas color blend of the fading photograph over the monochrome halftone, preserving shader luminance and dot geometry before compositing accents"
+      }
+    ],
+    "rendering": {
+      "cell": 6,
+      "horizon": 43,
+      "accent": "brand",
+      "treatment": "blend",
+      "photoTone": "mono",
+      "photoShare": 67,
+      "smooth": true,
+      "accentScale": 80
+    }
+  },
+  "finalDestination": {
+    "page": "/brand/"
+  },
+  "approvedOn": "2026-10-22",
+  "exports": [
+    {
+      "file": "assets/logo.svg",
+      "sha256": "5602e202d014c8a87fad5e9494274a46a4b51e4f1f52a731096f9c03e394d8bf"
+    },
+    {
+      "file": "assets/logo.png",
+      "sha256": "13450f15cdf25fc372d32b92726a5ad2a64cb7e3d10ae9ae2e0c2eb0f05a4238"
+    },
+    {
+      "file": "assets/portrait.png",
+      "sha256": "02b1f3a5b658fa01e02867138824e540565a5ef347765b3635f2b41cd3670e33"
+    },
+    {
+      "file": "assets/banner-linkedin.png",
+      "sha256": "99e6dc34ef30679ec2c1cf6f187770d06f7351f6fe6a5b47bfeb16860c9b631c"
+    },
+    {
+      "file": "assets/banner-x.png",
+      "sha256": "8ac526657fded0d6a7ed593a54aad20c4e0c31d53c949d3df28e92fff24b39a4"
+    },
+    {
+      "file": "assets/banner-youtube.png",
+      "sha256": "95cd5eb73a44d75ea562603a2a1e6d4c667bf82c8fa258c36e658ed210bcdc79"
+    },
+    {
+      "file": "assets/banner-linkedin-colour-fade.png",
+      "sha256": "1a56c45119a0d3a43060a2ee34e0ecd6824cb272402b513872711c712abe75ce"
+    },
+    {
+      "file": "assets/banner-x-colour-fade.png",
+      "sha256": "f6fca4e6abf0708fe7d0e97e7d6c2de80b8918eb19dd1400f87f040e37f1d03a"
+    },
+    {
+      "file": "assets/banner-youtube-colour-fade.png",
+      "sha256": "647598f79c6a1ef4cf3cb5c5e7e95c7d9ab6c9fb0708166c7640d96cc140ba5b"
+    }
+  ]
+}
