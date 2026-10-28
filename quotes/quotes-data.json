@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19",
+  "updated": "2026-10-28",
   "quotes": [
     {
       "id": "dhh-believe-it-will-work",
@@ -346,6 +346,52 @@
       "sourceUrl": "https://www.gutenberg.org/cache/epub/29904/pg29904-images.html",
       "category": "responsibility",
       "categoryLabel": "Responsibility"
+    },
+    {
+      "id": "friedman-intentions-results",
+      "text": "One of the great mistakes is to judge policies and programs by their intentions rather than their results.",
+      "author": "Milton Friedman",
+      "source": "The Open Mind, \"Living Within Our Means\" (1975)",
+      "sourceUrl": "https://www.thirteen.org/openmind-archive/public-affairs/living-within-our-means/",
+      "personId": "milton-friedman",
+      "category": "economics",
+      "categoryLabel": "Economics"
+    },
+    {
+      "id": "huxley-facts-ignored",
+      "text": "Facts do not cease to exist because they are ignored.",
+      "author": "Aldous Huxley",
+      "source": "Proper Studies (1927), \"A Note on Dogma\"",
+      "sourceUrl": "https://huxleyarchive.org/Non-fiction/BOOKS/Proper%20Studies.pdf",
+      "category": "truth",
+      "categoryLabel": "Truth"
+    },
+    {
+      "id": "sinclair-salary-understanding",
+      "text": "It is difficult to get a man to understand something, when his salary depends upon his not understanding it!",
+      "author": "Upton Sinclair",
+      "source": "I, Candidate for Governor, and How I Got Licked (1935)",
+      "sourceUrl": "https://quoteinvestigator.com/2017/11/30/salary/",
+      "category": "economics",
+      "categoryLabel": "Economics"
+    },
+    {
+      "id": "hayek-curious-task-economics",
+      "text": "The curious task of economics is to demonstrate to men how little they really know about what they imagine they can design.",
+      "author": "F. A. Hayek",
+      "source": "The Fatal Conceit (1988), p. 76",
+      "sourceUrl": "https://www.mises.at/static/literatur/Buch/hayek-the-fatal-conceit.pdf",
+      "category": "economics",
+      "categoryLabel": "Economics"
+    },
+    {
+      "id": "dick-reality-belief",
+      "text": "Reality is that which, when you stop believing in it, doesn't go away.",
+      "author": "Philip K. Dick",
+      "source": "How to Build a Universe That Doesn't Fall Apart Two Days Later (1978)",
+      "sourceUrl": "https://philipdick.com/mirror/essays/How_to_Build_a_Universe.pdf",
+      "category": "truth",
+      "categoryLabel": "Truth"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 A notebook of lines Miguel Cordero Collar returns to. Text and attributions are reproduced as collected; follow the source link for context.
 
-Updated: 2026-10-19
+Updated: 2026-10-28
 
 Source data: [https://miguelcorderocollar.com/quotes/quotes-data.json](https://miguelcorderocollar.com/quotes/quotes-data.json)
 
@@ -235,3 +235,33 @@ Original wording:
 > Not to punish evil is equivalent to authorizing it.
 
 — Leonardo da Vinci, [Thoughts on Art and Life, "Proverbs" (§111), translated by Maurice Baring](https://www.gutenberg.org/cache/epub/29904/pg29904-images.html)
+
+## Milton Friedman · Economics
+
+> One of the great mistakes is to judge policies and programs by their intentions rather than their results.
+
+— Milton Friedman, [The Open Mind, "Living Within Our Means" (1975)](https://www.thirteen.org/openmind-archive/public-affairs/living-within-our-means/)
+
+## Aldous Huxley · Truth
+
+> Facts do not cease to exist because they are ignored.
+
+— Aldous Huxley, [Proper Studies (1927), "A Note on Dogma"](https://huxleyarchive.org/Non-fiction/BOOKS/Proper%20Studies.pdf)
+
+## Upton Sinclair · Economics
+
+> It is difficult to get a man to understand something, when his salary depends upon his not understanding it!
+
+— Upton Sinclair, [I, Candidate for Governor, and How I Got Licked (1935)](https://quoteinvestigator.com/2017/11/30/salary/)
+
+## F. A. Hayek · Economics
+
+> The curious task of economics is to demonstrate to men how little they really know about what they imagine they can design.
+
+— F. A. Hayek, [The Fatal Conceit (1988), p. 76](https://www.mises.at/static/literatur/Buch/hayek-the-fatal-conceit.pdf)
+
+## Philip K. Dick · Truth
+
+> Reality is that which, when you stop believing in it, doesn't go away.
+
+— Philip K. Dick, [How to Build a Universe That Doesn't Fall Apart Two Days Later (1978)](https://philipdick.com/mirror/essays/How_to_Build_a_Universe.pdf)
