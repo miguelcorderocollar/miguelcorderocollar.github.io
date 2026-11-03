@@ -197,6 +197,7 @@ Snowboarding, Hiking, Gym, and in the past tennis and basketball
 - Email: [miguelcorderocollar@gmail.com](mailto:miguelcorderocollar@gmail.com)
 - LinkedIn: [mcorderocollar](https://www.linkedin.com/in/mcorderocollar/)
 - GitHub: [miguelcorderocollar](https://github.com/miguelcorderocollar)
+- YouTube: [@MiguelCorderoDEV](https://www.youtube.com/@MiguelCorderoDEV)
 - Download CV: [Miguel-Cordero-CV.pdf](https://miguelcorderocollar.com/documents/Miguel-Cordero-CV.pdf)
 
 
