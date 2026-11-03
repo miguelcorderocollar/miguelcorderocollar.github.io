@@ -299,6 +299,10 @@
       ],
       "links": [
         {
+          "label": "Website",
+          "url": "https://master-thesis.miguelcorderocollar.com/"
+        },
+        {
           "label": "Read thesis",
           "url": "https://miguelcorderocollar.github.io/documents/Tesla%20Robotaxi%20-%20Master%20Thesis.pdf"
         },
