@@ -84,6 +84,10 @@
         {
           "label": "Source",
           "url": "https://github.com/miguelcorderocollar/omatinta"
+        },
+        {
+          "label": "YouTube demo",
+          "url": "https://youtu.be/XRjEWeYvvDM"
         }
       ],
       "image": "images/projects/processed/omatinta.webp",
@@ -108,6 +112,10 @@
         {
           "label": "View pull request",
           "url": "https://github.com/omacom/omarchy/pull/15467"
+        },
+        {
+          "label": "YouTube demo",
+          "url": "https://youtu.be/e2-Wx6gqkxk"
         }
       ],
       "image": "images/projects/processed/mpv-theming.webp"
