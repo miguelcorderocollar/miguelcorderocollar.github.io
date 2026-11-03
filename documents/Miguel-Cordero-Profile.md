@@ -107,7 +107,7 @@ Generate and upscale wallpapers that match your Omarchy themes, using your own i
 
 Batch generation across themes, image editing and upscaling, using your own provider keys.
 
-[Omarchy plugin store](https://plugins.omarchy.org/plugin.html?id=mikelon797.omatinta) · [Source](https://github.com/miguelcorderocollar/omatinta) · [YouTube demo](https://youtu.be/XRjEWeYvvDM)
+[Omarchy plugin store](https://plugins.omarchy.org/plugin.html?id=mikelon797.omatinta) · [Source](https://github.com/miguelcorderocollar/omatinta) · [Video](https://youtu.be/XRjEWeYvvDM)
 
 ### Zendesk applications
 
