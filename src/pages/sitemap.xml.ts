@@ -23,7 +23,8 @@ const pageDates: Record<string, string | undefined> = {
   '/brand/': brand.approvedOn,
 };
 export const GET: APIRoute = async ({ site }) => {
-  const pages = ['/', '/projects/', '/people/', '/quotes/', '/trends/', '/brand/', '/shader/'];
+  const pages = ['/', '/projects/', '/people/', '/quotes/', '/trends/', '/brand/'];
+  // /shader/ is an internal image tool: noindex and left out of the sitemap.
   const pageLastmod = (path: string) => {
     const value = pageDates[path];
     return value ? new Date(value) : undefined;

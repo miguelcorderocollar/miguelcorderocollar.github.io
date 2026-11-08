@@ -8,7 +8,7 @@ const schema = {
   author: {'@id': new URL('/#miguel-cordero-collar', Astro.site).href},
 };
 ---
-<SiteLayout title="Image shader | Miguel Cordero Collar" description="A small image shader playground for Miguel Cordero Collar's website." bodyClass="" styles={["/reset.css", "/index.css", "/shader/styles.css"]} baseStyles={false} header={false}>
+<SiteLayout title="Image shader | Miguel Cordero Collar" description="A small image shader playground for Miguel Cordero Collar's website." bodyClass="" styles={["/reset.css", "/index.css", "/shader/styles.css"]} baseStyles={false} header={false} noindex>
 <StructuredData slot="head" value={schema} />
 
     <main class="shader-page">

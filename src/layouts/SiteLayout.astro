@@ -1,6 +1,7 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
 import { isBlogLive } from '../lib/blog';
+import { SOCIAL_IMAGE } from '../lib/seo';
 interface Props {
   title: string;
   description?: string;
@@ -23,8 +24,8 @@ const {
   canonicalPath = Astro.url.pathname,
   bodyClass = 'mcc-style mcc-dark collection-page',
   styles = [], baseStyles = true, header = true, noindex = false,
-  socialType = 'website', socialImage = '/images/icons/MC-icon.png', twitterCard = 'summary',
-  socialImageWidth = 1000, socialImageHeight = 1000, socialImageAlt = 'Miguel Cordero Collar', keywords,
+  socialType = 'website', socialImage = SOCIAL_IMAGE.path, twitterCard = 'summary_large_image',
+  socialImageWidth = SOCIAL_IMAGE.width, socialImageHeight = SOCIAL_IMAGE.height, socialImageAlt = SOCIAL_IMAGE.alt, keywords,
 } = Astro.props;
 const blogLive = await isBlogLive();
 const canonical = new URL(canonicalPath, Astro.site);
@@ -44,6 +45,8 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
     {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     {!noindex && <link rel="canonical" href={canonical} />}
+    <meta property="og:site_name" content="Miguel Cordero Collar" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={socialType} />
@@ -60,6 +63,7 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/assets/personal-style/mark.svg" />
     <link rel="apple-touch-icon" href="/images/icons/apple-icon-180x180.png" />
+    <link rel="manifest" href="/images/icons/manifest.json" />
     <link rel="describedby" href="/llms.txt" />
     {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
     {stylesheets.map(href => <link rel="stylesheet" href={href} />)}

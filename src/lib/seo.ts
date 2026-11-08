@@ -2,7 +2,13 @@ import { modifiedDate, type BlogPost } from './blog';
 
 export const SITE = 'https://miguelcorderocollar.com';
 export const BLOG_DESCRIPTION = 'Notes on software, tools, and things worth understanding.';
-export const BLOG_SOCIAL_IMAGE = '/images/bg/mountains-after-hours.png';
+/** Default Open Graph card, built by scripts/build_social_image.py. */
+export const SOCIAL_IMAGE = {
+  path: '/images/social/og-default.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'Miguel Cordero Collar, IT Innovation Project Manager at Red Bull',
+};
 
 const abs = (path: string) => new URL(path, SITE).href;
 
@@ -62,7 +68,7 @@ export function postSchema(post: BlogPost) {
         description: post.data.description,
         url,
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-        image: [abs(BLOG_SOCIAL_IMAGE)],
+        image: [abs(SOCIAL_IMAGE.path)],
         datePublished: post.data.published.toISOString(),
         dateModified: modifiedDate(post).toISOString(),
         author,

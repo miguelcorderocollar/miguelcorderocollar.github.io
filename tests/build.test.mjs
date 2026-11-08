@@ -42,7 +42,7 @@ test('Markdown/JSON representations have exact file paths and stay aligned with 
 });
 test('published Markdown becomes an article with headings, code, image, table and metadata', () => {
   const html = read('blog/sample-post/index.html');
-  for (const pattern of [/<h1/, /id="start-with-the-task"/, /<pre/, /<table/, /mountains-after-hours.png/, /application\/ld\+json/, /property="og:type" content="article"/, /rel="canonical" href="https:\/\/miguelcorderocollar.com\/blog\/sample-post\/"/]) assert.match(html, pattern);
+  for (const pattern of [/<h1/, /id="start-with-the-task"/, /<pre/, /<table/, /og-default\.jpg/, /application\/ld\+json/, /property="og:type" content="article"/, /rel="canonical" href="https:\/\/miguelcorderocollar.com\/blog\/sample-post\/"/]) assert.match(html, pattern);
   assert.match(read('blog/sample-post/index.md'), /slug: sample-post/);
   assert.match(read('blog/index.html'), /href="\/blog\/sample-post\/"/);
   assert.match(read('rss.xml'), /https:\/\/miguelcorderocollar.com\/blog\/sample-post\//);
@@ -57,8 +57,8 @@ test('drafts, future articles, source code and private build inputs never enter 
 });
 test('sitemap has canonical landing pages and excludes 404', () => {
   const xml = read('sitemap.xml');
-  for (const route of ['', 'projects/','people/','quotes/','trends/','brand/','shader/','blog/']) assert.ok(xml.includes(`<loc>https://miguelcorderocollar.com/${route}</loc>`),route);
-  assert.doesNotMatch(xml, /github.io|404/);
+  for (const route of ['', 'projects/','people/','quotes/','trends/','brand/','blog/']) assert.ok(xml.includes(`<loc>https://miguelcorderocollar.com/${route}</loc>`),route);
+  assert.doesNotMatch(xml, /github.io|404|\/shader\//);
 });
 test('all local stylesheet dependencies and module imports exist', () => {
   for (const file of walk(out).filter(p => /\.(css|js)$/.test(p))) {
@@ -162,7 +162,7 @@ test('sitemap lists each article with an accurate lastmod and recorded dates els
     assert.equal(lastmod, modified, `${url} sitemap lastmod must equal its dateModified`);
   }
   assert.match(byUrl.get('https://miguelcorderocollar.com/blog/') ?? '', /^\d{4}-\d{2}-\d{2}$/);
-  // Pages outside /blog/ take their date from the source data that records it; the shader has none.
+  // Pages outside /blog/ take their date from the source data that records it.
   const recorded = {
     '/': JSON.parse(fs.readFileSync('src/data/profile-schema.json', 'utf8'))[0].dateModified.slice(0, 10),
     '/people/': JSON.parse(fs.readFileSync('people/people-data.json', 'utf8')).updated,
@@ -170,7 +170,6 @@ test('sitemap lists each article with an accurate lastmod and recorded dates els
     '/trends/': JSON.parse(fs.readFileSync('trends/trends-data.json', 'utf8')).retrievedAt,
     '/projects/': JSON.parse(fs.readFileSync('projects/projects.json', 'utf8')).reviewedOn,
     '/brand/': JSON.parse(fs.readFileSync('brand/settings.json', 'utf8')).approvedOn,
-    '/shader/': undefined,
   };
   for (const [path, expected] of Object.entries(recorded)) {
     assert.equal(byUrl.get(`https://miguelcorderocollar.com${path}`), expected, `${path} lastmod must come from its recorded date`);
