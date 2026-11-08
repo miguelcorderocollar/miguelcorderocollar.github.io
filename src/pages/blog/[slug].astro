@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import StructuredData from '../../components/StructuredData.astro';
-import { formatBlogDate, getPublishedPosts, blogSourceExtension, modifiedDate, type BlogPost } from '../../lib/blog';
+import { formatBlogDate, getPublishedPosts, modifiedDate, type BlogPost } from '../../lib/blog';
 import { BLOG_SOCIAL_IMAGE, postSchema, postSourceUrl, topics } from '../../lib/seo';
 import '../../styles/blog.css';
 export async function getStaticPaths() {
@@ -13,8 +13,7 @@ export async function getStaticPaths() {
 interface Props { post: BlogPost; newer?: BlogPost; older?: BlogPost }
 const { post, newer, older } = Astro.props;
 const { Content, headings } = await render(post);
-const extension = blogSourceExtension(post);
-const sourcePath = `/blog/${post.data.slug}/index.${extension}`;
+const markdownPath = `/blog/${post.data.slug}/index.md`;
 const canonicalPath = `/blog/${post.data.slug}/`;
 const readingMinutes = Math.max(1, Math.ceil((post.body || '').split(/\s+/).length / 200));
 const contents = headings.filter(heading => heading.depth === 2 && heading.slug !== 'footnote-label');
@@ -53,7 +52,11 @@ const modified = modifiedDate(post);
             <summary><span>On this page</span><span class="article-toc-count">{String(contents.length).padStart(2, '0')} sections</span></summary>
             <nav aria-label="On this page"><ol>{contents.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></nav>
           </details>}
-          <a class="article-markdown" href={sourcePath}>Read {extension === 'mdx' ? 'MDX source' : 'as Markdown'} <span aria-hidden="true">↗</span></a>
+          <div class="article-markdown">
+            <button type="button" class="article-copy-md" data-copy-md={markdownPath}>Copy .md</button>
+            <span class="article-copy-status" role="status" aria-live="polite"></span>
+            <noscript><a href={markdownPath}>Read as Markdown <span aria-hidden="true">↗</span></a></noscript>
+          </div>
         </aside>
         <div class="article-prose"><Content /></div>
       </div>
@@ -67,6 +70,29 @@ const modified = modifiedDate(post);
     </article>
   </main>
   <script>
+    // Copy the article's Markdown source, like the homepage CV button.
+    const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-md]');
+    const copyStatus = document.querySelector<HTMLElement>('.article-copy-status');
+    if (copyButton && copyStatus) {
+      let reset = 0;
+      copyButton.addEventListener('click', async () => {
+        copyButton.disabled = true;
+        try {
+          const response = await fetch(copyButton.dataset.copyMd!, {cache: 'no-store'});
+          if (!response.ok) throw new Error(`Markdown request failed (${response.status})`);
+          await navigator.clipboard.writeText(await response.text());
+          copyStatus.textContent = 'Copied';
+        } catch (error) {
+          console.error(error);
+          copyStatus.textContent = 'Could not copy';
+        } finally {
+          copyButton.disabled = false;
+          clearTimeout(reset);
+          reset = window.setTimeout(() => { copyStatus.textContent = ''; }, 2400);
+        }
+      });
+    }
+
     // Progressive enhancement: the contents start collapsed (useful on small screens) and are
     // kept open beside the article on wide screens. The current section is marked while reading.
     const toc = document.querySelector<HTMLDetailsElement>('[data-article-toc]');
