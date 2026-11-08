@@ -18,13 +18,27 @@ slug: a-post-title
 
 Eligible posts appear at `/blog/`, with individual pages at `/blog/<slug>/`. Each page also exposes its Markdown source at `/blog/<slug>/index.md`. `/rss.xml` includes the same published posts. Only eligible posts produce static page and raw-source routes, and `/sitemap.xml` uses the same published-post selection. Drafts and future posts produce no public files.
 
-`sample-post.mdx` is a labelled content and interaction specimen. `sample-plain-markdown.md` is a short labelled plain-Markdown specimen that keeps the list and the older/newer article links exercised. Posts tagged `sample` show a Sample label instead of a `#sample` tag; remove both specimens before the first real article is published, or keep them as drafts. `draft-fixture.md` and `future-fixture.md` are fixtures that must stay unpublished.
+`sample-post.mdx` is a labelled content and interaction specimen. `sample-plain-markdown.md` is a short labelled plain-Markdown specimen that keeps the list and the older/newer article links exercised. Posts tagged `sample` show a Sample label instead of a `#sample` tag; they are only visible in development and preview deployments, never in production. `draft-fixture.md` and `future-fixture.md` are fixtures that must stay unpublished.
 
 Run `npm run dev` to preview edits. Run `npm test` before publishing. Changing a title or filename does not change its URL when the explicit `slug` stays the same. Changing an established slug requires a redirect. A scheduled date is evaluated at build time; publish with a new deployment after that date. Dates without times are interpreted as midnight UTC.
 
 Keep articles in `src/content/blog`, outside `public`. The Markdown endpoint emits only published articles. Do not copy source articles into `public`, which would bypass draft filtering.
 
 Use root-relative links for site pages and images, such as `/projects/` and `/images/bg/mountains-after-hours.png`. This keeps links correct in both the article and its raw Markdown representation. New photographic assets follow the site's shader and provenance workflow.
+
+## When the blog is visible
+
+The blog is hidden until there is a real article, and sample posts only exist outside production.
+
+| Environment | Sample posts (`sample` tag) | Real posts |
+| --- | --- | --- |
+| `npm run dev` (local development) | shown | shown |
+| Vercel preview and development deployments (`VERCEL_ENV`) | shown | shown |
+| Vercel production, GitHub Pages, a plain `npm run build` | **hidden** | shown |
+
+`BLOG_SAMPLES=1` forces the samples on (`npm test` sets it so the fixtures are exercised).
+
+While no article is visible, the blog does not exist: no `/blog/` or `/rss.xml` file, no "Blog" link in the header or homepage tile (the homepage grid returns to three tiles), no RSS autodiscovery link, no sitemap entry, no `llms.txt` lines, and no "Blog" section in `/index.md` or the profile Markdown. The first non-sample, published, non-draft article switches all of that on at once. Keep the samples while testing; they are never public in production.
 
 ## Search and agent discovery
 

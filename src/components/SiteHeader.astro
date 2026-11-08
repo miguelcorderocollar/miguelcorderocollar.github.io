@@ -1,9 +1,12 @@
 ---
+import { isBlogLive } from '../lib/blog';
 const path = Astro.url.pathname;
+const blog = await isBlogLive();
 const home = path === '/';
-const links = home
+const links = (home
   ? [['/#experience', 'Work'], ['/projects/', 'Projects'], ['/blog/', 'Blog'], ['/#contact', 'Contact ↗']]
-  : [['/projects/', 'Projects'], ['/blog/', 'Blog'], ['/trends/', 'Trends'], ['/people/', 'People'], ['/quotes/', 'Quotes']];
+  : [['/projects/', 'Projects'], ['/blog/', 'Blog'], ['/trends/', 'Trends'], ['/people/', 'People'], ['/quotes/', 'Quotes']]
+).filter(([href]) => blog || href !== '/blog/');
 ---
 <header class="site-header" id="top">
   <a class="wordmark" href={home ? '#top' : '/'} aria-label="Miguel Cordero Collar, home">

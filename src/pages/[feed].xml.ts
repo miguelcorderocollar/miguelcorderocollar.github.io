@@ -1,9 +1,13 @@
-import type { APIRoute } from 'astro';
+import type { APIRoute, GetStaticPaths } from 'astro';
 import rss from '@astrojs/rss';
-import { getPublishedPosts, modifiedDate } from '../lib/blog';
+import { getPublishedPosts, isBlogLive, modifiedDate } from '../lib/blog';
 import { BLOG_DESCRIPTION, SITE, topics } from '../lib/seo';
 
 const AUTHOR = 'Miguel Cordero Collar';
+
+// Emits /rss.xml, and only once an article is visible in this environment. A dynamic
+// route (instead of rss.xml.ts) is what lets the file be absent rather than empty.
+export const getStaticPaths: GetStaticPaths = async () => ((await isBlogLive()) ? [{ params: { feed: 'rss' } }] : []);
 
 export const GET: APIRoute = async () => {
   const posts = await getPublishedPosts();

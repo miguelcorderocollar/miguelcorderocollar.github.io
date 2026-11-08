@@ -3,6 +3,8 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import Projects from '../components/Projects.astro';
 import StructuredData from '../components/StructuredData.astro';
 import schemas from '../data/profile-schema.json';
+import { isBlogLive } from '../lib/blog';
+const blogLive = await isBlogLive();
 ---
 <SiteLayout title="Miguel Cordero Collar - IT Innovation Project Manager | Red Bull" description="IT Innovation Project Manager at Red Bull building AI agents, applications and internal tools, and leading pilots for coding and business workflows. MSc from TU Munich. Based in Salzburg, Austria." bodyClass="mcc-style mcc-dark" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/projects/projects.css"]}>
 <Fragment slot="head">{schemas.map(schema => <StructuredData value={schema} />)}<link rel="alternate" type="text/markdown" href="https://miguelcorderocollar.com/index.md" /></Fragment>
@@ -30,7 +32,7 @@ import schemas from '../data/profile-schema.json';
       <div class="homepage-collections-heading">
         <h2 id="homepage-collections-title">Beyond work</h2>
       </div>
-      <nav class="homepage-collection-links" aria-label="Personal collections">
+      <nav class={`homepage-collection-links${blogLive ? ' homepage-collection-links--with-blog' : ''}`} aria-label="Personal collections">
         <a class="homepage-collection-link" href="/trends/">
           <span class="homepage-collection-index" aria-hidden="true">01</span>
           <span class="homepage-collection-copy">
@@ -55,7 +57,7 @@ import schemas from '../data/profile-schema.json';
           </span>
           <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
         </a>
-      <a class="homepage-collection-link" href="/blog/"><span class="homepage-collection-index" aria-hidden="true">04</span><span class="homepage-collection-copy"><strong>Blog</strong><span>Notes on things I build, try, and learn.</span></span><span class="homepage-collection-arrow" aria-hidden="true">↗</span></a></nav>
+      {blogLive && <a class="homepage-collection-link" href="/blog/"><span class="homepage-collection-index" aria-hidden="true">04</span><span class="homepage-collection-copy"><strong>Blog</strong><span>Notes on things I build, try, and learn.</span></span><span class="homepage-collection-arrow" aria-hidden="true">↗</span></a>}</nav>
     </section>
     <div class="profile-layout">
     <nav id="TOC" aria-label="Sections">

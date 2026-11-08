@@ -2,6 +2,19 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type BlogPost = CollectionEntry<'blog'>;
 
+/** Sample posts exist to exercise the blog's formats. They carry the `sample` tag. */
+export const isSample = (post: BlogPost) => post.data.tags.includes('sample');
+
+/**
+ * Sample posts are visible in local development and on Vercel preview/development
+ * deployments, and hidden everywhere else (production, GitHub Pages, a plain
+ * `npm run build`). `BLOG_SAMPLES=1` forces them on, which the test suite uses.
+ */
+export function showSamples(): boolean {
+  const env = (globalThis as { process?: { env: Record<string, string | undefined> } }).process?.env ?? {};
+  return import.meta.env.DEV || env.VERCEL_ENV === 'preview' || env.VERCEL_ENV === 'development' || env.BLOG_SAMPLES === '1';
+}
+
 /**
  * Return posts that are eligible for public routes and feeds.
  * Slug collisions are checked across the full collection, including drafts,
@@ -22,11 +35,20 @@ export async function getPublishedPosts(now = new Date()): Promise<BlogPost[]> {
   }
 
   return entries
-    .filter(({ data }) => !data.draft && data.published.getTime() <= now.getTime())
+    .filter((post) => !post.data.draft && post.data.published.getTime() <= now.getTime())
+    .filter((post) => showSamples() || !isSample(post))
     .sort((a, b) => {
       const byDate = b.data.published.getTime() - a.data.published.getTime();
       return byDate || a.data.slug.localeCompare(b.data.slug);
     });
+}
+
+/**
+ * The blog only appears on the site (navigation, homepage, feed, sitemap, llms.txt)
+ * once at least one article is visible in the current environment.
+ */
+export async function isBlogLive(): Promise<boolean> {
+  return (await getPublishedPosts()).length > 0;
 }
 
 export function formatBlogDate(date: Date): string {

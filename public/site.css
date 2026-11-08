@@ -2,12 +2,12 @@
 .site-header { flex-wrap: wrap; padding-block: 12px; }
 .site-header nav { flex-wrap: wrap; column-gap: 24px; row-gap: 10px; }
 .site-header a[aria-current="page"] { color: var(--mcc-accent); }
-.homepage-collection-links { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.homepage-collection-links--with-blog { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .homepage-collection-link { min-width: 0; }
 @media (max-width: 900px) and (min-width: 641px) {
-  .homepage-collection-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .homepage-collection-link:nth-child(3) { border-left: 0; padding-left: 0; }
-  .homepage-collection-link:nth-child(n+3) { border-top: 1px solid var(--mcc-rule); }
+  .homepage-collection-links--with-blog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .homepage-collection-links--with-blog .homepage-collection-link:nth-child(3) { border-left: 0; padding-left: 0; }
+  .homepage-collection-links--with-blog .homepage-collection-link:nth-child(n+3) { border-top: 1px solid var(--mcc-rule); }
 }
 @media (max-width: 640px) {
   .site-header { align-items: flex-start; }

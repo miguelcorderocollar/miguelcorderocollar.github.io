@@ -63,3 +63,52 @@ test('adding/editing Markdown publishes through normal builds, stable slugs surv
     fs.rmSync(temp,{recursive:true,force:true});
   }
 });
+
+test('the blog appears only when an article is visible: samples are development/preview only', {timeout:90000}, () => {
+  const root = process.cwd();
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'mcc-visibility-'));
+  try {
+    for (const name of ['src','brand','people','quotes','trends','projects','documents','docs']) fs.cpSync(path.join(root,name),path.join(temp,name),{recursive:true});
+    for (const name of ['astro.config.mjs','tsconfig.json','package.json']) fs.copyFileSync(path.join(root,name),path.join(temp,name));
+    for (const name of ['node_modules','public']) fs.symlinkSync(path.join(root,name),path.join(temp,name),'dir');
+    // The suite itself runs with BLOG_SAMPLES=1; each build here states its own environment.
+    const build = environment => {
+      const env = {...process.env,ASTRO_TELEMETRY_DISABLED:'1'};
+      delete env.BLOG_SAMPLES; delete env.VERCEL_ENV;
+      const result = spawnSync(process.execPath,[path.join(root,'node_modules/astro/bin/astro.mjs'),'build'],{cwd:temp,encoding:'utf8',timeout:30000,env:{...env,...environment}});
+      assert.equal(result.status,0,result.stdout+result.stderr);
+    };
+    const read = file => fs.readFileSync(path.join(temp,'dist',file),'utf8');
+    const exists = file => fs.existsSync(path.join(temp,'dist',file));
+
+    // Production with only sample posts: the blog does not exist anywhere.
+    build({VERCEL_ENV:'production'});
+    for (const file of ['blog','rss.xml','blog/sample-post','blog/sample-plain-markdown']) assert.ok(!exists(file),`${file} must not be published in production without a real article`);
+    for (const file of ['index.html','projects/index.html','quotes/index.html','people/index.html','trends/index.html','404.html']) assert.doesNotMatch(read(file),/href="\/blog\/"|rss\+xml|with-blog/,`${file} must not link the blog`);
+    assert.doesNotMatch(read('sitemap.xml'),/\/blog\//);
+    assert.doesNotMatch(read('llms.txt'),/blog|rss|\{\{/i);
+    for (const file of ['index.md','documents/Miguel-Cordero-Profile.md']) assert.doesNotMatch(read(file),/## Blog|\/blog\//,`${file} must not mention the blog`);
+
+    // Production with a real article: only that article is public, and the blog appears.
+    fs.writeFileSync(path.join(temp,'src/content/blog/real-article.md'),'---\ntitle: A real article\ndescription: A real article that is meant for the public, written to exercise the production build.\npublished: 2026-01-01\ntags: [writing]\nslug: real-article\n---\n\nReal body.\n');
+    build({VERCEL_ENV:'production'});
+    assert.match(read('blog/index.html'),/A real article/);
+    assert.doesNotMatch(read('blog/index.html'),/A small, useful tool|plain Markdown note/);
+    assert.ok(exists('blog/real-article/index.html') && !exists('blog/sample-post'));
+    assert.ok(exists('rss.xml'));
+    assert.match(read('index.html'),/href="\/blog\/"[\s\S]*with-blog|with-blog[\s\S]*href="\/blog\/"/);
+    assert.match(read('index.html'),/rel="alternate" type="application\/rss\+xml"/);
+    assert.match(read('sitemap.xml'),/blog\/real-article\//);
+    assert.doesNotMatch(read('sitemap.xml')+read('rss.xml')+read('llms.txt'),/sample-post|sample-plain-markdown/);
+    assert.match(read('llms.txt'),/real-article/);
+    assert.match(read('index.md'),/## Blog/);
+
+    // Vercel preview and development deployments show the samples alongside real posts.
+    for (const VERCEL_ENV of ['preview','development']) {
+      build({VERCEL_ENV});
+      assert.ok(exists('blog/sample-post/index.html') && exists('blog/real-article/index.html'),`${VERCEL_ENV} shows samples`);
+    }
+  } finally {
+    fs.rmSync(temp,{recursive:true,force:true});
+  }
+});

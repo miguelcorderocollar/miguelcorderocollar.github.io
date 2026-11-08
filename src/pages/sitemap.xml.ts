@@ -10,11 +10,12 @@ export const GET: APIRoute = async ({ site }) => {
   const pages = ['/', '/projects/', '/people/', '/quotes/', '/trends/', '/brand/', '/shader/'];
   const posts = await getPublishedPosts();
   const newest = posts.map(modifiedDate).sort((a, b) => b.getTime() - a.getTime())[0];
+  // No /blog/ entry until the blog has an article visible in this environment.
   const url = (path: string, lastmod?: Date) =>
     `<url><loc>${new URL(path, site)}</loc>${lastmod ? `<lastmod>${day(lastmod)}</lastmod>` : ''}</url>`;
   const entries = [
     ...pages.map((path) => url(path)),
-    url('/blog/', newest),
+    ...(posts.length ? [url('/blog/', newest)] : []),
     ...posts.map((post) => url(`/blog/${post.data.slug}/`, modifiedDate(post))),
   ];
   return new Response(

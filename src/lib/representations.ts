@@ -1,7 +1,8 @@
 import people from '../../people/people-data.json';
 import quotes from '../../quotes/quotes-data.json';
 import trends from '../../trends/trends-data.json';
-import profile from '../../documents/Miguel-Cordero-Profile.md?raw';
+import profileSource from '../../documents/Miguel-Cordero-Profile.md?raw';
+import { isBlogLive } from './blog';
 import cv from '../../documents/Miguel-Cordero-CV.md?raw';
 import policy from '../../docs/agent-readiness.md?raw';
 import shaderGuide from '../../docs/image-shader.md?raw';
@@ -25,7 +26,11 @@ const trendsMd = blocks(['# Trends', '', 'Personal interests alongside Google Tr
   s.aboutMarkdown || '', '', s.contextMarkdown || '', '',
   `Snapshot series (${s.series.interval}, starting ${s.series.start}, relative values 0–100): ${s.series.values.join(', ')}.`, '',
 ])]);
-const homeMd = profile.replaceAll('https://miguelcorderocollar.github.io/', base + '/').replace(/\]\(\.\.\//g, `](${base}/`).replace(/[ \t]{2,}$/gm, '<br>') + '\n\n## Machine-readable collections\n\n' + ['People', 'Quotes', 'Trends'].map(n => `- [${n}](${base}/${n.toLowerCase()}/index.md)`).join('\n') + `\n- [Blog](${base}/blog/)\n`;
+// The profile mirror always documents the blog, but the published representations only
+// mention it once the blog is visible in this environment.
+const blogLive = await isBlogLive();
+const profile = blogLive ? profileSource : profileSource.replace(/\n## Blog\n[\s\S]*?(?=\n## |\s*$)/, '');
+const homeMd = profile.replaceAll('https://miguelcorderocollar.github.io/', base + '/').replace(/\]\(\.\.\//g, `](${base}/`).replace(/[ \t]{2,}$/gm, '<br>') + '\n\n## Machine-readable collections\n\n' + ['People', 'Quotes', 'Trends'].map(n => `- [${n}](${base}/${n.toLowerCase()}/index.md)`).join('\n') + (blogLive ? `\n- [Blog](${base}/blog/)\n` : '\n');
 export const representations = new Map<string, {body: string; type: string}>([
   ['index.md', {body: homeMd, type: 'text/markdown'}],
   ['brand/index.md', {body: brandMd, type: 'text/markdown'}],

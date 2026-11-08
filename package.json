@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1 --port 8000",
     "check": "astro check && python3 scripts/validate_people.py && python3 scripts/build_projects.py --check",
-    "test": "npm run build && node --test tests/*.test.mjs",
+    "test": "BLOG_SAMPLES=1 npm run build && BLOG_SAMPLES=1 node --test tests/*.test.mjs",
     "test:browser": "playwright test"
   },
   "dependencies": {

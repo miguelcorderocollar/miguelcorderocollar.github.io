@@ -1,5 +1,6 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
+import { isBlogLive } from '../lib/blog';
 interface Props {
   title: string;
   description?: string;
@@ -20,6 +21,7 @@ const {
   styles = [], baseStyles = true, header = true, noindex = false,
   socialType = 'website', socialImage = '/images/icons/MC-icon.png', twitterCard = 'summary',
 } = Astro.props;
+const blogLive = await isBlogLive();
 const canonical = new URL(canonicalPath, Astro.site);
 const defaultStyles = baseStyles ? ['/reset.css', '/assets/personal-style/personal-style.css', '/assets/personal-style/motion.css', '/homepage.css'] : [];
 const stylesheets = [...new Set([...defaultStyles, ...styles])].filter(href => !baseStyles || !['/collections.css', '/site.css'].includes(href));
@@ -47,7 +49,7 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
     <meta name="twitter:image" content={new URL(socialImage, Astro.site)} />
     <link rel="icon" type="image/svg+xml" href="/assets/personal-style/mark.svg" />
     <link rel="describedby" href="/llms.txt" />
-    <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />
+    {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
     {stylesheets.map(href => <link rel="stylesheet" href={href} />)}
     <script is:inline>document.documentElement.classList.add("has-js");</script>
     <slot name="head" />

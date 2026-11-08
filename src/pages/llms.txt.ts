@@ -11,10 +11,13 @@ export const GET: APIRoute = async ({ site }) => {
   const articles = posts.map(
     (post) => `- [${post.data.title}](${postUrl(post)}): ${post.data.description} [Markdown](${postSourceUrl(post)})`,
   );
-  const blog = [
-    `- [Blog](${origin}/blog/): ${BLOG_DESCRIPTION} Every published article links to its raw source.`,
-    `- [Blog RSS](${origin}/rss.xml): Published articles only.`,
-    ...articles,
-  ].join('\n');
-  return new Response(base.replace('{{BLOG}}', blog), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+  // Nothing about the blog is advertised until an article is visible in this environment.
+  const blog = posts.length
+    ? [
+        `- [Blog](${origin}/blog/): ${BLOG_DESCRIPTION} Every published article links to its raw source.`,
+        `- [Blog RSS](${origin}/rss.xml): Published articles only.`,
+        ...articles,
+      ].join('\n') + '\n\n'
+    : '';
+  return new Response(base.replace('{{BLOG}}\n\n', blog), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };
