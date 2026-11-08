@@ -18,10 +18,44 @@ slug: a-post-title
 
 Eligible posts appear at `/blog/`, with individual pages at `/blog/<slug>/`. Each page also exposes its Markdown source at `/blog/<slug>/index.md`. `/rss.xml` includes the same published posts. Only eligible posts produce static page and raw-source routes, and `/sitemap.xml` uses the same published-post selection. Drafts and future posts produce no public files.
 
-`sample-post.md` is clearly labelled demonstration content covering headings, lists, code, an existing site image, a table, a link, and an unattributed blockquote. `draft-fixture.md` and `future-fixture.md` are fixtures that must stay unpublished.
+`sample-post.mdx` is a labelled content and interaction specimen. `sample-plain-markdown.md` is a short labelled plain-Markdown specimen that keeps the list and the older/newer article links exercised. Posts tagged `sample` show a Sample label instead of a `#sample` tag; remove both specimens before the first real article is published, or keep them as drafts. `draft-fixture.md` and `future-fixture.md` are fixtures that must stay unpublished.
 
 Run `npm run dev` to preview edits. Run `npm test` before publishing. Changing a title or filename does not change its URL when the explicit `slug` stays the same. Changing an established slug requires a redirect. A scheduled date is evaluated at build time; publish with a new deployment after that date. Dates without times are interpreted as midnight UTC.
 
 Keep articles in `src/content/blog`, outside `public`. The Markdown endpoint emits only published articles. Do not copy source articles into `public`, which would bypass draft filtering.
 
 Use root-relative links for site pages and images, such as `/projects/` and `/images/bg/mountains-after-hours.png`. This keeps links correct in both the article and its raw Markdown representation. New photographic assets follow the site's shader and provenance workflow.
+
+## Search and agent discovery
+
+Everything below is derived from the published-post selection and the frontmatter; there is nothing to maintain by hand.
+
+- **`updated`** (optional): set it only when an article is materially revised. It becomes `dateModified` in the JSON-LD, `article:modified_time`, the article's sitemap `lastmod`, and the feed's `lastBuildDate`. It cannot be earlier than `published` (the build fails). Without it, the publication date is used. Do not bump it for typo fixes: Google only trusts `lastmod` when it is consistently accurate, which is why pages without a verifiable date (everything outside `/blog/`) carry no `lastmod` at all.
+- **Structured data** (`src/lib/seo.ts`): each article emits `BlogPosting` (headline, description, `image`, `datePublished`, `dateModified`, `author`, `publisher`, `inLanguage`, `wordCount`, `keywords`) plus a `BreadcrumbList`. `/blog/` emits `Blog` with its `blogPost` entries. The author is the same Person as the homepage (`/#miguel-cordero-collar`), repeated inline because search engines do not resolve an `@id` defined on another page.
+- **Per-page head:** canonical URL, Open Graph `article` tags (published/modified time, author, topics), a Twitter large card, and `<link rel="alternate" type="text/markdown">` pointing at `/blog/<slug>/index.md`.
+- **`/sitemap.xml`**, **`/rss.xml`** (RSS 2.0 with `atom:link rel="self"`, `language`, deterministic `lastBuildDate`, stable permalink GUIDs, categories and `dc:creator`), and **`/llms.txt`** are all generated from the same posts, so a draft or future post can never leak into them. `llms.txt` lists every published article with a `.md` link; its static text lives in `src/data/llms.txt` (the `{{BLOG}}` placeholder is replaced at build time). Machine-facing links always use `.md` because static hosts serve it as `text/markdown`, while `.mdx` has no reliable MIME type.
+- The social image is `/images/bg/mountains-after-hours.png` (1500×500). Add a per-article image field before relying on rich result image cropping.
+
+`tests/build.test.mjs` and `tests/publishing.test.mjs` enforce all of this (valid JSON-LD that matches the visible `h1`, consistent canonical/Open Graph URLs, ISO dates, `lastmod` equal to `dateModified`, feed identity, `llms.txt` coverage, and the `updated` rules).
+
+## Rich articles with MDX
+
+Use `.md` for ordinary writing and `.mdx` when an article needs component imports or expressions. Both share the same collection schema, stable URLs, draft rules and feed. Astro's official MDX integration is installed. React is not installed or required for the current components.
+
+The sample is now `src/content/blog/sample-post.mdx`. It demonstrates Markdown formatting, nested lists, task lists, footnotes, fenced code, tables, captioned images, native HTML disclosures, inline HTML, an accessible SVG diagram, an interactive Astro component, and a lazy iframe of a local tool.
+
+```mdx
+import ReadingLab from '../../components/ReadingLab.astro';
+
+## Try a component
+
+<ReadingLab size={18} />
+```
+
+`src/components/ReadingLab.astro` contains its own HTML, styles and small browser script. Astro includes that script only where the component is used. It uses keyboard-operable native sliders, immediate updates, a reset button and a readable fallback with disabled controls when JavaScript is unavailable. The demo stores no state and makes no network requests.
+
+Use native HTML for figures, disclosures, audio/video elements and small diagrams. Use a component for reusable or interactive content. Use an iframe for a separate complete document, with a descriptive title, lazy loading and a normal link to open it separately. Add actual audio/video files when publishing those formats; the sample does not include fake players without media. External embeds can make requests to their provider; the current sample uses only a local iframe.
+
+Published MDX source is linked at `/blog/<slug>/index.mdx` and served as plain text. The existing `index.md` URL remains a source alias for compatibility. MDX source includes imports and component syntax and requires the project to render those components; it is not a self-contained plain-Markdown export. Plain `.md` posts keep their normal `index.md` link. Draft and future sources are excluded in both formats.
+
+MDX is executable project source, so only repository authors should supply it. It is not a parser for untrusted visitor submissions.

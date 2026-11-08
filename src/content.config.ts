@@ -7,18 +7,23 @@ const blog = defineCollection({
   // data.slug as its ID and can overwrite a duplicate before validation.
   loader: glob({
     base: './src/content/blog',
-    pattern: '**/*.md',
+    pattern: '**/*.{md,mdx}',
     generateId: ({ entry }) => entry,
   }),
   schema: z.object({
     title: z.string().trim().min(1),
     description: z.string().trim().min(1),
     published: z.coerce.date(),
+    // Set only when the article is materially revised; feeds dateModified, sitemap lastmod and the feed.
+    updated: z.coerce.date().optional(),
     tags: z.array(z.string().trim().min(1)).default([]),
     draft: z.boolean().default(false),
     slug: z
       .string()
       .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Use a stable lowercase, hyphenated slug.'),
+  }).refine(({ published, updated }) => !updated || updated >= published, {
+    message: '`updated` cannot be earlier than `published`.',
+    path: ['updated'],
   }),
 });
 

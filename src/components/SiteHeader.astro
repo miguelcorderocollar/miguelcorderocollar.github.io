@@ -11,6 +11,6 @@ const links = home
     {!home && <span>Miguel Cordero Collar</span>}
   </a>
   <nav aria-label="Primary navigation">
-    {links.map(([href, label]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
+    {links.map(([href, label]) => <a href={href} aria-current={path === href ? 'page' : href === '/blog/' && path.startsWith('/blog/') ? 'true' : undefined}>{label}</a>)}
   </nav>
 </header>

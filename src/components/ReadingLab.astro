@@ -1,0 +1,53 @@
+---
+const { size = 18 } = Astro.props;
+---
+<reading-lab class="reading-lab" data-size={size}>
+  <div class="reading-lab__heading"><p class="blog-eyebrow">Interactive HTML / JavaScript</p><h3>Find your reading pace.</h3><p>Try the controls. This preview changes locally in your browser.</p></div>
+  <form class="reading-lab__controls">
+    <label>Text size <output data-size-output>{size} px</output><input name="size" aria-label="Text size" disabled type="range" min="16" max="26" value={size} step="1" /></label>
+    <label>Words per minute <output data-pace-output>220</output><input name="pace" aria-label="Words per minute" disabled type="range" min="120" max="400" value="220" step="10" /></label>
+    <button disabled type="reset">Reset preview</button>
+  </form>
+  <div class="reading-lab__preview" style={`font-size:${size}px`}>
+    <p>Good tools leave room for the person using them. The same is true of a page: readable text, clear choices, and a comfortable pace make it easier to stay with an idea.</p>
+  </div>
+  <p class="reading-lab__result" role="status" aria-live="polite" aria-atomic="true">An illustrative 1,200-word article takes about 6 minutes at 220 words per minute.</p>
+  <noscript><p>The preview is readable without JavaScript. The size and pace controls need JavaScript.</p></noscript>
+</reading-lab>
+<script>
+  class ReadingLab extends HTMLElement {
+    connectedCallback() {
+      if (this.dataset.ready) return;
+      this.dataset.ready = 'true';
+      this.querySelectorAll<HTMLInputElement | HTMLButtonElement>('input, button').forEach(control => { control.disabled = false; });
+      const form = this.querySelector('form')!;
+      const size = form.elements.namedItem('size') as HTMLInputElement;
+      const pace = form.elements.namedItem('pace') as HTMLInputElement;
+      const preview = this.querySelector<HTMLElement>('.reading-lab__preview')!;
+      const update = () => {
+        this.querySelector('output[data-size-output]')!.textContent = `${size.value} px`;
+        this.querySelector('output[data-pace-output]')!.textContent = pace.value;
+        preview.style.fontSize = `${size.value}px`;
+        this.querySelector('[role="status"]')!.textContent = `An illustrative 1,200-word article takes about ${Math.ceil(1200 / Number(pace.value))} minutes at ${pace.value} words per minute.`;
+      };
+      form.addEventListener('input', update);
+      form.addEventListener('submit', event => event.preventDefault());
+      form.addEventListener('reset', () => requestAnimationFrame(update));
+      update();
+    }
+  }
+  if (!customElements.get('reading-lab')) customElements.define('reading-lab', ReadingLab);
+</script>
+<style>
+  .reading-lab { display: block; border: 1px solid var(--mcc-rule); margin-block: 32px; }
+  .reading-lab__heading, .reading-lab__controls, .reading-lab__preview, .reading-lab__result { padding: 24px; margin: 0; }
+  .reading-lab__heading h3 { font-size: 1.5rem; margin: 12px 0; }
+  .reading-lab__heading > p:last-child { font-size: 1rem; color: var(--mcc-muted); }
+  .reading-lab__controls { display: grid; gap: 24px; border-block: 1px solid var(--mcc-rule); background: var(--mcc-surface); }
+  .reading-lab label { display: grid; grid-template-columns: 1fr auto; gap: 12px; font-size: .875rem; }
+  .reading-lab input { grid-column: 1 / -1; width: 100%; min-width: 0; accent-color: var(--mcc-accent); }
+  .reading-lab output { color: var(--mcc-accent); }
+  .reading-lab button { justify-self: start; padding: 10px 16px; font-size: .875rem; border: 1px solid var(--mcc-rule); background: var(--mcc-paper); }
+  .reading-lab__preview p { font: inherit; line-height: 1.8; margin: 0; }
+  .reading-lab__result { border-top: 1px solid var(--mcc-rule); font-size: .875rem; color: var(--mcc-muted); }
+</style>

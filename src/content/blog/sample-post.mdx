@@ -1,0 +1,164 @@
+---
+title: "A small, useful tool."
+description: A working notebook of text, code, images, HTML, and interactive components. Sample content for trying the blog.
+published: 2026-11-08
+tags: [sample, tooling]
+draft: false
+slug: sample-post
+---
+
+import ReadingLab from '../../components/ReadingLab.astro';
+
+> **Sample content.** This article is a format specimen. The numbers and examples are illustrative, so you can judge how different kinds of content read together.
+
+## Start with the task
+
+A useful tool begins with one clear job. Write down the input, the result, and the point where a person can tell that the work is done. This paragraph tests longer reading text, with enough words to show the line length and spacing across desktop and mobile layouts.
+
+You can use **strong emphasis**, *ordinary emphasis*, ~~a discarded idea~~, and `inline code`. Follow an [internal link to Projects](/projects/), or read the [Astro MDX documentation](https://docs.astro.build/en/guides/integrations-guide/mdx/). A long link label should still wrap gracefully when space is limited.
+
+### Keep the first version small
+
+A short unordered list:
+
+- Accept one file or a folder.
+- Show the proposed changes before running.
+  - Explain what will be renamed.
+  - Keep the original until the result is confirmed.
+- Give failures a useful, visible explanation.
+
+An ordered list:
+
+1. Define the job.
+2. Make one small example work.
+3. Try the awkward inputs before adding more features.
+
+A task list is useful for a published checklist. These boxes show status; they are not a saved form.
+
+- [x] Write an example.
+- [x] Check narrow layouts.
+- [ ] Replace the sample with a real article.
+
+### A smaller heading
+
+The third heading level introduces a subsection.
+
+#### A fourth-level heading
+
+Use deeper headings sparingly. Most articles need only two or three levels.
+
+## Code, commands, and long lines
+
+Syntax highlighting works in fenced code blocks. This JavaScript is an illustrative function:
+
+```js
+function describeTask(input) {
+  return {
+    source: input,
+    status: 'ready to review',
+  };
+}
+
+const intentionallyLongName = 'This deliberately long line checks that code scrolls inside its own box without pushing the whole page sideways.';
+```
+
+Configuration can have its own language:
+
+```json
+{
+  "title": "A small, useful tool.",
+  "draft": false,
+  "tags": ["sample", "tooling"]
+}
+```
+
+And commands remain easy to copy:
+
+```sh
+npm ci
+npm run dev
+```
+
+## Give the page a real image
+
+Ordinary Markdown images work:
+
+![A processed mountain landscape from the site's existing image collection.](/images/bg/mountains-after-hours.png)
+
+For a caption, use native HTML:
+
+<figure>
+  <img src="/images/bg/mountains-after-hours.png" alt="Mountain ridgelines fading from a photograph into a halftone print." width="1500" height="500" loading="lazy" />
+  <figcaption>An existing approved site image. The caption and image stay together as one figure.</figcaption>
+</figure>
+
+## Compare a few options
+
+Tables keep small comparisons readable. On a narrow screen, a wide table scrolls within the article.
+
+| Format | Best use | Interaction | Output |
+| --- | --- | --- | --- |
+| Markdown | Essays and notes | Links and native HTML | Static HTML |
+| MDX | Articles with reusable components | HTML and JavaScript widgets | Static HTML with optional browser code |
+| Standalone embed | A complete experiment | Independent document | An iframe inside the article |
+
+> A blockquote can hold an excerpt, a note, or a passage you want to distinguish from the surrounding prose. This one is demonstration text, not an attributed quotation.
+
+---
+
+## Native HTML inside a post
+
+HTML can add structure without another UI framework. Here is a disclosure, with native keyboard support:
+
+<details>
+  <summary>What is happening here?</summary>
+  <p>This is a native HTML details element. It works without JavaScript and can contain text, links, lists, and other ordinary content.</p>
+</details>
+
+A few inline HTML elements are also useful: press <kbd>Tab</kbd> to move between controls, use <mark>a short highlight</mark> for a point of interest, and write H<sub>2</sub>O or 2<sup>8</sup> when the text needs it. <abbr title="HyperText Markup Language">HTML</abbr> abbreviations can carry an explanation.
+
+A small inline SVG can explain a process while keeping text sharp:
+
+<figure className="article-diagram-frame" tabIndex={0} aria-label="Source to HTML diagram, scroll horizontally if needed">
+<svg className="article-diagram" viewBox="0 0 640 160" role="img" aria-labelledby="sample-flow-title">
+  <title id="sample-flow-title">An article starts as a source file, passes through an Astro build, and becomes a static page.</title>
+  <g fill="none" stroke="currentColor"><rect x="1" y="35" width="170" height="90" /><rect x="235" y="35" width="170" height="90" /><rect x="469" y="35" width="170" height="90" /><path d="M171 80h64m170 0h64" /></g>
+  <g fill="currentColor" stroke="none" text-anchor="middle" font-size="18"><text x="86" y="86">Source file</text><text x="320" y="86">Astro build</text><text x="554" y="86">HTML page</text></g>
+</svg>
+</figure>
+
+## A reusable interactive component
+
+This is an Astro component imported into MDX. It uses native HTML controls and a small JavaScript custom element. React is not required.
+
+<ReadingLab size={18} />
+
+Move the sliders with a pointer or the arrow keys. Text size changes only the preview inside the component. Reading time uses an illustrative 1,200-word article. Reset restores the defaults. No preferences or input leave the browser.
+
+This is all the article needs to include it:
+
+```mdx
+import ReadingLab from '../../components/ReadingLab.astro';
+
+<ReadingLab size={18} />
+```
+
+## Embed a standalone experiment
+
+An iframe can contain a separate HTML page or a complete tool. This one loads the site's existing shader playground only as you approach it. It keeps its own controls and document layout.
+
+<iframe className="article-embed" src="/shader/" title="Interactive image shader playground" loading="lazy" height="560"></iframe>
+
+[Open the shader playground on its own page](/shader/). For video or audio, we can use native media elements when there is a real, cleared media file to publish. An external player can also be embedded, but it introduces that provider's network requests. This specimen uses local content.
+
+## Notes and references
+
+A footnote can hold a small qualification without breaking the sentence.[^sample-note]
+
+[^sample-note]: This is a sample footnote, included to check its numbering, link, and return navigation.
+
+For a normal essay, choose `.md`. Use `.mdx` when an article needs component imports or expressions. Both formats use the same frontmatter, publishing rules, article layout, and feed. Components remain ordinary project code, with their own styles and tests.
+
+## Link to the next step
+
+Read the [project notes](/projects/), return to [all writing](/blog/), or inspect this article's source using the link beside the contents. This page is deliberately long so we can test sustained reading, anchor navigation, and embedded content in one place.

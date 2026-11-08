@@ -25,7 +25,7 @@ npm run preview
 
 - `src/pages/` contains every HTML route and the RSS, sitemap, Markdown and JSON endpoints.
 - `src/layouts/` and `src/components/` contain the shared shell and collection views.
-- `src/content/blog/` contains article Markdown. See [blog authoring](docs/blog.md).
+- `src/content/blog/` contains Markdown and optional MDX articles. See [blog authoring](docs/blog.md).
 - `people/`, `quotes/`, `trends/` and `projects/` retain the canonical collection JSON and image recipes. Astro reads these files during builds.
 - `documents/Miguel-Cordero-Profile.md` is the full profile mirror; `documents/Miguel-Cordero-CV.md` is the curated CV source.
 - `public/` contains styles, existing vanilla browser scripts, fonts, approved images, PDFs and downloads. Files retain their existing public URLs. Only this directory and generated Astro routes are published.
@@ -52,3 +52,10 @@ python3 scripts/validate_agent_content.py http://127.0.0.1:8001
 ```
 
 The HTTP checker can also inspect the eventual Vercel preview URL. See [TESTING.md](TESTING.md) for the verification performed on this branch.
+
+
+## Readability checks
+
+The site uses a 17px default reading size, 17–18px article prose, at least 18px quotes, and approximately 14px supporting text at the browser's default 16px root size. The sizes use `rem` so a reader's default font preference can enlarge them. Large headings retain their visual hierarchy.
+
+With `npm run dev` running, use `npm run test:browser` for automated font-size, page-overflow, component keyboard/reset and no-JavaScript checks at widths of 320, 390, 768 and 1440 CSS pixels. Chromium defaults to `/usr/bin/chromium`; set `CHROMIUM_PATH` for another installed executable and `SITE_TEST_URL` for another preview. The suite also checks a doubled root font size. These project rules catch regressions; they are not a complete WCAG certification or a measurement of perceived physical text size on every display.

@@ -72,3 +72,121 @@ test('all local stylesheet dependencies and module imports exist', () => {
     }
   }
 });
+
+
+test('MDX specimen renders components, native HTML, SVG, iframe and footnotes without React', () => {
+  const html=read('blog/sample-post/index.html');
+  for (const pattern of [/<reading-lab/, /<details>/, /<figure/, /<iframe/, /<svg/, /footnotes/, /type="range"/, /index\.mdx/]) assert.match(html,pattern);
+  assert.match(read('blog/sample-post/index.mdx'), /import ReadingLab/);
+  const script = [...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(match=>match[1]).find(src=>src.startsWith('/_astro/'));
+  const inline = [...html.matchAll(/<script type="module">([\s\S]*?)<\/script>/g)].map(match => match[1]).join('\n');
+  const behavior = script ? read(script.slice(1)) : inline;
+  assert.match(behavior, /reading-lab/, 'The MDX component must include its compiled browser behavior, inline or as an asset.');
+  const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
+  assert.equal(pkg.dependencies.react,undefined);
+});
+
+test('shared collection/site styles load after every page stylesheet', () => {
+  const wrong = [];
+  for (const page of pages.filter(page => page !== 'shader/index.html' && page !== '404.html')) {
+    const hrefs = [...read(page).matchAll(/<link rel="stylesheet" href="([^"]+)"/g)].map(match => match[1]).filter(href => !href.startsWith('/_astro/'));
+    const shared = hrefs.filter(href => ['/collections.css', '/site.css'].includes(href));
+    if (shared.join() !== '/collections.css,/site.css' || hrefs.slice(-2).join() !== shared.join()) wrong.push(`${page}: ${hrefs.join(' ')}`);
+  }
+  assert.deepEqual(wrong, []);
+});
+
+// --- Search and agent discovery -------------------------------------------------------------
+const blogPages = () => ['blog/index.html', ...walk(path.join(out, 'blog')).map(file => path.relative(out, file)).filter(file => /^blog\/[^/]+\/index\.html$/.test(file))];
+const articles = () => blogPages().filter(file => file !== 'blog/index.html');
+const jsonLd = html => [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].flatMap(match => { const data = JSON.parse(match[1]); return data['@graph'] ?? [data]; });
+const meta = (html, name) => html.match(new RegExp(`<meta (?:property|name)="${name}" content="([^"]*)"`))?.[1];
+const iso = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
+
+test('every article has consistent canonical, social, and valid BlogPosting + breadcrumb structured data', () => {
+  assert.ok(articles().length >= 1);
+  for (const page of articles()) {
+    const html = read(page);
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)[1];
+    assert.equal(canonical, `https://miguelcorderocollar.com/${page.replace('index.html', '')}`, page);
+    assert.equal(meta(html, 'og:url'), canonical, page);
+    assert.equal(meta(html, 'og:type'), 'article', page);
+    assert.equal(html.match(/<h1[ >]/g).length, 1, `${page} needs exactly one h1`);
+    assert.ok((meta(html, 'description') ?? '').length >= 50 && meta(html, 'description').length <= 200, `${page} description length`);
+    const nodes = jsonLd(html);
+    const post = nodes.find(node => node['@type'] === 'BlogPosting');
+    const crumbs = nodes.find(node => node['@type'] === 'BreadcrumbList');
+    assert.ok(post && crumbs, page);
+    assert.equal(post.headline, html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1].replace(/<[^>]+>/g, '').trim(), `${page} headline must match the visible h1`);
+    assert.equal(post.url, canonical);
+    assert.equal(post.mainEntityOfPage['@id'], canonical);
+    assert.match(post.datePublished, iso);
+    assert.match(post.dateModified, iso);
+    assert.ok(post.dateModified >= post.datePublished, `${page} dateModified must not precede datePublished`);
+    assert.equal(meta(html, 'article:published_time'), post.datePublished);
+    assert.equal(meta(html, 'article:modified_time'), post.dateModified);
+    assert.equal(post.author['@type'], 'Person');
+    assert.equal(post.author.name, 'Miguel Cordero Collar');
+    assert.equal(post.inLanguage, 'en');
+    assert.ok(post.wordCount > 0);
+    const [image] = post.image;
+    assert.ok(image.startsWith('https://miguelcorderocollar.com/'), 'image must be absolute');
+    assert.ok(fs.existsSync(path.join(out, new URL(image).pathname)), `${page} image must exist in the build`);
+    assert.equal(meta(html, 'og:image'), image);
+    assert.deepEqual(crumbs.itemListElement.map(item => item.position), [1, 2, 3]);
+    assert.equal(crumbs.itemListElement.at(-1).item, canonical);
+    for (const item of crumbs.itemListElement) assert.ok(item.item.startsWith('https://miguelcorderocollar.com/'));
+  }
+});
+
+test('blog index describes every article in structured data and advertises the feed', () => {
+  const html = read('blog/index.html');
+  const blog = jsonLd(html).find(node => node['@type'] === 'Blog');
+  assert.ok(blog);
+  assert.deepEqual(
+    blog.blogPost.map(post => post.url).sort(),
+    articles().map(page => `https://miguelcorderocollar.com/${page.replace('index.html', '')}`).sort(),
+  );
+  assert.match(html, /<link rel="alternate" type="application\/rss\+xml"[^>]*href="\/rss\.xml"/);
+});
+
+test('sitemap lists each article with an accurate lastmod and no guessed dates elsewhere', () => {
+  const entries = [...read('sitemap.xml').matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?<\/url>/g)].map(match => [match[1], match[2]]);
+  const byUrl = new Map(entries);
+  assert.equal(byUrl.size, entries.length, 'no duplicate URLs');
+  for (const page of articles()) {
+    const url = `https://miguelcorderocollar.com/${page.replace('index.html', '')}`;
+    const lastmod = byUrl.get(url);
+    assert.match(lastmod ?? '', /^\d{4}-\d{2}-\d{2}$/, url);
+    const modified = jsonLd(read(page)).find(node => node['@type'] === 'BlogPosting').dateModified.slice(0, 10);
+    assert.equal(lastmod, modified, `${url} sitemap lastmod must equal its dateModified`);
+  }
+  assert.match(byUrl.get('https://miguelcorderocollar.com/blog/') ?? '', /^\d{4}-\d{2}-\d{2}$/);
+  for (const [url, lastmod] of entries) if (!url.includes('/blog/')) assert.equal(lastmod, undefined, `${url} has no verifiable modification date`);
+});
+
+test('RSS feed is self-describing and stable for readers', () => {
+  const xml = read('rss.xml');
+  assert.match(xml, /<atom:link href="https:\/\/miguelcorderocollar\.com\/rss\.xml" rel="self" type="application\/rss\+xml"\s*\/>/);
+  assert.match(xml, /<language>en<\/language>/);
+  assert.match(xml, /<lastBuildDate>[A-Z][a-z]{2}, \d{2} [A-Z][a-z]{2} \d{4} 00:00:00 GMT<\/lastBuildDate>/);
+  const items = xml.match(/<item>.*?<\/item>/gs);
+  assert.equal(items.length, articles().length);
+  for (const item of items) {
+    assert.match(item, /<guid isPermaLink="true">https:\/\/miguelcorderocollar\.com\/blog\/[a-z0-9-]+\/<\/guid>/);
+    assert.match(item, /<pubDate>/);
+    assert.match(item, /<dc:creator>Miguel Cordero Collar<\/dc:creator>/);
+  }
+});
+
+test('llms.txt lists every published article with its raw source and leaves no template placeholder', () => {
+  const txt = read('llms.txt');
+  assert.doesNotMatch(txt, /\{\{/);
+  assert.match(txt, /^# Miguel Cordero Collar/m);
+  for (const page of articles()) {
+    const slug = page.split('/')[1];
+    assert.match(txt, new RegExp(`\\]\\(https://miguelcorderocollar\\.com/blog/${slug}/\\): .+\\[Markdown\\]\\(https://miguelcorderocollar\\.com/blog/${slug}/index\\.md\\)`), slug);
+    assert.ok(fs.existsSync(path.join(out, 'blog', slug, 'index.md')), `${slug} needs a text/markdown source`);
+    assert.match(read(page), new RegExp(`<link rel="alternate" type="text/markdown" href="https://miguelcorderocollar\\.com/blog/${slug}/index\\.md"`));
+  }
+});

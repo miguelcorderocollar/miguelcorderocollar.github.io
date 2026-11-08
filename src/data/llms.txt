@@ -16,8 +16,7 @@ This site publishes professional profile information and personal collections. F
 - [Quotes](https://miguelcorderocollar.com/quotes/index.md): Collected wording with author, source attribution and original wording when available. [JSON data](https://miguelcorderocollar.com/quotes/quotes-data.json).
 - [Trends](https://miguelcorderocollar.com/trends/index.md): Personal interest context and Google Trends snapshots, with query links and data. [JSON data](https://miguelcorderocollar.com/trends/trends-data.json).
 
-- [Blog](https://miguelcorderocollar.com/blog/): Markdown-authored articles. Published articles link to their raw Markdown representation.
-- [Blog RSS](https://miguelcorderocollar.com/rss.xml): Published articles only.
+{{BLOG}}
 
 ## Discovery
 

@@ -1,20 +1,39 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import { formatBlogDate, getPublishedPosts } from '../../lib/blog';
+import { BLOG_DESCRIPTION, blogSchema } from '../../lib/seo';
 import '../../styles/blog.css';
 const posts = await getPublishedPosts();
+const count = `${String(posts.length).padStart(2, '0')} ${posts.length === 1 ? 'article' : 'articles'}`;
 ---
-<SiteLayout title="Blog | Miguel Cordero Collar" description="Notes on software, tools, and things worth understanding." canonicalPath="/blog/" bodyClass="mcc-style mcc-dark collection-page blog-page">
+<SiteLayout title="Blog | Miguel Cordero Collar" description={BLOG_DESCRIPTION} canonicalPath="/blog/" bodyClass="mcc-style mcc-dark collection-page blog-page">
+  <Fragment slot="head"><StructuredData value={blogSchema(posts)} /></Fragment>
   <main id="main-content">
     <header class="blog-heading">
       <div><p class="blog-eyebrow">The notebook</p><h1 class="mcc-title">Notes<span class="title-period">.</span></h1></div>
-      <div class="blog-heading-aside"><p>On software, tools, and things<br class="desktop-break" /> worth understanding.</p><a class="blog-feed" href="/rss.xml">Follow via RSS <span aria-hidden="true">↗</span></a></div>
+      <div class="blog-heading-aside">
+        <p>On software, tools, and things worth understanding.</p>
+        <p class="blog-heading-links"><a class="blog-feed" href="/rss.xml">Follow via RSS <span aria-hidden="true">↗</span></a></p>
+      </div>
     </header>
-    <div class="blog-list-heading"><h2>All writing</h2><span>{String(posts.length).padStart(2, '0')} {posts.length === 1 ? 'article' : 'articles'}</span></div>
-    {posts.length ? <ol class="blog-list">{posts.map(post => <li><article class="blog-row">
-      <div class="blog-row-date"><time datetime={post.data.published.toISOString()}>{formatBlogDate(post.data.published)}</time>{post.data.tags.includes('sample') && <span class="blog-sample">Sample article</span>}</div>
-      <div class="blog-row-copy"><h2><a href={`/blog/${post.data.slug}/`}>{post.data.title}<span class="blog-row-arrow" aria-hidden="true">↗</span></a></h2><p>{post.data.description}</p><ul class="blog-tags" aria-label="Topics">{post.data.tags.map(tag => <li>{tag}</li>)}</ul></div>
-    </article></li>)}</ol> : <p class="blog-empty">The notebook is open. The first article is still taking shape.</p>}
-    <footer class="blog-footer"><a href="/">← Back to the homepage</a><span>Written here. Available as Markdown.</span></footer>
+    <div class="blog-list-heading"><h2>All writing</h2><span>{count}</span></div>
+    {posts.length ? <ol class="blog-list">{posts.map((post, index) => {
+      const sample = post.data.tags.includes('sample');
+      const tags = post.data.tags.filter(tag => tag !== 'sample');
+      return <li><article class="blog-row">
+        <span class="blog-row-index" aria-hidden="true">{String(posts.length - index).padStart(2, '0')}</span>
+        <div class="blog-row-copy">
+          <h2><a href={`/blog/${post.data.slug}/`}>{post.data.title}<span class="blog-row-arrow" aria-hidden="true">→</span></a></h2>
+          <p>{post.data.description}</p>
+          <div class="blog-row-meta">
+            <time class="blog-row-date" datetime={post.data.published.toISOString()}>{formatBlogDate(post.data.published)}</time>
+            {sample && <span class="blog-sample">Sample</span>}
+            {tags.length > 0 && <ul class="blog-tags" aria-label="Topics">{tags.map(tag => <li>{tag}</li>)}</ul>}
+          </div>
+        </div>
+      </article></li>;
+    })}</ol> : <p class="blog-empty">The notebook is open. The first article is still taking shape.</p>}
+    <footer class="blog-footer"><p>Every article is also published as its Markdown source.</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>
   </main>
 </SiteLayout>

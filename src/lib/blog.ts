@@ -37,3 +37,27 @@ export function formatBlogDate(date: Date): string {
     timeZone: 'UTC',
   }).format(date);
 }
+
+/** Last material change: the explicit `updated` date, otherwise the publication date. */
+export function modifiedDate(post: BlogPost): Date {
+  return post.data.updated ?? post.data.published;
+}
+
+export function blogSourceExtension(post: BlogPost): 'md' | 'mdx' {
+  return post.id.endsWith('.mdx') ? 'mdx' : 'md';
+}
+
+export function blogSource(post: BlogPost): string {
+  const { data } = post;
+  return [
+    '---',
+    `title: ${JSON.stringify(data.title)}`,
+    `description: ${JSON.stringify(data.description)}`,
+    `published: ${data.published.toISOString()}`,
+    ...(data.updated ? [`updated: ${data.updated.toISOString()}`] : []),
+    `tags: ${JSON.stringify(data.tags)}`,
+    `draft: ${data.draft}`,
+    `slug: ${data.slug}`,
+    '---', '', post.body?.trimStart() ?? '',
+  ].join('\n');
+}

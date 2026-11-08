@@ -14,7 +14,7 @@ for (const route of ['/', '/people/', '/quotes/', '/trends/', '/projects/', '/br
   checks++;
 }
 for (const [route, type] of [
-  ['/index.md', /text\/markdown/], ['/people/index.md', /text\/markdown/], ['/quotes/index.md', /text\/markdown/], ['/trends/index.md', /text\/markdown/], ['/documents/Miguel-Cordero-CV.md', /text\/markdown/], ['/blog/sample-post/index.md', /text\/markdown/],
+  ['/index.md', /text\/markdown/], ['/blog/sample-post/index.md', /text\/markdown/], ['/blog/sample-post/index.mdx', /text\/(?:plain|mdx)|application\/octet-stream/], ['/people/index.md', /text\/markdown/], ['/quotes/index.md', /text\/markdown/], ['/trends/index.md', /text\/markdown/], ['/documents/Miguel-Cordero-CV.md', /text\/markdown/], ['/blog/sample-post/index.md', /text\/markdown/],
   ['/people/people-data.json', /application\/json/], ['/quotes/quotes-data.json', /application\/json/], ['/trends/trends-data.json', /application\/json/],
   ['/rss.xml', /(?:text|application)\/xml/], ['/sitemap.xml', /(?:text|application)\/xml/], ['/robots.txt', /text\/plain/], ['/llms.txt', /text\/plain/],
 ]) {
