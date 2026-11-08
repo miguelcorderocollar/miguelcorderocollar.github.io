@@ -1,8 +1,16 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
+import StructuredData from '../../components/StructuredData.astro';
+import brand from '../../../brand/settings.json';
+const pageUrl = new URL('/brand/', Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org', '@type': 'WebPage', '@id': pageUrl + '#webpage',
+  url: pageUrl, name: 'Brand | Miguel Cordero Collar', inLanguage: 'en', dateModified: brand.approvedOn,
+  about: {'@id': new URL('/#miguel-cordero-collar', Astro.site).href},
+};
 ---
 <SiteLayout title="Brand | Miguel Cordero Collar" description="Miguel Cordero Collar's logo, portrait and social banners." bodyClass="mcc-style mcc-dark brand-page" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/homepage.css", "/brand/brand.css"]}>
-<Fragment slot="head" set:html={"<link rel=\"alternate\" type=\"text/markdown\" href=\"index.md\" />"} />
+<Fragment slot="head"><StructuredData value={schema} /><link rel="alternate" type="text/markdown" href="/brand/index.md" /></Fragment>
 
 
 

@@ -1,8 +1,15 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
+import StructuredData from '../../components/StructuredData.astro';
+const pageUrl = new URL('/shader/', Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org', '@type': 'WebPage', '@id': pageUrl + '#webpage',
+  url: pageUrl, name: 'Image shader | Miguel Cordero Collar', inLanguage: 'en',
+  author: {'@id': new URL('/#miguel-cordero-collar', Astro.site).href},
+};
 ---
 <SiteLayout title="Image shader | Miguel Cordero Collar" description="A small image shader playground for Miguel Cordero Collar's website." bodyClass="" styles={["/reset.css", "/index.css", "/shader/styles.css"]} baseStyles={false} header={false}>
-<Fragment slot="head" set:html={""} />
+<StructuredData slot="head" value={schema} />
 
     <main class="shader-page">
       <nav class="shader-nav" aria-label="Page navigation">

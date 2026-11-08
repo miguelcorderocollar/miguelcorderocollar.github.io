@@ -6,7 +6,7 @@ import schemas from '../data/profile-schema.json';
 import { isBlogLive } from '../lib/blog';
 const blogLive = await isBlogLive();
 ---
-<SiteLayout title="Miguel Cordero Collar - IT Innovation Project Manager | Red Bull" description="IT Innovation Project Manager at Red Bull building AI agents, applications and internal tools, and leading pilots for coding and business workflows. MSc from TU Munich. Based in Salzburg, Austria." bodyClass="mcc-style mcc-dark" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/projects/projects.css"]}>
+<SiteLayout title="Miguel Cordero Collar - IT Innovation Project Manager | Red Bull" description="IT Innovation Project Manager at Red Bull building AI agents, applications and internal tools, and leading pilots for coding and business workflows. MSc from TU Munich. Based in Salzburg, Austria." keywords="IT Innovation Project Manager, IT Project Manager, Agentic AI, AI, Innovation, Red Bull, Salzburg, TU Munich, Software Development, Miguel Cordero Collar" bodyClass="mcc-style mcc-dark" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/projects/projects.css"]}>
 <Fragment slot="head">{schemas.map(schema => <StructuredData value={schema} />)}<link rel="alternate" type="text/markdown" href="https://miguelcorderocollar.com/index.md" /></Fragment>
 
     <!-- Reading Progress Bar -->

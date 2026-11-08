@@ -51,7 +51,7 @@ node scripts/verify_http.mjs http://127.0.0.1:8001
 python3 scripts/validate_agent_content.py http://127.0.0.1:8001
 ```
 
-The HTTP checker can also inspect the eventual Vercel preview URL. See [TESTING.md](TESTING.md) for the verification performed on this branch.
+The HTTP checker can also inspect the eventual Vercel preview URL.
 
 
 ## Readability checks

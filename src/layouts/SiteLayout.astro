@@ -13,6 +13,10 @@ interface Props {
   socialType?: string;
   socialImage?: string;
   twitterCard?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+  socialImageAlt?: string;
+  keywords?: string;
 }
 const {
   title, description = 'Personal website of Miguel Cordero Collar.',
@@ -20,6 +24,7 @@ const {
   bodyClass = 'mcc-style mcc-dark collection-page',
   styles = [], baseStyles = true, header = true, noindex = false,
   socialType = 'website', socialImage = '/images/icons/MC-icon.png', twitterCard = 'summary',
+  socialImageWidth = 1000, socialImageHeight = 1000, socialImageAlt = 'Miguel Cordero Collar', keywords,
 } = Astro.props;
 const blogLive = await isBlogLive();
 const canonical = new URL(canonicalPath, Astro.site);
@@ -34,6 +39,7 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Miguel Cordero Collar" />
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="theme-color" content="#000000" />
     {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
@@ -43,11 +49,17 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
     <meta property="og:type" content={socialType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(socialImage, Astro.site)} />
+    <meta property="og:image:width" content={String(socialImageWidth)} />
+    <meta property="og:image:height" content={String(socialImageHeight)} />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(socialImage, Astro.site)} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/assets/personal-style/mark.svg" />
+    <link rel="apple-touch-icon" href="/images/icons/apple-icon-180x180.png" />
     <link rel="describedby" href="/llms.txt" />
     {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
     {stylesheets.map(href => <link rel="stylesheet" href={href} />)}

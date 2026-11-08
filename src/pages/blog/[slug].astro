@@ -23,7 +23,7 @@ const tags = post.data.tags.filter(tag => tag !== 'sample');
 const schema = postSchema(post);
 const modified = modifiedDate(post);
 ---
-<SiteLayout title={`${post.data.title} | Miguel Cordero Collar`} description={post.data.description} canonicalPath={canonicalPath} socialType="article" socialImage={BLOG_SOCIAL_IMAGE} twitterCard="summary_large_image" bodyClass="mcc-style mcc-dark collection-page blog-article-page">
+<SiteLayout title={`${post.data.title} | Miguel Cordero Collar`} description={post.data.description} canonicalPath={canonicalPath} socialType="article" socialImage={BLOG_SOCIAL_IMAGE} socialImageWidth={1500} socialImageHeight={500} socialImageAlt={post.data.title} twitterCard="summary_large_image" bodyClass="mcc-style mcc-dark collection-page blog-article-page">
   <Fragment slot="head">
     <link rel="alternate" type="text/markdown" href={postSourceUrl(post)} />
     <meta property="article:published_time" content={post.data.published.toISOString()} />

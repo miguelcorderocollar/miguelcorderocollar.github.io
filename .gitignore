@@ -15,3 +15,6 @@
 /.vercel/
 /test-results/
 /playwright-report/
+
+# Local verification notes are not published.
+/TESTING.md
