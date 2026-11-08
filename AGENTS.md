@@ -26,14 +26,20 @@
 - Add each item under its category with a name, source link, topic tags, and a short personal note when available. One item may have multiple topic tags, and preserve source or credit details.
 - Do not build or edit the Recommendations page from a new entry alone. Keep collecting entries in Issue #34 until the user asks for implementation or the backlog is clearly large enough to plan it.
 
+## Astro sources
+
+- All page source is in `src/pages/`, with shared layouts/components in `src/`. Static styles, existing browser scripts, approved assets and downloads are in `public/`. `dist/` is generated and ignored. Keep private inputs outside `public/`.
+- Collection JSON and recipes stay in their root source directories. Astro reads them during builds. Blog articles belong in `src/content/blog/`, with stable explicit slugs. Use the shared published-post selector for every article output.
+- Run `npm ci` for dependencies, `npm run check` for source/content checks, and `npm test` for build regression checks. Review material UI changes in the browser.
+
 ## UI changes
 
-When changing HTML, CSS, or JavaScript:
+When changing Astro, HTML, CSS, or JavaScript:
 
-1. Start a local HTTP server on port 8000 if one is not already running:
+1. Start the Astro development server on port 8000 if one is not already running:
 
    ```bash
-   python3 -m http.server 8000
+   npm run dev
    ```
 
 2. Open `http://localhost:8000` in the default browser. Use `xdg-open` on Linux and `open` on macOS.
@@ -42,7 +48,7 @@ When changing HTML, CSS, or JavaScript:
 
 ## Markdown sync
 
-When changing page content in `index.html`, also update the full profile mirror in `documents/Miguel-Cordero-Profile.md` and run `python3 scripts/build_agent_content.py` so `index.md` stays current.
+When changing homepage profile facts in `src/pages/index.astro`, also update the full profile mirror in `documents/Miguel-Cordero-Profile.md`. Astro generates `/index.md` on each build. Run `python3 scripts/build_projects.py` after changing project data to keep the selected-project section in the profile aligned.
 
 `documents/Miguel-Cordero-CV.md` is a curated, AI-focused CV, served by the curriculum's "Copy .md" button. Keep relevant role, skill and project facts consistent with the homepage, without copying the full page into the CV. Run `python3 scripts/build_cv.py` after editing the CV and review both PDF pages. See `docs/cv.md` for dependencies and the build workflow. The project and agent-content builders must not overwrite the curated CV.
 
@@ -55,5 +61,5 @@ When changing page content in `index.html`, also update the full profile mirror 
 
 - Build People portraits with `python3 scripts/build_people_portraits.py` after adding or changing a portrait recipe.
 - Normalize every crop to a 640×640px square before running the shader so all portraits use the same dot size.
-- Write WebP output at quality 75. Keep source photos and temporary crops in the ignored `images/people/source/` and `images/people/cropped/` directories. Only WebP files in `images/people/processed/` belong in Git and on the published site.
+- Write WebP output at quality 75. Keep source photos and temporary crops in the ignored `images/people/source/` and `images/people/cropped/` directories. Only WebP files in `public/images/people/processed/` belong in Git and on the published site.
 - For image pipeline changes, inspect generated dimensions and file sizes, run `git diff --check`, and visually inspect a representative output. Browser verification is not required unless the implementation changes the UI.

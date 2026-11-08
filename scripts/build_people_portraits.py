@@ -20,7 +20,7 @@ from preprocess_shader import DEFAULTS, render  # noqa: E402
 
 
 DEFAULT_RECIPES = PROJECT_ROOT / "people/portrait-recipes.json"
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "images/people/processed"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "public/images/people/processed"
 DEFAULT_SIZE = 640
 DEFAULT_WEBP_QUALITY = 75
 
@@ -92,7 +92,7 @@ def main() -> None:
         "--output-dir",
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
-        help="Published output directory (default: images/people/processed)",
+        help="Published output directory (default: public/images/people/processed)",
     )
     parser.add_argument(
         "--size",

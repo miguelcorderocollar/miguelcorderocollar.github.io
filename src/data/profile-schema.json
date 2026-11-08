@@ -1,0 +1,138 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": "https://miguelcorderocollar.com/#profile-page",
+    "dateCreated": "2021-01-01T00:00:00Z",
+    "dateModified": "2026-10-20T00:00:00Z",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://miguelcorderocollar.com/#miguel-cordero-collar",
+      "name": "Miguel Cordero Collar",
+      "jobTitle": "IT Innovation Project Manager",
+      "description": "IT Innovation Project Manager at Red Bull building AI agents, applications and internal tools, and leading pilots for coding and business workflows. MSc from TU Munich.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Red Bull",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Salzburg",
+          "addressCountry": "AT"
+        }
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Technical University of Munich",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Munich",
+            "addressCountry": "DE"
+          }
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Polytechnic University of Madrid",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Madrid",
+            "addressCountry": "ES"
+          }
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Heriot-Watt University",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Edinburgh",
+            "addressCountry": "GB"
+          }
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Salzburg",
+        "addressCountry": "AT"
+      },
+      "birthPlace": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Asturias",
+          "addressCountry": "ES"
+        }
+      },
+      "url": "https://miguelcorderocollar.com/",
+      "image": "https://miguelcorderocollar.com/images/icons/MC-icon.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/mcorderocollar/",
+        "https://github.com/miguelcorderocollar",
+        "https://www.raycast.com/miguelcorderocollar"
+      ],
+      "email": "miguelcorderocollar@gmail.com",
+      "knowsAbout": [
+        "Product Management",
+        "Project Management",
+        "SaaS Platforms",
+        "Zendesk",
+        "Bynder",
+        "Artificial Intelligence",
+        "Software Development",
+        "JavaScript",
+        "React",
+        "Angular",
+        "Node.js",
+        "Python",
+        "UI/UX Design",
+        "Business Process Optimization",
+        "API Integration"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "educationalLevel": "Master's Degree",
+          "name": "MSc in Management",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "Technical University of Munich"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "educationalLevel": "Bachelor's Degree",
+          "name": "BSc in Industrial Engineering",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "Polytechnic University of Madrid"
+          }
+        }
+      ],
+      "agentInteractionStatistic": {
+        "@type": "InteractionCounter",
+        "interactionType": "https://schema.org/WriteAction",
+        "userInteractionCount": 5
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Miguel Cordero Collar - IT Innovation Project Manager",
+    "url": "https://miguelcorderocollar.com/",
+    "description": "Professional portfolio and CV of Miguel Cordero Collar, IT Innovation Project Manager at Red Bull",
+    "author": {
+      "@id": "https://miguelcorderocollar.com/#miguel-cordero-collar"
+    },
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://miguelcorderocollar.com/#{search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+]

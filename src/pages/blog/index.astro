@@ -1,0 +1,20 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { formatBlogDate, getPublishedPosts } from '../../lib/blog';
+import '../../styles/blog.css';
+const posts = await getPublishedPosts();
+---
+<SiteLayout title="Blog | Miguel Cordero Collar" description="Notes on software, tools, and things worth understanding." canonicalPath="/blog/" bodyClass="mcc-style mcc-dark collection-page blog-page">
+  <main id="main-content">
+    <header class="blog-heading">
+      <div><p class="blog-eyebrow">The notebook</p><h1 class="mcc-title">Notes<span class="title-period">.</span></h1></div>
+      <div class="blog-heading-aside"><p>On software, tools, and things<br class="desktop-break" /> worth understanding.</p><a class="blog-feed" href="/rss.xml">Follow via RSS <span aria-hidden="true">↗</span></a></div>
+    </header>
+    <div class="blog-list-heading"><h2>All writing</h2><span>{String(posts.length).padStart(2, '0')} {posts.length === 1 ? 'article' : 'articles'}</span></div>
+    {posts.length ? <ol class="blog-list">{posts.map(post => <li><article class="blog-row">
+      <div class="blog-row-date"><time datetime={post.data.published.toISOString()}>{formatBlogDate(post.data.published)}</time>{post.data.tags.includes('sample') && <span class="blog-sample">Sample article</span>}</div>
+      <div class="blog-row-copy"><h2><a href={`/blog/${post.data.slug}/`}>{post.data.title}<span class="blog-row-arrow" aria-hidden="true">↗</span></a></h2><p>{post.data.description}</p><ul class="blog-tags" aria-label="Topics">{post.data.tags.map(tag => <li>{tag}</li>)}</ul></div>
+    </article></li>)}</ol> : <p class="blog-empty">The notebook is open. The first article is still taking shape.</p>}
+    <footer class="blog-footer"><a href="/">← Back to the homepage</a><span>Written here. Available as Markdown.</span></footer>
+  </main>
+</SiteLayout>

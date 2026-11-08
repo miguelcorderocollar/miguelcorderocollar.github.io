@@ -6,13 +6,13 @@
 
 Approved on 22 October 2026. Parameters and export SHA-256 hashes are recorded in [`brand/settings.json`](../brand/settings.json). Source image hashes were checked against the submitted selection before rendering. Private source images and machine-specific paths are not included in the published files or bundle.
 
-- Logo: the site's existing `assets/personal-style/mark.svg`, copied without changes. The PNG is a 1024 × 1024 rasterization of that SVG.
+- Logo: the site's existing `public/assets/personal-style/mark.svg`, copied without changes. The PNG is a 1024 × 1024 rasterization of that SVG.
 - Portrait: Fine squares, natural colour, 90% background contrast, 111% framing, 44px upward movement, orange enabled at 55% brightness. Export size 1024 × 1024 PNG. Source filename `ai-improvement-photo-transparent.png`, supplied by Miguel. Source crop starts at x=460, y=65, width=640, height=959. Placement is x=-56.32, y=57.376, width=1136.64, height=1703.184. Real source pixels fill the photograph, with no repeated rows or generated fill. The photograph is intentionally excluded from the photographic shader, as approved; only the independent background uses procedural pixels.
-- Banner: the approved photograph-to-halftone image in `images/bg/mountains-after-hours.png`. The X export is pixel-identical to this master. LinkedIn and YouTube adapt the same composition. Reference corner geometry is 39px arms, 8px strokes and 48px insets at 1500 × 500. LinkedIn scales this to 41/8/51. YouTube uses 40/8/49 inside the centred 1544 × 422 mobile-visible frame. Native exports are 1584 × 396, 1500 × 500 and 2560 × 1440.
+- Banner: the approved photograph-to-halftone image in `public/images/bg/mountains-after-hours.png`. The X export is pixel-identical to this master. LinkedIn and YouTube adapt the same composition. Reference corner geometry is 39px arms, 8px strokes and 48px insets at 1500 × 500. LinkedIn scales this to 41/8/51. YouTube uses 40/8/49 inside the centred 1544 × 422 mobile-visible frame. Native exports are 1584 × 396, 1500 × 500 and 2560 × 1440.
 
 ## Regenerating assets
 
-The renderer and export command are versioned in `scripts/brand-renderer.js` and `scripts/build_brand_assets.mjs`. They read `brand/settings.json` and rebuild the logo, portrait and both banner variants for all three platforms, then package the ZIP. The private source folder must contain `headshot.png` and `mountains.jpg`. The website banner master is read from `images/bg/mountains-after-hours.png`. Source SHA-256 checks prevent accidentally substituting a different photo. To intentionally replace a source, review it and update its hash in the settings.
+The renderer and export command are versioned in `scripts/brand-renderer.js` and `scripts/build_brand_assets.mjs`. They read `brand/settings.json` and rebuild the logo, portrait and both banner variants for all three platforms, then package the ZIP under `public/brand/assets/`. The private source folder must contain `headshot.png` and `mountains.jpg`. The website banner master is read from `public/images/bg/mountains-after-hours.png`. Source SHA-256 checks prevent accidentally substituting a different photo. To intentionally replace a source, review it and update its hash in the settings.
 
 Requires Node.js, Playwright, Chromium and Python 3. Dependencies can stay outside the checkout:
 
@@ -37,11 +37,11 @@ After updating approved exports, rebuild the download with:
 python3 scripts/package_brand_assets.py
 ```
 
-The script checks dimensions and the logo source, records asset hashes, and writes `brand/assets/miguel-cordero-collar-brand.zip`.
+The script checks dimensions and the logo source, records asset hashes in the root-level `brand/settings.json`, and writes `public/brand/assets/miguel-cordero-collar-brand.zip`.
 
 ## Display filtering
 
-The banner's display-sized copy uses the maintained skill's `assets/image-rendering.js`. It reduces moiré without changing downloadable masters. The helper and its `halftone.js` dependency were deliberately copied into `assets/personal-style/` for this page. The original alt-labelled image is the fallback if JavaScript or filtering is unavailable. Logo and portrait previews retain their ordinary image rendering.
+The banner's display-sized copy uses the vendored `public/assets/personal-style/image-rendering.js`, copied from the maintained skill. It reduces moiré without changing downloadable masters. The helper and its `halftone.js` dependency were deliberately copied into `public/assets/personal-style/` for this page. The original alt-labelled image is the fallback if JavaScript or filtering is unavailable. Logo and portrait previews retain their ordinary image rendering.
 
 The page switches between LinkedIn, X and YouTube previews. YouTube's Mobile view crops x=508, y=509, width=1544, height=422; Desktop uses x=0, y=509, width=2560, height=422; TV shows the full 2560 × 1440 image. These are device previews of the approved upload, not additional export files. The YouTube link and ZIP always contain the full-size banner. Without JavaScript, the X preview and all download links remain available.
 

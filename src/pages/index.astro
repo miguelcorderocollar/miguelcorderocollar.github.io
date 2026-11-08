@@ -1,0 +1,346 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import Projects from '../components/Projects.astro';
+import StructuredData from '../components/StructuredData.astro';
+import schemas from '../data/profile-schema.json';
+---
+<SiteLayout title="Miguel Cordero Collar - IT Innovation Project Manager | Red Bull" description="IT Innovation Project Manager at Red Bull building AI agents, applications and internal tools, and leading pilots for coding and business workflows. MSc from TU Munich. Based in Salzburg, Austria." bodyClass="mcc-style mcc-dark" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/projects/projects.css"]}>
+<Fragment slot="head">{schemas.map(schema => <StructuredData value={schema} />)}<link rel="alternate" type="text/markdown" href="https://miguelcorderocollar.com/index.md" /></Fragment>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" aria-hidden="true"></div>
+
+    <!-- Skip to Content Link -->
+
+
+
+    <section class="intro-hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title" class="mcc-title">Miguel<br>Cordero Collar<span class="title-period">.</span></h1>
+      </div>
+      <div class="hero-aside">
+        <p class="hero-role">IT Innovation<br>Project Manager<br><span class="muted">@ Red Bull</span></p>
+        <dl class="location"><div><dt>From</dt><dd>Asturias, ES</dd></div><div><dt>Based in</dt><dd>Salzburg, AT</dd></div></dl>
+      </div>
+    </section>
+    <figure class="hero-image">
+      <img src="/images/bg/mountains-after-hours.png" alt="Mountain landscape, half photography and half halftone, with small orange corner marks" width="1500" height="500" fetchpriority="high" />
+    </figure>
+    <section class="homepage-collections" aria-labelledby="homepage-collections-title">
+      <div class="homepage-collections-heading">
+        <h2 id="homepage-collections-title">Beyond work</h2>
+      </div>
+      <nav class="homepage-collection-links" aria-label="Personal collections">
+        <a class="homepage-collection-link" href="/trends/">
+          <span class="homepage-collection-index" aria-hidden="true">01</span>
+          <span class="homepage-collection-copy">
+            <strong>Trends</strong>
+            <span>Ideas I’m following, and when I first noticed them.</span>
+          </span>
+          <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="homepage-collection-link" href="/people/">
+          <span class="homepage-collection-index" aria-hidden="true">02</span>
+          <span class="homepage-collection-copy">
+            <strong>People</strong>
+            <span>Public figures who have shaped how I think and work.</span>
+          </span>
+          <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="homepage-collection-link" href="/quotes/">
+          <span class="homepage-collection-index" aria-hidden="true">03</span>
+          <span class="homepage-collection-copy">
+            <strong>Quotes</strong>
+            <span>Lines I return to, browsed or left to chance.</span>
+          </span>
+          <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
+        </a>
+      <a class="homepage-collection-link" href="/blog/"><span class="homepage-collection-index" aria-hidden="true">04</span><span class="homepage-collection-copy"><strong>Blog</strong><span>Notes on things I build, try, and learn.</span></span><span class="homepage-collection-arrow" aria-hidden="true">↗</span></a></nav>
+    </section>
+    <div class="profile-layout">
+    <nav id="TOC" aria-label="Sections">
+      <ul class="incremental">
+        <li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+        <li><a href="#experience" id="toc-experience">Experience</a></li>
+        <li><a href="#education" id="toc-education">Education</a></li>
+        <li><a href="#projects" id="toc-projects">Projects</a></li>
+        <li><a href="#skills" id="toc-skills">Skills</a></li>
+        <li><a href="#interests" id="toc-interests">Interests</a></li>
+        <li><a href="#curriculum" id="toc-curriculum">Curriculum</a></li>
+        <li>
+          <a href="#contact" id="toc-contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main-content">
+    <h2 id="introduction">Introduction</h2>
+    <p>
+      Hey, I’m Miguel, an IT Innovation Project Manager at Red Bull. I build AI agents, applications and internal tools, and develop and lead proofs of concept and pilots for coding and business workflows. I combine hands-on development with a background in product management, enterprise software and user adoption.
+    </p>
+    <h2 id="experience">Experience</h2>
+    <details>
+      <summary>
+        <span class="grid title-container">
+          <span style="flex-grow: 1"
+            >IT Innovation Project Manager - Red Bull</span
+          >
+          <span class="date" style="max-width: fit-content; margin: 0px 10px"
+            >Jan 2026 - Present</span
+          ></span
+        >
+      </summary>
+      <p>Location: Salzburg, AT</p>
+      <p>
+        I develop and lead AI proofs of concept and pilots across Red Bull,
+        combining hands-on prototyping with project coordination and practical
+        advice for internal teams.
+      </p>
+      <p class="list-header">Current focus:</p>
+      <ul>
+        <li>Developing and leading AI proofs of concept and pilots</li>
+        <li>Building agents, API integrations and internal tools for software development and business workflows</li>
+        <li>Advising internal teams on emerging technology opportunities and their use in business workflows</li>
+        <li>Researching emerging technologies and assessing potential business use cases</li>
+      </ul>
+    </details>
+    <details>
+      <summary>
+        <span class="grid title-container">
+          <span style="flex-grow: 1"
+            >IT Project/Product Manager - Red Bull</span
+          >
+          <span class="date" style="max-width: fit-content; margin: 0px 10px"
+            >2021 - Dec 2025</span
+          ></span
+        >
+      </summary>
+      <p>Location: Salzburg, AT</p>
+      <p>
+        From 2021 to 2025, I focused on product management, developing and
+        implementing internal tools and enterprise SaaS solutions. My work
+        covered the product lifecycle, from user research and roadmap planning
+        to delivery and adoption.
+      </p>
+      <p class="list-header">Key work:</p>
+      <ul>
+        <li>Led internal product development, including user research, roadmap planning and feature definition</li>
+        <li>Managed a custom software solution for Marketing, Operations and Legal</li>
+        <li>Implemented and administered Zendesk and Bynder across multiple use cases, improving workflows and business processes</li>
+        <li>Coordinated cross-functional teams through development, quality assurance and delivery, with technical support responsibilities</li>
+        <li>Acted as the department’s AI expert alongside product and SaaS responsibilities</li>
+      </ul>
+    </details>
+    <details>
+      <summary>
+        <span class="grid title-container">
+          <span style="flex-grow: 1">Web Developer Intern - Enmacc</span>
+          <span class="date" style="max-width: fit-content; margin: 0px 10px"
+            >2020 - 2021</span
+          ></span
+        >
+      </summary>
+      <p>Location: Munich, DE</p>
+      <p class="list-header">Role:</p>
+      <ul>
+        <li>60% Web Development</li>
+        <li>20% UX/UI Design</li>
+        <li>20% Marketing Automation</li>
+      </ul>
+      <p class="list-header">Responsibilities:</p>
+      <ul>
+        <li>Website Development</li>
+        <li>Website and Promotional Material Design</li>
+        <li>Marketing Automation Set Up</li>
+      </ul>
+    </details>
+    <details>
+      <summary>
+        <span class="grid title-container">
+          <span style="flex-grow: 1">Business Analyst Intern - Orbem</span>
+          <span class="date" style="max-width: fit-content; margin: 0px 10px"
+            >2020</span
+          ></span
+        >
+      </summary>
+      <p>Location: Munich, DE</p>
+      <ul>
+        <li>
+          4-month project developed in the context of the Project Studies course
+        </li>
+        <li>
+          Internationalisation strategy, financial modelling, and customer
+          acquisition
+        </li>
+      </ul>
+    </details>
+    <details>
+      <summary>
+        <span class="grid title-container">
+          <span style="flex-grow: 1">Software Developer Intern - Avanade</span>
+          <span class="date" style="max-width: fit-content; margin: 0px 10px"
+            >2019</span
+          ></span
+        >
+      </summary>
+      <p>Location: Madrid, ES</p>
+      <ul>
+        <li>
+          Worked on Fintech Projects, both back-end and front-end under Agile
+          methodology
+        </li>
+        <li>Project organisation and documentation</li>
+        <li>
+          Languages/Libraries: .NET C#, HTML, JS, CSS, SQL, jQuery, Angular,
+          Bootstrap, etc...
+        </li>
+      </ul>
+    </details>
+    <details>
+      <summary>Other...</summary>
+      <ul>
+        <li>2018 | Coding & Graphic Design Teacher</li>
+        <li>2017 | Digital Marketing Intern - Alqua Digital</li>
+        <li>2014 | Waiter in London</li>
+        <li>
+          2013 | Administrative Assistant and Activities Organiser in London
+        </li>
+      </ul>
+    </details>
+    <h2 id="education">Education</h2>
+    <details>
+      <summary>MSc in Management - Technical University Munich</summary>
+      <p class="list-header">Universities</p>
+      <ul>
+        <li>Heriot-Watt University (Edinburgh)</li>
+        <li>Polytechnic University of Madrid</li>
+        <li>Technical University Munich</li>
+      </ul>
+
+      <p>Specialization: Entrepreneurship & Technology Management</p>
+      <p>
+        Thesis: "Tesla's Robotaxi network: A quantitative analysis of adoption,
+        economic impact, and implications."
+      </p>
+      <p>Overall master’s grade: 97/100 - Top 1%</p>
+    </details>
+    <details>
+      <summary>
+        BSc in Industrial Engineering - Polytechnic University of Madrid
+      </summary>
+      <p>University: Polytechnic University of Madrid</p>
+      <p>Specialization: Management</p>
+      <p>
+        Thesis: "Development of Angular App for San Carlos Clinical Hospital."
+      </p>
+    </details>
+    <h2 id="projects">Projects</h2>
+    <Projects featured />
+    <h2 id="skills">Skills</h2>
+    <details>
+      <summary>AI agents &amp; applications</summary>
+      <ul>
+        <li>Custom agents, skills &amp; plugins</li>
+        <li>MCP development &amp; tool integration</li>
+        <li>AI features embedded in applications</li>
+        <li>Enterprise agents in the Microsoft ecosystem</li>
+        <li>Agent testing &amp; output validation</li>
+      </ul>
+    </details>
+    <details>
+      <summary>AI adoption, research &amp; enablement</summary>
+      <ul>
+        <li>AI market trends &amp; technology research</li>
+        <li>Use case assessment &amp; prototyping</li>
+        <li>AI adoption consulting &amp; workflow automation</li>
+        <li>Internal training &amp; knowledge sharing</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Software engineering, cloud &amp; integrations</summary>
+      <ul>
+        <li>Full-stack applications &amp; internal tools</li>
+        <li>API integration &amp; custom development</li>
+        <li>Cloud &amp; serverless deployment, including Azure</li>
+        <li>Enterprise SaaS configuration &amp; integration</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Product thinking &amp; experience design</summary>
+      <ul>
+        <li>Business &amp; user requirements</li>
+        <li>Feature definition, prioritization &amp; scope</li>
+        <li>Interface design, workflows &amp; usability</li>
+        <li>Prototyping, user feedback &amp; adoption</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Project delivery &amp; collaboration</summary>
+      <ul>
+        <li>Project ownership, planning &amp; risk management</li>
+        <li>Production application &amp; service delivery</li>
+        <li>Cross-functional collaboration &amp; stakeholder alignment</li>
+        <li>Technical communication &amp; documentation</li>
+      </ul>
+    </details>
+
+    <h2 id="interests">Interests</h2>
+    <details>
+      <summary>Technology</summary>
+      <ul>
+        <li>Techno-Optimism ⏩</li>
+        <li>Artificial Intelligence</li>
+        <li>Software Development</li>
+        <li>Open source &amp; building in public</li>
+        <li>Electric Vehicles (EVs)</li>
+        <li>UI/UX Design</li>
+        <li>Tech Industry in general, especially startups</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Knowledge</summary>
+      <ul>
+        <li>Investing</li>
+        <li>Economics</li>
+        <li>Gardening</li>
+        <li>Cooking and Food Science</li>
+        <li>Philosophy</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Sports</summary>
+      <ul>
+        <li>🏂 Snowboarding</li>
+        <li>⛰️ Hiking</li>
+        <li>🏋️‍♂️ Gym</li>
+        <li>🕸️ In the past: tennis, basketball</li>
+      </ul>
+    </details>
+    <h2 id="curriculum">Curriculum</h2>
+    <nav class="curriculum-actions" aria-label="Curriculum actions">
+      <button type="button" id="copy-markdown-button" data-markdown-source="/documents/Miguel-Cordero-CV.md">
+        Copy .md
+      </button>
+      <a class="action-link" href="/documents/Miguel-Cordero-CV.pdf" target="_blank" rel="noopener">Open CV <span aria-hidden="true">↗</span></a>
+    </nav>
+    <p id="copy-markdown-status" class="copy-status" aria-live="polite"></p>
+    <h2 id="contact">Contact</h2>
+    <nav>
+      <a class="action-link" href="mailto:miguelcorderocollar@gmail.com">Email ↗</a>
+      <a class="action-link" href="https://www.linkedin.com/in/mcorderocollar/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="action-link" href="https://github.com/miguelcorderocollar" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="action-link" href="https://www.youtube.com/@MiguelCorderoDEV" target="_blank" rel="noopener">YouTube ↗</a>
+    </nav>
+    <div class="footer-info">
+      <p class="last-updated">Last updated: October 2026</p>
+    </div>
+    </main>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <script is:inline type="module" src="/homepage.js"></script>
+
+</SiteLayout>

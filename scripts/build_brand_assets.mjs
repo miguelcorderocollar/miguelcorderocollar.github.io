@@ -8,6 +8,7 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const publicDir = path.join(root, 'public');
 const args = process.argv.slice(2);
 if (args.length !== 2 || args[0] !== '--sources') {
   console.error('Usage: node scripts/build_brand_assets.mjs --sources /private/folder\nFolder must contain headshot.png and mountains.jpg. Requires Playwright and Chromium.\nOptional: PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs, CHROMIUM_PATH=/path/to/chromium');
@@ -18,10 +19,10 @@ const selection = JSON.parse(await fs.readFile(path.join(root, 'brand/settings.j
 const files = new Map([
   ['/__sources/headshot.png', path.join(sources, 'headshot.png')],
   ['/__sources/mountains.jpg', path.join(sources, 'mountains.jpg')],
-  ['/__sources/website-banner.png', path.join(root, 'images/bg/mountains-after-hours.png')],
+  ['/__sources/website-banner.png', path.join(publicDir, 'images/bg/mountains-after-hours.png')],
   ['/scripts/brand-renderer.js', path.join(root, 'scripts/brand-renderer.js')],
   ...['halftone.js', 'image-rendering.js', 'mark.svg'].map(name => [
-    `/assets/personal-style/${name}`, path.join(root, 'assets/personal-style', name),
+    `/assets/personal-style/${name}`, path.join(publicDir, 'assets/personal-style', name),
   ]),
 ]);
 const expected = {
@@ -77,8 +78,8 @@ try {
       rendered.set(name, Buffer.from(png, 'base64'));
     }
   }
-  rendered.set('logo.svg', await fs.readFile(path.join(root, 'assets/personal-style/mark.svg')));
-  const output = path.join(root, 'brand/assets');
+  rendered.set('logo.svg', await fs.readFile(path.join(publicDir, 'assets/personal-style/mark.svg')));
+  const output = path.join(publicDir, 'brand/assets');
   await fs.mkdir(output, {recursive:true});
   // Finish rendering everything before replacing the public exports.
   for (const [name, bytes] of rendered) await fs.writeFile(path.join(output, name), bytes);

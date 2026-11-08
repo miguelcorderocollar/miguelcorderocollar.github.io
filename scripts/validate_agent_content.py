@@ -54,14 +54,14 @@ def check(path, content_type=None):
     status, actual_type, body = get(path)
     if status != 200:
         errors.append(f"{path}: expected 200, got {status}")
-    if content_type and actual_type != content_type:
+    if content_type and actual_type not in (content_type if isinstance(content_type, tuple) else (content_type,)):
         errors.append(f"{path}: expected {content_type}, got {actual_type}")
     return body
 
 
 for path, content_type in [
     ("robots.txt", "text/plain"), ("llms.txt", "text/plain"),
-    ("sitemap.xml", "text/xml"), ("index.md", "text/markdown"),
+    ("sitemap.xml", ("application/xml", "text/xml")), ("index.md", "text/markdown"),
     ("documents/Miguel-Cordero-CV.md", "text/markdown"),
     ("people/index.md", "text/markdown"), ("people/people-data.json", "application/json"),
     ("quotes/index.md", "text/markdown"), ("quotes/quotes-data.json", "application/json"),
@@ -70,7 +70,7 @@ for path, content_type in [
     check(path, content_type)
 
 try:
-    tree = ET.fromstring((ROOT / "sitemap.xml").read_text(encoding="utf-8"))
+    tree = ET.fromstring(check("sitemap.xml", ("application/xml", "text/xml")))
     locs = [node.text for node in tree.iter() if node.tag.endswith("}loc")]
     if any("github.io" in loc for loc in locs):
         errors.append("sitemap contains a github.io URL")
@@ -79,7 +79,7 @@ try:
 except (ET.ParseError, OSError) as exc:
     errors.append(f"sitemap.xml is invalid: {exc}")
 
-for page in ["index.html", "people/index.html", "quotes/index.html", "trends/index.html"]:
+for page in ["/", "people/", "quotes/", "trends/"]:
     html = check(page, "text/html")
     parser = PageParser()
     parser.feed(html)

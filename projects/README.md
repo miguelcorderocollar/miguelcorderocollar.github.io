@@ -1,6 +1,6 @@
 # Projects collection
 
-Edit `projects.json`, then run `python3 scripts/build_projects.py` from the repository root. The script updates the homepage selection, the static Projects page, and the full profile Markdown in `documents/Miguel-Cordero-Profile.md` from the same content. Use `python3 scripts/build_projects.py --check` to check that they agree. The curated CV project summaries are edited separately; see [CV workflow](../docs/cv.md).
+Edit `projects.json`. Astro renders the homepage selection and Projects page directly from that data during `npm run build`. Run `python3 scripts/build_projects.py` from the repository root to align the selected-project section in `documents/Miguel-Cordero-Profile.md`. Use `python3 scripts/build_projects.py --check` to verify the profile mirror. The curated CV project summaries are edited separately; see [CV workflow](../docs/cv.md).
 
 The `homepage` array controls the short selection and its order. It can refer to full collection entries or `homepageHighlights`, which combine related work such as the Linux projects. Keep private work described only at the level Miguel has approved. Each collection project has a browsing group and may have several topic tags. Use `status` for specific lifecycle or review information; do not infer readiness from repository activity.
 
@@ -12,8 +12,8 @@ Presentation follows the [Miguel Personal Style](https://github.com/miguelcorder
 
 ## Project images
 
-`image-recipes.json` records the exact sources, credits and framing for every thumbnail. Public icons are pinned to Git commit URLs. The original SVGs in `symbols/` represent subjects where there is no suitable project icon; they are not official product logos. Existing logos keep their source shapes and receive the site's monochrome halftone treatment.
+`image-recipes.json` records the exact sources, credits and framing for every thumbnail. Public icons are pinned to Git commit URLs. The original SVGs in `public/projects/symbols/` represent subjects where there is no suitable project icon; they are not official product logos. Existing logos keep their source shapes and receive the site's monochrome halftone treatment.
 
-Run `python3 scripts/build_project_images.py --fetch-sources` once to retrieve the public sources and build the images. Later builds can omit `--fetch-sources`. The script requires Pillow and `rsvg-convert`. Downloaded sources and normalized inputs stay in ignored directories; only processed WebP images are public.
+Run `python3 scripts/build_project_images.py --fetch-sources` once to retrieve the public sources and build the images. Later builds can omit `--fetch-sources`. The script requires Pillow and `rsvg-convert`. Downloaded sources and normalized inputs stay in ignored directories; only processed WebP images in `public/images/projects/processed/` are public.
 
 Each image is contained, without cropping, on a 320×320 square with the inset recorded in the recipe. All use the same 7px dot grid so the halftone dots remain visible at thumbnail size. WebP quality stays at 75. The reverse-print adaptation uses pale ink on dark paper for the small dark collection thumbnails. Source links and original project credits remain in the recipe manifest.

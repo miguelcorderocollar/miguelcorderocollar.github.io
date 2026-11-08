@@ -39,7 +39,7 @@ Use the shared recipe to create a production PNG:
 ```bash
 python3 scripts/preprocess_shader.py \
   images/source/example.jpg \
-  images/processed/example-halftone.png
+  public/images/processed/example-halftone.png
 ```
 
 Override a value for one image with a flag:
@@ -47,7 +47,7 @@ Override a value for one image with a flag:
 ```bash
 python3 scripts/preprocess_shader.py \
   images/source/example.jpg \
-  images/processed/example-halftone.png \
+  public/images/processed/example-halftone.png \
   --cell 4 \
   --contrast 1.55 \
   --roughness 0.22
@@ -70,14 +70,16 @@ That command applies the crop recipes, resizes every square crop to 640×640px,
 runs the default shader treatment at that fixed canvas size, and writes WebP
 files with quality 75. Normalizing before the shader keeps the dot grid
 consistent, including for source images that are smaller than 640px. Only the
-files in `images/people/processed/` belong in the published site.
+files in `public/images/people/processed/` belong in the published site. Keep
+the original portraits and temporary crops under the ignored root-level
+`images/people/source/` and `images/people/cropped/` directories.
 
 When the ink and paper colours are grayscale, the script stores the result as an 8-bit grayscale PNG automatically. This keeps the lossless output smaller without changing its appearance. To create a smaller WebP for a web-only use, give the output a `.webp` extension:
 
 ```bash
 python3 scripts/preprocess_shader.py \
   images/source/example.jpg \
-  images/processed/example-halftone.webp \
+  public/images/processed/example-halftone.webp \
   --webp-quality 90
 ```
 

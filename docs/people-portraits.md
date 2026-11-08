@@ -20,9 +20,9 @@ Build or rebuild the complete People collection with:
 python3 scripts/build_people_portraits.py
 ```
 
-The command reads local source images from `images/people/source/`, creates
-temporary square crops and normalized shader inputs, and writes only the final
-assets to `images/people/processed/`.
+The command reads local source images from the ignored `images/people/source/`
+directory, creates temporary square crops and normalized shader inputs, and
+writes only the final published assets to `public/images/people/processed/`.
 The source and crop directories are ignored by Git and must not be added to the
 published repository. Keep the source links and credits in
 [`people/people-data.json`](../people/people-data.json).

@@ -1,0 +1,32 @@
+---
+import data from '../../projects/projects.json';
+const { featured = false } = Astro.props;
+const lookup = new Map([...data.projects, ...data.homepageHighlights].map(p => [p.id, p]));
+const selected = data.homepage.map(id => lookup.get(id)!);
+const reviewed = new Date(`${data.reviewedOn}T00:00:00Z`).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC'});
+---
+{featured ? <>
+  <p class="project-work-note">{data.workNote} <a href="/#experience">More about my work <span aria-hidden="true">↗</span></a></p>
+  {selected.map(project => <details class="selected-project">
+    <summary><span class="title-container"><span>{project.name}</span><span class="project-summary-meta">{'status' in project && project.status ? <span class="project-status">{project.status}</span> : <span class="project-summary-type">{project.type}</span>}</span></span></summary>
+    <div class="selected-project-content"><p class="project-kind">{project.type}</p><p class="project-description">{project.summary}</p><p class="project-selected-note">{'homepageNote' in project ? project.homepageNote : project.details.at(-1)}</p>
+      <div class="project-links">{project.links.map(l => <a href={l.url}>{l.label}<span aria-hidden="true">↗</span></a>)}</div>
+      <a class="project-more" href={'collectionUrl' in project ? project.collectionUrl : `/projects/#${project.id}`}>More about this work <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>)}
+  <div class="projects-browse"><a class="action-link" href="/projects/">All projects <span aria-hidden="true">↗</span></a><span>Apps, tools &amp; open source</span></div>
+</> : <>
+  <aside class="projects-work"><h2>Prototypes &amp; internal tools</h2><p>{data.workNote} <a href="/#experience">More about my work <span aria-hidden="true">↗</span></a></p></aside>
+  <div class="project-filters" role="group" aria-label="Filter projects" hidden>
+    {[['all', 'All'], ...Object.entries(data.groups)].map(([group, label]) => <button class="project-filter" type="button" data-project-filter={group} data-label={label} aria-pressed={group === 'all'} aria-controls="project-list">{label} <span>{group === 'all' ? data.projects.length : data.projects.filter(p => p.group === group).length}</span></button>)}
+  </div>
+  <div class="projects-result-line"><p id="project-results" role="status" aria-live="polite" aria-atomic="true">{data.projects.length} projects</p><p>Review status checked {reviewed}</p></div>
+  <div id="project-list">{data.projects.map(project => <article class="project-row" id={project.id} data-project-group={project.group} aria-labelledby={`${project.id}-title`}>
+    <img class="project-visual" src={`/${project.image}`} width="320" height="320" alt="" loading="lazy" decoding="async" />
+    <div><p class="project-kind">{project.type}</p><h2 id={`${project.id}-title`}><a href={`#${project.id}`}>{project.name}</a></h2><p class="project-description">{project.summary}</p>
+      <div class="project-links">{project.links.map(l => <a href={l.url}>{l.label}<span aria-hidden="true">↗</span></a>)}</div>
+      <details class="project-detail"><summary>Project notes<span class="project-sr-only"> for {project.name}</span></summary>{project.details.map(p => <p>{p}</p>)}</details>
+    </div>
+    <aside class="project-aside" aria-label="Project information">{project.status && <span class="project-status">{project.status}</span>}<div class="project-tags">{project.tags.map(t => <span>{t}</span>)}</div></aside>
+  </article>)}</div>
+</>}

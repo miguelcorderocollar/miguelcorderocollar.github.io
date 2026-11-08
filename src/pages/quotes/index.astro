@@ -1,0 +1,83 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import QuoteCards from '../../components/QuoteCards.astro';
+import data from '../../../quotes/quotes-data.json';
+import CollectionMetadata from '../../components/CollectionMetadata.astro';
+---
+<SiteLayout title="Quotes | Miguel Cordero Collar" description="A personal collection of lines Miguel Cordero Collar returns to. Browse by idea or leave the choice to chance." bodyClass="mcc-style mcc-dark collection-page quotes-page" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/quotes/quotes.css", "/collections.css"]}>
+<CollectionMetadata slot="head" name="Quotes" description="A personal collection of lines Miguel Cordero Collar returns to, with source links and attribution." path="/quotes/" dataFile="quotes-data.json" date={data.updated} datasetName="Quotes data" />
+
+
+
+
+    <header class="collection-heading"><h1 class="mcc-title">Quotes</h1></header>
+
+    <main id="main-content">
+      <p class="collection-source"><a href="/quotes/index.md">Read the complete Quotes collection as Markdown</a> · <a href="/quotes/quotes-data.json">JSON data</a> · Updated {data.updated}</p>
+      <section class="quotes-intro" aria-labelledby="quotes-intro-heading">
+        <h2 id="quotes-intro-heading">A notebook for other people's words.</h2>
+        <p>
+          Some ideas survive because of how they were phrased. Browse the notebook,
+          or let chance choose what to read next.
+        </p>
+      </section>
+
+      <nav class="mode-switcher js-only" aria-label="Quote view">
+        <button type="button" class="mode-button is-active" data-mode="browse" aria-pressed="true">
+          Browse
+        </button>
+        <button type="button" class="mode-button" data-mode="random" aria-pressed="false">
+          Random
+        </button>
+      </nav>
+
+      <section class="quote-mode" id="browse-mode" aria-labelledby="browse-heading">
+        <div class="browse-heading-row">
+          <div>
+                <h2 id="browse-heading">Browse</h2>
+          </div>
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="quote-controls js-only">
+          <label class="quote-search" for="quote-search">
+            <span>Search</span>
+            <input
+              id="quote-search"
+              type="search"
+              placeholder="Words, authors or sources"
+              autocomplete="off"
+              spellcheck="false"
+              aria-controls="quote-list"
+            />
+          </label>
+        </div>
+
+        <div class="quote-list" id="quote-list"><QuoteCards />
+        </div>
+      </section>
+
+      <section class="quote-mode random-mode" id="random-mode" aria-labelledby="random-heading" hidden>
+        <div class="random-topline">
+          <p class="quotes-eyebrow">One at a time</p>
+          <p class="random-position" id="random-position"></p>
+        </div>
+        <h2 class="visually-hidden" id="random-heading">Random quote</h2>
+        <article class="random-quote" id="random-quote" aria-live="polite"></article>
+        <div class="random-actions">
+          <button type="button" class="another-button" id="another-quote">Another quote <span aria-hidden="true">→</span></button>
+          <p class="keyboard-hint">Press space for another</p>
+        </div>
+      </section>
+
+      <footer class="footer-info">
+        <p class="last-updated"><a href="/">← Back to the CV</a></p>
+      </footer>
+    </main>
+
+    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script is:inline src="/quotes/quotes.js" defer></script>
+    <script is:inline type="module" src="/collections.js?v=collection-polish"></script>
+
+</SiteLayout>

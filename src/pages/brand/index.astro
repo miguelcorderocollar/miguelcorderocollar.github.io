@@ -1,0 +1,61 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+---
+<SiteLayout title="Brand | Miguel Cordero Collar" description="Miguel Cordero Collar's logo, portrait and social banners." bodyClass="mcc-style mcc-dark brand-page" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/homepage.css", "/brand/brand.css"]}>
+<Fragment slot="head" set:html={"<link rel=\"alternate\" type=\"text/markdown\" href=\"index.md\" />"} />
+
+
+
+    <main id="main-content">
+      <header class="brand-heading">
+        <h1 class="mcc-title">Brand<span class="mcc-accent">.</span></h1>
+        <a class="download-all" href="/brand/assets/miguel-cordero-collar-brand.zip" download>Download all <span>ZIP ↓</span></a>
+      </header>
+
+      <div class="brand-pair">
+        <section class="asset" aria-labelledby="logo-title">
+          <div class="asset-preview logo-preview"><img src="/brand/assets/logo.svg" width="512" height="512" alt="Miguel's black m logo on an orange square" /></div>
+          <div class="asset-heading"><h2 id="logo-title">Logo</h2><div class="asset-links"><a href="/brand/assets/logo.svg" download aria-label="Download logo as SVG">SVG ↓</a><a href="/brand/assets/logo.png" download aria-label="Download logo as PNG">PNG ↓</a></div></div>
+        </section>
+        <section class="asset" aria-labelledby="portrait-title">
+          <div class="asset-preview portrait-preview"><img src="/brand/assets/portrait.png" width="1024" height="1024" alt="Miguel Cordero Collar, in colour, against a dark pixel background" /></div>
+          <div class="asset-heading"><h2 id="portrait-title">Portrait</h2><span class="dimensions">1024 × 1024</span><a href="/brand/assets/portrait.png" download aria-label="Download portrait as PNG">PNG ↓</a></div>
+        </section>
+      </div>
+
+      <section class="banner-section" aria-labelledby="banner-title">
+        <h2 id="banner-title">Banner</h2>
+        <div class="banner-styles" role="group" aria-label="Banner style" hidden>
+          <button type="button" data-style="current" aria-pressed="true">Black &amp; white</button>
+          <button type="button" data-style="colour-fade" aria-pressed="false">Colour → black &amp; white</button>
+        </div>
+        <div class="banner-versions" role="group" aria-label="Banner preview" hidden>
+          <button type="button" data-format="linkedin" aria-pressed="false">LinkedIn</button>
+          <button type="button" data-format="x" aria-pressed="true">X</button>
+          <button type="button" data-format="youtube" aria-pressed="false">YouTube</button>
+        </div>
+        <div class="youtube-views" role="group" aria-label="YouTube device preview" hidden>
+          <button type="button" data-view="mobile" aria-pressed="true">Mobile</button>
+          <button type="button" data-view="desktop" aria-pressed="false">Desktop</button>
+          <button type="button" data-view="tv" aria-pressed="false">TV / full image</button>
+        </div>
+        <div class="brand-banner-preview">
+          <img src="/brand/assets/banner-x.png" width="1500" height="500" alt="Mountain photograph fading into halftone, with orange corner marks" />
+          <canvas class="filtered-banner" aria-hidden="true" hidden></canvas>
+        </div>
+        <p class="youtube-note" hidden>Crop previews only. YouTube downloads the full 2560 × 1440 banner.</p>
+        <ul class="banner-downloads current-downloads">
+          <li><span>LinkedIn</span><span class="dimensions">1584 × 396</span><a href="/brand/assets/banner-linkedin.png" download aria-label="Download LinkedIn banner as PNG">PNG ↓</a></li>
+          <li><span>X</span><span class="dimensions">1500 × 500</span><a href="/brand/assets/banner-x.png" download aria-label="Download X banner as PNG">PNG ↓</a></li>
+          <li><span>YouTube</span><span class="dimensions">2560 × 1440</span><a href="/brand/assets/banner-youtube.png" download aria-label="Download YouTube banner as PNG">PNG ↓</a></li>
+        </ul>
+        <ul class="banner-downloads colour-downloads">
+          <li><span>LinkedIn · colour fade</span><span class="dimensions">1584 × 396</span><a href="/brand/assets/banner-linkedin-colour-fade.png" download aria-label="Download LinkedIn colour fade banner as PNG">PNG ↓</a></li>
+          <li><span>X · colour fade</span><span class="dimensions">1500 × 500</span><a href="/brand/assets/banner-x-colour-fade.png" download aria-label="Download X colour fade banner as PNG">PNG ↓</a></li>
+          <li><span>YouTube · colour fade</span><span class="dimensions">2560 × 1440</span><a href="/brand/assets/banner-youtube-colour-fade.png" download aria-label="Download YouTube colour fade banner as PNG">PNG ↓</a></li>
+        </ul>
+      </section>
+    </main>
+    <script is:inline type="module" src="/brand/brand.js?v=colour-fade"></script>
+
+</SiteLayout>
