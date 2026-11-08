@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Information about Omarchy Drive Sync, a personal rclone setup operated by Miguel Cordero Collar.">
+    <meta name="theme-color" content="#000000">
+    <title>Omarchy Drive Sync — Miguel Cordero Collar</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/personal-style/mark.svg">
+    <link rel="stylesheet" href="/assets/personal-style/personal-style.css">
+    <link rel="stylesheet" href="/apps/drive-sync/style.css">
+  </head>
+  <body class="mcc-style mcc-dark">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Miguel Cordero Collar home">
+        <img class="brand-mark" src="/assets/personal-style/mark.svg" width="24" height="24" alt="">
+        <span>Miguel Cordero Collar</span>
+      </a>
+      <nav class="site-nav" aria-label="Policy navigation">
+        <a href="/apps/drive-sync/" aria-current="page">Overview</a>
+        <a href="/apps/drive-sync/privacy/">Privacy</a>
+        <a href="/apps/drive-sync/terms/">Terms</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <p class="page-kicker">Personal application / Google Drive</p>
+      <h1>Omarchy Drive Sync<span class="title-period">.</span></h1>
+      <p class="lede">A private rclone setup that synchronizes one selected folder between Miguel Cordero Collar’s Linux computer and his own Google Drive account.</p>
+      <p class="updated">Owner: Miguel Cordero Collar · Updated 8 November 2026</p>
+
+      <div class="policy-body">
+        <section class="policy-section" aria-labelledby="purpose-title">
+          <h2 id="purpose-title">What this app does</h2>
+          <p>Omarchy Drive Sync is used by its owner for personal file synchronization. It runs locally on the owner’s computer. This website provides information only: visitors cannot sign in, connect a Drive account, upload files, or use a hosted sync service.</p>
+          <p>The app is independently operated by Miguel Cordero Collar and is not affiliated with or endorsed by Google.</p>
+        </section>
+
+        <section class="policy-section" aria-labelledby="access-title">
+          <h2 id="access-title">Google Drive access</h2>
+          <p>The OAuth permission used by the app is broad: technically, it can allow the app to read, create, change, or delete files across Google Drive. The configured sync job is limited to one selected personal folder. That configuration does not narrow the technical permission granted by Google.</p>
+          <p>File contents and related metadata transfer between the owner’s Linux computer and Google Drive during synchronization. They are not uploaded to this website.</p>
+          <div class="policy-callout">
+            <p>Use of Google user data follows the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including Limited Use.</p>
+          </div>
+        </section>
+
+        <section class="policy-section" aria-labelledby="storage-title">
+          <h2 id="storage-title">Local storage and backups</h2>
+          <p>The rclone configuration and OAuth token are kept on the owner’s computer, outside this website and its repository. Private local operational logs may contain filenames.</p>
+          <p>The setup keeps local rollback copies and separate backups on an external hard drive. The owner controls how long local logs and backup copies are retained. Revoking Google access does not automatically delete files or backups already present in Drive, on the computer, or on the external drive.</p>
+        </section>
+
+        <section class="policy-section" aria-labelledby="choices-title">
+          <h2 id="choices-title">Stopping or revoking access</h2>
+          <p>Stopping the owner’s scheduled job prevents future automatic sync runs. Google access can be revoked from the owner’s <a href="https://myaccount.google.com/connections">Google Account connections</a>. Revocation stops future authorized access after Google applies it; it does not remove existing copies.</p>
+          <p>Google processes Drive data as part of providing Google Drive and applies its own terms and policies. This sync workflow does not send data to advertising, analytics, AI-training systems, or other third-party processors.</p>
+        </section>
+
+        <section class="policy-section" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <p>Questions about this personal application can be sent through the public contact address on <a href="/">Miguel’s website</a>.</p>
+        </section>
+
+        <nav class="page-links" aria-label="Related pages">
+          <a href="/apps/drive-sync/privacy/">Privacy policy</a>
+          <a href="/apps/drive-sync/terms/">Terms of use</a>
+          <a href="mailto:miguelcorderocollar@gmail.com?subject=Omarchy%20Drive%20Sync">Contact the owner</a>
+        </nav>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <span>Omarchy Drive Sync · Personal use</span>
+      <nav aria-label="Footer navigation">
+        <a href="/apps/drive-sync/privacy/">Privacy</a>
+        <a href="/apps/drive-sync/terms/">Terms</a>
+        <a href="/">miguelcorderocollar.com</a>
+      </nav>
+    </footer>
+  </body>
+</html>
