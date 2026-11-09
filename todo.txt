@@ -1,2 +1,0 @@
-- Add open on hover
-- Think of better UI
