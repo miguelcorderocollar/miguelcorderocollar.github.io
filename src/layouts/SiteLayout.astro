@@ -88,11 +88,6 @@ const inlineCss = inlined.map(href => INLINE_STYLES[href]
     {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
     {inlineCss && <style is:inline data-base-styles set:html={inlineCss} />}
     {linked.map(href => <link rel="stylesheet" href={href} />)}
-    {/* After the stylesheets, so render-blocking CSS is requested first and the fonts do not compete with it. */}
-    {baseStyles && <>
-      <link rel="preload" href="/assets/personal-style/fonts/JetBrainsMono-Medium-latin.woff2" as="font" type="font/woff2" crossorigin />
-      <link rel="preload" href="/assets/personal-style/fonts/JetBrainsMono-ExtraBold-latin.woff2" as="font" type="font/woff2" crossorigin />
-    </>}
     <script is:inline>document.documentElement.classList.add("has-js");</script>
     <slot name="head" />
   </head>
