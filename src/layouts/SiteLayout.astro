@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import SiteHeader from '../components/SiteHeader.astro';
 import { isBlogLive } from '../lib/blog';
 import { SOCIAL_IMAGE } from '../lib/seo';
@@ -32,6 +34,17 @@ const canonical = new URL(canonicalPath, Astro.site);
 const defaultStyles = baseStyles ? ['/reset.css', '/assets/personal-style/personal-style.css', '/assets/personal-style/motion.css', '/homepage.css'] : [];
 const stylesheets = [...new Set([...defaultStyles, ...styles])].filter(href => !baseStyles || !['/collections.css', '/site.css'].includes(href));
 if (baseStyles) stylesheets.push('/collections.css', '/site.css');
+// The shared base styles are identical on every page and come first in the cascade, so they are
+// inlined: that removes four render-blocking requests (~4 KB compressed per page). Only a leading
+// run is inlined, so the order against the linked page, collection and site styles never changes.
+const INLINE_STYLES = new Set(['/reset.css', '/assets/personal-style/personal-style.css', '/assets/personal-style/motion.css', '/homepage.css']);
+const inlineCount = stylesheets.findIndex(href => !INLINE_STYLES.has(href));
+const inlined = stylesheets.slice(0, inlineCount === -1 ? stylesheets.length : inlineCount);
+const linked = stylesheets.slice(inlined.length);
+// Relative url()s (the font files) are rewritten to absolute paths, as the CSS no longer sits in its own folder.
+const inlineCss = inlined.map(href => fs.readFileSync(path.join(process.cwd(), 'public', href), 'utf8')
+  .replace(/url\((['"]?)(?![a-z]+:|\/|#)([^'")]+)\1\)/gi, (_, quote, ref) => `url(${quote}${new URL(ref, `https://site${href}`).pathname}${quote})`))
+  .join('\n');
 ---
 <!doctype html>
 <html lang="en">
@@ -66,7 +79,8 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
     <link rel="manifest" href="/images/icons/manifest.json" />
     <link rel="describedby" href="/llms.txt" />
     {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
-    {stylesheets.map(href => <link rel="stylesheet" href={href} />)}
+    {inlineCss && <style is:inline set:html={inlineCss} />}
+    {linked.map(href => <link rel="stylesheet" href={href} />)}
     {/* After the stylesheets, so render-blocking CSS is requested first and the fonts do not compete with it. */}
     {baseStyles && <>
       <link rel="preload" href="/assets/personal-style/fonts/JetBrainsMono-Medium-latin.woff2" as="font" type="font/woff2" crossorigin />
