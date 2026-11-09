@@ -29,7 +29,7 @@
 /* The whole row is one link target (stretched title link); the index and arrow carry the hover. */
 .blog-row { position: relative; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 24px; padding: 36px 0 40px; border-bottom: 1px solid var(--mcc-rule); }
 .blog-row-index { font-size: .875rem; color: var(--mcc-muted); font-variant-numeric: tabular-nums; padding-top: .55em; }
-.blog-page .blog-row-copy h2 { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; letter-spacing: -.04em; max-width: 26ch; text-wrap: balance; }
+.blog-page .blog-row-copy h2 { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; letter-spacing: -.04em; max-width: 40ch; text-wrap: balance; }
 .blog-row-copy h2 a { text-decoration: none; }
 .blog-row-copy h2 a::after { content: ''; position: absolute; inset: 0; }
 .blog-row-arrow { display: inline-block; margin-left: .45em; font-size: .75em; color: var(--mcc-accent); }
