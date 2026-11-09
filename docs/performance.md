@@ -38,3 +38,7 @@ Astro prefetches a link on hover or focus only when it has `data-astro-prefetch`
 ## Checking a change
 
 Compare transfer per page with a cold cache before and after (DevTools Network panel, cache disabled). Run `npm run check`, `npm test` and `npx playwright test`.
+
+## Measured result and next step
+
+A cold-cache benchmark in November 2026 (Chromium, 1280px, 7 runs per page) compared the live GitHub Pages site with the optimized build on a Vercel preview. Averaged over six pages, the Vercel build transferred 385 KB against 994 KB, with Largest Contentful Paint at 1033 ms against 1597 ms. First Contentful Paint was about 180 ms slower (849 ms against 669 ms). That gap comes from the network, not the markup: Vercel's edge was about 20 ms further away per request from the test machine, and with many parallel requests some small stylesheets took two round trips. Re-measure once the production domain is on Vercel. The next lever is bundling the shared stylesheets (`reset`, `personal-style`, `motion`, `homepage`, `collections`, `site`) into one file to cut render-blocking requests. Keep their cascade order and the vendored-asset sync rule in mind.
