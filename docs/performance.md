@@ -1,6 +1,6 @@
 # Performance
 
-How the site stays fast, and what to do when adding to it. Numbers are from a local cold-cache load.
+How the site stays fast, and what to do when adding to it.
 
 ## Images
 
@@ -37,4 +37,4 @@ Astro prefetches a link on hover or focus only when it has `data-astro-prefetch`
 
 ## Checking a change
 
-Compare transfer per page against the numbers above with a cold cache. Run `npm run check`, `npm test` and `npx playwright test`.
+Compare transfer per page with a cold cache before and after (DevTools Network panel, cache disabled). Run `npm run check`, `npm test` and `npx playwright test`.
