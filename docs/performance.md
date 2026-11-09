@@ -9,15 +9,20 @@ How the site stays fast, and what to do when adding to it.
 - Quality: AVIF **60**, WebP **75**. At AVIF 50 and below the dot grid starts to smear, so 60 is the floor. Both are set in `scripts/image_variants.py`.
 - People portraits: `python3 scripts/build_people_portraits.py` renders a lossless master per person and writes both formats. The data in `people/people-data.json` keeps the `.webp` path; the page derives the `.avif` path from it.
 - Other images (homepage hero, brand portrait preview): add the master to `MASTERS` in `scripts/build_site_images.py` and run it.
-- Below-the-fold images use `loading="lazy"` and `decoding="async"`. The hero uses `fetchpriority="high"`. Every `<img>` has `width` and `height`.
+- Below-the-fold images use `loading="lazy"` and `decoding="async"`. Every `<img>` has `width` and `height`.
+- The hero has no `fetchpriority="high"`. Tested on Vercel, raising it made the image compete with the render-blocking CSS for the first round trip; at default priority both first paint and LCP were the same or better.
 - People portraits fade in once decoded (`revealWhenLoaded` in `public/people/people.js`, styles in `public/collections.css`). Cached images never go transparent, and reduced motion shortens the fade to 80ms.
 
 ## Fonts
 
 - JetBrains Mono ships as WOFF2: a Latin subset per weight (about 22 KB) and a full font that downloads only if a character outside the subset appears. The old 270 KB TTFs remain for the CV and social-image scripts.
-- The Medium and ExtraBold Latin files are preloaded in `SiteLayout.astro`. `font-display: swap`.
+- Fonts are **not** preloaded. Preloading 45 KB of fonts alongside the CSS overflowed the first TCP round trip on a new connection and delayed first paint by about 100 ms. Fonts are requested as soon as the CSS arrives, and `font-display: swap` shows text in the fallback monospace (near-identical metrics) meanwhile.
 - The `@font-face` rules live in the vendored `public/assets/personal-style/personal-style.css`. Port this change to the maintained `miguel-personal-style` checkout so the next sync does not undo it.
 - A new font version needs a new filename, because font files are cached for a year.
+
+## Stylesheets
+
+`SiteLayout.astro` inlines the shared base styles (`reset`, `personal-style`, `motion`, `homepage`; about 4 KB compressed) because they are identical everywhere and come first in the cascade. Only a leading run is inlined, so the order against the linked page, `collections.css` and `site.css` never changes. A page has 3 render-blocking stylesheet requests instead of 7. The inlined CSS is read with Vite `?raw` imports, and relative `url()`s are rewritten to absolute paths.
 
 ## Caching (`vercel.json`)
 
@@ -39,6 +44,15 @@ Astro prefetches a link on hover or focus only when it has `data-astro-prefetch`
 
 Compare transfer per page with a cold cache before and after (DevTools Network panel, cache disabled). Run `npm run check`, `npm test` and `npx playwright test`.
 
-## Measured result and next step
+## Measured result
 
-A cold-cache benchmark in November 2026 (Chromium, 1280px, 7 runs per page) compared the live GitHub Pages site with the optimized build on a Vercel preview. Averaged over six pages, the Vercel build transferred 385 KB against 994 KB, with Largest Contentful Paint at 1033 ms against 1597 ms. First Contentful Paint was about 180 ms slower (849 ms against 669 ms). That gap comes from the network, not the markup: Vercel's edge was about 20 ms further away per request from the test machine, and with many parallel requests some small stylesheets took two round trips. Re-measure once the production domain is on Vercel. The next lever is bundling the shared stylesheets (`reset`, `personal-style`, `motion`, `homepage`, `collections`, `site`) into one file to cut render-blocking requests. Keep their cascade order and the vendored-asset sync rule in mind.
+Cold-cache benchmark in November 2026 (Chromium, 1280px, 7 runs per page, medians), comparing the live GitHub Pages site with the final build on a Vercel preview, averaged over `/`, `/projects/`, `/people/`, `/quotes/`, `/trends/` and `/brand/`:
+
+| | GitHub Pages (old site) | Vercel (this build) |
+| --- | --- | --- |
+| Transfer | 994 KB | 384 KB |
+| Largest Contentful Paint | 1250 ms | 821 ms |
+| First Contentful Paint | 546 ms | 672 ms |
+| Layout shift (CLS) | 0–0.041 | 0–0.024 |
+
+On pages without an early image (`/projects/`, `/quotes/`, `/trends/`), first paint matches the old site. Elsewhere it trails by 100–250 ms. In the test, Vercel's edge answered about 30–40 ms later than GitHub's CDN, and the first image shares the first round trips with the CSS. The old site's first paint was only its logo: its text stayed invisible until the 270 KB fonts arrived (`font-display: block`), around 900 ms. Re-measure once the production domain is on Vercel.
