@@ -26,7 +26,8 @@ for (const width of [390, 845, 1440]) {
       expect(normal.main[1], 'Main column matches the header width').toBe(normal.header[1]);
       // Moving a <link> reloads that stylesheet asynchronously, so wait until both are applied again.
       await page.evaluate(() => new Promise(resolve => {
-        const home = document.querySelector('link[href="/homepage.css"]');
+        // homepage.css is inlined with the other base styles; move the shared styles right after that block.
+        const home = document.querySelector('style[data-base-styles], link[href="/homepage.css"]');
         const links = ['/site.css', '/collections.css'].map(href => document.querySelector(`link[href="${href}"]`));
         let pending = links.length;
         for (const link of links) { link.addEventListener('load', () => { if (--pending === 0) resolve(); }, { once: true }); home.after(link); }

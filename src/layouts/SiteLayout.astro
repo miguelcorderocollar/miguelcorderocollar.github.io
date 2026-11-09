@@ -1,6 +1,8 @@
 ---
-import fs from 'node:fs';
-import path from 'node:path';
+import resetCss from '../../public/reset.css?raw';
+import personalStyleCss from '../../public/assets/personal-style/personal-style.css?raw';
+import motionCss from '../../public/assets/personal-style/motion.css?raw';
+import homepageCss from '../../public/homepage.css?raw';
 import SiteHeader from '../components/SiteHeader.astro';
 import { isBlogLive } from '../lib/blog';
 import { SOCIAL_IMAGE } from '../lib/seo';
@@ -37,13 +39,18 @@ if (baseStyles) stylesheets.push('/collections.css', '/site.css');
 // The shared base styles are identical on every page and come first in the cascade, so they are
 // inlined: that removes four render-blocking requests (~4 KB compressed per page). Only a leading
 // run is inlined, so the order against the linked page, collection and site styles never changes.
-const INLINE_STYLES = new Set(['/reset.css', '/assets/personal-style/personal-style.css', '/assets/personal-style/motion.css', '/homepage.css']);
-const inlineCount = stylesheets.findIndex(href => !INLINE_STYLES.has(href));
+const INLINE_STYLES: Record<string, string> = {
+  '/reset.css': resetCss,
+  '/assets/personal-style/personal-style.css': personalStyleCss,
+  '/assets/personal-style/motion.css': motionCss,
+  '/homepage.css': homepageCss,
+};
+const inlineCount = stylesheets.findIndex(href => !(href in INLINE_STYLES));
 const inlined = stylesheets.slice(0, inlineCount === -1 ? stylesheets.length : inlineCount);
 const linked = stylesheets.slice(inlined.length);
 // Relative url()s (the font files) are rewritten to absolute paths, as the CSS no longer sits in its own folder.
-const inlineCss = inlined.map(href => fs.readFileSync(path.join(process.cwd(), 'public', href), 'utf8')
-  .replace(/url\((['"]?)(?![a-z]+:|\/|#)([^'")]+)\1\)/gi, (_, quote, ref) => `url(${quote}${new URL(ref, `https://site${href}`).pathname}${quote})`))
+const inlineCss = inlined.map(href => INLINE_STYLES[href]
+  .replace(/url\((['"]?)(?![a-z]+:|\/|#)([^'")]+)\1\)/gi, (_: string, quote: string, ref: string) => `url(${quote}${new URL(ref, `https://site${href}`).pathname}${quote})`))
   .join('\n');
 ---
 <!doctype html>
@@ -79,7 +86,7 @@ const inlineCss = inlined.map(href => fs.readFileSync(path.join(process.cwd(), '
     <link rel="manifest" href="/images/icons/manifest.json" />
     <link rel="describedby" href="/llms.txt" />
     {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
-    {inlineCss && <style is:inline set:html={inlineCss} />}
+    {inlineCss && <style is:inline data-base-styles set:html={inlineCss} />}
     {linked.map(href => <link rel="stylesheet" href={href} />)}
     {/* After the stylesheets, so render-blocking CSS is requested first and the fonts do not compete with it. */}
     {baseStyles && <>
