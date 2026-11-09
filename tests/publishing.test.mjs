@@ -71,6 +71,10 @@ test('the blog appears only when an article is visible: samples are development/
     for (const name of ['src','brand','people','quotes','trends','projects','documents','docs']) fs.cpSync(path.join(root,name),path.join(temp,name),{recursive:true});
     for (const name of ['astro.config.mjs','tsconfig.json','package.json']) fs.copyFileSync(path.join(root,name),path.join(temp,name));
     for (const name of ['node_modules','public']) fs.symlinkSync(path.join(root,name),path.join(temp,name),'dir');
+    // Start from samples and fixtures only, so real published articles don't affect the "no real article" case.
+    const blogDir = path.join(temp,'src/content/blog');
+    const specimens = new Set(['sample-post.mdx','sample-plain-markdown.md','draft-fixture.md','future-fixture.md']);
+    for (const file of fs.readdirSync(blogDir)) if (!specimens.has(file)) fs.rmSync(path.join(blogDir,file),{recursive:true});
     // The suite itself runs with BLOG_SAMPLES=1; each build here states its own environment.
     const build = environment => {
       const env = {...process.env,ASTRO_TELEMETRY_DISABLED:'1'};

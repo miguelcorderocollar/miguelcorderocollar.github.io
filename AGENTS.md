@@ -32,6 +32,12 @@
 - Collection JSON and recipes stay in their root source directories. Astro reads them during builds. Blog articles belong in `src/content/blog/`, with stable explicit slugs. Use the shared published-post selector for every article output.
 - Run `npm ci` for dependencies, `npm run check` for source/content checks, and `npm test` for build regression checks. Review material UI changes in the browser.
 
+## Blog writing
+
+- When Miguel wants to write, draft, edit or review a blog article, follow the [`blog-writing` skill](.agents/skills/blog-writing/SKILL.md). `.claude/skills/blog-writing` is a symlink to the same skill.
+- Treat his chat rambling as raw material: organise it, keep his voice, suggest cuts and additions, and run the skill's review checklist on every draft.
+- New articles stay `draft: true` until he approves publishing.
+
 ## UI changes
 
 When changing Astro, HTML, CSS, or JavaScript:

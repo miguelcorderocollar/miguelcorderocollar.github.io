@@ -10,6 +10,10 @@ export const isSample = (post: BlogPost) => post.data.tags.includes('sample');
  * deployments, and hidden everywhere else (production, GitHub Pages, a plain
  * `npm run build`). `BLOG_SAMPLES=1` forces them on, which the test suite uses.
  */
+/** Drafts (except test fixtures) are previewable in local development only, never in a build. */
+const isFixture = (post: BlogPost) => post.data.tags.includes('fixture');
+const isVisibleDraft = (post: BlogPost) => import.meta.env.DEV && post.data.draft && !isFixture(post);
+
 export function showSamples(): boolean {
   const env = (globalThis as { process?: { env: Record<string, string | undefined> } }).process?.env ?? {};
   return import.meta.env.DEV || env.VERCEL_ENV === 'preview' || env.VERCEL_ENV === 'development' || env.BLOG_SAMPLES === '1';
@@ -35,7 +39,7 @@ export async function getPublishedPosts(now = new Date()): Promise<BlogPost[]> {
   }
 
   return entries
-    .filter((post) => !post.data.draft && post.data.published.getTime() <= now.getTime())
+    .filter((post) => isVisibleDraft(post) || (!post.data.draft && post.data.published.getTime() <= now.getTime()))
     .filter((post) => showSamples() || !isSample(post))
     .sort((a, b) => {
       const byDate = b.data.published.getTime() - a.data.published.getTime();

@@ -40,6 +40,7 @@ const modified = modifiedDate(post);
             <time datetime={post.data.published.toISOString()}>{formatBlogDate(post.data.published)}</time>
             <span>{readingMinutes} min read</span>
             {sample && <span class="blog-sample">Sample</span>}
+            {post.data.draft && <span class="blog-sample">Draft</span>}
             {tags.length > 0 && <ul class="blog-tags" aria-label="Topics">{tags.map(tag => <li>{tag}</li>)}</ul>}
           </div>
         </div>

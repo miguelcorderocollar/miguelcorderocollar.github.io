@@ -2,7 +2,7 @@
 
 Blog posts live in `src/content/blog/` as Markdown files. Astro validates every post against the schema in `src/content.config.ts`.
 
-Each post must provide a stable, lowercase, hyphenated `slug`. The same slug cannot be used by another collection entry, including a draft. The required `published` value is a date or timestamp; posts with a publication time in the future are withheld until that time. Set `draft: true` to keep a post out of public output. `tags` may be omitted and defaults to an empty list.
+Each post must provide a stable, lowercase, hyphenated `slug`. The same slug cannot be used by another collection entry, including a draft. The required `published` value is a date or timestamp; posts with a publication time in the future are withheld until that time. Set `draft: true` to keep a post out of public output. Drafts are still shown, with a Draft label, in `npm run dev` so they can be reviewed locally; drafts tagged `fixture` stay hidden there too. `tags` may be omitted and defaults to an empty list.
 
 ```yaml
 ---
