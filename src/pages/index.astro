@@ -26,14 +26,17 @@ const blogLive = await isBlogLive();
       </div>
     </section>
     <figure class="hero-image">
-      <img src="/images/bg/mountains-after-hours.png" alt="Mountain landscape, half photography and half halftone, with small orange corner marks" width="1500" height="500" fetchpriority="high" />
+      <picture>
+        <source srcset="/images/bg/mountains-after-hours.avif" type="image/avif" />
+        <img src="/images/bg/mountains-after-hours.webp" alt="Mountain landscape, half photography and half halftone, with small orange corner marks" width="1500" height="500" fetchpriority="high" decoding="async" />
+      </picture>
     </figure>
     <section class="homepage-collections" aria-labelledby="homepage-collections-title">
       <div class="homepage-collections-heading">
         <h2 id="homepage-collections-title">Beyond work</h2>
       </div>
       <nav class={`homepage-collection-links${blogLive ? ' homepage-collection-links--with-blog' : ''}`} aria-label="Personal collections">
-        <a class="homepage-collection-link" href="/trends/">
+        <a class="homepage-collection-link" data-astro-prefetch href="/trends/">
           <span class="homepage-collection-index" aria-hidden="true">01</span>
           <span class="homepage-collection-copy">
             <strong>Trends</strong>
@@ -41,7 +44,7 @@ const blogLive = await isBlogLive();
           </span>
           <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="homepage-collection-link" href="/people/">
+        <a class="homepage-collection-link" data-astro-prefetch href="/people/">
           <span class="homepage-collection-index" aria-hidden="true">02</span>
           <span class="homepage-collection-copy">
             <strong>People</strong>
@@ -49,7 +52,7 @@ const blogLive = await isBlogLive();
           </span>
           <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="homepage-collection-link" href="/quotes/">
+        <a class="homepage-collection-link" data-astro-prefetch href="/quotes/">
           <span class="homepage-collection-index" aria-hidden="true">03</span>
           <span class="homepage-collection-copy">
             <strong>Quotes</strong>
@@ -57,7 +60,7 @@ const blogLive = await isBlogLive();
           </span>
           <span class="homepage-collection-arrow" aria-hidden="true">↗</span>
         </a>
-      {blogLive && <a class="homepage-collection-link" href="/blog/"><span class="homepage-collection-index" aria-hidden="true">04</span><span class="homepage-collection-copy"><strong>Blog</strong><span>Notes on things I build, try, and learn.</span></span><span class="homepage-collection-arrow" aria-hidden="true">↗</span></a>}</nav>
+      {blogLive && <a class="homepage-collection-link" data-astro-prefetch href="/blog/"><span class="homepage-collection-index" aria-hidden="true">04</span><span class="homepage-collection-copy"><strong>Blog</strong><span>Notes on things I build, try, and learn.</span></span><span class="homepage-collection-arrow" aria-hidden="true">↗</span></a>}</nav>
     </section>
     <div class="profile-layout">
     <nav id="TOC" aria-label="Sections">

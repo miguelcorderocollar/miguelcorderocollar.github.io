@@ -28,7 +28,7 @@ const count = `${String(posts.length).padStart(2, '0')} ${posts.length === 1 ? '
       return <li><article class="blog-row">
         <span class="blog-row-index" aria-hidden="true">{String(posts.length - index).padStart(2, '0')}</span>
         <div class="blog-row-copy">
-          <h2><a href={`/blog/${post.data.slug}/`}>{post.data.title}<span class="blog-row-arrow" aria-hidden="true">→</span></a></h2>
+          <h2><a href={`/blog/${post.data.slug}/`} data-astro-prefetch>{post.data.title}<span class="blog-row-arrow" aria-hidden="true">→</span></a></h2>
           <p>{post.data.description}</p>
           <div class="blog-row-meta">
             <time class="blog-row-date" datetime={post.data.published.toISOString()}>{formatBlogDate(post.data.published)}</time>

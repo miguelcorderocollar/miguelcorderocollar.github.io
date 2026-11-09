@@ -610,7 +610,7 @@ function updateReadingProgress() {
 async function loadTrends() {
   const trendList = document.getElementById("trend-list");
   try {
-    const response = await fetch("trends-data.json", { cache: "no-store" });
+    const response = await fetch("trends-data.json");
     if (!response.ok) throw new Error(`Snapshot request failed with ${response.status}`);
     const data = await response.json();
     const signals = data.signals.filter(

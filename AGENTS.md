@@ -56,10 +56,11 @@ When changing homepage profile facts in `src/pages/index.astro`, also update the
 
 - Before adding an image to the public site, run it through the appropriate shader pipeline unless the image is intentionally excluded from the shader treatment. Use `/shader/` to tune a recipe before preprocessing the final asset.
 - Keep the source link, credit, and crop recipe documented even when the source file is not committed.
+- Large rasters ship as AVIF with a WebP fallback in a `<picture>`. See [`docs/performance.md`](docs/performance.md) before adding one.
 
 ### People portraits
 
 - Build People portraits with `python3 scripts/build_people_portraits.py` after adding or changing a portrait recipe.
 - Normalize every crop to a 640×640px square before running the shader so all portraits use the same dot size.
-- Write WebP output at quality 75. Keep source photos and temporary crops in the ignored `images/people/source/` and `images/people/cropped/` directories. Only WebP files in `public/images/people/processed/` belong in Git and on the published site.
+- The script writes each portrait as AVIF (quality 60, the version pages use) and a WebP at quality 75 (the fallback), both encoded from one lossless shader render. Never resample a finished halftone, since that creates moiré. Keep source photos and temporary crops in the ignored `images/people/source/` and `images/people/cropped/` directories. Only the `.avif` and `.webp` files in `public/images/people/processed/` belong in Git and on the published site.
 - For image pipeline changes, inspect generated dimensions and file sizes, run `git diff --check`, and visually inspect a representative output. Browser verification is not required unless the implementation changes the UI.

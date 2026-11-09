@@ -16,6 +16,18 @@ function normalizeSearchValue(value) {
     .toLocaleLowerCase();
 }
 
+// A portrait that is not ready yet stays transparent over the card's tinted
+// frame, then fades in once decoded. Cached images never go transparent, and
+// the CSS shortens the fade when reduced motion is requested.
+function revealWhenLoaded(frame, image) {
+  if (image.complete && image.naturalWidth) return;
+  frame.classList.add("is-pending");
+  // Two frames, so a filtered canvas drawn on load fades with the image.
+  const reveal = () => requestAnimationFrame(() => requestAnimationFrame(() => frame.classList.remove("is-pending")));
+  image.addEventListener("load", reveal, { once: true });
+  image.addEventListener("error", reveal, { once: true });
+}
+
 function createPersonCard(person, index) {
   const card = document.createElement("article");
   card.className = "person-card";
@@ -37,14 +49,24 @@ function createPersonCard(person, index) {
   const portraitFrame = document.createElement("div");
   portraitFrame.className = "person-card__portrait";
 
+  // AVIF first; the WebP in the data stays the fallback for browsers without it.
+  const picture = document.createElement("picture");
+  const avif = document.createElement("source");
+  avif.type = "image/avif";
+  avif.srcset = person.portrait.replace(/\.webp$/, ".avif");
+
   const portrait = document.createElement("img");
   portrait.src = person.portrait;
   portrait.alt = person.portraitAlt;
+  portrait.width = 640;
+  portrait.height = 640;
   portrait.loading = index === 0 ? "eager" : "lazy";
   portrait.decoding = "async";
   if (person.portraitPosition) portrait.style.objectPosition = person.portraitPosition;
 
-  portraitFrame.append(portrait);
+  picture.append(avif, portrait);
+  portraitFrame.append(picture);
+  revealWhenLoaded(portraitFrame, portrait);
 
   const body = document.createElement("div");
   body.className = "person-card__body";
@@ -195,7 +217,7 @@ function updateReadingProgress() {
 async function loadPeople() {
   const peopleList = document.getElementById("people-list");
   try {
-    const response = await fetch("people-data.json", { cache: "no-store" });
+    const response = await fetch("people-data.json");
     if (!response.ok) throw new Error(`Collection request failed with ${response.status}`);
     const data = await response.json();
     const cards = data.people.map(createPersonCard);

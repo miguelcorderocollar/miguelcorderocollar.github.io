@@ -289,7 +289,7 @@ async function loadQuotes() {
   const quoteList = document.getElementById("quote-list");
   const modeController = setupModes();
   try {
-    const response = await fetch("quotes-data.json", { cache: "no-store" });
+    const response = await fetch("quotes-data.json");
     if (!response.ok) throw new Error(`Collection request failed with ${response.status}`);
     const data = await response.json();
     const cards = orderQuotesForDay(data.quotes).map(createQuoteCard);

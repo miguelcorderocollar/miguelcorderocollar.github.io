@@ -78,9 +78,10 @@ test('MDX specimen renders components, native HTML, SVG, iframe and footnotes wi
   const html=read('blog/sample-post/index.html');
   for (const pattern of [/<reading-lab/, /<details>/, /<figure/, /<iframe/, /<svg/, /footnotes/, /type="range"/, /data-copy-md="\/blog\/sample-post\/index\.md"/]) assert.match(html,pattern);
   assert.match(read('blog/sample-post/index.mdx'), /import ReadingLab/);
-  const script = [...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(match=>match[1]).find(src=>src.startsWith('/_astro/'));
+  // Astro also emits shared runtimes (such as link prefetching) as /_astro assets, so look at every script.
+  const assets = [...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(match=>match[1]).filter(src=>src.startsWith('/_astro/')).map(src=>read(src.slice(1)));
   const inline = [...html.matchAll(/<script type="module">([\s\S]*?)<\/script>/g)].map(match => match[1]).join('\n');
-  const behavior = script ? read(script.slice(1)) : inline;
+  const behavior = [...assets, inline].join('\n');
   assert.match(behavior, /reading-lab/, 'The MDX component must include its compiled browser behavior, inline or as an asset.');
   const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
   assert.equal(pkg.dependencies.react,undefined);

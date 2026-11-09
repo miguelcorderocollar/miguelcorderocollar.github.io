@@ -22,6 +22,7 @@ h1 { font-size: clamp(28px, 3.3vw, 36px); }
 .location { font-size: 11px; }
 .location div { display: grid; grid-template-columns: 80px 1fr; gap: 10px; }
 .location dt { color: var(--mcc-muted); }
+.hero-image picture { display: block; }
 .hero-image img { display: block; width: 100%; height: auto; }
 .homepage-collections { margin: 28px 0 36px; }
 .homepage-collections-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 16px; }

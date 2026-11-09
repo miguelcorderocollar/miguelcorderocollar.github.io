@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the published People portraits from local source images."""
+"""Build the published People portraits (AVIF plus a WebP fallback) from local source images."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ PROJECT_ROOT = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from crop_focus import crop_focus, parse_aspect  # noqa: E402
+from image_variants import AVIF_QUALITY, write_avif, write_webp  # noqa: E402
 from preprocess_shader import DEFAULTS, render  # noqa: E402
 
 
@@ -23,6 +24,7 @@ DEFAULT_RECIPES = PROJECT_ROOT / "people/portrait-recipes.json"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "public/images/people/processed"
 DEFAULT_SIZE = 640
 DEFAULT_WEBP_QUALITY = 75
+DEFAULT_AVIF_QUALITY = AVIF_QUALITY
 
 
 def resolve_project_path(path: Path) -> Path:
@@ -34,6 +36,7 @@ def build_portraits(
     output_dir: Path,
     size: int,
     webp_quality: int,
+    avif_quality: int = DEFAULT_AVIF_QUALITY,
 ) -> None:
     recipe_data = json.loads(recipes_path.read_text())
     aspect = parse_aspect(recipe_data.get("aspect", "1:1"))
@@ -52,6 +55,8 @@ def build_portraits(
             cropped_path = crop_dir / f"{person['id']}.jpg"
             normalized_path = crop_dir / f"{person['id']}-normalized.png"
             output_path = output_dir / f"{person['id']}-halftone.webp"
+            avif_path = output_path.with_suffix(".avif")
+            master_path = crop_dir / f"{person['id']}-halftone.png"
 
             crop_focus(
                 source_path,
@@ -70,14 +75,17 @@ def build_portraits(
                 )
                 normalized.save(normalized_path, "PNG", optimize=True)
 
-            render(
-                normalized_path,
-                output_path,
-                dict(DEFAULTS),
-                size,
-                webp_quality,
+            # Render a lossless master, then encode both published formats from it
+            # so neither one is a second lossy generation.
+            render(normalized_path, master_path, dict(DEFAULTS), size, webp_quality)
+            with Image.open(master_path) as master:
+                master.load()
+                webp_bytes = write_webp(master, output_path, webp_quality)
+                avif_bytes = write_avif(master, avif_path, avif_quality)
+            print(
+                f"built {person['id']}: avif {avif_bytes / 1024:.0f} KB, "
+                f"webp {webp_bytes / 1024:.0f} KB"
             )
-            print(f"built {output_path} ({output_path.stat().st_size / 1024:.0f} KB)")
 
 
 def main() -> None:
@@ -106,6 +114,12 @@ def main() -> None:
         default=DEFAULT_WEBP_QUALITY,
         help="WebP quality from 0 to 100 (default: 75)",
     )
+    parser.add_argument(
+        "--avif-quality",
+        type=int,
+        default=DEFAULT_AVIF_QUALITY,
+        help="AVIF quality from 0 to 100 (default: 60)",
+    )
     args = parser.parse_args()
 
     if args.size < 1:
@@ -118,6 +132,7 @@ def main() -> None:
         resolve_project_path(args.output_dir),
         args.size,
         args.webp_quality,
+        args.avif_quality,
     )
 
 
