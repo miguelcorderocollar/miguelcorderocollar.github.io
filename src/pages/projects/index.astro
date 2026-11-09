@@ -1,0 +1,38 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import Projects from '../../components/Projects.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import projectData from '../../../projects/projects.json';
+const pageUrl = new URL('/projects/', Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': pageUrl + '#webpage',
+  url: pageUrl, name: 'Projects | Miguel Cordero Collar', inLanguage: 'en', dateModified: projectData.reviewedOn,
+  author: {'@id': new URL('/#miguel-cordero-collar', Astro.site).href},
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: projectData.projects.map((project, index) => ({
+      '@type': 'ListItem', position: index + 1, name: project.name, description: project.summary,
+      url: project.links?.[0]?.url ?? `${pageUrl}#${project.id}`,
+    })),
+  },
+};
+---
+<SiteLayout title="Projects | Miguel Cordero Collar" description="Apps, reusable tools, agent skills and open source contributions by Miguel Cordero Collar." bodyClass="mcc-style mcc-dark projects-page" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/projects/projects.css"]}>
+<StructuredData slot="head" value={schema} />
+
+
+
+    <main id="main-content">
+      <header class="projects-heading">
+        <div><h1 class="mcc-title">Projects<span class="title-period">.</span></h1></div>
+        <p>Apps, reusable tools, and contributions<br class="desktop-break" /> to the software I use.</p>
+      </header>
+      <Projects />
+      <footer class="projects-footer">
+        <a href="/#projects">← Back to the CV</a>
+        <a href="https://github.com/miguelcorderocollar">More on GitHub <span aria-hidden="true">↗</span></a>
+      </footer>
+    </main>
+    <script is:inline type="module" src="/projects/projects.js"></script>
+
+</SiteLayout>

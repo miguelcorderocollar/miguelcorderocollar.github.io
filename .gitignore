@@ -7,3 +7,14 @@
 # Downloaded project icons and normalized shader inputs stay local.
 /images/projects/source/
 /images/projects/normalized/
+
+# Astro output, dependencies, browser artifacts and local deployment state.
+/node_modules/
+/.astro/
+/dist/
+/.vercel/
+/test-results/
+/playwright-report/
+
+# Local verification notes are not published.
+/TESTING.md

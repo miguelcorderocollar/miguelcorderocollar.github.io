@@ -139,7 +139,7 @@ Curated questions across 14 categories, with a weekly challenge and a related mo
 
 [Try the current build](https://endless-ai-quiz.vercel.app/) · [Source](https://github.com/miguelcorderocollar/endless-ai-quiz)
 
-[All projects](https://miguelcorderocollar.github.io/projects/)
+[All projects](https://miguelcorderocollar.com/projects/)
 
 Review status checked 2026-10-19.
 
@@ -198,4 +198,8 @@ Snowboarding, Hiking, Gym, and in the past tennis and basketball
 - LinkedIn: [mcorderocollar](https://www.linkedin.com/in/mcorderocollar/)
 - GitHub: [miguelcorderocollar](https://github.com/miguelcorderocollar)
 - YouTube: [@MiguelCorderoDEV](https://www.youtube.com/@MiguelCorderoDEV)
-- Download CV: [Miguel-Cordero-CV.pdf](https://miguelcorderocollar.github.io/documents/Miguel-Cordero-CV.pdf)
+- Download CV: [Miguel-Cordero-CV.pdf](https://miguelcorderocollar.com/documents/Miguel-Cordero-CV.pdf)
+
+## Blog
+
+[Blog](https://miguelcorderocollar.com/blog/): Notes on software, tools, and things worth understanding. [RSS feed](https://miguelcorderocollar.com/rss.xml).

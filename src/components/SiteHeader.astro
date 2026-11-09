@@ -1,0 +1,19 @@
+---
+import { isBlogLive } from '../lib/blog';
+const path = Astro.url.pathname;
+const blog = await isBlogLive();
+const home = path === '/';
+const links = (home
+  ? [['/#experience', 'Work'], ['/projects/', 'Projects'], ['/blog/', 'Blog'], ['/#contact', 'Contact ↗']]
+  : [['/projects/', 'Projects'], ['/blog/', 'Blog'], ['/trends/', 'Trends'], ['/people/', 'People'], ['/quotes/', 'Quotes']]
+).filter(([href]) => blog || href !== '/blog/');
+---
+<header class="site-header" id="top">
+  <a class="wordmark" href={home ? '#top' : '/'} aria-label="Miguel Cordero Collar, home">
+    <img class="brand-mark" src="/assets/personal-style/mark.svg" width="24" height="24" alt="" />
+    {!home && <span>Miguel Cordero Collar</span>}
+  </a>
+  <nav aria-label="Primary navigation">
+    {links.map(([href, label]) => <a href={href} data-astro-prefetch={href.includes('#') ? undefined : ''} aria-current={path === href ? 'page' : href === '/blog/' && path.startsWith('/blog/') ? 'true' : undefined}>{label}</a>)}
+  </nav>
+</header>

@@ -24,9 +24,9 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "documents/Miguel-Cordero-CV.md"
-OUTPUT = ROOT / "documents/Miguel-Cordero-CV.pdf"
-ASSETS = ROOT / "assets/personal-style"
-BODY_FONTS = ROOT / "assets/cv/fonts"
+OUTPUT = ROOT / "public/documents/Miguel-Cordero-CV.pdf"
+ASSETS = ROOT / "public/assets/personal-style"
+BODY_FONTS = ROOT / "public/assets/cv/fonts"
 WIDTH, HEIGHT = A4
 MARGIN = 44
 BOTTOM = 44

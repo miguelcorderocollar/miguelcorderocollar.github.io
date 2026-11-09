@@ -1,0 +1,14 @@
+---
+import StructuredData from './StructuredData.astro';
+interface Props { name: string; description: string; path: string; dataFile: string; date: string; datasetName: string }
+const {name, description, path, dataFile, date, datasetName} = Astro.props;
+const url = new URL(path, Astro.site).href;
+const dataUrl = new URL(dataFile, url).href;
+const schema = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': url + '#webpage',
+  url, name: `${name} | Miguel Cordero Collar`, description, inLanguage: 'en', dateModified: date,
+  mainEntity: {'@type': 'Dataset', '@id': dataUrl + '#dataset', name: datasetName, url: dataUrl, encodingFormat: 'application/json', dateModified: date, creator: {'@id': new URL('/#miguel-cordero-collar', Astro.site).href}},
+};
+---
+<StructuredData value={schema} />
+<link rel="alternate" type="text/markdown" href={new URL('index.md', url)} />

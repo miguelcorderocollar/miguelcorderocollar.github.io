@@ -1,0 +1,12 @@
+---
+import data from '../../people/people-data.json';
+---
+{data.people.map((person, index) => <article class="person-card" data-category={person.category}>
+  <div class="person-card__portrait"><picture><source srcset={person.portrait.replace(/\.webp$/, '.avif')} type="image/avif" /><img src={person.portrait} alt={person.portraitAlt} width="640" height="640" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" style={'portraitPosition' in person ? `object-position: ${person.portraitPosition}` : undefined} /></picture></div>
+  <div class="person-card__body">
+    <div class="person-card__category-row"><p class="eyebrow person-card__category">{person.categoryLabel}</p><button type="button" class="person-card__info js-only" data-person={person.id} aria-label={`Read a short bio and links for ${person.name}`} title={`More about ${person.shortName || person.name}`}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="7.5" r="1.1" fill="currentColor"/><path d="M12 11v6" stroke="currentColor" stroke-width="2"/></svg></button></div>
+    <div class="person-card__heading"><h3>{person.name}</h3></div>
+    <p class="person-card__role">{person.role}</p><p class="person-card__summary">{person.summary}</p>
+    <noscript><p>{person.bio}</p><ul>{person.links.map(l => <li><a href={l.url}>{l.label}</a></li>)}</ul></noscript>
+  </div>
+</article>)}

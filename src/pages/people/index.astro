@@ -1,0 +1,111 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PeopleCards from '../../components/PeopleCards.astro';
+import data from '../../../people/people-data.json';
+import CollectionMetadata from '../../components/CollectionMetadata.astro';
+---
+<SiteLayout title="People | Miguel Cordero Collar" description="A personal collection of public figures who have shaped how Miguel Cordero Collar thinks and works." bodyClass="mcc-style mcc-dark collection-page people-page" styles={["/reset.css", "/assets/personal-style/personal-style.css", "/assets/personal-style/motion.css", "/homepage.css", "/people/people.css", "/collections.css"]}>
+<CollectionMetadata slot="head" name="People" description="A personal collection of public figures who have shaped how Miguel Cordero Collar thinks and works." path="/people/" dataFile="people-data.json" date={data.updated} datasetName="People data" />
+
+    <div class="reading-progress" aria-hidden="true"></div>
+
+
+
+    <header class="collection-heading"><h1 class="mcc-title">People</h1></header>
+
+    <main id="main-content">
+      <section class="dedication" aria-labelledby="dedication-heading">
+        <h2 id="dedication-heading">The people closest to me come first.</h2>
+        <p>
+          My parents, grandparents, family and friends shaped how I think, work and
+          treat others. This page is for them first. What follows is a growing list
+          of public figures whose work helped me put words and ideas to that foundation.
+        </p>
+      </section>
+
+      <p class="collection-source"><a href="/people/index.md">Read the complete People collection as Markdown</a> · <a href="/people/people-data.json">JSON data</a> · Updated {data.updated}</p>
+
+      <section class="people-section" aria-labelledby="people-heading">
+        <div class="section-heading">
+          <h2 id="people-heading">Public influences</h2>
+          <button
+            type="button"
+            class="disclaimer-button"
+            id="disclaimer-button"
+            aria-haspopup="dialog"
+            aria-controls="disclaimer-dialog"
+          >
+            About this list
+          </button>
+        </div>
+
+        <div class="people-controls js-only">
+          <div class="filter-bar js-only" aria-label="Filter people" role="toolbar">
+            <button type="button" class="filter-button is-active" data-filter="all">All</button>
+            <button type="button" class="filter-button" data-filter="technology">Technology</button>
+            <button type="button" class="filter-button" data-filter="philosophy">Philosophy</button>
+            <button type="button" class="filter-button" data-filter="economics">Economics</button>
+            <button type="button" class="filter-button" data-filter="culture">Culture</button>
+            <button type="button" class="filter-button" data-filter="investing">Investing</button>
+          </div>
+
+          <label class="people-search" for="people-search">
+            <span>Find a person</span>
+            <input
+              id="people-search"
+              type="search"
+              placeholder="Name, role or idea"
+              autocomplete="off"
+              spellcheck="false"
+              aria-controls="people-list"
+            />
+          </label>
+        </div>
+
+        <div id="people-list" class="people-list"><PeopleCards />
+        </div>
+      </section>
+
+
+      <footer class="footer-info">
+        <p class="last-updated"><a href="/">← Back to the CV</a></p>
+      </footer>
+    </main>
+
+    <dialog id="person-dialog" aria-labelledby="person-dialog-heading">
+      <div class="dialog-heading-row">
+        <div>
+          <p id="person-dialog-category" class="eyebrow">SHORT BIO</p>
+          <h2 id="person-dialog-heading">About this person</h2>
+        </div>
+        <form method="dialog" class="dialog-close-row">
+          <button type="submit" aria-label="Close short bio">×</button>
+        </form>
+      </div>
+      <div id="person-dialog-content" class="dialog-content"></div>
+    </dialog>
+
+    <dialog id="disclaimer-dialog" aria-labelledby="disclaimer-dialog-heading">
+      <div class="dialog-heading-row">
+        <div>
+          <p class="eyebrow">How to read this list</p>
+          <h2 id="disclaimer-dialog-heading">Admiration is not agreement.</h2>
+        </div>
+        <form method="dialog" class="dialog-close-row">
+          <button type="submit" aria-label="Close note about this list">×</button>
+        </form>
+      </div>
+      <div class="dialog-content">
+        <p>
+          These are not endorsements of everything these people have said or done.
+          Each gave me an idea, a habit or an example that changed how I think. In
+          several cases, my admiration has survived even as my agreement has faded.
+        </p>
+      </div>
+    </dialog>
+
+    <button type="button" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script is:inline type="module" src="/people/people.js?v=moire-filter"></script>
+
+</SiteLayout>

@@ -1,0 +1,15 @@
+---
+import data from '../../trends/trends-data.json';
+const signals = data.signals.filter(s => s.personalInterestDate && s.personalInterestLabel);
+---
+{signals.map(signal => <article class="trend-card" data-category={signal.category}>
+  <div class="trend-card__top"><h3>{signal.label}</h3><a href={signal.sourceUrl}>Google Trends ↗</a></div>
+  <p>{signal.personalInterestLabel}</p>
+  <div class="chart-frame"><svg viewBox="0 0 1000 280" role="img" aria-label={`${signal.label}: relative Google Trends interest, ${signal.dateRange}`}>
+    <title>{signal.label} · relative search interest from 0 to 100</title>
+    <path d="M42 30V242H964" fill="none" stroke="currentColor" opacity="0.25" />
+    <polyline points={signal.series.values.map((v, i, values) => `${42 + i * 922 / Math.max(1, values.length - 1)},${242 - v * 2.12}`).join(' ')} fill="none" stroke="var(--mcc-accent)" stroke-width="2" />
+    <text x="6" y="38" fill="currentColor" font-size="14">100</text><text x="20" y="242" fill="currentColor" font-size="14">0</text>
+  </svg></div>
+  <noscript><p>{signal.query} · {signal.dateRange}. Relative interest within this query; not absolute search counts.</p><p><a href="/trends/index.md">Read descriptions, personal context and complete series as Markdown</a></p></noscript>
+</article>)}

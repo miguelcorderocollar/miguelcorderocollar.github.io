@@ -7,7 +7,8 @@ import struct
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSETS = ROOT / "brand/assets"
+PUBLIC = ROOT / "public"
+ASSETS = PUBLIC / "brand/assets"
 PNG_SIZES = {
     "logo.png": (1024, 1024),
     "portrait.png": (1024, 1024),
@@ -22,7 +23,7 @@ PNG_SIZES = {
 
 def main():
     ET.parse(ASSETS / "logo.svg")
-    if (ASSETS / "logo.svg").read_bytes() != (ROOT / "assets/personal-style/mark.svg").read_bytes():
+    if (ASSETS / "logo.svg").read_bytes() != (PUBLIC / "assets/personal-style/mark.svg").read_bytes():
         raise ValueError("The downloadable logo differs from the site's mark.")
     for name, size in PNG_SIZES.items():
         header = (ASSETS / name).read_bytes()[:24]

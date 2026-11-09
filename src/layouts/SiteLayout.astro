@@ -1,0 +1,98 @@
+---
+import resetCss from '../../public/reset.css?raw';
+import personalStyleCss from '../../public/assets/personal-style/personal-style.css?raw';
+import motionCss from '../../public/assets/personal-style/motion.css?raw';
+import homepageCss from '../../public/homepage.css?raw';
+import SiteHeader from '../components/SiteHeader.astro';
+import { isBlogLive } from '../lib/blog';
+import { SOCIAL_IMAGE } from '../lib/seo';
+interface Props {
+  title: string;
+  description?: string;
+  canonicalPath?: string;
+  bodyClass?: string;
+  styles?: string[];
+  baseStyles?: boolean;
+  header?: boolean;
+  noindex?: boolean;
+  socialType?: string;
+  socialImage?: string;
+  twitterCard?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+  socialImageAlt?: string;
+  keywords?: string;
+}
+const {
+  title, description = 'Personal website of Miguel Cordero Collar.',
+  canonicalPath = Astro.url.pathname,
+  bodyClass = 'mcc-style mcc-dark collection-page',
+  styles = [], baseStyles = true, header = true, noindex = false,
+  socialType = 'website', socialImage = SOCIAL_IMAGE.path, twitterCard = 'summary_large_image',
+  socialImageWidth = SOCIAL_IMAGE.width, socialImageHeight = SOCIAL_IMAGE.height, socialImageAlt = SOCIAL_IMAGE.alt, keywords,
+} = Astro.props;
+const blogLive = await isBlogLive();
+const canonical = new URL(canonicalPath, Astro.site);
+const defaultStyles = baseStyles ? ['/reset.css', '/assets/personal-style/personal-style.css', '/assets/personal-style/motion.css', '/homepage.css'] : [];
+const stylesheets = [...new Set([...defaultStyles, ...styles])].filter(href => !baseStyles || !['/collections.css', '/site.css'].includes(href));
+if (baseStyles) stylesheets.push('/collections.css', '/site.css');
+// The shared base styles are identical on every page and come first in the cascade, so they are
+// inlined: that removes four render-blocking requests (~4 KB compressed per page). Only a leading
+// run is inlined, so the order against the linked page, collection and site styles never changes.
+const INLINE_STYLES: Record<string, string> = {
+  '/reset.css': resetCss,
+  '/assets/personal-style/personal-style.css': personalStyleCss,
+  '/assets/personal-style/motion.css': motionCss,
+  '/homepage.css': homepageCss,
+};
+const inlineCount = stylesheets.findIndex(href => !(href in INLINE_STYLES));
+const inlined = stylesheets.slice(0, inlineCount === -1 ? stylesheets.length : inlineCount);
+const linked = stylesheets.slice(inlined.length);
+// Relative url()s (the font files) are rewritten to absolute paths, as the CSS no longer sits in its own folder.
+const inlineCss = inlined.map(href => INLINE_STYLES[href]
+  .replace(/url\((['"]?)(?![a-z]+:|\/|#)([^'")]+)\1\)/gi, (_: string, quote: string, ref: string) => `url(${quote}${new URL(ref, `https://site${href}`).pathname}${quote})`))
+  .join('\n');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Miguel Cordero Collar" />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="theme-color" content="#000000" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <title>{title}</title>
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <meta property="og:site_name" content="Miguel Cordero Collar" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={socialType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(socialImage, Astro.site)} />
+    <meta property="og:image:width" content={String(socialImageWidth)} />
+    <meta property="og:image:height" content={String(socialImageHeight)} />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(socialImage, Astro.site)} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/assets/personal-style/mark.svg" />
+    <link rel="apple-touch-icon" href="/images/icons/apple-icon-180x180.png" />
+    <link rel="manifest" href="/images/icons/manifest.json" />
+    <link rel="describedby" href="/llms.txt" />
+    {blogLive && <link rel="alternate" type="application/rss+xml" title="Miguel Cordero Collar · Blog" href="/rss.xml" />}
+    {inlineCss && <style is:inline data-base-styles set:html={inlineCss} />}
+    {linked.map(href => <link rel="stylesheet" href={href} />)}
+    <script is:inline>document.documentElement.classList.add("has-js");</script>
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    {header && <><a href="#main-content" class="skip-link">Skip to content</a><SiteHeader /></>}
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,7 @@
+---
+import data from '../../quotes/quotes-data.json';
+---
+{data.quotes.map(quote => <article class="quote-card" data-category={quote.category}>
+  <blockquote><p>{quote.text}</p><footer><cite class="quote-author">{quote.author}</cite></footer></blockquote>
+  <noscript>{'originalText' in quote && <p lang="es">{quote.originalText}</p>}<p>{quote.sourceUrl ? <a href={quote.sourceUrl}>{quote.source}</a> : quote.source}</p></noscript>
+</article>)}

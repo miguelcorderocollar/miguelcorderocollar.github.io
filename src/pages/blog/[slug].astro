@@ -1,0 +1,128 @@
+---
+import { render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import { formatBlogDate, getPublishedPosts, modifiedDate, type BlogPost } from '../../lib/blog';
+import { postSchema, postSourceUrl, topics } from '../../lib/seo';
+import '../../styles/blog.css';
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  // Posts are sorted newest first.
+  return posts.map((post, index) => ({params: {slug: post.data.slug}, props: {post, newer: posts[index - 1], older: posts[index + 1]}}));
+}
+interface Props { post: BlogPost; newer?: BlogPost; older?: BlogPost }
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+const markdownPath = `/blog/${post.data.slug}/index.md`;
+const canonicalPath = `/blog/${post.data.slug}/`;
+const readingMinutes = Math.max(1, Math.ceil((post.body || '').split(/\s+/).length / 200));
+const contents = headings.filter(heading => heading.depth === 2 && heading.slug !== 'footnote-label');
+const sample = post.data.tags.includes('sample');
+const tags = post.data.tags.filter(tag => tag !== 'sample');
+const schema = postSchema(post);
+const modified = modifiedDate(post);
+---
+<SiteLayout title={`${post.data.title} | Miguel Cordero Collar`} description={post.data.description} canonicalPath={canonicalPath} socialType="article" bodyClass="mcc-style mcc-dark collection-page blog-article-page">
+  <Fragment slot="head">
+    <link rel="alternate" type="text/markdown" href={postSourceUrl(post)} />
+    <meta property="article:published_time" content={post.data.published.toISOString()} />
+    <meta property="article:modified_time" content={modified.toISOString()} />
+    <meta property="article:author" content={new URL('/', Astro.site).href} />
+    {topics(post).map(tag => <meta property="article:tag" content={tag} />)}
+    <StructuredData value={schema} />
+  </Fragment>
+  <main id="main-content">
+    <article>
+      <header class="article-heading">
+        <div class="article-topline">
+          <nav class="article-back" aria-label="Breadcrumb"><a href="/blog/"><span aria-hidden="true">←</span> All writing</a></nav>
+          <div class="article-meta">
+            <time datetime={post.data.published.toISOString()}>{formatBlogDate(post.data.published)}</time>
+            <span>{readingMinutes} min read</span>
+            {sample && <span class="blog-sample">Sample</span>}
+            {tags.length > 0 && <ul class="blog-tags" aria-label="Topics">{tags.map(tag => <li>{tag}</li>)}</ul>}
+          </div>
+        </div>
+        <h1 class="mcc-title">{post.data.title}</h1>
+        <p class="article-deck">{post.data.description}</p>
+      </header>
+      <div class={`article-grid${contents.length ? '' : ' article-grid--no-toc'}`}>
+        <aside class="article-aside">
+          {contents.length > 0 && <details class="article-toc" data-article-toc>
+            <summary><span>On this page</span><span class="article-toc-count">{String(contents.length).padStart(2, '0')} sections</span></summary>
+            <nav aria-label="On this page"><ol>{contents.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></nav>
+          </details>}
+          <div class="article-markdown">
+            <button type="button" class="article-copy-md" data-copy-md={markdownPath}>Copy .md</button>
+            <span class="article-copy-status" role="status" aria-live="polite"></span>
+            <noscript><a href={markdownPath}>Read as Markdown <span aria-hidden="true">↗</span></a></noscript>
+          </div>
+        </aside>
+        <div class="article-prose"><Content /></div>
+      </div>
+      <footer class="article-footer">
+        {(older || newer) && <nav class="article-pager" aria-label="More writing">
+          {older && <a class="article-pager-older" href={`/blog/${older.data.slug}/`} rel="prev"><span class="article-pager-label"><span aria-hidden="true">←</span> Older</span><span class="article-pager-title">{older.data.title}</span></a>}
+          {newer && <a class="article-pager-newer" href={`/blog/${newer.data.slug}/`} rel="next"><span class="article-pager-label">Newer <span aria-hidden="true">→</span></span><span class="article-pager-title">{newer.data.title}</span></a>}
+        </nav>}
+        <div class="article-footer-links"><a href="/blog/"><span aria-hidden="true">←</span> All writing</a><a href="/rss.xml">Follow via RSS <span aria-hidden="true">↗</span></a></div>
+      </footer>
+    </article>
+  </main>
+  <script>
+    // Copy the article's Markdown source, like the homepage CV button.
+    const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-md]');
+    const copyStatus = document.querySelector<HTMLElement>('.article-copy-status');
+    if (copyButton && copyStatus) {
+      let reset = 0;
+      copyButton.addEventListener('click', async () => {
+        copyButton.disabled = true;
+        try {
+          const response = await fetch(copyButton.dataset.copyMd!, {cache: 'no-store'});
+          if (!response.ok) throw new Error(`Markdown request failed (${response.status})`);
+          await navigator.clipboard.writeText(await response.text());
+          copyStatus.textContent = 'Copied';
+        } catch (error) {
+          console.error(error);
+          copyStatus.textContent = 'Could not copy';
+        } finally {
+          copyButton.disabled = false;
+          clearTimeout(reset);
+          reset = window.setTimeout(() => { copyStatus.textContent = ''; }, 2400);
+        }
+      });
+    }
+
+    // Progressive enhancement: the contents start collapsed (useful on small screens) and are
+    // kept open beside the article on wide screens. The current section is marked while reading.
+    const toc = document.querySelector<HTMLDetailsElement>('[data-article-toc]');
+    if (toc) {
+      const summary = toc.querySelector('summary')!;
+      const wide = matchMedia('(min-width: 1101px)');
+      const sync = () => { toc.open = wide.matches; summary.tabIndex = wide.matches ? -1 : 0; };
+      sync();
+      wide.addEventListener('change', sync);
+      toc.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { if (!wide.matches) toc.open = false; }));
+
+      const links = [...toc.querySelectorAll<HTMLAnchorElement>('nav a')];
+      const sections = links.map(link => document.getElementById(decodeURIComponent(link.hash.slice(1)))).filter((el): el is HTMLElement => !!el);
+      let frame = 0;
+      const mark = () => {
+        frame = 0;
+        const line = innerHeight * 0.3;
+        let current = -1;
+        sections.forEach((section, index) => { if (section.getBoundingClientRect().top <= line) current = index; });
+        if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = sections.length - 1;
+        if (current < 0 && sections.length && sections[0].getBoundingClientRect().top < innerHeight) current = 0;
+        links.forEach((link, index) => {
+          if (index === current) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      };
+      const schedule = () => { if (!frame) frame = requestAnimationFrame(mark); };
+      addEventListener('scroll', schedule, {passive: true});
+      addEventListener('resize', schedule);
+      mark();
+    }
+  </script>
+</SiteLayout>
