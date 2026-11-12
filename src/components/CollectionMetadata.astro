@@ -7,7 +7,24 @@ const dataUrl = new URL(dataFile, url).href;
 const schema = {
   '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': url + '#webpage',
   url, name: `${name} | Miguel Cordero Collar`, description, inLanguage: 'en', dateModified: date,
-  mainEntity: {'@type': 'Dataset', '@id': dataUrl + '#dataset', name: datasetName, url: dataUrl, encodingFormat: 'application/json', dateModified: date, creator: {'@id': new URL('/#miguel-cordero-collar', Astro.site).href}},
+  mainEntity: {
+    '@type': 'Dataset',
+    '@id': dataUrl + '#dataset',
+    name: datasetName,
+    description,
+    url: dataUrl,
+    encodingFormat: 'application/json',
+    dateModified: date,
+    // Each page must identify the creator without resolving the homepage's JSON-LD.
+    creator: {
+      '@type': 'Person',
+      '@id': new URL('/#miguel-cordero-collar', Astro.site).href,
+      name: 'Miguel Cordero Collar',
+      url: new URL('/', Astro.site).href,
+    },
+    // The repository's existing LICENSE applies to these JSON exports.
+    license: 'https://opensource.org/license/mit',
+  },
 };
 ---
 <StructuredData value={schema} />

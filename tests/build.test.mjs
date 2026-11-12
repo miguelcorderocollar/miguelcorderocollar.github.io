@@ -104,6 +104,24 @@ const jsonLd = html => [...html.matchAll(/<script type="application\/ld\+json">(
 const meta = (html, name) => html.match(new RegExp(`<meta (?:property|name)="${name}" content="([^"]*)"`))?.[1];
 const iso = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?Z$/;
 
+test('collection datasets include Google-required descriptions, typed creators and the existing license', () => {
+  for (const section of ['people', 'quotes', 'trends']) {
+    const page = `${section}/index.html`;
+    const collection = jsonLd(read(page)).find(node => node['@type'] === 'CollectionPage');
+    const dataset = collection.mainEntity;
+    assert.equal(dataset['@type'], 'Dataset', page);
+    assert.ok(dataset.name.length > 0, page);
+    assert.equal(dataset.description, collection.description, page);
+    assert.ok(dataset.description.length >= 50 && dataset.description.length <= 5000, `${page} dataset description length`);
+    assert.equal(dataset.creator['@type'], 'Person', page);
+    assert.equal(dataset.creator.name, 'Miguel Cordero Collar', page);
+    assert.equal(dataset.creator['@id'], 'https://miguelcorderocollar.com/#miguel-cordero-collar', page);
+    assert.equal(dataset.creator.url, 'https://miguelcorderocollar.com/', page);
+    assert.equal(dataset.license, 'https://opensource.org/license/mit', page);
+    assert.ok(fs.existsSync(path.join(out, new URL(dataset.url).pathname)), `${page} dataset download exists`);
+  }
+});
+
 test('every article has consistent canonical, social, and valid BlogPosting + breadcrumb structured data', () => {
   assert.ok(articles().length >= 1);
   for (const page of articles()) {
